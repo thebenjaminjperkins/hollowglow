@@ -1,0 +1,11 @@
+{
+  "source": "docs/screenshots/benchmark/reference.png",
+  "crop": [842, 8, 1492, 502],
+  "background_hole_seeds": [[1250, 90]],
+  "canvas": [64, 64],
+  "content_limit": [60, 56],
+  "anchor": [32, 58],
+  "alpha_threshold": 128,
+  "palette_size": 64,
+  "preserved_palette": "assets/benchmark/source/palette.json"
+}

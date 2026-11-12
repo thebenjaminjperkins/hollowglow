@@ -1,0 +1,11 @@
+{
+  "resources": [
+    { "id": "scrap", "name": "Scrap", "shortName": "Scrap" },
+    { "id": "organic", "name": "Organic Material", "shortName": "Organic" }
+  ],
+  "sites": [
+    { "id": "radio-shell", "name": "radio shell", "resourceId": "scrap", "quantity": 12, "x": 432, "y": 160, "asset": "salvage" },
+    { "id": "tool-case", "name": "organic growth", "resourceId": "organic", "quantity": 8, "x": 528, "y": 112, "asset": "mushrooms" },
+    { "id": "machine-housing", "name": "machine housing", "resourceId": "scrap", "quantity": 14, "x": 512, "y": 256, "asset": "salvage" }
+  ]
+}

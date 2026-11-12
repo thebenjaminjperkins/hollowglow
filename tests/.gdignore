@@ -1,0 +1,1 @@
+# Engine-independent test project: keep its bin/obj and C# entrypoint out of Godot's importer.

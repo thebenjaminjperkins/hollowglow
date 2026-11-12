@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ThresholdWorld.cs" id="1"]
+[ext_resource type="Script" path="res://scripts/world/ThresholdMap.cs" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="3"]
+[ext_resource type="Script" path="res://scripts/presentation/ThresholdHud.cs" id="4"]
+[ext_resource type="Resource" path="res://data/threshold.tres" id="5"]
+
+[node name="Threshold" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1")
+Config = ExtResource("5")
+
+[node name="Map" type="Node2D" parent="."]
+script = ExtResource("2")
+Config = ExtResource("5")
+
+[node name="Player" parent="." instance=ExtResource("3")]
+position = Vector2(136, 208)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4")

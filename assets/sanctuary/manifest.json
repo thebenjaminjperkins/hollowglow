@@ -1,0 +1,226 @@
+{
+  "native_pixels_per_world_unit": 2,
+  "palette": [
+    "202832",
+    "303842",
+    "47555e",
+    "69797e",
+    "93a39b",
+    "cdd0ae",
+    "283a40",
+    "416466",
+    "638e85",
+    "93b9a0",
+    "503d37",
+    "79533e",
+    "ab7b4f",
+    "d4ad73",
+    "783e35",
+    "b56a45",
+    "243d35",
+    "365742",
+    "537653",
+    "7f9c64",
+    "b1b978",
+    "f1dfad",
+    "916552",
+    "c39a73",
+    "dfbb8a",
+    "354955",
+    "516f7d",
+    "78959a",
+    "4a414e",
+    "665b4c",
+    "87765e",
+    "a39478",
+    "bea77d",
+    "928b69",
+    "887a55",
+    "697663",
+    "806a50",
+    "686c55",
+    "5e6c5e",
+    "5b685a",
+    "7c624a",
+    "7c5840",
+    "6b5f49",
+    "6a5644",
+    "5c624f",
+    "595b49",
+    "615345",
+    "515441",
+    "684d3c",
+    "594d40",
+    "5b473a",
+    "584034",
+    "49493e",
+    "464239",
+    "493b34",
+    "3c3c35",
+    "45362f",
+    "3f312d",
+    "36322e",
+    "332c2a",
+    "2f2627",
+    "272326",
+    "221d22",
+    "1e1a1f"
+  ],
+  "sprites": {
+    "workbench": {
+      "file": "workbench.png",
+      "size": [
+        80,
+        72
+      ],
+      "anchor": [
+        40,
+        66
+      ],
+      "columns": 1
+    },
+    "storage": {
+      "file": "storage.png",
+      "size": [
+        64,
+        56
+      ],
+      "anchor": [
+        32,
+        50
+      ],
+      "columns": 1
+    },
+    "shelf": {
+      "file": "shelf.png",
+      "size": [
+        72,
+        80
+      ],
+      "anchor": [
+        36,
+        74
+      ],
+      "columns": 1
+    },
+    "garden": {
+      "file": "garden.png",
+      "size": [
+        72,
+        56
+      ],
+      "anchor": [
+        36,
+        50
+      ],
+      "columns": 1
+    },
+    "lamp": {
+      "file": "lamp.png",
+      "size": [
+        40,
+        76
+      ],
+      "anchor": [
+        20,
+        70
+      ],
+      "columns": 1
+    },
+    "bedroll": {
+      "file": "bedroll.png",
+      "size": [
+        72,
+        56
+      ],
+      "anchor": [
+        36,
+        50
+      ],
+      "columns": 1
+    },
+    "fern": {
+      "file": "fern.png",
+      "size": [
+        64,
+        56
+      ],
+      "anchor": [
+        32,
+        52
+      ],
+      "columns": 5
+    },
+    "vine": {
+      "file": "vine.png",
+      "size": [
+        64,
+        80
+      ],
+      "anchor": [
+        32,
+        76
+      ],
+      "columns": 1
+    },
+    "mushrooms": {
+      "file": "mushrooms.png",
+      "size": [
+        56,
+        44
+      ],
+      "anchor": [
+        28,
+        40
+      ],
+      "columns": 1
+    },
+    "machine": {
+      "file": "machine.png",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        32,
+        58
+      ],
+      "columns": 1
+    },
+    "stones": {
+      "file": "stones.png",
+      "size": [
+        56,
+        32
+      ],
+      "anchor": [
+        28,
+        28
+      ],
+      "columns": 1
+    },
+    "salvage": {
+      "file": "salvage.png",
+      "size": [
+        36,
+        36
+      ],
+      "anchor": [
+        18,
+        32
+      ],
+      "columns": 1
+    }
+  },
+  "terrain": {
+    "cell": 32,
+    "floor_variants": 32,
+    "corner_masks": 16,
+    "wall_variants": 8
+  },
+  "sources": {
+    "furniture": "75e38377aa3de9dd8bc131c6e7a5aa9385fec5ea17c8faa214906b334c1a90a1",
+    "vegetation": "38c504280ff7f3057004639e3f48d4e16dacb67a0b3eee64bb116a2580f956c4",
+    "terrain": "55b0fb69142be9e07baa97201762912cc8613f95f47e5d9d7e2700b75387d421"
+  }
+}

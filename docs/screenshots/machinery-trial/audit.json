@@ -1,0 +1,98 @@
+{
+  "Movement speed 80 and interaction range 22 remain world-space values": true,
+  "Original player feet collider preserved": true,
+  "Original machine footprint 26x9 preserved": true,
+  "Camera still covers 384x216 world units": true,
+  "world_coverage": [
+    384,
+    216
+  ],
+  "native_render_grid": [
+    768,
+    432
+  ],
+  "display_scale": 2,
+  "camera_zoom": 2,
+  "candidate_world_draw_rect": [
+    -16,
+    -29,
+    32,
+    32
+  ],
+  "Horizontal movement speed unchanged in higher-resolution trial": true,
+  "Normalized diagonal travel unchanged": true,
+  "Saved original at intended gameplay zoom": true,
+  "original_machine_screen_anchor": [
+    256,
+    528
+  ],
+  "original_image_size": [
+    1536,
+    864
+  ],
+  "original_actor_position": [
+    144,
+    112
+  ],
+  "original_display_scale": 2,
+  "original_camera_center": [
+    192,
+    112
+  ],
+  "Saved candidate at intended gameplay zoom": true,
+  "candidate_machine_screen_anchor": [
+    256,
+    528
+  ],
+  "candidate_image_size": [
+    1536,
+    864
+  ],
+  "candidate_actor_position": [
+    144,
+    112
+  ],
+  "candidate_display_scale": 2,
+  "candidate_camera_center": [
+    192,
+    112
+  ],
+  "Saved original-native at intended gameplay zoom": true,
+  "original-native_machine_screen_anchor": [
+    128,
+    264
+  ],
+  "original-native_image_size": [
+    768,
+    432
+  ],
+  "original-native_actor_position": [
+    144,
+    112
+  ],
+  "original-native_display_scale": 1,
+  "original-native_camera_center": [
+    192,
+    112
+  ],
+  "Saved candidate-native at intended gameplay zoom": true,
+  "candidate-native_machine_screen_anchor": [
+    128,
+    264
+  ],
+  "candidate-native_image_size": [
+    768,
+    432
+  ],
+  "candidate-native_actor_position": [
+    144,
+    112
+  ],
+  "candidate-native_display_scale": 1,
+  "candidate-native_camera_center": [
+    192,
+    112
+  ],
+  "Native-window comparison retains the same world coverage": true,
+  "Presentation switching does not mutate resource counts": true
+}

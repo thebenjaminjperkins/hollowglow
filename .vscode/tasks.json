@@ -1,0 +1,7 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label":"Build Hollowlight","type":"process","command":"dotnet","args":["build","Hollowlight.csproj"],"problemMatcher":"$msCompile","group":{"kind":"build","isDefault":true}},
+    {"label":"Test resource logic","type":"process","command":"dotnet","args":["run","--project","tests/Hollowlight.Core.Tests.csproj"],"problemMatcher":"$msCompile"}
+  ]
+}

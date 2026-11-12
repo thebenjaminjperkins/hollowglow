@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WorldConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/WorldConfig.cs" id="1"]
+
+[resource]
+script = ExtResource("1")
+MoveSpeed = 80.0
+InteractionRange = 22.0
+DecorationSeed = 1701
+StorageSlots = 24

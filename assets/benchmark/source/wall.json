@@ -1,0 +1,237 @@
+{
+  "size": [
+    16,
+    16
+  ],
+  "columns": 4,
+  "anchor": [
+    0,
+    0
+  ],
+  "frames": [
+    {
+      "name": "cap0",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "TTTUUUUUTTTTTTTT",
+            "TTUUUVUUUUTTTTTT",
+            "TTUUUVUUUUUTTTTT",
+            "TTTUUUUUUUUTTTTT",
+            "TTTTUUUUUUTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTT22TTT",
+            "TTTTTTTTTT222TTT",
+            "TTTTTTTTT22TTTTT",
+            "TTTTTTTT22TTTTTT",
+            "TTTTTTTT2TTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cap1",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "TTTTTTUUUUUUTTTT",
+            "TTTTUUUUUVUUUTTT",
+            "TTTUUUUUVVUUUTTT",
+            "TTTUUUUUUUUUTTTT",
+            "TTTTUUUUUUUTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTT222",
+            "TTTTTTTTTT2222TT",
+            "TTTTTTTT222TTTTT",
+            "TTTTTTTT2TTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cap2",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "TTTTUUUUUTTTTTTT",
+            "TTUUUUUVUUUTTTTT",
+            "TUUUUUVVUUUUTTTT",
+            "TTUUUUUUUUUTTTTT",
+            "TTTTUUUUUTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "22TTTTTTTTTTTTTT",
+            "T222TTTTTTTTTTTT",
+            "TTT222TTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "face0",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "UUUUUTTTTTUUUUUT",
+            "UUVVVUUUUUUUVVUU",
+            "UUUUUUUUUUUUUUUU",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTATTTTTT",
+            "TTTATTTTTATTTTTT",
+            "TTTATTTTAATTTTTT",
+            "TTTTAATTATTTTTTT",
+            "TTTTAATTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "ATTTTTTTTTTTTTTA",
+            "AATTTTAAAATTTTAA",
+            "AAAATAAAAAATAAAA",
+            "AAAAAAAAAAAAAAAA",
+            "2222222222222222"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "face1",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "UTTTUUUUUTTTUUUU",
+            "UUUUUVVVUUUUUVVU",
+            "UUUUUUUUUUUUUUUU",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTATTTTTTTTT",
+            "TTTTTTATTTTTTTTT",
+            "TTTTTTTAATTTTTTT",
+            "TTTTTTTTATTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "ATTTTTTTTTTTTTTA",
+            "AAATTTTTTTTAAAAA",
+            "AAAAATTTAAAAAAAA",
+            "AAAAAAAAAAAAAAAA",
+            "2222222222222222"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "face2",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "UUUTTTTUUUUUTTTU",
+            "UVVUUUUUVVVUUUUU",
+            "UUUUUUUUUUUUUUUU",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTATTTTTTTTTTTTT",
+            "TTAAATTTTTTTTTTT",
+            "TTTTATTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "ATTTTTTTTTTTTTTA",
+            "AATTTTTAAATTTTAA",
+            "AAAATTTAAAAATAAA",
+            "AAAAAAAAAAAAAAAA",
+            "2222222222222222"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "left",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "TTUUUTTTTTTTTTTT",
+            "TUVVUUTTTTTTTTTT",
+            "TUUUUUTTTTTTTTTT",
+            "TUUUUTTTTTTTTTTT",
+            "TUUUTTTTTTTTTTTT",
+            "TUUTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTATTTTTTTTTTTTT",
+            "TTATTTTTTTTTTTTT",
+            "TTAATTTTTTTTTTTT",
+            "TTTATTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "right",
+      "layers": [
+        {
+          "name": "stone planes and fissures",
+          "x": 0,
+          "y": 0,
+          "pixels": [
+            "TTTTTTTTTUUUUTTT",
+            "TTTTTTTTUUUVUUTT",
+            "TTTTTTTTUUUVUUTT",
+            "TTTTTTTTTUUUUTTT",
+            "TTTTTTTTTTUUUTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTATTTT",
+            "TTTTTTTTTTTATTTT",
+            "TTTTTTTTTTAATTTT",
+            "TTTTTTTTTTATTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT",
+            "TTTTTTTTTTTTTTTT"
+          ]
+        }
+      ]
+    }
+  ]
+}

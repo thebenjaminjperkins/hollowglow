@@ -1,0 +1,13 @@
+.godot/
+**/bin/
+**/obj/
+.vs/
+.idea/
+*.user
+*.suo
+export.cfg
+builds/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]

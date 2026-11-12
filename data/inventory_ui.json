@@ -1,0 +1,10 @@
+{
+  "backpackColumns": 3,
+  "chestColumns": 6,
+  "chestRows": 4,
+  "cellSize": 24,
+  "icons": {
+    "scrap": { "path": "res://assets/sanctuary/salvage.png", "region": [4, 4, 28, 28] },
+    "organic": { "path": "res://assets/sanctuary/mushrooms.png", "region": [18, 4, 32, 32] }
+  }
+}

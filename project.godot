@@ -1,0 +1,25 @@
+; Hollowlight: first-slice project configuration.
+config_version=5
+
+[application]
+config/name="Hollowlight"
+run/main_scene="res://scenes/SanctuaryRoom.tscn"
+config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+
+[display]
+window/size/viewport_width=384
+window/size/viewport_height=216
+window/size/window_width_override=1152
+window/size/window_height_override=648
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[dotnet]
+project/assembly_name="Hollowlight"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true

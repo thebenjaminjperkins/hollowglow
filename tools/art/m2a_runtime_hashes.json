@@ -1,0 +1,7 @@
+{
+  "data/threshold.tres": "863bfc5ec570e58bd610bf076e22a3533ab7345622f336375442cccd1d5716fc",
+  "scripts/presentation/ThresholdHud.cs": "473c251eb1fd2485b7540bd883ab0309ccc9b9443ef99fa79e24bdc1a44f3f70",
+  "scripts/world/Interactable.cs": "9a6d7b9fc0eb4cdd185533e86e8b6762cf0e83b757619f39a7cfe9e3f7ff469b",
+  "scripts/world/ThresholdWorld.cs": "8a8aaeaffbcb510aec82c732f5931da0979445a67e0f467fac4f451b0b7fd5ce",
+  "scripts/world/WorldConfig.cs": "8be5251729e4c7228c7372dcee8a61f6527fb2087da21aae83f0dcfba30f99e0"
+}

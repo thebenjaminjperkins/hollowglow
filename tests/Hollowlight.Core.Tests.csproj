@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../scripts/core/SalvageState.cs" Link="SalvageState.cs" />
+    <Compile Include="../scripts/core/SharedSupplies.cs" Link="SharedSupplies.cs" />
+    <Compile Include="../scripts/core/SupplySetup.cs" Link="SupplySetup.cs" />
+    <None Include="../data/supplies.json" Link="data/supplies.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="../scripts/core/CaveLayout.cs" Link="CaveLayout.cs" />
+    <Compile Include="../scripts/core/WalkPresentation.cs" Link="WalkPresentation.cs" />
+    <Compile Include="../scripts/core/FoliageResponse.cs" Link="FoliageResponse.cs" />
+    <None Include="../data/sanctuary*.json" Link="data/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

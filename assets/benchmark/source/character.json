@@ -1,0 +1,1237 @@
+{
+  "size": [
+    20,
+    28
+  ],
+  "columns": 6,
+  "anchor": [
+    10,
+    26
+  ],
+  "frames": [
+    {
+      "name": "south_idle0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ..PQ",
+            "PQ..PQ",
+            "PQ..PQ",
+            "00..00",
+            "00..00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PQRQQQQP....",
+            ".PQQDRQQDQQP..",
+            ".PQQDQQQDQQP..",
+            ".MNQDQQQDNM...",
+            ".MNQDRQQDNM...",
+            "..PQDQQQDP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABBBBBBBA..",
+            "..MNNNNMM...",
+            "..N0NN0NM...",
+            "...NOONM....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "south_idle1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ..PQ",
+            "PQ..PQ",
+            "PQ..PQ",
+            "00..00",
+            "00..00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PQRQQQQP....",
+            ".PQQDRQQDQQP..",
+            ".PQQDQQQDQQP..",
+            ".MNQDQQQDNM...",
+            ".MNQDRQQDNM...",
+            "..PQDQQQDP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABBBBBBBA..",
+            "..MNNNNMM...",
+            "..N0NN0NM...",
+            "...NOONM....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "south_walk0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ..PP",
+            "PQ..PP",
+            "PQ...P",
+            "00..00",
+            "00...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PQRQQQQP....",
+            ".PQQDRQQDQQP..",
+            ".PQQDQQQDQQP..",
+            ".MNQDQQQDNM...",
+            ".MNQDRQQDNM...",
+            "..PQDQQQDP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABBBBBBBA..",
+            "..MNNNNMM...",
+            "..N0NN0NM...",
+            "...NOONM....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "south_walk1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ.PP.",
+            "PQ.PP.",
+            "PQ.PQ.",
+            "00.00.",
+            "......"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PQRQQQQP....",
+            ".PQQDRQQDQQP..",
+            ".PQQDQQQDQQP..",
+            ".MNQDQQQDNM...",
+            ".MNQDRQQDNM...",
+            "..PQDQQQDP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABBBBBBBA..",
+            "..MNNNNMM...",
+            "..N0NN0NM...",
+            "...NOONM....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "south_walk2",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PP..PQ",
+            "PP..PQ",
+            "P...PQ",
+            "00..00",
+            "....00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PQRQQQQP....",
+            ".PQQDRQQDQQP..",
+            ".PQQDQQQDQQP..",
+            ".MNQDQQQDNM...",
+            ".MNQDRQQDNM...",
+            "..PQDQQQDP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABBBBBBBA..",
+            "..MNNNNMM...",
+            "..N0NN0NM...",
+            "...NOONM....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "south_walk3",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            ".PP.PQ",
+            ".PP.PQ",
+            ".PQ.PQ",
+            ".00.00",
+            "......"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PQRQQQQP....",
+            ".PQQDRQQDQQP..",
+            ".PQQDQQQDQQP..",
+            ".MNQDQQQDNM...",
+            ".MNQDRQQDNM...",
+            "..PQDQQQDP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABBBBBBBA..",
+            "..MNNNNMM...",
+            "..N0NN0NM...",
+            "...NOONM....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "north_idle0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ..PQ",
+            "PQ..PQ",
+            "PQ..PQ",
+            "00..00",
+            "00..00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PABCCBAP....",
+            ".PQACDDCAQQP..",
+            ".PQACDDCAQQP..",
+            ".MNACBB.CANM..",
+            ".MNACDDCANM...",
+            "..PACBBCAP....",
+            "...PAAAAP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABCCBBBBA..",
+            "..ABBBBBA...",
+            "..ABBBBBA...",
+            "...ABBBA....",
+            "....AA......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "north_idle1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ..PQ",
+            "PQ..PQ",
+            "PQ..PQ",
+            "00..00",
+            "00..00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PABCCBAP....",
+            ".PQACDDCAQQP..",
+            ".PQACDDCAQQP..",
+            ".MNACBB.CANM..",
+            ".MNACDDCANM...",
+            "..PACBBCAP....",
+            "...PAAAAP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABCCBBBBA..",
+            "..ABBBBBA...",
+            "..ABBBBBA...",
+            "...ABBBA....",
+            "....AA......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "north_walk0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ..PP",
+            "PQ..PP",
+            "PQ...P",
+            "00..00",
+            "00...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PABCCBAP....",
+            ".PQACDDCAQQP..",
+            ".PQACDDCAQQP..",
+            ".MNACBB.CANM..",
+            ".MNACDDCANM...",
+            "..PACBBCAP....",
+            "...PAAAAP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABCCBBBBA..",
+            "..ABBBBBA...",
+            "..ABBBBBA...",
+            "...ABBBA....",
+            "....AA......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "north_walk1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PQ.PP.",
+            "PQ.PP.",
+            "PQ.PQ.",
+            "00.00.",
+            "......"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PABCCBAP....",
+            ".PQACDDCAQQP..",
+            ".PQACDDCAQQP..",
+            ".MNACBB.CANM..",
+            ".MNACDDCANM...",
+            "..PACBBCAP....",
+            "...PAAAAP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABCCBBBBA..",
+            "..ABBBBBA...",
+            "..ABBBBBA...",
+            "...ABBBA....",
+            "....AA......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "north_walk2",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            "PP..PQ",
+            "PP..PQ",
+            "P...PQ",
+            "00..00",
+            "....00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PABCCBAP....",
+            ".PQACDDCAQQP..",
+            ".PQACDDCAQQP..",
+            ".MNACBB.CANM..",
+            ".MNACDDCANM...",
+            "..PACBBCAP....",
+            "...PAAAAP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABCCBBBBA..",
+            "..ABBBBBA...",
+            "..ABBBBBA...",
+            "...ABBBA....",
+            "....AA......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "north_walk3",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 7,
+          "y": 20,
+          "pixels": [
+            "PP..PP",
+            ".PP.PQ",
+            ".PP.PQ",
+            ".PQ.PQ",
+            ".00.00",
+            "......"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQP.....",
+            "..PABCCBAP....",
+            ".PQACDDCAQQP..",
+            ".PQACDDCAQQP..",
+            ".MNACBB.CANM..",
+            ".MNACDDCANM...",
+            "..PACBBCAP....",
+            "...PAAAAP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAAA....",
+            "..ABCCBBA...",
+            ".ABCCCBBBA..",
+            ".ABCCBBBBA..",
+            "..ABBBBBA...",
+            "..ABBBBBA...",
+            "...ABBBA....",
+            "....AA......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "west_idle0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..0000....",
+            "..0000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQBA....",
+            "..PQRQQCBBA...",
+            "..PQRQQCDCA...",
+            "..PQQQQCDCA...",
+            "..MNQQQCBBA...",
+            "..MNQQQCBBA...",
+            "...PQQQBAA....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "....AAAA....",
+            "...ABCCBA...",
+            "..ABCCCBBA..",
+            "..MNNBBBBA..",
+            "..N0NNBBA...",
+            "..ONNNMA....",
+            "...NNMA.....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "west_idle1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..0000....",
+            "..0000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQBA....",
+            "..PQRQQCBBA...",
+            "..PQRQQCDCA...",
+            "..PQQQQCDCA...",
+            "..MNQQQCBBA...",
+            "..MNQQQCBBA...",
+            "...PQQQBAA....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "....AAAA....",
+            "...ABCCBA...",
+            "..ABCCCBBA..",
+            "..MNNBBBBA..",
+            "..N0NNBBA...",
+            "..ONNNMA....",
+            "...NNMA.....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "west_walk0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PPQP....",
+            ".PP..QP...",
+            ".PQ...PQ..",
+            ".00...00..",
+            "00.....00."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQBA....",
+            "..PQRQQCBBA...",
+            "..PQRQQCDCA...",
+            "..PQQQQCDCA...",
+            "..MNQQQCBBA...",
+            "..MNQQQCBBA...",
+            "...PQQQBAA....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "....AAAA....",
+            "...ABCCBA...",
+            "..ABCCCBBA..",
+            "..MNNBBBBA..",
+            "..N0NNBBA...",
+            "..ONNNMA....",
+            "...NNMA.....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "west_walk1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PPQP....",
+            "...PPQ....",
+            "...PQP....",
+            "...000....",
+            "...000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQBA....",
+            "..PQRQQCBBA...",
+            "..PQRQQCDCA...",
+            "..PQQQQCDCA...",
+            "..MNQQQCBBA...",
+            "..MNQQQCBBA...",
+            "...PQQQBAA....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "....AAAA....",
+            "...ABCCBA...",
+            "..ABCCCBBA..",
+            "..MNNBBBBA..",
+            "..N0NNBBA...",
+            "..ONNNMA....",
+            "...NNMA.....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "west_walk2",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "...PQ.PP..",
+            "..PQ...PP.",
+            "..00...00.",
+            ".00.....00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQBA....",
+            "..PQRQQCBBA...",
+            "..PQRQQCDCA...",
+            "..PQQQQCDCA...",
+            "..MNQQQCBBA...",
+            "..MNQQQCBBA...",
+            "...PQQQBAA....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "....AAAA....",
+            "...ABCCBA...",
+            "..ABCCCBBA..",
+            "..MNNBBBBA..",
+            "..N0NNBBA...",
+            "..ONNNMA....",
+            "...NNMA.....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "west_walk3",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "...PQP....",
+            "...PQP....",
+            "...000....",
+            "...000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...PQRQQBA....",
+            "..PQRQQCBBA...",
+            "..PQRQQCDCA...",
+            "..PQQQQCDCA...",
+            "..MNQQQCBBA...",
+            "..MNQQQCBBA...",
+            "...PQQQBAA....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "....AAAA....",
+            "...ABCCBA...",
+            "..ABCCCBBA..",
+            "..MNNBBBBA..",
+            "..N0NNBBA...",
+            "..ONNNMA....",
+            "...NNMA.....",
+            "....MN......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "east_idle0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..0000....",
+            "..0000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...ABQQRP.....",
+            "..ABBCQQRP....",
+            "..ACDCQQQQP...",
+            "..ACDCQQQQP...",
+            "..ABBCQQQNM...",
+            "..ABBCQQQNM...",
+            "...AABQQQP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAA.....",
+            "..ABCCBA....",
+            ".ABCCCBBBA..",
+            ".ABBBBNNM...",
+            "..ABNN0NO...",
+            "...AMNNN....",
+            "....MNN.....",
+            "....NM......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "east_idle1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..PQQP....",
+            "..0000....",
+            "..0000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...ABQQRP.....",
+            "..ABBCQQRP....",
+            "..ACDCQQQQP...",
+            "..ACDCQQQQP...",
+            "..ABBCQQQNM...",
+            "..ABBCQQQNM...",
+            "...AABQQQP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAA.....",
+            "..ABCCBA....",
+            ".ABCCCBBBA..",
+            ".ABBBBNNM...",
+            "..ABNN0NO...",
+            "...AMNNN....",
+            "....MNN.....",
+            "....NM......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "east_walk0",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PPQP....",
+            ".PP..QP...",
+            ".PQ...PQ..",
+            ".00...00..",
+            "00.....00."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...ABQQRP.....",
+            "..ABBCQQRP....",
+            "..ACDCQQQQP...",
+            "..ACDCQQQQP...",
+            "..ABBCQQQNM...",
+            "..ABBCQQQNM...",
+            "...AABQQQP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAA.....",
+            "..ABCCBA....",
+            ".ABCCCBBBA..",
+            ".ABBBBNNM...",
+            "..ABNN0NO...",
+            "...AMNNN....",
+            "....MNN.....",
+            "....NM......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "east_walk1",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PPQP....",
+            "...PPQ....",
+            "...PQP....",
+            "...000....",
+            "...000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...ABQQRP.....",
+            "..ABBCQQRP....",
+            "..ACDCQQQQP...",
+            "..ACDCQQQQP...",
+            "..ABBCQQQNM...",
+            "..ABBCQQQNM...",
+            "...AABQQQP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAA.....",
+            "..ABCCBA....",
+            ".ABCCCBBBA..",
+            ".ABBBBNNM...",
+            "..ABNN0NO...",
+            "...AMNNN....",
+            "....MNN.....",
+            "....NM......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "east_walk2",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "...PQ.PP..",
+            "..PQ...PP.",
+            "..00...00.",
+            ".00.....00"
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 11,
+          "pixels": [
+            "....PQQP......",
+            "...ABQQRP.....",
+            "..ABBCQQRP....",
+            "..ACDCQQQQP...",
+            "..ACDCQQQQP...",
+            "..ABBCQQQNM...",
+            "..ABBCQQQNM...",
+            "...AABQQQP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 2,
+          "pixels": [
+            "...AAAA.....",
+            "..ABCCBA....",
+            ".ABCCCBBBA..",
+            ".ABBBBNNM...",
+            "..ABNN0NO...",
+            "...AMNNN....",
+            "....MNN.....",
+            "....NM......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "east_walk3",
+      "layers": [
+        {
+          "name": "boots and trousers",
+          "x": 5,
+          "y": 20,
+          "pixels": [
+            "..PPPP....",
+            "..PQQP....",
+            "...PQP....",
+            "...PQP....",
+            "...000....",
+            "...000...."
+          ]
+        },
+        {
+          "name": "coat and pack",
+          "x": 3,
+          "y": 10,
+          "pixels": [
+            "....PQQP......",
+            "...ABQQRP.....",
+            "..ABBCQQRP....",
+            "..ACDCQQQQP...",
+            "..ACDCQQQQP...",
+            "..ABBCQQQNM...",
+            "..ABBCQQQNM...",
+            "...AABQQQP....",
+            "...PQQQQP.....",
+            "...APPPPA....."
+          ]
+        },
+        {
+          "name": "head and scarf",
+          "x": 4,
+          "y": 1,
+          "pixels": [
+            "...AAAA.....",
+            "..ABCCBA....",
+            ".ABCCCBBBA..",
+            ".ABBBBNNM...",
+            "..ABNN0NO...",
+            "...AMNNN....",
+            "....MNN.....",
+            "....NM......",
+            "..DDCCDD...."
+          ]
+        }
+      ]
+    }
+  ]
+}
