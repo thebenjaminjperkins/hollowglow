@@ -7,6 +7,8 @@ namespace Hollowlight.Presentation;
 
 public partial class ThresholdHud : CanvasLayer
 {
+    private Label _clock = null!;
+    private ColorRect _phaseBar = null!;
     private Label _status = null!, _location = null!, _prompt = null!, _feedback = null!, _debug = null!;
     private ColorRect _promptPanel = null!, _feedbackPanel = null!, _locationPanel = null!;
     private Control _help = null!;
@@ -21,6 +23,11 @@ public partial class ThresholdHud : CanvasLayer
             Region = new Rect2(13, 76, 15, 17) }, Position = new Vector2(11, 11), Centered = false, Scale = Vector2.One * 0.5f,
             TextureFilter = CanvasItem.TextureFilterEnum.Nearest });
         _status = Label(new Vector2(23, 10), 9, "ead4a9");
+        Panel(new Rect2(112, 7, 128, 19));
+        _clock = Label(new Vector2(118, 10), 8, "ead4a9");
+        _phaseBar = new ColorRect { Position = new Vector2(113, 24), Size = new Vector2(0, 1),
+            Color = new Color("d4ad73"), MouseFilter = Control.MouseFilterEnum.Ignore };
+        AddChild(_phaseBar);
         _locationPanel = Panel(new Rect2(247, 7, 130, 19));
         _location = Label(new Vector2(253, 10), 9, "b8cbb5");
         _promptPanel = Panel(new Rect2(62, 191, 260, 19));
@@ -70,8 +77,12 @@ public partial class ThresholdHud : CanvasLayer
         return label;
     }
     public void Present(string location, SuppliesSnapshot supplies,
-        string prompt, string feedback, string debug, bool showDebug)
+        string prompt, string feedback, string debug, bool showDebug, ClockSnapshot clock)
     {
+        long seconds = clock.PhaseElapsedTicks / System.TimeSpan.TicksPerSecond;
+        _clock.Text = $"Day {clock.DayNumber}  {clock.Phase} {seconds / 60:00}:{seconds % 60:00}";
+        _phaseBar.Size = new Vector2(Mathf.Floor(126f * clock.PhaseElapsedTicks / clock.PhaseDurationTicks), 1);
+        _phaseBar.Color = new Color(clock.Phase == DayPhase.Day ? "d4ad73" : clock.Phase == DayPhase.Dusk ? "ab7b4f" : "638e85");
         _status.Text = $"{supplies.Personal.UsedSlots}/6";
         Supplies.Refresh(supplies);
         if (location != _lastLocation)

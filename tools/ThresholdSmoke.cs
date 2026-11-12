@@ -13,6 +13,7 @@ public partial class ThresholdSmoke : Node
     private static bool _failed;
     private SceneTree _tree = null!;
     private ThresholdWorld _world = null!;
+    private int Stored => _world.StoredTotal - _world.StartingStoredTotal;
     private PlayerCharacter _actor = null!;
     private SmokeInput _input = null!;
 
@@ -50,7 +51,7 @@ public partial class ThresholdSmoke : Node
             }
             _actor = _world.GetNode<PlayerCharacter>("Player");
             await Frames(3);
-            Check(_world.CarriedBy(1) == 0 && _world.StoredTotal == 0, "Fresh scene clears both quantities");
+            Check(_world.CarriedBy(1) == 0 && Stored == 0, "Fresh scene clears both quantities");
             if (presentation != null)
             {
                 var terrain = presentation.Terrain;
@@ -160,20 +161,20 @@ public partial class ThresholdSmoke : Node
                 SendKey(Key.F3);
                 Check(_world.CarriedBy(1) == 34, "Surface teleport preserves carried quantity");
                 await Pickup(new Vector2(88, 242));
-                Check(_world.CarriedBy(1) == 34 && _world.StoredTotal == 0 && _world.ChestAccessible,
+                Check(_world.CarriedBy(1) == 34 && Stored == 0 && _world.ChestAccessible,
                     "Chest interaction opens without automatic transfer");
                 _world.InventoryPanel.StoreAll();
                 await Frames(2);
-                Check(_world.CarriedBy(1) == 0 && _world.StoredTotal == 34, "Explicit store-all transfers every unit");
+                Check(_world.CarriedBy(1) == 0 && Stored == 34, "Explicit store-all transfers every unit");
                 await Tap();
-                Check(_world.StoredTotal == 34, "Empty repeated deposit changes nothing");
+                Check(Stored == 34, "Empty repeated deposit changes nothing");
                 var deposited = _world.SuppliesFor(1);
                 Check(deposited.Storage.Count("scrap") == 26 && deposited.Storage.Count("organic") == 8,
                     "Both resource types reach communal storage");
                 Check(deposited.Personal.Capacity == 6 && deposited.Storage.Capacity == _world.Config.StorageSlots,
                     "Configured inventory capacities reach the playable world");
                 var panel = _world.InventoryPanel;
-                panel.QuickTransfer(new(InventoryKind.Storage, 0));
+                panel.QuickTransfer(ScrapSlot());
                 await Frames(2);
                 Check(_world.SuppliesFor(1).Personal.Count("scrap") == 10, "Quick-transfer chosen chest stack");
                 panel.BeginSplit(new(InventoryKind.Personal, 0));
@@ -197,13 +198,13 @@ public partial class ThresholdSmoke : Node
                 await Frames(30); _input.Movement = Vector2.Zero;
                 Check(_actor.Position.DistanceTo(panelStart) < 0.1f && !_tree.Paused, "Inventory holds only this actor stationary without pausing world");
                 panel.StoreAll(); await Frames(2);
-                Check(_world.CarriedBy(1) == 0 && _world.StoredTotal == 34, "Store all restores complete stock after slot operations");
+                Check(_world.CarriedBy(1) == 0 && Stored == 34, "Store all restores complete stock after slot operations");
                 _actor.Position = new Vector2(136, 208); await Frames(2);
                 Check(!_world.InventoryVisible && !_world.ChestAccessible, "Leaving chest range closes session");
                 Check(_world.ApplyInventoryCommand(_actor, move with { Version = _world.SuppliesFor(1).Version }).Status == SupplyStatus.AccessDenied,
                     "Closed session cannot transfer from stale UI");
                 await Pickup(new Vector2(88, 242));
-                _world.InventoryPanel.BeginSplit(new(InventoryKind.Storage, 0));
+                _world.InventoryPanel.BeginSplit(ScrapSlot());
                 Check(_world.InventoryPanel.Splitting, "Reset begins with an uncommitted split preview");
                 _stage = 2;
                 SendKey(Key.R);
@@ -225,6 +226,12 @@ public partial class ThresholdSmoke : Node
         }
     }
 
+    private SlotAddress ScrapSlot()
+    {
+        var slots = _world.SuppliesFor(1).Storage.Slots;
+        for (int i = 0; i < slots.Count; i++) if (slots[i]?.ResourceId == "scrap") return new(InventoryKind.Storage, i);
+        throw new InvalidOperationException("No Scrap in storage");
+    }
     private async Task Frames(int count)
     {
         for (int i = 0; i < count; i++)

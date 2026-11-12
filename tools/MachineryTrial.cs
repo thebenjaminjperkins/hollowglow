@@ -119,7 +119,7 @@ public partial class MachineryTrial : Node
         await Capture("candidate-native");
         Check((GetViewport().GetVisibleRect().Size / _camera.Zoom).DistanceTo(new Vector2(384, 216)) < 0.01f,
             "Native-window comparison retains the same world coverage");
-        Check(_world.CarriedBy(1) == 0 && _world.StoredTotal == 0, "Presentation switching does not mutate resource counts");
+        Check(_world.CarriedBy(1) == 0 && _world.StoredTotal == _world.StartingStoredTotal, "Presentation switching does not mutate resource counts");
         FileAccess file = FileAccess.Open("user://machinery-trial/audit.json", FileAccess.ModeFlags.Write);
         file.StoreString(JsonSerializer.Serialize(_audit, new JsonSerializerOptions { WriteIndented = true }));
         file.Dispose();

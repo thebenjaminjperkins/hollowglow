@@ -10,6 +10,7 @@ namespace Hollowlight.Tools;
 public partial class InventoryUxReview : Node
 {
     private ThresholdWorld _world = null!;
+    private int Stored => _world.StoredTotal - _world.StartingStoredTotal;
     private PlayerCharacter _actor = null!;
     private SuppliesPanel _panel = null!;
     private readonly SmokeInput _input = new();
@@ -69,21 +70,21 @@ public partial class InventoryUxReview : Node
             Check(_world.CarriedBy(1) == 20 && _panel.Selected == null, "Dropping outside cancels drag without removing source items");
             await KeyPress(Key.Tab); await Frames(2);
             await InteractAt(new Vector2(88, 242));
-            Check(_world.ChestAccessible && _panel.ChestOpen && _world.StoredTotal == 0, "Chest interaction opens both panels without auto-deposit");
+            Check(_world.ChestAccessible && _panel.ChestOpen && Stored == 0, "Chest interaction opens both panels without auto-deposit");
             await Click(P(0), MouseButton.Left, true);
-            Check(_world.StoredTotal == 6 && _world.CarriedBy(1) == 14, "Mouse shift-click quick-transfers selected stack");
+            Check(Stored == 6 && _world.CarriedBy(1) == 14, "Mouse shift-click quick-transfers selected stack");
             _panel.FocusSlot(P(1)); await Joy(JoyButton.X); await Frames(2);
-            Check(_world.StoredTotal == 8, "Controller X quick-transfers selected stack");
+            Check(Stored == 8, "Controller X quick-transfers selected stack");
             _panel.FocusSlot(P(2)); await KeyPress(Key.Q); await Frames(2);
-            Check(_world.StoredTotal == 16, "Keyboard Q quick-transfers selected stack");
+            Check(Stored == 16, "Keyboard Q quick-transfers selected stack");
             _panel.StoreAll(); await Frames(2);
-            Check(_world.StoredTotal == 20 && _world.CarriedBy(1) == 0, "Explicit Store all preserves contents");
+            Check(Stored == 20 && _world.CarriedBy(1) == 0, "Explicit Store all preserves contents");
             await Capture("chest");
             var blocker = new StaticBody2D { Position = new Vector2(88, 233), CollisionLayer = 1 };
             blocker.AddChild(new CollisionShape2D { Shape = new RectangleShape2D { Size = new Vector2(16, 2) } });
             _world.AddChild(blocker); await Frames(2);
             Check(_world.ChestAccessible, "Minor line-of-sight obstruction does not close established chest session");
-            _panel.QuickTransfer(new(InventoryKind.Storage, 0)); await Frames(2);
+            _panel.QuickTransfer(ScrapSlot()); await Frames(2);
             Check(_world.CarriedBy(1) == 10, "Established chest session permits transfer through changed line of sight");
             blocker.QueueFree(); await Frames(2);
             _panel.Activate(P(0));
@@ -162,6 +163,12 @@ public partial class InventoryUxReview : Node
     private async Task InteractAt(Vector2 position)
     {
         _actor.Position = position; await Frames(2); _input.Tap = true; await Frames(2);
+    }
+    private SlotAddress ScrapSlot()
+    {
+        var slots = _world.SuppliesFor(1).Storage.Slots;
+        for (int i = 0; i < slots.Count; i++) if (slots[i]?.ResourceId == "scrap") return new(InventoryKind.Storage, i);
+        throw new InvalidOperationException("No Scrap in storage");
     }
     private async Task Frames(int count)
     {

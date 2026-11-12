@@ -1,0 +1,60 @@
+{
+  "resources": [
+    {
+      "id": "potato_seed",
+      "name": "Cave Potato Seed",
+      "shortName": "Potato Seed"
+    },
+    {
+      "id": "glowcap_seed",
+      "name": "Glowcap Seed",
+      "shortName": "Glowcap Seed"
+    },
+    {
+      "id": "food",
+      "name": "Food",
+      "shortName": "Food"
+    }
+  ],
+  "startingStorage": {
+    "potato_seed": 2,
+    "glowcap_seed": 2
+  },
+  "crops": [
+    {
+      "id": "cave_potato",
+      "name": "Cave Potato",
+      "seedResource": "potato_seed",
+      "seedCost": 1,
+      "growthDays": 2,
+      "growingAt": 0.35,
+      "yields": {
+        "food": 3,
+        "potato_seed": 1
+      }
+    },
+    {
+      "id": "glowcap",
+      "name": "Glowcap",
+      "seedResource": "glowcap_seed",
+      "seedCost": 1,
+      "growthDays": 3,
+      "growingAt": 0.35,
+      "yields": {
+        "food": 2,
+        "organic": 1,
+        "glowcap_seed": 1
+      }
+    }
+  ],
+  "plotOffsets": [
+    {
+      "x": -8,
+      "y": 6
+    },
+    {
+      "x": 8,
+      "y": 6
+    }
+  ]
+}

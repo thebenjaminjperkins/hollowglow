@@ -200,3 +200,53 @@ Dates use the owner's America/New_York timezone.
   moving replacement stacks. Replayed commands are rejected by the existing owner.
 - Scope ends after UX validation and owner review; no new resources, crafting,
   hunger, power, equipment or other survival mechanics are approved.
+
+
+## M2a accepted; M2b first increment — 2026-11-12
+
+- Owner accepted the inventory milestone and explicitly requested a commit before
+  M2b. Revalidated build/core logic and both-layout engine smoke tests, then created
+  initial project commit `24b7f70` (the repository had no earlier commits).
+- M2b authorizes a continuous 6/1/3-minute phase cycle, compact clock and debug skips,
+  four sanctuary plots and the two specified crops only. No broader survival scope.
+- The clock uses authoritative simulation ticks plus fractional carry, not wall time.
+  Its serializable state can be resumed without accumulating update-partition drift.
+  Display shows day, phase and elapsed phase time; developer skips do not mutate
+  inventory revisions or invalidate selections. Reset restarts at Day 1.
+- Crop duration will mean complete elapsed cycles after planting, not calendar
+  day boundaries. Proposed placement is two positions per existing garden bed,
+  preserving current collisions and authored-layout/terrain assembly.
+- Farming-dependent choices are awaiting the owner: source of starter seeds,
+  shared Food versus crop-specific food items, and full-inventory harvest behavior.
+  No seed distribution, farming interactions or crop assets have been implemented yet.
+
+
+## Confirmed M2b farming decisions — 2026-11-12
+
+- Owner selected the recommended defaults: two Cave Potato seeds and two Glowcap
+  seeds in communal storage, one common Food resource and whole-harvest capacity
+  checks. Full inventories leave the mature crop completely intact, including its seed.
+- Crop definitions, stage threshold, seed costs, yields, initial stock and per-bed
+  offsets live in `data/farming.json`. Original Scrap/Organic definitions and finite
+  salvage are unchanged. Farming adds only the two seed types and common Food.
+- Two positions in each existing bed provide four plots on both layouts. Existing
+  garden collision bodies remain unchanged; plot interaction points lie on the
+  accessible front edge. Rendering uses separate empty-bed and growth-stage PNGs.
+- E/A plants, inspects or harvests contextually; C or LB/RB selects the crop while
+  near an empty plot. No farming menu or inventory ownership rule is introduced.
+- Farm mutations share SharedSupplies' lock. Plot-specific session revisions reject
+  same-plot conflicts/replays while independent plots accept different actors.
+  Seed removal and plot planting are atomic; complete inventory-fit simulation occurs
+  before harvest/seed return, so failure changes neither inventory nor mature crop.
+- Clock advancement alone changes no inventory revision. Growth derives from planted
+  integer ticks and crop duration; no per-plot timers or attention/upkeep system.
+- Preserve the configured chest capacity. Startup stock must fit in full; the default
+  farming setup needs two or more slots. The historical one-slot fixture disables
+  farming explicitly and retains its original capacity/transfer checks.
+- Built-in imagegen supplied a small matched source kit. Prompt, original source and
+  recipe are preserved under `assets/farming/source`; runtime exports use the same
+  64-swatch palette, 2px/world density, binary alpha and nearest display convention.
+  Seedlings were enlarged within native frame budgets after gameplay-scale review.
+- M2b ends here for owner review. No hunger, consumption, cooking, power, watering,
+  diseases, advanced equipment, extra crops, attacks, beacon countdown or world
+  generator was implemented. Actual multiplayer transport and persistent saves remain later.

@@ -11,6 +11,7 @@ namespace Hollowlight.Tools;
 public partial class SuppliesReview : Node
 {
     private ThresholdWorld _world = null!;
+    private int Stored => _world.StoredTotal - _world.StartingStoredTotal;
     private PlayerCharacter _actor = null!;
     private readonly SmokeInput _input = new() { Name = "ReviewInput" };
     public override async void _Ready()
@@ -24,6 +25,7 @@ public partial class SuppliesReview : Node
                 _world = GD.Load<PackedScene>("res://scenes/Threshold.tscn").Instantiate<ThresholdWorld>();
                 _world.Config = (WorldConfig)_world.Config.Duplicate();
                 _world.Config.StorageSlots = 1;
+                _world.Config.FarmingEnabled = false;
                 _actor = _world.GetNode<PlayerCharacter>("Player");
                 _actor.AddChild(_input);
                 _actor.InputPath = new NodePath("ReviewInput");
@@ -46,11 +48,11 @@ public partial class SuppliesReview : Node
             {
                 await InteractAt(new Vector2(88, 242));
                 _world.InventoryPanel.StoreAll(); await Frames(2);
-                Check(_world.StoredTotal == 10 && _world.CarriedBy(1) == 2, "One-slot chest accepts ten and leaves two carried");
+                Check(Stored == 10 && _world.CarriedBy(1) == 2, "One-slot chest accepts ten and leaves two carried");
                 await InteractAt(new Vector2(528, 130));
                 await InteractAt(new Vector2(88, 242));
                 _world.InventoryPanel.StoreAll(); await Frames(2);
-                Check(_world.StoredTotal == 10 && _world.CarriedBy(1) == 10, "Full chest preserves both carried resources");
+                Check(Stored == 10 && _world.CarriedBy(1) == 10, "Full chest preserves both carried resources");
                 await Capture("full-storage");
                 var version = _world.SuppliesFor(1).Version;
                 Check(_world.TransferSupplies(_actor, "scrap", 50, true, version)?.Amount == 10, "Partial withdrawal limited by actual chest stock");
@@ -67,18 +69,18 @@ public partial class SuppliesReview : Node
                 await Capture("personal");
                 await InteractAt(new Vector2(88, 242));
                 _world.InventoryPanel.StoreAll(); await Frames(2);
-                Check(_world.StoredTotal == 34 && _world.CarriedBy(1) == 0, "All finite supplies deposited");
+                Check(Stored == 34 && _world.CarriedBy(1) == 0, "All finite supplies deposited");
                 await Capture("storage");
                 _world.TransferSupplies(_actor, "organic", 10, true, _world.SuppliesFor(1).Version);
                 await Frames(2);
-                Check(_world.SuppliesFor(1).Personal.Count("organic") == 8 && _world.StoredTotal == 26,
+                Check(_world.SuppliesFor(1).Personal.Count("organic") == 8 && Stored == 26,
                     "Withdrawal partially supplies requested ten Organic");
                 await Capture("withdrawal");
                 _actor.Position = new Vector2(136, 208);
                 await Frames(2);
                 Check(_world.TransferSupplies(_actor, "organic", 1, true, _world.SuppliesFor(1).Version) == null, "Closed chest denies old transfer API");
                 await Frames(2);
-                Check(_world.CarriedBy(1) == 8 && _world.StoredTotal == 26, "Open panel cannot withdraw after leaving chest");
+                Check(_world.CarriedBy(1) == 8 && Stored == 26, "Open panel cannot withdraw after leaving chest");
             }
             GD.Print("PASS: graphical supplies review and actual command checks");
             GetTree().Quit();

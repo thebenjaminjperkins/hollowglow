@@ -17,6 +17,7 @@ def check_sources():
     baseline = json.loads((TRIAL / 'source/baseline_hashes.json').read_text())
     evolved = json.loads((ROOT / 'tools/art/m2a_runtime_hashes.json').read_text())
     evolved.update(json.loads((ROOT / 'tools/art/inventory_ux_runtime_hashes.json').read_text()))
+    evolved.update(json.loads((ROOT / 'tools/art/m2b_runtime_hashes.json').read_text()))
     for relative, digest in baseline.items():
         digest = evolved.get(relative, digest)
         contents = (ROOT / relative).read_bytes()

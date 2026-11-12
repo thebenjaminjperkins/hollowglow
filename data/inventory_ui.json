@@ -4,7 +4,50 @@
   "chestRows": 4,
   "cellSize": 24,
   "icons": {
-    "scrap": { "path": "res://assets/sanctuary/salvage.png", "region": [4, 4, 28, 28] },
-    "organic": { "path": "res://assets/sanctuary/mushrooms.png", "region": [18, 4, 32, 32] }
+    "scrap": {
+      "path": "res://assets/sanctuary/salvage.png",
+      "region": [
+        4,
+        4,
+        28,
+        28
+      ]
+    },
+    "organic": {
+      "path": "res://assets/sanctuary/mushrooms.png",
+      "region": [
+        18,
+        4,
+        32,
+        32
+      ]
+    },
+    "potato_seed": {
+      "path": "res://assets/farming/icons.png",
+      "region": [
+        0,
+        0,
+        24,
+        24
+      ]
+    },
+    "glowcap_seed": {
+      "path": "res://assets/farming/icons.png",
+      "region": [
+        24,
+        0,
+        24,
+        24
+      ]
+    },
+    "food": {
+      "path": "res://assets/farming/icons.png",
+      "region": [
+        48,
+        0,
+        24,
+        24
+      ]
+    }
   }
 }

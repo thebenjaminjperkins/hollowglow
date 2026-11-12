@@ -38,7 +38,10 @@ public partial class RoomPresentation : Node
                 }
             }
             string? asset = AssetFor(prop.Kind);
-            if (asset != null) prop.AddChild(new RoomSprite { Name = "RoomArt", Asset = asset, Reactive = prop.Kind == PixelSprite.Motif.Fern });
+            if (prop.Kind == PixelSprite.Motif.Garden && World.FarmingEnabled)
+                prop.AddChild(new Sprite2D { Texture = GD.Load<Texture2D>("res://assets/farming/bed.png"), Centered = false,
+                    Position = new Vector2(-18, -25), Scale = Vector2.One * 0.5f, TextureFilter = CanvasItem.TextureFilterEnum.Nearest });
+            else if (asset != null) prop.AddChild(new RoomSprite { Name = "RoomArt", Asset = asset, Reactive = prop.Kind == PixelSprite.Motif.Fern });
         }
         Terrain = new RoomTerrain { Name = "RoomTerrain", Layout = map.Layout };
         map.AddChild(Terrain);

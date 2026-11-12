@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 using Hollowlight.Core;
 using Hollowlight.Presentation;
@@ -9,7 +10,18 @@ public partial class ThresholdWorld : Node2D
 {
     [Export] public WorldConfig Config { get; set; } = null!;
     private readonly List<Interactable> _interactables = new();
+    public GameClock Clock { get; private set; } = null!;
     private SharedSupplies _state = null!;
+    private AgricultureSetup? _farming;
+    private readonly List<GrowingPlotArt> _plots = new();
+    private GrowingPlotArt? _focusedPlot;
+    private int _selectedCrop;
+    public int StartingStoredTotal { get; private set; }
+    public bool FarmingEnabled => _farming != null;
+    public IReadOnlyList<GrowingPlotArt> GrowingPlots => _plots;
+    public IReadOnlyList<CropDefinition> CropDefinitions => _state.Crops;
+    public PlotSnapshot Plot(string id) => _state.Plot(id);
+    public string? FocusedPlotId => _focusedPlot?.PlotId;
     private SupplySetup _setup = null!;
     private bool _inventoryVisible;
     private Interactable? _openedChest;
@@ -31,9 +43,25 @@ public partial class ThresholdWorld : Node2D
 
     public override void _Ready()
     {
+        Clock = new GameClock(ClockDefinition.Parse(FileAccess.GetFileAsString("res://data/clock.json")));
         _setup = SupplySetup.Parse(FileAccess.GetFileAsString("res://data/supplies.json"));
         _controlledActor = GetNode<PlayerCharacter>("Player");
-        _state = _setup.CreateState(new[] { _controlledActor.PlayerId }, Config.StorageSlots);
+        _farming = Config.FarmingEnabled ? AgricultureSetup.Parse(FileAccess.GetFileAsString("res://data/farming.json")) : null;
+        _state = _setup.CreateState(new[] { _controlledActor.PlayerId }, Config.StorageSlots, _farming?.Resources);
+        if (_farming != null)
+        {
+            var beds = GetNode<ThresholdMap>("Map").GetChildren().OfType<SanctuaryProp>().Where(p => p.Kind == PixelSprite.Motif.Garden).ToArray();
+            var placements = beds.SelectMany((bed, b) => _farming.PlotOffsets.Select((offset, p) =>
+                (Id: $"garden-{b}-{p}", Position: bed.Position + new Vector2(offset.X, offset.Y)))).ToArray();
+            _state.InitializeAgriculture(_farming, Clock, placements.Select(p => p.Id));
+            foreach (var place in placements)
+            {
+                var plot = new GrowingPlotArt { Name = place.Id, PlotId = place.Id, World = this, Position = place.Position };
+                _plots.Add(plot); AddChild(plot);
+            }
+        }
+        StartingStoredTotal = _state.Snapshot(_controlledActor.PlayerId).Storage.Total;
+        if (FarmingEnabled) _feedback = "Starter seeds are in the shared chest. C chooses a crop at a plot.";
         _hud = GetNode<ThresholdHud>("HUD");
         _controlledActor.InteractionRequested += Interact;
         _hud.Supplies.CloseRequested += CloseInventory;
@@ -56,6 +84,7 @@ public partial class ThresholdWorld : Node2D
 
     public override void _PhysicsProcess(double delta)
     {
+        Clock.Advance(delta);
         _feedbackTime = System.Math.Max(0, _feedbackTime - delta);
         Vector2 position = _controlledActor.GlobalPosition;
         if (position.X < 0 || position.Y < 0 || position.X > 640 || position.Y > 352)
@@ -65,6 +94,10 @@ public partial class ThresholdWorld : Node2D
         }
         if (_openedChest != null && !HasChestAccess()) CloseInventory();
         _focused = FindTarget(_controlledActor);
+        _focusedPlot = FindPlot(_controlledActor);
+        if (_focusedPlot != null && _focused != null && _controlledActor.GlobalPosition.DistanceSquaredTo(_focusedPlot.GlobalPosition) <
+            _controlledActor.GlobalPosition.DistanceSquaredTo(_focused.GlobalPosition)) _focused = null;
+        else if (_focused != null) _focusedPlot = null;
         foreach (var target in _interactables) target.Art.Highlight = target == _focused;
     }
 
@@ -90,6 +123,13 @@ public partial class ThresholdWorld : Node2D
     private void Interact(PlayerCharacter actor)
     {
         var target = FindTarget(actor);
+        var plot = FindPlot(actor);
+        if (plot != null && (target == null || actor.GlobalPosition.DistanceSquaredTo(plot.GlobalPosition) < actor.GlobalPosition.DistanceSquaredTo(target.GlobalPosition)))
+        {
+            var state = _state.Plot(plot.PlotId);
+            UsePlot(actor, plot.PlotId, _state.Crops[_selectedCrop].Id, state.Version);
+            return;
+        }
         if (target == null) { Notify("Move closer to a salvage object or the shared chest."); return; }
         var snapshot = _state.Snapshot(actor.PlayerId);
         if (target.IsStorage)
@@ -103,6 +143,44 @@ public partial class ThresholdWorld : Node2D
                 target.SetCollected();
             Report(result, $"Gathered {target.DisplayName}:");
         }
+    }
+
+    private GrowingPlotArt? FindPlot(PlayerCharacter actor)
+    {
+        GrowingPlotArt? nearest = null;
+        float best = Config.InteractionRange * Config.InteractionRange;
+        foreach (var plot in _plots)
+        {
+            float distance = actor.GlobalPosition.DistanceSquaredTo(plot.GlobalPosition);
+            if (distance > best) continue;
+            var hit = GetWorld2D().DirectSpaceState.IntersectRay(PhysicsRayQueryParameters2D.Create(actor.GlobalPosition, plot.GlobalPosition, 1));
+            if (hit.Count != 0) continue;
+            nearest = plot; best = distance;
+        }
+        return nearest;
+    }
+    public FarmResult UsePlot(PlayerCharacter actor, string plotId, string cropId, SupplyVersion version)
+    {
+        if (actor != _controlledActor || _inventoryVisible || FindPlot(actor)?.PlotId != plotId)
+            return new(FarmStatus.AccessDenied, version);
+        var plot = _state.Plot(plotId);
+        FarmResult result = plot.Stage == CropStage.Empty ? _state.Plant(actor.PlayerId, plotId, cropId, version)
+            : _state.Harvest(actor.PlayerId, plotId, version);
+        Notify(result.Status switch {
+            FarmStatus.Planted => $"Planted {_state.Crops.First(c => c.Id == cropId).Name}.",
+            FarmStatus.Harvested => "Harvest collected, including the returned seed.",
+            FarmStatus.NoSeed => "Withdraw the required seeds from the shared chest.",
+            FarmStatus.NoCapacity => "Make room for the complete harvest and returned seed.",
+            FarmStatus.NotMature => $"{_state.Crops.First(c => c.Id == plot.CropId).Name} is still growing.",
+            FarmStatus.Stale => "Plot changed. Inspect it and try again.",
+            _ => "That plot cannot be used right now."
+        });
+        return result;
+    }
+    private void CycleCrop(int direction)
+    {
+        if (_inventoryVisible || _focusedPlot == null || _state.Plot(_focusedPlot.PlotId).Stage != CropStage.Empty) return;
+        _selectedCrop = (_selectedCrop + direction + _state.Crops.Count) % _state.Crops.Count;
     }
 
     // Spatial/actor validation belongs to the world. The inventory owner performs
@@ -147,6 +225,9 @@ public partial class ThresholdWorld : Node2D
     }
     public override void _UnhandledInput(InputEvent input)
     {
+        if (input is InputEventJoypadButton shoulder && shoulder.Pressed && shoulder.Device == _controlledActor.ControllerDevice &&
+            shoulder.ButtonIndex is JoyButton.LeftShoulder or JoyButton.RightShoulder && !_inventoryVisible && _focusedPlot != null)
+        { CycleCrop(shoulder.ButtonIndex == JoyButton.LeftShoulder ? -1 : 1); GetViewport().SetInputAsHandled(); return; }
         if (input is InputEventJoypadButton joy && joy.Pressed && joy.ButtonIndex == JoyButton.Back && joy.Device == _controlledActor.ControllerDevice)
         {
             if (_inventoryVisible) CloseInventory(); else OpenInventory();
@@ -172,12 +253,27 @@ public partial class ThresholdWorld : Node2D
         var snapshot = _state.Snapshot(_controlledActor.PlayerId);
         string prompt = _focused == null ? ""
             : (_focused.IsStorage ? "E / A  Open communal chest" : $"E  Gather {_focused.DisplayName} ({snapshot.Remaining[_focused.ObjectId]} left)");
+        if (_focusedPlot != null && !_inventoryVisible)
+        {
+            var plot = _state.Plot(_focusedPlot.PlotId);
+            if (plot.Stage == CropStage.Empty)
+            {
+                var crop = _state.Crops[_selectedCrop];
+                prompt = $"E / A Plant {crop.Name}  ({snapshot.Personal.Count(crop.SeedResource)} seeds)   C / LB/RB Choose";
+            }
+            else
+            {
+                var crop = _state.Crops.First(c => c.Id == plot.CropId);
+                double days = (double)plot.RemainingTicks / Clock.CycleTicks;
+                prompt = plot.Stage == CropStage.Mature ? $"E / A Harvest {crop.Name}" : $"{crop.Name} | {plot.Stage} | {days:0.0} days left | E / A Inspect";
+            }
+        }
         string debug = _debug
             ? $"{Engine.GetFramesPerSecond()} fps | pos {_controlledActor.Position.Round()} | vel {_controlledActor.Velocity.Round()}\n" +
-              $"target: {_focused?.ObjectId ?? "none"} | seed {Config.DecorationSeed}\nF2: home   F3: surface   R: restore all salvage"
+              $"target: {_focused?.ObjectId ?? "none"} | seed {Config.DecorationSeed}\nF2: home   F3: surface   R: restore all salvage\nF4: +1 min   F5: +1 day   Shift+F5: +3 days"
             : "";
         _hud.Present(outside ? "SURFACE CLEARING" : "REFUGE / HOME", snapshot,
-            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug);
+            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot());
     }
 
     public override void _UnhandledKeyInput(InputEvent @event)
@@ -190,7 +286,13 @@ public partial class ThresholdWorld : Node2D
                 GetViewport().SetInputAsHandled();
                 GetTree().ReloadCurrentScene();
                 return;
+            case Key.C: CycleCrop(1); break;
             case Key.Tab: if (_inventoryVisible) CloseInventory(); else OpenInventory(); break;
+            case Key.F4: Clock.Advance(60); Notify("Debug: advanced one minute."); break;
+            case Key.F5:
+                Clock.Advance((double)Clock.CycleTicks / System.TimeSpan.TicksPerSecond * (key.ShiftPressed ? 3 : 1));
+                Notify(key.ShiftPressed ? "Debug: advanced three days." : "Debug: advanced one day.");
+                break;
             case Key.F1: _debug = !_debug; break;
             case Key.H: _hud.ToggleHelp(); break;
             case Key.F2: Teleport(Home); Notify("Debug: returned home; quantities preserved."); break;

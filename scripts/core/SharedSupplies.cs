@@ -28,7 +28,7 @@ public sealed record SuppliesSnapshot(SupplyVersion Version, InventorySnapshot P
 // One authoritative owner. All validation and both sides of a mutation share one lock.
 // A session/revision token makes competing or retried commands reject stale state.
 // Networking/authentication is deliberately outside this engine-independent model.
-public sealed class SharedSupplies
+public sealed partial class SharedSupplies
 {
     public const int PlayerSlots = 6;
     public const int StackLimit = 10;
@@ -186,6 +186,17 @@ public sealed class SharedSupplies
         {
             if (slots < 1 || slots > 256) throw new ArgumentOutOfRangeException(nameof(slots), "Use 1–256 storage slots.");
             _slots = new ItemStack?[slots];
+        }
+        public bool CanAddAll(IEnumerable<ItemStack> items)
+        {
+            var trial = new Inventory(_slots.Length);
+            Array.Copy(_slots, trial._slots, _slots.Length);
+            foreach (var item in items)
+            {
+                if (trial.RoomFor(item.ResourceId) < item.Quantity) return false;
+                trial.Add(item.ResourceId, item.Quantity);
+            }
+            return true;
         }
         public bool Valid(int index) => index >= 0 && index < _slots.Length;
         public ItemStack? At(int index) => _slots[index];

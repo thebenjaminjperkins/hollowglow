@@ -97,7 +97,7 @@ conservation and reset, then stop for owner review before the rest of M2.
 combat, new regions, world generation and multiplayer. Evaluate this transfer loop
 before authorizing any resource consumption or the rest of M2.
 
-### M2a UX. Visual inventory refinement — approved, implemented for review
+### M2a UX. Visual inventory refinement — approved and committed
 **Goal:** Make the working inventory loop convenient and visually legible.
 
 - Configurable 3×2 backpack and 6×4 chest grids with approved PNG item icons/counts.
@@ -118,6 +118,37 @@ captures; distinguish simulated controller input from physical-device validation
 **Gate:** Stop for owner review. Resource definitions/yields, capacities, approved
 world art, movement outside inventory and all other gameplay remain unchanged.
 No new survival systems, resources, crafting or equipment are authorized.
+
+### M2b. Basic agriculture and time — implemented for owner review
+**Goal:** Establish a small underground farming loop and continuous simulation time.
+
+- Inventory milestone approved and committed as `24b7f70` before this work.
+- Configurable 6-minute day, 1-minute dusk, 3-minute night, compact phase clock,
+  developer skips, continued advancement during inventory use/exploration.
+- Requested farming scope: four plots; Cave Potato (2 elapsed cycles, 3 Food + 1 seed)
+  and Glowcap (3 elapsed cycles, 2 Food + 1 Organic Material + 1 seed).
+- Data-driven crop definitions/yields and three readable growth stages; personal
+  seed consumption and safe harvesting through the authoritative inventory owner.
+- Preserve both authored layouts and modular terrain assembly. No procedural world
+  generator currently exists; this slice must not silently add one.
+
+**Approved decisions:** Shared starter supply of two seeds per crop in the communal
+chest; one common Food resource; all-or-nothing harvests that leave the mature crop
+intact when its complete yield does not fit. Two independent planting positions per
+existing bed preserve collision footprints. Per-plot revisions and one inventory
+owner serialize conflicting actions while allowing different actors on different plots.
+
+**Implemented:** Clock, developer controls, contextual crop selection, planting,
+automatic three-stage growth, complete harvesting, returned seeds and replant/reset.
+Crop/clock/plot parameters and pixel assets are data-driven and modular.
+
+**Validation/exit:** Seed consumption, stages, continuous growth, maturity checks,
+correct yields, capacity safety, conflicting harvests, resets and time consistency;
+existing gameplay tests and actual visual inspection. Stop for owner review.
+
+**Excluded:** Consumption/hunger, cooking, electricity, watering, fertilizer, diseases,
+advanced equipment, additional crops, nighttime attacks and beacon countdown.
+This scope supersedes the earlier broad M2/M3 sequence only for the requested slice.
 
 ### M2. Shared resources and basic economy
 **Goal:** Resources matter, but do not become chores.
@@ -219,7 +250,7 @@ No new survival systems, resources, crafting or equipment are authorized.
 - Test day length: **10 minutes** (6 day, 1 dusk, 3 night); seven days approximately 70 minutes plus pauses.
 - Food need: **1 unit per active player per day**. Missing food causes staged penalties before death.
 - Four-player example starting stocks: **10 food, 6 seeds, 6 fuel, 8 scrap, 1 component, 2 biomass**. Scale starting stocks carefully for 2–6 players; do not assume this example is universal.
-- Crops under consideration: Cave Potato (2 days, 3 food), Glowcap (3 days, 2 food + biomass), Bitterleaf (2 days, biomass). Harvest returns a seed. Start with **two plots** for balance testing, with expansion possible.
+- Crops under consideration: Cave Potato (2 days, 3 food), Glowcap (3 days, 2 food + biomass), Bitterleaf (2 days, biomass). Harvest returns a seed. The older two-plot fixture is superseded by **four plots in M2b**.
 - Power example: generator capacity **4**, fuel use **1/day while active**; beacon demand **2**, grow lights **1**, workshop **1**, recovery chamber **2**. Verify when loads consume power and fuel, especially during partial days.
 - Beacon example: earn one signal day after a qualifying powered day/night; short outage pauses; **three consecutive missed days reset** is a candidate to test, not an approved final penalty.
 - Candidate craftables: bandage, basic weapon, salvage tool, backpack expansion, additional farm plot, generator repair, fuel-efficiency upgrade.

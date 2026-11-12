@@ -401,3 +401,92 @@ in-process simulation, not a finished multiplayer mode. Assess icon readability,
 selection feedback, split controls and panel ergonomics during owner playtest.
 Changes are staged for review; no commit was created. Stop before any further
 survival systems or content expansion.
+
+
+## 2026-11-12 — Inventory commit and M2b clock foundation (in progress)
+
+- Revalidated inventory build/core tests and engine smoke tests on both layouts.
+  Created initial project commit `24b7f70` before starting M2b changes.
+- Implemented the independently authorized clock portion while awaiting required
+  farming choices: 6-minute day / 1-minute dusk / 3-minute night, compact day/phase
+  elapsed display, phase progress strip and developer time advancement.
+- Integer simulation ticks with fractional carry passed exact phase boundaries,
+  60Hz partition consistency, custom durations, multi-day skips and serializable
+  state restoration tests. Existing inventory/resource/layout tests passed.
+- Build passed with zero warnings/errors. Live ClockSmoke passed time while exploring
+  and while inventory is open, minute/day/three-day controls, passive time retaining
+  inventory previews, dusk/night boundaries and reset to Day 1.
+- Existing gameplay smoke tests passed again on both layouts with the clock present.
+- Graphical clock capture run passed; inspected the actual gameplay night view and
+  readable clock. Captures are preserved in `docs/screenshots/clock`.
+- Farming is not yet implemented. Pending owner choices: starting seed source,
+  shared Food versus crop-specific foods, and full-inventory harvest behavior.
+  Do not present this increment as completed M2b. No crop artwork or related
+  survival mechanics were added while those decisions remain unanswered.
+
+
+## 2026-11-12 — Completed M2b: basic agriculture and time
+
+### Implemented and observed
+
+- Confirmed owner choices: one shared starter allocation of two seeds per crop,
+  one common Food resource, and all-or-nothing harvesting. Added four independent
+  plots as two positions per existing garden bed on both existing layouts.
+- Personal seed consumption, contextual C / controller shoulder crop selection,
+  E/A planting/inspection/harvesting, passive three-stage growth, exact configured
+  yields, seed returns and replanting. Full harvests remain on mature plots until
+  the entire bundle fits, including returned seeds.
+- Continuous configurable 6/1/3-minute cycle, compact day/phase display and developer
+  minute/day/three-day skips. Existing clock integer-tick/save-state groundwork is retained.
+- Farming shares the inventory state owner's lock; plot-specific session revisions
+  protect planting and harvesting without making independent plots conflict.
+  Growth changes no inventory revision. Starter allocation also updates inventory
+  revision so an earlier snapshot cannot operate on newly inserted seed stacks.
+- New crop/empty-bed/seed/Food PNGs came from the built-in imagegen matched kit;
+  exact prompt, source, recipe and hash are preserved. Native palette/density and
+  pixel anchors match the sanctuary standard. Gameplay inspection prompted a small
+  increase in seedling footprint so sprouts read against the textured soil.
+
+### Validation actually performed
+
+- .NET game build and core suite passed with zero warnings/errors. Godot editor
+  import completed cleanly for scripts, PNGs and the farming art manifest.
+- Unit tests passed seed ownership/costs, stage thresholds, elapsed-cycle maturity,
+  premature-harvest rejection, exact potato/Glowcap yields and returned seeds,
+  replanting, invalid actors/crops, stale/replayed requests and fresh-session reset.
+- Capacity tests covered no free slots, enough space for Food but not the seed,
+  and full grids where the complete bundle fits existing partial stacks. Failed
+  harvests leave plot and inventory versions/contents unchanged. Small starter
+  storage rejects the complete allocation without inserting partial stock.
+- Competing same-plot planting consumed only one seed; 32 two-actor race fixtures
+  accepted simultaneous planting on different plots and exactly one same-plot
+  harvest, with no duplicated yields. Existing inventory race/conservation suites
+  (2,000 transfer commands and 3,000 slot commands) also passed.
+- Full real-engine farming smoke passed on both layouts: withdraw starter seeds,
+  plant all four plots with contextual inputs, grow during inventory management
+  and surface exploration, inspect stage changes, harvest configured yields,
+  reject replay, replant, reject a full-pack harvest, store supplies, collect the
+  preserved crop and reset crops/seeds/inventory/time.
+- Existing movement/collision/passage/foliage/gathering/storage/reset smoke tests
+  passed on both layouts. Inventory UX event tests and clock smoke also passed.
+  Old resource-only assertions now account for starter seeds and locate resource
+  slots by ID, keeping those tests independent of starter stock ordering.
+- Actual graphical farming capture runs passed and were inspected at intended
+  1536×864 gameplay scale. Seedling, growing and both mature-crop views are in
+  `docs/screenshots/farming`. Original sanctuary PNGs, terrain layouts, player
+  collision scene and Scrap/Organic source data are unchanged.
+- Farming export reproducibility, common 64-color palette, binary alpha, native
+  resolutions, root anchors, increasing growth silhouettes and preserved source
+  SHA256 passed. Previous sanctuary exports and preservation checks also passed.
+
+### Scope and review limits
+
+No real network or multi-machine session, physical-controller hardware or Windows
+build was tested. Controller selection was tested with injected engine events;
+multiplayer safety was tested in the authoritative two-actor model. Clock state and
+plot snapshots serialize, but full persistent save/load is not implemented.
+No hunger, consumption, cooking, power, watering, fertilizer, diseases, equipment,
+extra crops, nighttime attacks, beacon countdown or world generator was added.
+The two authored layouts and modular terrain path remain reusable. Stop for owner
+review of this complete slice. M2b changes are staged; inventory baseline commit
+remains `24b7f70`, with no new M2b commit made before review.

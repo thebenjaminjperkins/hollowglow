@@ -8,6 +8,8 @@ static void Check(bool condition, string message)
     if (!condition) throw new Exception(message);
 }
 
+ClockTests.Run();
+FarmingTests.Run();
 SuppliesTests.Run();
 SlotOperationsTests.Run();
 

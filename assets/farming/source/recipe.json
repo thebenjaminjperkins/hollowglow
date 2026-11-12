@@ -1,0 +1,48 @@
+{
+  "tool": "built-in image_gen",
+  "source_sha256": "8a923ca0b0522413f7de30d277a3af0e6941dc8b7899f8ad5b80f4019aeeba9e",
+  "prompt": "prompt.txt",
+  "references": [
+    "assets/sanctuary/machine.png",
+    "assets/sanctuary/garden.png",
+    "assets/sanctuary/mushrooms.png"
+  ],
+  "grid": [
+    4,
+    3
+  ],
+  "processing": "tools/art/build_farming.py",
+  "crop_frames": [
+    32,
+    40
+  ],
+  "crop_anchor": [
+    16,
+    38
+  ],
+  "crop_stage_limits": [
+    [
+      16,
+      18
+    ],
+    [
+      20,
+      25
+    ],
+    [
+      28,
+      34
+    ]
+  ],
+  "bed_frame": [
+    72,
+    56
+  ],
+  "bed_anchor": [
+    36,
+    50
+  ],
+  "palette": "assets/trials/machinery/source/processing.json",
+  "alpha": "binary",
+  "dither": false
+}

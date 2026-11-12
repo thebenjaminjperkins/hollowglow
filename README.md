@@ -4,7 +4,7 @@ Godot .NET/C# prototype of the first approved slice. The creative authority is
 [the Vision](Hollowlight_Vision.md); scope follows [the Roadmap](Hollowlight_Roadmap.md)
 and [Bootstrap](Hollowlight_Bootstrap.md). The Vision remains unchanged; the Roadmap records approved milestones.
 
-Normal play now uses the approved [cohesive sanctuary art standard](assets/sanctuary/README.md):
+Normal play uses the approved [cohesive sanctuary art standard](assets/sanctuary/README.md):
 
 ```sh
 godot --path .
@@ -13,6 +13,58 @@ godot --path .
 The refuge uses matched PNG sprites, modular TileMapLayer terrain and adjustable
 lighting. L compares neutral and lamplit views. Earlier scenes remain available
 for historical comparisons; M2a adds finite gathering and shared-chest transfers without survival consumption.
+
+## M2b — Basic agriculture and time
+
+The inventory milestone was committed as **`24b7f70`** before this work. M2b adds
+four independent planting plots in the two existing sanctuary garden beds and a
+continuous, configurable clock. The default cycle is **6 minutes Day / 1 minute
+Dusk / 3 minutes Night**. The compact clock shows day number, phase and elapsed
+minutes/seconds within that phase. Time and crops continue during inventory use
+and exploration; night adds no enemies, hunger or consumption.
+
+| Crop | Maturity after planting | Complete harvest |
+| --- | --- | --- |
+| Cave Potato | 2 full cycles (20 real minutes by default) | 3 Food + 1 Cave Potato Seed |
+| Glowcap | 3 full cycles (30 real minutes by default) | 2 Food + 1 Organic Material + 1 Glowcap Seed |
+
+The communal chest starts with **two seeds of each crop**, shared once per run.
+Withdraw seeds into your own pack before planting. Approach the front of a bed:
+**C / controller LB or RB** selects the crop, and **E / A** plants, inspects growing
+crops or harvests mature ones. Corner marks identify the selected planting position.
+Plots show seedling, growing and mature sprites. Harvesting requires room for the
+**entire** yield, including the returned seed. If it will not fit, the crop remains
+mature and untouched. Make room, return, harvest and replant using the returned seed.
+
+**F4** advances a minute; **F5** a full cycle; **Shift+F5** three cycles. **R** resets
+time to Day 1, clears crops/personal inventory and restores the shared starter seeds
+and finite salvage. These are developer controls; no crop upkeep is required.
+
+Configuration: `data/clock.json` contains phase durations; `data/farming.json`
+contains crop durations, growth-stage threshold, seed costs, yields, starter stock
+and per-bed plot offsets. Six personal slots, stack limit ten and communal capacity
+are unchanged. Farming's default starter stock needs at least two communal slots;
+`WorldConfig.FarmingEnabled` can disable farming for isolated inventory fixtures.
+The one-slot inventory test explicitly does so rather than dropping seeds or enlarging storage.
+
+Planting/harvesting share the authoritative inventory lock. Per-plot session/revision
+checks prevent duplicate commands without making unrelated plots conflict. Growth
+is derived from elapsed integer simulation ticks and planted timestamps. Clock
+state and plot snapshots serialize for future save/synchronization work; a persistent
+save/load system and network sessions are not implemented in this milestone.
+
+```sh
+godot --headless --fixed-fps 60 --path . res://tools/FarmingSmoke.tscn
+godot --headless --fixed-fps 60 --path . res://tools/FarmingSmoke.tscn -- --sanctuary-variant
+godot --fixed-fps 60 --path . res://tools/FarmingSmoke.tscn -- --capture-farm
+```
+
+The scripted playthrough verifies growth during inventory/exploration, yields,
+full-pack safety, replanting and reset. Reviewed gameplay captures are in
+[docs/screenshots/farming](docs/screenshots/farming/). See the
+[farming asset guide](assets/farming/README.md) for preserved source art and processing.
+Both authored layouts and modular terrain assembly remain intact; this slice adds
+no world generator, hunger, cooking, power, watering, diseases or additional crops.
 
 ## Prerequisites
 
@@ -140,7 +192,7 @@ use the same lock and session/revision token. UI gesture tokens are captured at
 selection/pointer-down and stale previews cannot move a replacement stack.
 
 No weight, encumbrance, crafting, hunger, fuel or power is implemented. Existing
-refuge vegetation/workstations remain decorative; the authored surface growth is
+refuge workstations remain decorative; garden beds now contain functional plots; the authored surface growth is
 the finite Organic Material source. Approved art and modular terrain are unchanged.
 
 The normal refuge preserves 384×216 world coverage with a 768×432 logical grid,
