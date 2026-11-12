@@ -49,6 +49,7 @@ public partial class RoomPresentation : Node
         {
             if (child is not Interactable target) continue;
             target.Art.Hide();
+            if (target.IsFoodSource) continue;
             target.AddChild(new RoomSprite { Name = "RoomArt", Asset = target.IsStorage ? "storage" : target.PresentationAsset, InteractionOwner = target });
         }
         _ambient = new CanvasModulate { Color = AmbientTint };

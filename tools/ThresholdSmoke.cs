@@ -30,6 +30,8 @@ public partial class ThresholdSmoke : Node
             {
                 string entry = ProjectSettings.GetSetting("application/run/main_scene").AsString();
                 var refuge = GD.Load<PackedScene>(entry).Instantiate<SanctuaryRoom>();
+                refuge.HungerEnabled = false;
+                refuge.ScavengingEnabled = false;
                 refuge.InputOverride = _input;
                 AddChild(refuge);
                 _world = refuge.World;
@@ -38,6 +40,9 @@ public partial class ThresholdSmoke : Node
             else
             {
                 _world = GD.Load<PackedScene>("res://scenes/Threshold.tscn").Instantiate<ThresholdWorld>();
+                _world.Config = (WorldConfig)_world.Config.Duplicate();
+                _world.Config.HungerEnabled = false;
+                _world.Config.ScavengingEnabled = false;
                 var actor = _world.GetNode<PlayerCharacter>("Player");
                 actor.AddChild(_input);
                 actor.InputPath = new NodePath("SmokeInput");

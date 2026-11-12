@@ -24,9 +24,18 @@ public sealed class GameClock
 {
     private readonly long _dayTicks, _duskTicks, _nightTicks;
     private long _elapsedTicks;
+    private object _advanceGate = new();
+    private Action<long>? _advanced;
+    // Bind at session initialization. Time advancement and inventory/meal commands
+    // subsequently share the same authority lock, including direct developer skips.
+    internal void BindAuthority(object gate, Action<long> advanced)
+    {
+        if (_advanced != null) throw new InvalidOperationException("Clock already has an authority.");
+        _advanceGate = gate; _advanced = advanced;
+    }
     private double _fractionalTick;
     public long CycleTicks { get; }
-    public long ElapsedTicks => _elapsedTicks;
+    public long ElapsedTicks { get { lock (_advanceGate) return _elapsedTicks; } }
     public GameClock(ClockDefinition definition, ClockState? initial = null)
     {
         _dayTicks = Duration(definition.DaySeconds);
@@ -49,22 +58,29 @@ public sealed class GameClock
     }
     public void Advance(double seconds)
     {
-        if (!double.IsFinite(seconds) || seconds < 0) throw new ArgumentOutOfRangeException(nameof(seconds));
-        double ticks = seconds * TimeSpan.TicksPerSecond + _fractionalTick;
-        long whole = checked((long)Math.Round(ticks));
-        long next = checked(_elapsedTicks + whole);
-        _elapsedTicks = next;
-        _fractionalTick = ticks - whole;
+        lock (_advanceGate)
+        {
+            if (!double.IsFinite(seconds) || seconds < 0) throw new ArgumentOutOfRangeException(nameof(seconds));
+            double ticks = seconds * TimeSpan.TicksPerSecond + _fractionalTick;
+            long whole = checked((long)Math.Round(ticks));
+            long next = checked(_elapsedTicks + whole);
+            _elapsedTicks = next;
+            _fractionalTick = ticks - whole;
+            _advanced?.Invoke(_elapsedTicks);
+        }
     }
-    public ClockState SaveState() => new(_elapsedTicks, _fractionalTick);
+    public ClockState SaveState() { lock (_advanceGate) return new(_elapsedTicks, _fractionalTick); }
     public ClockSnapshot Snapshot()
     {
-        long inCycle = _elapsedTicks % CycleTicks;
-        if (inCycle < _dayTicks) return new(_elapsedTicks, CycleTicks, _elapsedTicks / CycleTicks + 1,
-            DayPhase.Day, inCycle, _dayTicks);
-        if (inCycle < _dayTicks + _duskTicks) return new(_elapsedTicks, CycleTicks, _elapsedTicks / CycleTicks + 1,
-            DayPhase.Dusk, inCycle - _dayTicks, _duskTicks);
-        return new(_elapsedTicks, CycleTicks, _elapsedTicks / CycleTicks + 1,
-            DayPhase.Night, inCycle - _dayTicks - _duskTicks, _nightTicks);
+        lock (_advanceGate)
+        {
+            long inCycle = _elapsedTicks % CycleTicks;
+            if (inCycle < _dayTicks) return new(_elapsedTicks, CycleTicks, _elapsedTicks / CycleTicks + 1,
+                DayPhase.Day, inCycle, _dayTicks);
+            if (inCycle < _dayTicks + _duskTicks) return new(_elapsedTicks, CycleTicks, _elapsedTicks / CycleTicks + 1,
+                DayPhase.Dusk, inCycle - _dayTicks, _duskTicks);
+            return new(_elapsedTicks, CycleTicks, _elapsedTicks / CycleTicks + 1,
+                DayPhase.Night, inCycle - _dayTicks - _duskTicks, _nightTicks);
+        }
     }
 }

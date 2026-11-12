@@ -9,6 +9,8 @@ public partial class Interactable : StaticBody2D
     public string DisplayName { get; set; } = "";
     public string ResourceId { get; set; } = "";
     public string PresentationAsset { get; set; } = "salvage";
+    public bool IsFoodSource { get; set; }
+    public bool Depleted { get; private set; }
     public bool IsStorage { get; set; }
     public PixelSprite Art { get; private set; } = null!;
 
@@ -26,7 +28,8 @@ public partial class Interactable : StaticBody2D
 
     public void SetCollected()
     {
-        Hide();
+        Depleted = true;
+        if (!IsFoodSource) Hide();
         CollisionLayer = 0;
     }
 }

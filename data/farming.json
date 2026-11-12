@@ -9,11 +9,6 @@
       "id": "glowcap_seed",
       "name": "Glowcap Seed",
       "shortName": "Glowcap Seed"
-    },
-    {
-      "id": "food",
-      "name": "Food",
-      "shortName": "Food"
     }
   ],
   "startingStorage": {

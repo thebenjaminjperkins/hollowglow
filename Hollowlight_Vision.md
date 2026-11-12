@@ -1,124 +1,256 @@
 # HOLLOWLIGHT
-## Game Vision | Living document | v0.2
+## Game Vision | Living document | v0.3 — approved design revision
 
-> **A cozy, melancholic 2D pixel-art survival roguelite for 2–6 friends.** Maintain a refuge beneath a broken world, venture above for finite resources, and keep a rescue signal alive long enough to be found.
+> **A cozy, melancholic 2D pixel-art cooperative survival roguelite for 2–6 players.** Build a life beneath a mountain, venture into a finite and hostile surface world, and maintain a rescue signal long enough to be found. Optional player conflict can complicate a shared struggle without becoming its dominant strategy.
 
-This document describes the intended player experience, fiction, tone, and gameplay principles. It is **not** a technical implementation specification. The companion Roadmap defines what to test and when; Bootstrap defines how to initialize the project.
+This document describes the intended experience, atmosphere and design principles,
+not an implementation specification or permission to build future systems. The
+Roadmap records completed work and proposes incremental tests; Bootstrap governs
+initialization and the first slice. This revision records the owner's approved direction. Individual future slices and
+unresolved rules still require review; approval of the Vision is not gameplay authorization.
 
 ## 1. The experience we are making
 
 Hollowlight alternates between two feelings:
 
-- **Below:** warmth, safety, shared work, discovery, and a home that becomes more capable and personal. Rough cavern walls, hanging vines, strange luminous growth, reclaimed machines, gardens, soft lamps, and improvised technology coexist.
-- **Above:** quiet beauty and unease in a ruined world. Daylight permits exploration, salvaging, and occasional combat. Risk varies by location. At night the surface becomes exceptionally dangerous; being caught far from home is a consequential choice.
+- **Below:** warmth, relative safety, shared work and a home that becomes more capable
+  and personal. Irregular cavern walls, hanging vegetation, strange luminous growth,
+  textured salvaged machines, gardens, soft lamps and improvised technology coexist.
+- **Above:** quiet beauty and unease among abandoned structures, finite resources and
+  hostile environments. Daylight permits exploration, scavenging and confrontation
+  or evasion. At night, exposure becomes especially dangerous.
 
-The world should be **melancholic and mysterious, not relentlessly frantic**. Early days are forgiving. Players should have time to learn, tend plants, and enjoy each other's company. Later days ask harder questions about risk, food, power, time, and loyalty. Humor can emerge from players and slightly absurd technology without destroying the atmosphere.
+The world is melancholic and mysterious, not relentlessly frantic. Early days are
+forgiving. Players have time to learn, tend plants and enjoy each other's company.
+Later decisions involve risk, food, electricity, supplies, time and loyalty. Humor
+can emerge from friends and slightly absurd technology without dissolving the sorrow.
 
-**Core promise:** A group can spend a quiet day making the refuge better, then choose a risky expedition because what lies outside could make tomorrow easier. Both activities matter.
+**Core promise:** A quiet day improving the sanctuary and a risky expedition that
+makes tomorrow easier are both useful ways to contribute. Circumstances encourage
+players to divide work naturally, without mandatory roles or initially fixed classes.
 
-## 2. The core loop
+## 2. Acquire, sustain and protect
 
-1. **Assess:** Review the rescue beacon, food, fuel, crops, tools, injuries, and available daylight.
-2. **Choose labor:** Players independently decide whether to farm, cook, repair, craft, scout, salvage, hunt, or accompany others. Specialization is useful, but nobody is forced into a job.
-3. **Explore:** Venture into a different procedurally generated world each run. Nearby salvage is limited; distant sites offer greater rewards and greater risk.
-4. **Return and allocate:** Store loot, share supplies, craft equipment, repair infrastructure, ration food, and choose what receives power.
-5. **Endure night:** The refuge is normally safe from direct attacks, but survival systems still consume resources. The surface becomes far more hostile. Players may stay inside, work, rest, or risk a night expedition.
-6. **Repeat:** Better tools, weapons, storage, and eventually transportation extend the group's reach. Survive until rescue can locate and extract the group.
+Three activities depend on one another:
 
-The loop must not require a siege every night. **Night is primarily a logistical and exploration deadline**, not a compulsory tower-defense round.
+- **Acquire:** Explore, scavenge and transport resources; confront or evade creatures.
+  Finite nearby supplies eventually push expeditions farther from safety.
+- **Sustain:** Farm, craft, generate power, repair equipment and allocate resources.
+  Supplies become meals, functioning communications and better expedition capability.
+- **Protect:** Control sanctuary entrances, secure exposed infrastructure, respond to
+  shortages and emergencies, and rescue teammates. Protection enables future work.
 
-## 3. Victory, loss, and the beacon
+The daily rhythm is to assess needs and daylight, choose work, explore or improve
+home, return and allocate, then prepare for night. Prepared groups should be able
+to spend roughly one or two days underground without an expedition. Quiet work
+must remain worthwhile; growth and normal machine operation should not demand
+constant clicking or repetitive upkeep.
 
-The rescue beacon is the run's central objective. It must remain operational and powered to accumulate rescue progress. Difficulty determines the required number of successful signal days and may change environmental pressure.
+**Night is primarily a logistical and exploration deadline, not a compulsory
+siege round.** Risk comes from location, exposure, depletion and decisions as well
+as elapsed time. More players add both capability and personal consumption; shared
+infrastructure costs should not simply multiply with every player.
 
-- A short outage should be recoverable, for example by pausing progress.
-- A prolonged outage should impose a serious setback; a full reset after multiple missed days is a candidate, **not yet a final rule**.
-- Players must understand the beacon's status, the power it requires, and the consequences of an outage.
-- Rescue should feel like a culmination of the group's preparation, not a timer that can be ignored. A final extraction event is an **open design choice**.
-- A run can fail when the group can no longer recover, or when other explicitly communicated defeat conditions are met. Avoid sudden opaque game-overs.
+## 3. The mountain sanctuary and its entrances
 
-A seven-day rescue requirement is the **first playtest target**, not the definitive length of a full game. The intended full-game length and save/resume model remain open.
+The sanctuary is a relatively secure shared home, not a menu between expeditions.
+It eventually supports underground plots, personal inventories and communal storage,
+food preparation, generation and distribution of power, a radio beacon, a workshop,
+repairs, recovery facilities and modest personalization.
 
-## 4. Survival as a small interconnected economy
+Substantial **manually controllable doors** protect entrances. Players can choose
+to open or close them at any time. Closed doors provide meaningful safety; open
+entrances create opportunities for creatures to enter. Neither compulsory nightly
+attacks nor automatically scheduled door openings define the experience.
 
-Keep the initial economy legible. Its central constraints are **food, power, materials, daylight, and human labor**.
+Relative safety does not promise invincible doors or solve every environmental
+hazard. Door durability, breach behavior, creature pursuit and access rules remain
+to be tested. The sanctuary should stay comfortable enough to reward returning.
+Infrastructure should solve recognizable problems without making the base a chore.
 
-- **Food:** Players consume it. Crops occupy plots and take days to mature; immature plants cannot be harvested. Hunting and scavenging provide alternatives. Prepared groups should be able to stay underground for roughly **one or two days** without an expedition.
-- **Power:** A generator or other source supplies limited capacity and consumes fuel or other inputs. The beacon is essential, but workshops, grow lights, medical equipment, and other consumers compete for power. Turning something off is a meaningful choice.
-- **Materials:** Salvage from the surface becomes repairs, tools, weapons, storage, improved production, and later vehicles. Avoid a needlessly granular inventory of screws and bolts.
-- **Labor:** Planting, harvesting, repairs, cooking, and scavenging require player attention. Growth and machine operation can continue without constant clicking. More players add capability but also consume more resources.
-- **Risk:** Better equipment makes dangerous exploration more survivable, while infrastructure investments improve long-term sustainability. Neither route should be universally optimal.
+## 4. Safe and exposed agriculture
 
-**Balance philosophy:** Early game resembles forgiving survival; later game is balanced survival with meaningful shortages. Shortages should first create choices and recoverable penalties rather than instant death. Scarcity should create memorable negotiations, not compulsory busywork.
+Preserve the existing underground farming system as a dependable foundation:
+limited growing space, readable growth stages, time to maturity and seed renewal.
+The current Cave Potato and Glowcap crops, four plots and inventory-safe harvests
+remain valid completed work. This vision update does not replace or rebalance them.
 
-## 5. The refuge
+Future outdoor agriculture offers higher productivity **or** faster growth in
+exchange for exposure to the hostile environment, especially at night. Players may
+invest in protection, lighting or other infrastructure to reduce risk. Outdoor
+crops are **not automatically destroyed every night**. Exact threats, protection
+benefits, yields and growth rates require playtesting and approval.
 
-The underground refuge is a **relatively secure, shared home**, not merely a menu between missions. It should contain or eventually support:
+This expresses a broader principle: **exposing infrastructure to environmental
+danger can increase productivity**. Safe production and exposed production should
+both retain value; neither should universally dominate the other.
 
-- Garden plots with visually distinct growth stages and a small number of crops with different purposes.
-- Shared storage and a place to prepare food.
-- Generator, power distribution/priorities, and the radio beacon.
-- A workshop for tools, weapons, repairs, and infrastructure.
-- A recovery area and eventually a strange bioreconstitution device.
-- Room for modest decoration, personalization, and visual improvements without turning decoration into a mandatory system.
+## 5. A small interconnected resource economy
 
-Infrastructure should solve recognizable problems. A better generator frees power for other devices. A better workshop makes useful equipment. More plots increase production capacity but require seeds, time, and labor. The base should not demand constant maintenance once basic systems are stable.
+Food, electricity, materials, daylight and human labor are the central constraints.
+Use a small, understandable set of provisional resource categories:
 
-## 6. The surface and procedural discovery
+- Metal
+- Biomass
+- Basic machine parts
+- Advanced machine parts
+- Food
+- Fuel
+- Seeds
 
-Each run generates a different, navigable surface with recognizable environmental themes, routes, landmarks, salvage sites, and risk gradients. The goal is **fresh decisions**, not random clutter.
+These are categories to explore, not an approved final item catalog. Existing Scrap
+and Organic Material remain functioning resources. How they map to Metal and
+Biomass, and whether their names change, requires an explicit migration decision.
+Do not silently add all categories, rename IDs or invalidate inventory/crop data.
 
-- Nearby sites are accessible and relatively forgiving but contain finite salvage.
-- More distant sites demand time, supplies, and equipment; they offer rare components and discoveries.
-- Daytime threats vary by location. Some areas are dangerous even at noon.
-- Night changes the threat landscape dramatically. Players should see or hear warning signs before the danger escalates.
-- The surface contains quiet discoveries, traces of ordinary lives, and mystery, not just loot containers and enemies.
-- Better backpacks, tools, weapons, protective equipment, and perhaps repaired vehicles expand the practical exploration radius.
+Resources need competing uses. Materials invested in an expedition cannot also
+repair the sanctuary; fuel spent on optional production may be needed to sustain
+communications. Avoid an inventory of arbitrary screws and bolts or many nearly
+identical intermediate ingredients.
 
-Procedural generation should preserve authored-feeling landmarks, coherent routes, and safe traversal. A seed should be replayable for debugging, but players should not know the best route on a fresh run.
+Food production, surface food scavenging and later outdoor agriculture provide
+complementary routes to sustaining the group. Hunger should first create legible,
+recoverable penalties rather than sudden death. M3a's personal meals and gradual
+recovery are the current foundation; later health consequences are not established.
+The known six-player underground-food deficit is accepted pending future production
+and acquisition options, not permission to silently increase existing yields.
 
-## 7. The Bloom and the Long Dark (working fiction)
+## 6. Power and competing investments
 
-The surface is being reclaimed by a strange, hostile growth. By day it can appear dormant, even beautiful. At night it becomes active: vines spread, flowers open, and some organisms hunt living things. Darkness and the Bloom are related, but the precise mechanism is **intentionally mysterious and undecided**.
+The sanctuary needs electricity for communications and other useful infrastructure.
+Explore generation strategies such as fuel-based and biomass generators, with
+different costs and benefits. Multiple generator types are candidates for later
+experiments, not a requirement to build them together in the first power slice.
+Power storage and selectively shutting down consumers should help groups handle
+shortages. The radio beacon is a critical consumer, but allocating all power to it
+should have understandable consequences elsewhere.
 
-The underground has an unusual protective quality, perhaps geological, biological, technological, or some combination. It should feel mystical without excluding useful machinery.
+Progression asks players to choose among:
 
-Do not lock the game into zombies, a specific catastrophe explanation, or a large monster roster yet. Favor threats that are readable, have counterplay, and reinforce the day/night distinction. Environmental danger may matter as much as direct combat.
+- Weapons and armor
+- Backpacks and tools
+- Agricultural improvements
+- Power generation and storage
+- Sanctuary repairs and protection
+- Transportation
+- Resurrection infrastructure
 
-## 8. Players, cooperation, and setbacks
+Investments should change what players can accomplish: reach a distant site,
+transport a useful load, protect a crop or recover a friend. Numerical efficiency
+can support those changes, but statistics alone are not the purpose of progression.
+Exact recipes, costs, power priorities and whether any crop equipment needs power
+remain decisions for their own slices; existing crops gain no new upkeep here.
 
-- Target **2–6 players**, locally or online eventually, with meaningful participation for small and large groups.
-- Players share a common rescue goal but can pursue different activities. Cooperation should emerge from shortages and opportunities, not assigned chores.
-- Avoid mandatory classes initially. Roles, specialties, and friendly-fire rules are open design choices.
-- Downed players should be rescuable. If lost, a recovered DNA sample plus scarce food/biomass/power may allow reconstruction.
-- **Vegetable-human resurrection** is a welcome tonal accent: a revived friend may emerge with cosmetic botanical traits. Keep the joke charming and the resource tradeoff meaningful.
-- Do not reward griefing or killing teammates as a dominant resource strategy. Whether betrayal is allowed, and in which modes, requires an explicit design decision.
-- Scale per-person needs with player count, but avoid multiplying all infrastructure costs and chores linearly.
+## 7. The surface, exploration and combat
 
-## 9. Art, sound, and interface
+Each run should generate a different, navigable world with coherent routes,
+recognizable landmarks, abandoned structures, finite salvage and risk gradients.
+Procedural generation should create fresh decisions rather than random clutter,
+and preserve useful authored-feeling places and safe traversal. Reproducible seeds
+support testing. Whether sanctuary layouts themselves are generated remains open;
+current authored layouts and modular art are reusable development fixtures.
 
-**Visual target:** Readable top-down pixel art with warm, layered underground spaces and a muted, overgrown, broken surface. Cozy cave gardens and humming salvaged electronics contrast with dark vines, ruins, fog, and nocturnal movement. Stylization matters more than asset count.
+Nearby supplies are accessible and relatively forgiving. As they are exhausted,
+travel becomes longer and more dangerous. Distant sites and hostile creatures
+provide access to valuable resources. Some places remain dangerous at noon; night
+makes exposure especially risky. Warnings should let players judge escalating danger.
+Quiet discoveries and traces of ordinary lives matter alongside loot and enemies.
 
-- Use coherent silhouettes, lighting, palette, and scale; do not leave the prototype permanently as generic rectangles.
-- Make growth stages, powered machines, beacon status, hazards, salvageable objects, and approaching night visually clear.
-- Atmosphere should come from environmental storytelling, ambient sound, music restraint, and contrast between safe and unsafe spaces.
-- Interfaces should make resource decisions legible without drowning players in meters and menus.
-- Humor should be occasional and situational; the world should retain its quiet sorrow.
+Combat should be situationally necessary over a run, while an individual encounter
+may be avoided through preparation, movement, stealth or clever decisions. Avoidance
+must have useful counterplay; neither mandatory fighting at every encounter nor
+universal consequence-free evasion is the target. Enemy designs and any stealth
+mechanics are subject to testing, not a commitment to a large separate system.
 
-## 10. What success feels like
+Weapons, armor, improved tools, backpacks and eventually transportation make more
+dangerous expeditions feasible. Equipment improves options without removing the
+need to plan a return trip or protect what the group brings home.
 
-A successful session produces stories such as: "We stayed home to harvest one more crop," "We shut down the workshop to keep the beacon alive," "We almost lost someone collecting fuel," or "We spent our last vegetables bringing our friend back."
+## 8. Players, conflict and recovery
 
-We will judge the game by whether players **choose** to explore, negotiate resource use, divide work naturally, enjoy downtime, and want to attempt another run.
+The target is 2–6 players, eventually locally and online, working toward a shared
+rescue. No mandatory classes are established. Specialties may emerge through gear,
+experience and the needs of the moment.
 
-## 11. Decisions intentionally open
+Optional player conflict is part of the intended direction: players may eventually
+damage or kill each other. Scarcity can invite selfish allocation, withheld supplies
+or betrayal, but player killing must not become the dominant resource strategy.
+Which modes permit it, defaults, friendly-fire rules, consent/access controls and
+lethality remain consequential decisions. This does not authorize PvP implementation.
 
-- Final title and detailed explanation of the catastrophe.
-- Exact enemies, crops, recipes, machines, and numerical balance.
-- Classes or equipment-driven specialties.
-- Full beacon outage penalty and final extraction rules.
-- Permadeath, friendly fire, betrayal, and resurrection timing.
-- Fixed versus generated refuge layout; vehicles and distant outposts.
-- Full-run length, saving, difficulty modes, and meta-progression.
+Teammate rescue should matter. A downed-state test precedes final death rules.
+Recovered DNA plus scarce food, biomass and power may eventually support strange
+bioreconstitution. A revived friend with cosmetic botanical traits is a welcome
+tonal accent, provided the resource tradeoff is meaningful. Costs, timing, failure
+conditions and permanent death remain open; no resurrection system is implied by
+current hunger penalties.
 
-The Roadmap should present these as decisions to test and ask the project owner about, not silently resolve them.
+## 9. Victory, loss and the rescue beacon
+
+The group must survive a difficulty-dependent number of days while maintaining a
+functioning radio beacon. Power and signal status should make rescue progress and
+outage consequences understandable.
+
+Short signal interruptions should be recoverable. Prolonged loss may reset progress
+or impose a substantial delay; exact thresholds, qualifying signal time and setback
+rules remain open to playtesting. The final extraction sequence is also unresolved.
+Avoid sudden opaque game-overs. Rescue should culminate the group's preparation
+rather than become a timer that can be ignored.
+
+Seven days remains an initial complete-run playtest target, not the final length
+for every difficulty. Full-run duration, defeat conditions and save/resume policy
+require later approval. The immediate priority is connecting the first complete
+survival loop before adding broad progression or content libraries.
+
+## 10. The Bloom and the Long Dark (working fiction)
+
+Strange hostile growth reclaims the surface. By day it can look dormant and beautiful;
+at night vines spread, flowers open and some organisms hunt living things. Darkness
+and the Bloom are related, but the mechanism remains deliberately mysterious.
+The underground may be protected by geology, biology, technology or a combination.
+It should feel mystical without excluding useful machinery.
+
+Do not lock the game into zombies, a specific catastrophe or a large monster roster.
+Threats should be readable, support counterplay and reinforce the atmosphere.
+Environmental danger can matter as much as direct combat.
+
+## 11. Art, sound and interface
+
+The approved sanctuary establishes the provisional production standard: coherent
+pixel density and palette, organic silhouettes, material texture and wear, modular
+PNG sprites/terrain atlases, consistent directional animation and independently
+adjustable environmental light. New assets should meet the existing quality target
+at actual gameplay zoom, not only in enlarged reference art. Preserve reusable
+terrain and props suitable for future procedural assembly, rather than a painted
+whole-room background.
+
+Warm cave gardens and humming electronics contrast with muted ruins, luminous
+growth, fog and nocturnal movement. Ambient sound, restrained music and environmental
+storytelling should support that contrast. Keep crop stages, machines, hazards,
+interactions and approaching night readable without excessive noise. Interfaces
+should expose decisions through compact status and contextual prompts, not meters
+and complicated menus. Humor stays occasional; the world retains its quiet sorrow.
+
+## 12. Established direction, provisional ideas and open decisions
+
+**Established direction:** Cooperative 2–6-player survival with optional conflict;
+Acquire/Sustain/Protect; relatively secure mountain sanctuary and manual protective
+doors; finite surface resources and outward pressure; safe underground versus
+productive exposed agriculture; competing investments; critical powered radio;
+recoverable short outages; coherent modular pixel art and review between slices.
+
+**Provisional ideas:** The seven resource categories and final item names; generator
+variants and operating costs; outdoor productivity/protection values; specific
+craftables and equipment; seven-day test duration; DNA/vegetable reconstruction
+recipe; particular enemies and the Bloom's explanation. These are not all approved
+for implementation merely because they appear here.
+
+**Unresolved choices:** Conflict modes/defaults and lethality; beacon outage and
+extraction rules; difficulty and persistent saves; refuge generation and world scale;
+transportation form; death/resurrection timing; resource migration and recipes;
+metaprogression and final title. Ask before finalizing consequential choices.
+
+Success means players choose to explore, negotiate resource use, divide work
+naturally, enjoy downtime and want another run. Stories such as “we shut down the
+workshop to keep the beacon alive” or “we spent our last vegetables bringing a
+friend back” express the intended relationships rather than authorize new systems.

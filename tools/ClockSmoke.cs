@@ -16,6 +16,8 @@ public partial class ClockSmoke : Node
         {
             var input = new SmokeInput();
             var room = GD.Load<PackedScene>(ProjectSettings.GetSetting("application/run/main_scene").AsString()).Instantiate<SanctuaryRoom>();
+            room.HungerEnabled = false;
+            room.ScavengingEnabled = false;
             room.InputOverride = input; AddChild(room);
             var world = room.World; var actor = world.GetNode<PlayerCharacter>("Player");
             await Frames(3);

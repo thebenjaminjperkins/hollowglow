@@ -11,6 +11,9 @@ public partial class SanctuaryRoom : Node
     [Export] public Color AmbientTint { get; set; } = new(0.78f, 0.80f, 0.84f);
     [Export(PropertyHint.Range, "0,2,0.05")] public float LampEnergy { get; set; } = 0.9f;
     [Export(PropertyHint.Range, "0.5,2,0.05")] public float LampRadiusScale { get; set; } = 1.15f;
+    public bool ScavengingEnabled { get; set; } = true;
+    public int WorldSeed { get; set; } = 1701;
+    public bool HungerEnabled { get; set; } = true;
     public PlayerInput? InputOverride { get; set; }
     public ThresholdWorld World => _world;
     public RoomPresentation Presentation => _presentation;
@@ -33,6 +36,10 @@ public partial class SanctuaryRoom : Node
             ConfigureWindow(GetWindow());
             bool capture = Array.Exists(OS.GetCmdlineUserArgs(), arg => arg == "--capture-room");
             _world = GD.Load<PackedScene>("res://scenes/Threshold.tscn").Instantiate<ThresholdWorld>();
+            _world.Config = (WorldConfig)_world.Config.Duplicate();
+            _world.Config.HungerEnabled = HungerEnabled;
+            _world.Config.ScavengingEnabled = ScavengingEnabled;
+            _world.Config.WorldSeed = WorldSeed;
             _actor = _world.GetNode<PlayerCharacter>("Player");
             PlayerInput? input = InputOverride ?? (capture ? new RoomCaptureInput() : null);
             if (input != null)

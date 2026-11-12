@@ -6,11 +6,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../scripts/core/SalvageState.cs" Link="SalvageState.cs" />
+    <Compile Include="../scripts/core/Hunger.cs" Link="Hunger.cs" />
+    <Compile Include="../scripts/core/SharedHunger.cs" Link="SharedHunger.cs" />
+    <None Include="../data/hunger.json" Link="data/hunger.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/GameClock.cs" Link="GameClock.cs" />
     <Compile Include="../scripts/core/Agriculture.cs" Link="Agriculture.cs" />
     <Compile Include="../scripts/core/SharedAgriculture.cs" Link="SharedAgriculture.cs" />
     <None Include="../data/farming.json" Link="data/farming.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/SharedSupplies.cs" Link="SharedSupplies.cs" />
+    <Compile Include="../scripts/core/FoodScavenging.cs" Link="FoodScavenging.cs" />
+    <None Include="../data/food_scavenging.json" Link="data/food_scavenging.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/SupplySetup.cs" Link="SupplySetup.cs" />
     <None Include="../data/supplies.json" Link="data/supplies.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/CaveLayout.cs" Link="CaveLayout.cs" />

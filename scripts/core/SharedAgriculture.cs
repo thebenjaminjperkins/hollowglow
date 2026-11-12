@@ -13,6 +13,8 @@ public sealed partial class SharedSupplies
         lock (_gate)
         {
             if (_agriculture != null) throw new InvalidOperationException("Farming is initialized once per session.");
+            if (_mealClock != null && !ReferenceEquals(_mealClock, clock))
+                throw new ArgumentException("Farming and meals must share the session clock.");
             var candidate = new Agriculture(setup, clock, plotIds);
             foreach (var crop in candidate.Crops)
                 if (!_resources.ContainsKey(crop.SeedResource) || crop.Yields.Keys.Any(id => !_resources.ContainsKey(id)))

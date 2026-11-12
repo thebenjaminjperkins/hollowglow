@@ -1,7 +1,8 @@
 {
   "resources": [
     { "id": "scrap", "name": "Scrap", "shortName": "Scrap" },
-    { "id": "organic", "name": "Organic Material", "shortName": "Organic" }
+    { "id": "organic", "name": "Organic Material", "shortName": "Organic" },
+    { "id": "food", "name": "Food", "shortName": "Food", "edible": true }
   ],
   "sites": [
     { "id": "radio-shell", "name": "radio shell", "resourceId": "scrap", "quantity": 12, "x": 432, "y": 160, "asset": "salvage" },

@@ -250,3 +250,107 @@ Dates use the owner's America/New_York timezone.
 - M2b ends here for owner review. No hunger, consumption, cooking, power, watering,
   diseases, advanced equipment, extra crops, attacks, beacon countdown or world
   generator was implemented. Actual multiplayer transport and persistent saves remain later.
+
+
+## M3a approved food consumption and gradual recovery — 2026-11-12
+
+- Revalidated and committed approved M2b as `453114a` before changing gameplay.
+- Owner approved hybrid personal eating, 1 Food/day, 2 starting personal Food per
+  actor, dawn settlement and warning/10%/20% movement penalties. No automatic
+  communal withdrawals. No crop, seed-stock or four-plot rebalance.
+- Owner adjusted recovery: satisfying a day reduces accumulated misses gradually,
+  rather than erasing a prolonged starvation streak. Default implementation removes
+  one per completed daily requirement, configurable as `recoveryPerMeal`. Manual
+  completion recovers immediately; dawn does not recover that credit again. A
+  partial meal does not recover, and an incomplete daily deadline adds one miss.
+- Fed starts without free meal credit; the first obligation closes at Day 2 dawn.
+  Food cannot be banked as future credit or eaten beyond the current requirement.
+  Existing Food moved to the common catalog with edible metadata; no live resources
+  were added. Synthetic extra edible types exist only in tests.
+- Inventory authority owns consumption, meal credit and recovery under one lock.
+  The clock binds to that lock before session exposure; every advance settles all
+  crossed dawns. Session/revision/day requests reject retries and stale input.
+  UI remains presentation and commands, with contextual mouse/F/RS Eat controls.
+- Owner explicitly accepts the six-player deficit pending separate future surface
+  food scavenging, outdoor agriculture and infrastructure. M3a changes none of those.
+- Seven-day simulations use authoritative crop/inventory/meal operations and finite
+  care schedules, report daily stock and missed deadlines, and conserve every Food
+  unit. They are timing scenarios rather than measured human multiplayer sessions.
+- Preserve all approved PNG/atlas art, modular terrain, camera, collisions, ranges,
+  inventory capacities, transfers, crop data and clock phases. Actual procedural
+  generation, transport, persistent saves and late joining remain future work.
+- Stop after validation for owner review; no additional systems are approved here.
+
+
+## Design documentation revision — proposed sequence — 2026-11-12
+
+- Owner requested a documentation/planning update after M3a, without authorizing
+  new gameplay or technical initialization changes. Bootstrap remains unchanged.
+- Vision v0.3 records the owner's current direction: Acquire/Sustain/Protect,
+  protective manual sanctuary doors, safe underground versus productive exposed
+  agriculture, finite surface supplies, optional player conflict, competing
+  capability investments and recoverable radio interruptions.
+- Resource categories (Metal, Biomass, basic/advanced machine parts, Food, Fuel,
+  Seeds) are provisional. Existing Scrap/Organic IDs, farming values and functioning
+  systems remain intact; this update performs no resource or balance migration.
+- Roadmap v0.3 preserves completed milestone history and distinguishes M3a's
+  completed implementation/validation from pending owner acceptance. Old economy
+  examples are archived rather than treated as active defaults.
+- Proposed next sequence: finite Food scavenging, minimal generation/consumers,
+  powered beacon, a bounded repair/crafting choice, manual entrance doors, then a
+  connected survival-loop review with an early real-cooperation proof gate.
+  This sequence awaits approval; it is not implementation authorization.
+- Procedural surface, threats/rescue, exposed agriculture, broader generation/
+  storage, complete rescue runs, multiplayer reliability and later progression
+  remain separately reviewed increments. Optional conflict does not implicitly
+  enable lethal friendly fire. No mandatory nightly attacks or nightly crop wipes.
+- Beacon outage thresholds/penalties/extraction, conflict modes/lethality,
+  door obstruction/breach rules, resource naming/migration and future production
+  costs remain unresolved. Recommendations in the revised plan are proposals.
+- Approved M3a work is preserved independently. No gameplay, tests, runtime data,
+  artwork or Bootstrap changes were made as part of this documentation revision.
+
+
+## Approved revised direction and M3b lean Food scavenging — 2026-11-12
+
+- Owner approved the revised Vision/Roadmap, then explicitly approved M3b with six
+  finite sources, unchanged near/far bands and leaner per-type quantity ranges.
+- Near: two wild plants at 1–2 Food and one container at 1–3. Far: one plant at 1–2
+  and two containers at 2–4. These sum to 8–17, rather than the approximate 9–17;
+  retain the explicit ranges without a hidden top-up or player-count scaling.
+- Instant gathering, partial collection, safe full/depleted behavior, reproducible
+  seeded placement/quantities and distinct available/depleted visuals are approved.
+  Both types yield the existing Food resource; wild plants do not regrow.
+- Resource placement runs on existing authored terrain. Near/far shortest walkable
+  path bands are 32–112 / 160–288 world units. Preserve all existing blockers and
+  actor feet. Sources are nonblocking ground salvage with a clear validated approach,
+  32-unit source spacing, and 48-unit clearance from original salvage sites.
+- WorldSeed defaults to 1701 and can be set with --world-seed=. Specified seed streams
+  separate placement, quantities and decoration. Sources initialize once per run;
+  gathering and time do not reroll. R starts a new debug run with identical initial
+  seed/layout/configuration; this is not automatic respawning or a disk-save system.
+- Built-in imagegen (imagegen skill) supplied two original matched transparent source
+  families. Preserve prompts/masters, shared-palette PNG exports and processing under
+  assets/scavenging. Existing sanctuary/farm/benchmark assets are unchanged.
+- Timed 2/4/6-player simulations use real seeded worlds at 8, 14 and 17 Food, actual
+  gathering/transfers, unchanged farm visits and personal meal rules. Report each
+  day's unmet meals and reserves; do not rebalance the accepted six-player deficit.
+- Farming values, four plots, hunger/recovery, personal/chest limits, original salvage,
+  starting Food/seeds and clock values are preserved. No power or additional survival
+  system is approved here. Stop after validation for review before power generation.
+
+
+## M3b accepted; M4a scoping requested — 2026-11-12
+
+- Owner accepted M3b and explicitly requested a commit of the validated milestone.
+  Revalidation passed build/core tests, both-layout scavenging, hunger and pixel-art
+  checks. The complete baseline includes previously uncommitted M3a and approved
+  Vision/Roadmap updates required to reproduce the accepted game.
+- Next requested slice is named M4a: fuel-consuming generation, limited capacity,
+  manually selected consumers and machine on/off controls. No automatic priorities.
+  Beacon power representation belongs in M4a; rescue progress belongs to M4b.
+- This renames the old M3c/M3d power/beacon proposals; the historical M4 procedural
+  surface proposal stays future work. No world-generation expansion is authorized.
+- Only proposing capacities, fuel rules, overload, consumer loads, UI and seven-day
+  estimates is authorized now. M4a implementation requires owner approval. Existing
+  crops must retain their behavior; future grow-light dependence is not established.

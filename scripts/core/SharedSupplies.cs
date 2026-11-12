@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Hollowlight.Core;
 
-public sealed record ResourceDefinition(string Id, string Name, string ShortName);
+public sealed record ResourceDefinition(string Id, string Name, string ShortName, bool Edible = false);
 public sealed record ResourceNodeDefinition(string Id, string ResourceId, int Quantity);
 public sealed record ItemStack(string ResourceId, int Quantity);
 public readonly record struct SupplyVersion(Guid Session, long Revision);

@@ -14,6 +14,53 @@ The refuge uses matched PNG sprites, modular TileMapLayer terrain and adjustable
 lighting. L compares neutral and lamplit views. Earlier scenes remain available
 for historical comparisons; M2a adds finite gathering and shared-chest transfers without survival consumption.
 
+## M3b — Finite surface Food scavenging
+
+Six sources now appear on the surface: two wild plants and one food container near
+the entrance, one plant and two containers farther away. Their approved quantity
+ranges produce **8–17 Food per world**, with no automatic player-count scaling.
+**E / controller A** instantly gathers what fits; remainders stay at the source.
+Picked plants and empty containers remain visible and never respawn during a run.
+
+```sh
+godot --path . -- --world-seed=1701
+```
+
+Seed 1701 supplies 14 Food; seeds 499 and 143 demonstrate the 8/17 extremes. Seeded
+placement is generated on the existing authored terrain; a full procedural terrain
+generator is still future work. R resets the entire run to the same initial seeded
+supply. Existing crops, hunger, capacities, stacks and starting Food/seeds are unchanged.
+
+See the [scavenging/testing guide](docs/M3B_SCAVENGING.md), [daily seven-day balance
+ledger](docs/M3B_FOOD_BALANCE.md), and [sprite sources/prompts](assets/scavenging/README.md).
+The ledger covers 2/4/6 players, poor/default/rich worlds, regular/delayed farm care
+and a late-expedition stress case. This milestone stops for review before power.
+
+## M3a — Food consumption and hunger
+
+M2b was approved and committed as **`453114a`** before M3a. Players now start with
+**two personal Food** and need **one per day**. Open your backpack, focus Food and
+click **Eat**, press **F**, or click the controller **right stick (RS)**. At dawn,
+only an unmet requirement is automatically eaten from your own pack. Communal
+storage is never drawn from automatically.
+
+Missed meals accumulate: one warns, two reduce movement to 90%, and three or more
+to 80%. Each satisfied daily requirement recovers **one** accumulated miss by
+default; eating cannot instantly clear prolonged hunger. Recovery and penalties
+are configurable in `data/hunger.json`. The compact HUD shows the state; inventory
+shows today's credit, next dawn, missed-meal score and movement percentage.
+
+See the [meal/recovery rules and testing guide](docs/M3A_HUNGER.md) and the
+[timed seven-day 2/4/6-player balance report](docs/M3A_FOOD_BALANCE.md). Six-player
+scarcity is accepted for this milestone. The four plots and all crop yields/times
+remain unchanged; there is no economy rebalance or additional survival system.
+
+```sh
+dotnet build Hollowlight.csproj
+dotnet run --project tests/Hollowlight.Core.Tests.csproj -- --food-balance docs/M3A_FOOD_BALANCE.md
+godot --headless --fixed-fps 60 --path . res://tools/HungerSmoke.tscn
+```
+
 ## M2b — Basic agriculture and time
 
 The inventory milestone was committed as **`24b7f70`** before this work. M2b adds
@@ -21,7 +68,7 @@ four independent planting plots in the two existing sanctuary garden beds and a
 continuous, configurable clock. The default cycle is **6 minutes Day / 1 minute
 Dusk / 3 minutes Night**. The compact clock shows day number, phase and elapsed
 minutes/seconds within that phase. Time and crops continue during inventory use
-and exploration; night adds no enemies, hunger or consumption.
+and exploration. M3a adds daily hunger; night still adds no enemies.
 
 | Crop | Maturity after planting | Complete harvest |
 | --- | --- | --- |
@@ -37,8 +84,8 @@ Plots show seedling, growing and mature sprites. Harvesting requires room for th
 mature and untouched. Make room, return, harvest and replant using the returned seed.
 
 **F4** advances a minute; **F5** a full cycle; **Shift+F5** three cycles. **R** resets
-time to Day 1, clears crops/personal inventory and restores the shared starter seeds
-and finite salvage. These are developer controls; no crop upkeep is required.
+time to Day 1, clears crops and hunger, and restores two personal Food, shared
+starter seeds and finite salvage. These are developer controls; no crop upkeep is required.
 
 Configuration: `data/clock.json` contains phase durations; `data/farming.json`
 contains crop durations, growth-stage threshold, seed costs, yields, starter stock
@@ -64,7 +111,7 @@ full-pack safety, replanting and reset. Reviewed gameplay captures are in
 [docs/screenshots/farming](docs/screenshots/farming/). See the
 [farming asset guide](assets/farming/README.md) for preserved source art and processing.
 Both authored layouts and modular terrain assembly remain intact; this slice adds
-no world generator, hunger, cooking, power, watering, diseases or additional crops.
+no world generator, cooking, power, watering, diseases or additional crops.
 
 ## Prerequisites
 
@@ -191,7 +238,7 @@ validation uses two actors against the same authoritative model. Slot operations
 use the same lock and session/revision token. UI gesture tokens are captured at
 selection/pointer-down and stale previews cannot move a replacement stack.
 
-No weight, encumbrance, crafting, hunger, fuel or power is implemented. Existing
+No weight, encumbrance, crafting, fuel or power is implemented; M3a adds hunger. Existing
 refuge workstations remain decorative; garden beds now contain functional plots; the authored surface growth is
 the finite Organic Material source. Approved art and modular terrain are unchanged.
 

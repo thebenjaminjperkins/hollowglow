@@ -1,0 +1,20 @@
+{
+  "native_pixels_per_world_unit": 2,
+  "frame": [
+    40,
+    40
+  ],
+  "anchor": [
+    20,
+    36
+  ],
+  "states": [
+    "available",
+    "depleted"
+  ],
+  "palette": "assets/sanctuary/manifest.json",
+  "source_sha256": {
+    "container": "72bfb1d6bab1ac6529ea2b0c911ba6ebd14a70685fa593c435604f0e6a34b670",
+    "plant": "3cdbad0afe347ba742e79701ba21dfdf27d765ed0a35654f26b21343d23e165f"
+  }
+}

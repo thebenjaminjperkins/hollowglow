@@ -1,0 +1,10 @@
+{
+  "dailyFood": 1,
+  "startingFood": 2,
+  "startingResource": "food",
+  "recoveryPerMeal": 1,
+  "starvingAt": 2,
+  "criticalAt": 3,
+  "starvingSpeed": 0.9,
+  "criticalSpeed": 0.8
+}

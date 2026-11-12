@@ -11,6 +11,7 @@ public partial class PlayerCharacter : CharacterBody2D
     [Export] public NodePath InputPath { get; set; } = new("KeyboardInput");
     public event Action<PlayerCharacter>? InteractionRequested;
     public int ControllerDevice => _input is KeyboardInput keyboard ? keyboard.ControllerDevice : 0;
+    public float HungerSpeedMultiplier { get; set; } = 1;
     public bool InventoryOpen { get; set; }
     private PlayerInput _input = null!;
 
@@ -18,7 +19,7 @@ public partial class PlayerCharacter : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        Velocity = InventoryOpen ? Vector2.Zero : _input.ReadMovement() * Config.MoveSpeed;
+        Velocity = InventoryOpen ? Vector2.Zero : _input.ReadMovement() * Config.MoveSpeed * HungerSpeedMultiplier;
         MoveAndSlide();
         bool interact = _input.InteractPressed(); // Consume edges while the local menu is open.
         if (interact && !InventoryOpen) InteractionRequested?.Invoke(this);

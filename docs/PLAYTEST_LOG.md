@@ -490,3 +490,75 @@ extra crops, nighttime attacks, beacon countdown or world generator was added.
 The two authored layouts and modular terrain path remain reusable. Stop for owner
 review of this complete slice. M2b changes are staged; inventory baseline commit
 remains `24b7f70`, with no new M2b commit made before review.
+
+
+## M3a food consumption and hunger — 2026-11-12
+
+- Baseline: approved M2b revalidated and committed as `453114a` before M3a.
+- .NET build passes with zero warnings/errors. Pure core suite covers first/partial
+  meals, multiple edible fixture types, no communal draw, manual/automatic credit,
+  no duplicate recovery, configurable gradual recovery, daily skips, player isolation,
+  invalid/stale requests, reset and 64 concurrent eat/eat, eat/time and eat/transfer
+  races. Existing clock, farming, inventory, slot and conservation suites pass.
+- Seven-day simulations use unchanged farm data and real inventory/meal operations.
+  Regular care: farm Food 26; missed player-meals 0/0/8 for 2/4/6 players. Delayed
+  care: farm Food 20; missed meals 0/0/10. Daily ledger and exact schedules are in
+  M3A_FOOD_BALANCE.md. A later harvest cannot retroactively satisfy an earlier meal.
+- HungerSmoke runs normal enabled defaults. Keyboard F, mouse Eat and assigned
+  controller RS events credit meals; dawn consumes only the personal shortfall.
+  A held Eat click spanning dawn rejects stale state. Time continues with inventory
+  open and during exploration; direct/debug jumps process each crossed deadline.
+- Integrated check confirms four plots, seed withdrawals, planting, unchanged potato
+  harvest, hunger recovery over daily meals, reset and normalized diagonal movement
+  at the expected 80/64 speed (Fed/Critical). Starving applies 90% speed.
+- Legacy smoke fixtures explicitly disable hunger to retain baseline stock/timing
+  assertions. Both authored-layout movement/collision/interaction/slot checks and
+  full farming loops pass; inventory UX and continuous clock checks also pass.
+- Graphical Godot smoke passes and actual gameplay captures were inspected. Fixed
+  long hunger-label overlap with clock and moved meal details below inventory.
+  Both backpack and chest maintain existing pixel icons, palette and compact grids.
+- Live controlled actor remains single-player. Core group/concurrency tests do not
+  substitute for network transport, physical controller hardware or human 2–6-player
+  sessions. No persistent save/load or procedural generator was added.
+- Six-player scarcity remains the explicitly accepted limitation. Stop for review.
+
+
+## M3b finite surface Food scavenging — 2026-11-12
+
+- Build passes with zero warnings/errors. Core suite passes 256 seeds on each of
+  both layouts, stable seed replay, exact counts/quantity bounds/bands, spacing,
+  partial/full capacity, depletion, reset and 32 competing two-actor gather races.
+  Existing farming, clock, hunger, inventory and slot/conservation suites pass.
+- Seven-day ledger uses actual generated low/default/high worlds: seed 499 = 8 Food,
+  1701 = 14, 143 = 17. Includes daily flows, unmet meals, personal/chest reserves and
+  unpicked supplies for 2/4/6 players with regular/delayed farm care. Regular care
+  meets all deadlines. Poor world + delayed care misses two six-player meals on
+  Day 7. Postponing that world's far trip to Day 7 instead misses five on Day 6;
+  later Food cannot retroactively satisfy those deadlines. No rebalance was made.
+- Live ScavengingSmoke passes both layouts and low/high seeds. Actor-foot shape
+  queries validate the generated approaches against actual engine collision. Real
+  keyboard E events collect Food; partial collection fills a nine-unit stack, a full
+  pack leaves the remainder unchanged, and a later deposit permits collecting it.
+  Both depleted sprites stay visible; repeated interaction and multi-day skips do
+  not create Food. Storage/withdraw/eat and same-seed new-run reset pass.
+- HungerSmoke runs with new sources enabled on both layouts. Existing hunger,
+  gradual recovery, inventory inputs, normalized movement and farming checks pass.
+  Legacy movement/farm/inventory/clock fixtures disable new scavenging explicitly
+  to retain original stock assertions; their regression checks pass on both layouts.
+- Godot editor import passes after retrying an automatic-approval timeout. Graphical
+  ScavengingSmoke passes; both source families' available/depleted gameplay captures
+  were inspected. Side-position captures avoid hiding small props behind the actor.
+  Source PNG palettes, native density, anchors and processing are checked separately.
+- The surface is compact and has no hostiles. Near/far demonstrate relative distance
+  and reward, not dangerous large-world expeditions. These timing simulations are
+  not human group playtests. No physical controller A, multiplayer transport or disk
+  persistence validation is claimed. Power generation has not begun.
+
+
+## M3b acceptance checkpoint — 2026-11-12
+
+- Owner approved M3b and requested a Git commit. Revalidated the .NET build (zero
+  warnings/errors), complete core suite, new Food-source checks on both layouts,
+  integrated hunger regression and approved/new sprite palette/anchor checks.
+- All passed. Earlier inspected graphical captures and daily balance reports remain
+  in the baseline; no power gameplay or crop change was made during this checkpoint.

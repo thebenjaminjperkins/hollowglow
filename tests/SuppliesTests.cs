@@ -131,7 +131,7 @@ public static class SuppliesTests
             catch (ArgumentOutOfRangeException) { }
         }
         var setup = SupplySetup.Parse(File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "data/supplies.json")));
-        Check(setup.Resources.Length == 2 && setup.CreateState(new[] { 1, 2 }, 24).Resources.Count == 2, "Actual configurable two-resource setup loads");
+        Check(setup.Resources.Length == 3 && setup.CreateState(new[] { 1, 2 }, 24).Resources.Count == 3, "Actual catalog includes Scrap, Organic and edible Food");
         Console.WriteLine("PASS: six-slot/ten-stack limits, typed resources, partial transfers, full storage, finite gathering, resets, stale/replayed commands, 32 two-actor races, 2000 conservation checks");
     }
 }

@@ -12,6 +12,10 @@ public partial class SuppliesPanel : Control
 {
     public event Action<SlotRequest>? OperationRequested;
     public event Action? CloseRequested;
+    public event Action<EatRequest>? EatRequested;
+    private HungerSnapshot? _meal;
+    private Button? _eat;
+    private EatRequest? _pointerMeal;
     public InventoryAppearance Appearance { get; private set; } = null!;
     public int ControllerDevice { get; set; }
     public bool ChestOpen { get; private set; }
@@ -70,6 +74,30 @@ public partial class SuppliesPanel : Control
         _state = state;
         foreach (var cell in _cells) cell.Refresh();
         UpdateDetail();
+    }
+    public void RefreshMeal(HungerSnapshot? meal) => _meal = meal;
+    public void EatFocused()
+    {
+        var request = CurrentEatRequest();
+        if (request != null) EatRequested?.Invoke(request);
+    }
+    private EatRequest? CurrentEatRequest()
+    {
+        if (!Visible || _splitting || _storeFocused || _meal == null) return null;
+        var address = _source ?? Focused;
+        return address.Container == InventoryKind.Personal
+            ? new(address.Index, _source != null ? _selectionVersion : _state.Version, _meal.Day) : null;
+    }
+    public void ShowEatResult(EatResult result)
+    {
+        CancelSelection();
+        Notice(result.Status switch {
+            EatStatus.Eaten => "Meal credited",
+            EatStatus.Satisfied => "Already eaten today",
+            EatStatus.Stale => "Changed; reselect",
+            EatStatus.NotEdible => "Not edible",
+            _ => "Cannot eat that item"
+        });
     }
     public void ShowResult(SupplyResult result)
     {
@@ -164,12 +192,12 @@ public partial class SuppliesPanel : Control
     private void Rebuild()
     {
         if (_content != null) { RemoveChild(_content); _content.QueueFree(); }
-        _cells.Clear(); _store = null;
+        _cells.Clear(); _store = null; _eat = null;
         _content = new Control { MouseFilter = MouseFilterEnum.Ignore }; AddChild(_content);
         int cell = Appearance.CellSize, leftWidth = Appearance.BackpackColumns * cell + 16;
         int backRows = (6 + Appearance.BackpackColumns - 1) / Appearance.BackpackColumns;
         int width = leftWidth + (ChestOpen ? Appearance.ChestColumns * cell + 24 : 0);
-        int gridRows = ChestOpen ? Math.Max(backRows, Appearance.ChestRows) : backRows;
+        int gridRows = ChestOpen ? Math.Max(backRows, Appearance.ChestRows) : backRows + (_meal != null ? 1 : 0);
         int height = gridRows * cell + 42;
         Position = new Vector2(Mathf.Floor((384 - width) / 2f), Mathf.Floor((216 - height - 32) / 2f));
         _content.AddChild(new ColorRect { Size = new Vector2(width, height + 32), Color = new Color("202832f5"), MouseFilter = MouseFilterEnum.Ignore });
@@ -187,6 +215,15 @@ public partial class SuppliesPanel : Control
                 Button("<", new Vector2(leftWidth + 8, 22 + Appearance.ChestRows * cell), new Vector2(18, 16), () => ChangePage(-1));
                 Button(">", new Vector2(width - 26, 22 + Appearance.ChestRows * cell), new Vector2(18, 16), () => ChangePage(1));
             }
+        }
+        if (_meal != null)
+        {
+            _eat = Button("Eat  F / RS", new Vector2(8, (ChestOpen ? 46 : 24) + backRows * cell),
+                new Vector2(leftWidth - 16, 18), () => {
+                    if (_pointerMeal != null) EatRequested?.Invoke(_pointerMeal);
+                    _pointerMeal = null;
+                });
+            _eat.ButtonDown += () => _pointerMeal = CurrentEatRequest();
         }
         _detail = Text("", 8, height - 16, 8);
         _hint = Text("", 8, height + 1, 8);
@@ -235,8 +272,15 @@ public partial class SuppliesPanel : Control
     {
         if (_detail == null || _state == null) return;
         var stack = Stack(Focused);
+        var edibleAddress = _source ?? Focused;
+        var edible = Stack(edibleAddress);
+        if (_eat != null)
+        {
+            _eat.Visible = edibleAddress.Container == InventoryKind.Personal && edible != null && _resources.Any(r => r.Id == edible.ResourceId && r.Edible);
+            _eat.Disabled = _splitting || _storeFocused || _meal == null || _meal.Eaten >= _meal.Required;
+        }
         _detail.Text = _noticeTime > 0 ? _notice : _storeFocused ? "Store all that fits; keep any remainder." : stack == null ? "Empty slot" :
-            _resources.First(r => r.Id == stack.ResourceId).Name;
+            _resources.First(r => r.Id == stack.ResourceId).Name + (_resources.First(r => r.Id == stack.ResourceId).Edible ? " (edible)" : "");
         bool swapping = _source != null && Stack(_source.Value) is { } source && stack != null && source.ResourceId != stack.ResourceId;
         if (_splitting)
         {
@@ -292,6 +336,7 @@ public partial class SuppliesPanel : Control
                     if (key.Echo) break;
                     switch (key.PhysicalKeycode)
                     {
+                        case Key.F: EatFocused(); break;
                         case Key.Enter: Confirm(); break;
                         case Key.Space: if (!_storeFocused) BeginSplit(_source ?? Focused); break;
                         case Key.Q: if (!_storeFocused) QuickTransfer(_source ?? Focused); break;
@@ -310,6 +355,7 @@ public partial class SuppliesPanel : Control
             {
                 case JoyButton.DpadLeft: Navigate(-1, 0); break; case JoyButton.DpadRight: Navigate(1, 0); break;
                 case JoyButton.DpadUp: Navigate(0, -1); break; case JoyButton.DpadDown: Navigate(0, 1); break;
+                case JoyButton.RightStick: EatFocused(); break;
                 case JoyButton.A: Confirm(); break; case JoyButton.B: Back(); break;
                 case JoyButton.X: if (!_storeFocused) QuickTransfer(_source ?? Focused); break; case JoyButton.Y: if (!_storeFocused) BeginSplit(_source ?? Focused); break;
                 case JoyButton.Back: CloseRequested?.Invoke(); break;

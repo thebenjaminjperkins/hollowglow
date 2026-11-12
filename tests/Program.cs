@@ -9,6 +9,12 @@ static void Check(bool condition, string message)
 }
 
 ClockTests.Run();
+ScavengingTests.Run();
+HungerTests.Run();
+if (Array.IndexOf(args, "--food-balance") is int balanceIndex && balanceIndex >= 0)
+    FoodBalanceSimulation.Run(balanceIndex + 1 < args.Length ? args[balanceIndex + 1] : null);
+if (Array.IndexOf(args, "--scavenging-balance") is int scavengingIndex && scavengingIndex >= 0)
+    FoodBalanceSimulation.RunScavenging(scavengingIndex + 1 < args.Length ? args[scavengingIndex + 1] : "docs/M3B_FOOD_BALANCE.md");
 FarmingTests.Run();
 SuppliesTests.Run();
 SlotOperationsTests.Run();

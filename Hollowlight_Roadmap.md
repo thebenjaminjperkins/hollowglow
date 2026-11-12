@@ -1,24 +1,65 @@
 # HOLLOWLIGHT
-## Development & Playtesting Roadmap | v0.2
+## Development & Playtesting Roadmap | v0.3 — approved direction; M3b completed
 
-**Companion documents:** `Hollowlight_Vision.md` (experience and creative authority) and `Hollowlight_BOOTSTRAP.md` (repository initialization and first slice).
+**Companions:** [Vision](Hollowlight_Vision.md), [Bootstrap](Hollowlight_Bootstrap.md),
+[decision history](docs/DECISIONS.md) and [validation log](docs/PLAYTEST_LOG.md).
 
-This is an **incremental plan, not authorization to implement every milestone at once**. Keep each milestone playable, demonstrate it, gather feedback, and stop for approval before the next. Revise the plan when playtesting reveals better design choices.
+This is an incremental plan, not authorization to implement future milestones.
+The owner has approved M3a's implementation scope, including gradual recovery;
+M3a is implemented and validated. The revised Vision/Roadmap were approved, followed
+by explicit approval of the leaner M3b Food-scavenging scope. M3b is implemented, validated and accepted by the owner. Further gameplay still needs separate approval. Bootstrap has
+no changed initialization or technical requirements and remains unchanged.
 
-## 1. Guiding rules for Codex
+## 1. Current position and priority
 
-1. Read the Vision and current decision log before proposing work. If documents conflict, ask rather than guess.
-2. Implement only the **currently approved milestone or smaller slice**. Do not silently expand scope.
-3. Ask the owner about decisions that materially change the player experience. Offer 2–3 options, tradeoffs, and a recommendation. Make ordinary engineering choices independently.
-4. Favor complete, testable vertical slices over disconnected systems.
-5. Keep a runnable build, automated tests for deterministic logic, and brief manual test instructions. Report what was actually tested and what remains unverified.
-6. Keep the game aesthetically coherent. Introduce recognizable pixel-art assets and readable effects progressively, without polishing unproven mechanics excessively.
-7. Track decisions and playtest results in `docs/DECISIONS.md` and `docs/PLAYTEST_LOG.md`.
-8. Do not claim physical-controller, multi-machine, network, or visual testing unless actually performed.
+The immediate priority is the **first connected survival loop**, not a complete
+content library, combat economy or infrastructure simulator. Players should acquire
+finite resources, sustain personal meals and critical infrastructure, protect their
+home and recover from shortages while working toward a functioning rescue signal.
+Keep each step independently playable, test it, report and stop for review.
 
-## 2. Milestones
+| Work | Current status |
+|---|---|
+| M0/M1 initialization and The Threshold | Completed; first playable authored refuge/surface |
+| M1.5 art benchmarks and sanctuary integration | Approved and integrated; modular PNG/atlas standard |
+| M2a shared supplies and inventory UX | Approved; included in commit `24b7f70` |
+| M2b agriculture and continuous time | Approved; committed as `453114a` |
+| M3a food consumption and hunger | Approved scope, implementation/validation complete; awaiting owner review |
+| M3b finite surface Food scavenging | Approved and completed; committed baseline includes M3a and approved design revisions |
+| Subsequent gameplay | Proposals only; separate approval required |
 
-### M0. Initialize the project
+Live play controls one actor. Core models support independent actor inventories,
+meal states and conflicting operations; tests and simulations do not constitute
+playable multiplayer. There are two authored layouts with reusable TileMapLayer
+terrain, not a procedural world generator. No functioning power, beacon, crafting,
+protective doors, enemies, damage, outdoor farming or transport exists yet.
+M3b adds seeded resource placement, not terrain generation.
+
+## 2. Rules for development
+
+1. Read the Vision and current decisions before proposing work. Ask about conflicts.
+2. Implement only an explicitly approved milestone or smaller slice. A design goal
+   in this document is not implementation authorization.
+3. Ask before consequential gameplay or visual choices; offer options, tradeoffs and
+   a recommendation. Resolve ordinary engineering details independently.
+4. Keep input, presentation and authoritative simulation separate. Preserve working
+   systems, data, conservation rules and reusable art; migrate deliberately, not silently.
+5. Favor complete vertical slices and the smallest useful resource catalog. Add no
+   resource category until a concrete interaction needs it.
+6. Use configurable rules, deterministic tests and brief manual checks. Distinguish
+   model simulations, controller events, real hardware and network-session evidence.
+7. Keep the approved art standard at gameplay scale. Do not reopen the visual pipeline
+   or generate a broad asset library for each mechanic.
+8. Record decisions and playtest results. Report a milestone and stop for approval.
+
+## 3. Completed milestone history and approved M3a work
+
+The following records preserve the original scope, acceptance checks and exclusions.
+Exclusions apply to their named slice; later explicit approvals extend the game
+without erasing the earlier implementation history. Their historical review gates
+do not reopen already accepted work. Commits and current status are summarized above.
+
+### M0. Initialize the project — completed
 **Goal:** A reproducible, clean foundation.
 
 - Set up the Godot 4 .NET C# project, Git, VS Code configuration, build instructions, and basic test harness.
@@ -29,7 +70,7 @@ This is an **incremental plan, not authorization to implement every milestone at
 
 **Ask owner:** Any blocking environment or platform decisions not already documented.
 
-### M1. The Threshold: feel and place
+### M1. The Threshold: feel and place — completed
 **Goal:** Experience the contrast between underground home and surface.
 
 - One small underground sanctuary, one surface clearing, and a clear passage between them.
@@ -69,7 +110,7 @@ and the owner evaluates warmth, mystery, navigation, character readability, and 
 **Gate:** Stop after reporting. No additional survival systems until this visual milestone
 has been evaluated and the owner approves further work. The broader M8 pass remains later.
 
-### M2a. Shared supplies — approved scope, implemented for review
+### M2a. Shared supplies — approved and completed
 **Goal:** Gather finite materials, bring them home and redistribute them through shared storage.
 
 - Generalize the existing single salvage count to typed per-player stacks and a
@@ -119,7 +160,7 @@ captures; distinguish simulated controller input from physical-device validation
 world art, movement outside inventory and all other gameplay remain unchanged.
 No new survival systems, resources, crafting or equipment are authorized.
 
-### M2b. Basic agriculture and time — implemented for owner review
+### M2b. Basic agriculture and time — approved
 **Goal:** Establish a small underground farming loop and continuous simulation time.
 
 - Inventory milestone approved and committed as `24b7f70` before this work.
@@ -150,137 +191,341 @@ existing gameplay tests and actual visual inspection. Stop for owner review.
 advanced equipment, additional crops, nighttime attacks and beacon countdown.
 This scope supersedes the earlier broad M2/M3 sequence only for the requested slice.
 
-### M2. Shared resources and basic economy
-**Goal:** Resources matter, but do not become chores.
+### M3a. Food consumption and hunger — implemented for owner review
 
-- Inventory, carrying limits, shared storage, finite salvage, simple gathering and repair interactions.
-- Food consumption, hunger states, fuel, scrap, and basic UI for needs and stocks.
-- Separate per-player consumption from shared infrastructure overhead; support configurable player count in balance simulations.
-- Introduce one or two meaningful competing uses for a resource.
+**Approved scope:** Hybrid manual eating and dawn settlement from personal inventory
+only; two starting Food per player; one Food/day; accumulated missed-meal penalties
+with gradual recovery. M2b was committed as `453114a` before implementation.
 
-**Exit:** A small group can make decisions about gathering versus spending, and shortages produce recoverable consequences.
+- Current daily requirement is credited once; dawn consumes only the shortfall.
+  No communal auto-withdrawal, future meal banking or wasted extra eating.
+- Default recovery removes one accumulated miss per satisfied daily requirement,
+  once only, whether manually or automatically. Configurable recovery, thresholds,
+  movement multipliers, daily requirements and personal starting Food.
+- Hungry at one miss (warning); Starving at two (90% movement); Critical at three+
+  (80%). No health, stamina, combat, death or incapacitation introduced.
+- Compact status, contextual Eat action in the existing inventory, independent
+  player states and atomic inventory/meal operations. Every time skip settles dawns.
+- Four plots and crop values stay unchanged. Timed seven-day simulations for 2/4/6
+  players include finite planting, harvest, replant and personal resupply schedules.
+  Six-player shortages are accepted; future scavenging/outdoor agriculture and
+  infrastructure remain future work, with no economy rebalance in this slice.
 
-**Playtest:** Are shortages legible? Is inventory friction acceptable? Can two players keep up? Does six-player labor trivialize costs?
+**Validation:** Core and concurrency tests, integrated mouse/keyboard/controller-event
+checks, hunger recovery and movement, farming/clock/inventory regression checks on
+both layouts, reset, conservation and gameplay-scale visual inspection. Details:
+[meal rules](docs/M3A_HUNGER.md), [daily balance ledger](docs/M3A_FOOD_BALANCE.md).
+M3a implementation and validation are complete; owner acceptance remains pending.
+Broader power/beacon/crafting scope remains unapproved. No implementation is authorized
+by the planning proposals below.
 
-**Ask owner:** Inventory model, sharing/ownership, initial resource taxonomy, and hunger severity.
+## 4. Proposed route to the first connected survival loop
 
-### M3. Farming, power, and the beacon
-**Goal:** A safe day at home is a valid, useful choice.
+**Sequencing approved; implementation is gated per slice.** M3b alone has subsequent
+explicit implementation approval and is completed and accepted below. The next
+power scope is now named M4a by the owner, followed by M4b rescue progression; both
+remain proposals requiring separate implementation approval. No step silently rebalances crops, renames
+resources or implements later danger systems.
 
-- Limited growing plots, planting, visible growth stages, harvest timing, and seed renewal.
-- Generator fuel, finite power capacity, selectable consumers, and clear warnings.
-- Rescue beacon signal-day progress and outage handling, with rules configurable for tests.
-- Workbench and a small set of craftable repairs/tools; avoid a sprawling crafting tree.
+### M3b. Finite surface Food scavenging — approved and completed
 
-**Exit:** The group can spend 1–2 days inside with good preparation, and can deliberately choose between powering the beacon and other equipment.
+**Goal:** Give expeditions immediate finite relief while agriculture remains renewable.
 
-**Playtest:** Do players understand crop timing and power tradeoffs? Does labor allocation emerge naturally? Can a beacon outage be recovered from?
+- Six seeded sources: near two wild plants (1–2 Food each) and one container (1–3);
+  far one wild plant (1–2) and two containers (2–4 each). The explicit approved
+  ranges total **8–17 Food**; no top-up to the owner's approximate 9–17 is applied.
+- Near/far path-distance bands remain 32–112 / 160–288 world units. Deterministic
+  placement/quantity streams, reachable interaction approaches and spacing respect
+  current terrain/props. No player-count scaling, rerolls or respawn timers.
+- Instant gathering into existing personal inventory, partial collection, retained
+  remainders, full-pack safety, visible depleted PNG states and same-seed reset.
+- Same Food item and authoritative gathering/transfers; farming, hunger, capacities,
+  starting Food/seeds and original salvage values remain unchanged.
+- Two original imagegen source families processed into palette-matched PNG sheets;
+  material shading and live environmental lighting remain independent.
 
-**Ask owner:** Beacon penalty, farm power dependence, production ratios, and initial workstation roster.
+**Validated:** Core generation across 256 seeds on both layouts, concurrent gathers,
+conservation/capacity/depletion/reset; live approach collision, E collection, storage,
+eating, both PNG states and time skips; previous gameplay regressions and graphical
+inspection. [Guide](docs/M3B_SCAVENGING.md), [daily balances](docs/M3B_FOOD_BALANCE.md).
 
-### M4. Procedural surface and escalating exploration
-**Goal:** Every run offers different routes and reasons to venture farther.
+Regular farm care plus timely scavenging meets all tested 2/4/6-player deadlines.
+The eight-Food world with delayed care leaves six players two meals short on Day 7;
+a late far expedition causes five misses on Day 6. No other systems were rebalanced.
+Actual terrain generation, hostile surface danger and power remain outside this slice.
+**Gate:** Owner accepted M3b and requested a Git commit. Stop before implementing
+M4a power generation; only scoping it is authorized.
 
-- Seeded generation using connected, traversable regions and recognizable landmarks.
-- Near, middle, and distant risk/reward areas; finite salvage placement.
-- Travel time, carrying limits, and improved tools that enable new salvage opportunities.
-- World-generation validation for reachability, essential-resource availability, and safe starts.
+### M4a. Basic power generation and manual allocation — proposal
 
-**Exit:** Multiple seeds produce meaningfully different, completable exploration choices, and distant resources are attractive without making nearby areas useless immediately.
+Formerly the M3c planning entry; the owner named this next slice M4a.
 
-**Playtest:** Does procedural variation create decisions rather than confusion? Is backtracking tolerable? Is scarcity fair?
+**Goal:** Establish understandable generation, operating costs and competing demand.
 
-**Ask owner:** World scale, degree of authored landmarks, and whether transportation belongs in this prototype.
+- Begin with one generator strategy and the smallest needed fuel/input acquisition
+  loop. Use existing approved machinery where appropriate.
+- Add explicit capacity, operation, one or two selectable consumers and clear
+  shortage feedback. Fuel accounting must remain correct across partial days/skips.
+- Keep underground crops functional as they are. Do not retroactively require grow
+  lights or power unless that separate change is approved.
 
-### M5. Day/night danger and combat
-**Goal:** Daylight creates a deadline; night outside feels dangerous.
+**Ask:** Fuel-based versus biomass-first generation, input sources/costs, consumer
+roster, shortage allocation and whether a tiny storage buffer is necessary now.
+Recommendation: one generation method first; compare another only after this works.
 
-- Clear time-of-day cues and warnings, with a forgiving early period.
-- Small enemy roster with readable behavior and environmental threats, more intense at night and in riskier regions.
-- Basic weapons, damage, retreat, downed-player rescue, and safe refuge rules.
-- Difficulty escalation driven by location, resource depletion, and time rather than only enemy health.
+**Exit:** Players can operate/shut down consumers, recognize overload or lack of
+input, restore service and conserve resources. Multiple generator types and a full
+wiring/construction system are excluded.
 
-**Exit:** Players can judge when to return, and staying outside at night is a meaningful risk rather than an arbitrary instant death.
+### M4b. Rescue progression and recoverable signal interruption — later proposal
 
-**Playtest:** Is combat readable? Is retreat possible? Are quiet nights actually quiet? Is the early game forgiving?
+Formerly M3d. M4a represents the beacon as a consumer only; signal-day progression
+and outage consequences belong here.
 
-**Ask owner:** Enemy aesthetic, friendly fire, direct sanctuary attacks, and combat lethality.
+**Goal:** Make power allocation serve a visible group objective.
 
-### M6. Complete seven-day rescue run
-**Goal:** The whole game loop has a beginning, middle, and ending.
+- Connect a critical beacon load to the tested power model; display signal and
+  rescue progress without requiring a new management menu.
+- Make short interruptions recoverable and prolonged loss consequential.
+- Use developer controls to test qualifying time, recovery and reset; preserve
+  continuous world time and independent player food needs.
 
-- Tune a seven-signal-day test run with a working beacon, rescue event, and clear victory/defeat screens.
-- Include a small number of equipment and infrastructure upgrades with real tradeoffs.
-- Introduce resource-cost recovery/resurrection if the downed-state test supports it.
-- Save the run or support short playtest sessions as needed; decide persistence scope with the owner.
+**Ask:** What earns progress, difficulty-dependent duration, short-outage grace,
+prolonged-loss threshold and reset versus substantial delay. Recommendation: test
+pause for short interruptions and a bounded delay for long ones before testing a
+full reset. This recommendation is not an approved rule. Final extraction stays open.
 
-**Exit:** A 2–6 player group can complete or fail a run without developer intervention; rescue progress and resource pressure are understandable.
+**Exit:** Group choices visibly affect the beacon; outages and recovery are legible
+and deterministic. No final extraction sequence or automatic defeat rule is assumed.
 
-**Playtest:** Are there natural job divisions, memorable risks, recovery from setbacks, and a satisfying ending? Is the run too long or too short?
+### M3e. One bounded repair/crafting allocation choice
 
-**Ask owner:** Final extraction format, resurrection cost/timing, difficulty presets, and run save/resume requirements.
+**Goal:** Give the workshop a useful decision rather than a recipe library.
+
+- Test one small repair or craft loop with a meaningful alternative use of its
+  material, such as restoring infrastructure versus improving expedition capability.
+- Introduce machine-part distinctions only if the chosen interaction needs them.
+- Reuse authoritative inventory operations and accessible contextual UI. Preserve
+  existing item IDs until a reviewed migration is actually needed.
+
+**Ask:** The exact repair/craftable, competing investment, ingredients, duration,
+workstation behavior and any capacity or equipment-slot changes. A working workshop
+prop does not imply approval for weapons, armor, backpacks and construction together.
+
+**Exit:** Spending is atomic and understandable, cancellation/full inventories are
+safe, and the result changes a practical capability. No sprawling crafting tree.
+
+### M3f. Manually controlled sanctuary entrance
+
+**Goal:** Establish the sanctuary's safety contract before introducing intruding enemies.
+
+- Test one substantial entrance door with intentional opening/closing, readable
+  state and coherent collision/navigation. Players control it at any time.
+- Preserve usable exits and safe handling of actors/items in the doorway.
+- Prepare the same collision/entry rules for later creatures; no enemy roster or
+  mandatory attack schedule is required to validate the first door slice.
+
+**Ask:** Placement/art, control reach, access permissions, obstruction behavior,
+closing on actors, durability/breach assumptions and how to test meaningful safety.
+Closed doors must matter; they are not declared invincible by this plan.
+
+**Exit:** Manual access and blocked entry work predictably; the sanctuary is not
+subject to compulsory nightly attacks. Actual enemy-entry tests follow in M5.
+
+### M3g. First connected survival-loop review and early cooperation gate
+
+**Goal:** Evaluate acquisition, meals, power, communications and home management
+as one experience before adding broad world/progression systems.
+
+- Connect the preceding approved slices on the compact authored map. Test finite
+  depletion, returning to share supplies, competing spending, short interruptions
+  and recovery. Use shortened developer sessions before a full-length run.
+- Simulate timed strategies for 2/4/6 players, including harvest/travel delays and
+  unsuccessful expeditions. State which economies remain unsustainable and why.
+- Request a small real two-player local or host/client proof before relying on
+  claims about cooperative labor. Preserve the authority boundary; defer broad
+  lobby, reconnect and platform support to M7.
+
+**Ask:** Which local/online configuration to prove first and its input/camera/hosting
+scope, the minimum prototype ending, and any balance changes supported by evidence.
+No networking architecture or winner/loser condition is chosen by this document.
+
+**Exit:** One connected loop can be explained, played and recovered from without
+manual inventory fixes. Separate actual cooperative evidence from simulations.
+This is the first survival-loop prototype, not the full combat/extraction experience.
+Review and approve the next scope before proceeding.
+
+## 5. Later proposals after the connected-loop review
+
+### Procedural surface and escalating exploration — historical M4 planning entry
+
+Retain this future scope after the connected-loop review; its old M4 label does
+not authorize or replace the newly requested M4a/M4b power and rescue slices.
+
+- Seeded, connected regions with recognizable landmarks, abandoned structures and
+  finite supplies. Validate safe starts, essential-resource availability and return routes.
+- Nearby depletion pushes travel outward; distant and dangerous sites offer valuable
+  rewards. Reuse modular terrain/props and existing interactions rather than replacing them.
+- Test carrying/travel limits before adding vehicles. Refuge generation remains a
+  separate choice; modular authored sanctuaries stay valid.
+
+**Exit:** Multiple seeds produce understandable, fair exploration decisions and useful
+outward pressure. **Ask:** World scale, landmark authorship, refuge layout policy and
+how resource distributions remain fair across player counts and seeds.
+
+### M5. Surface danger, situational combat and teammate rescue
+
+- A small readable threat set, environmental hazards, retreat and stronger night
+  exposure. Test creature entry through open doors and safety behind closed ones.
+- Combat is sometimes necessary across a run, but encounters can be avoided through
+  preparation, movement, stealth or clever choices. Valuable hostile sites/creatures
+  provide reasons to take risk; not every creature must drop a crafting ingredient.
+- Introduce the smallest health/weapon/protection and downed-rescue scope required
+  by the approved threat test. Do not silently turn hunger into lethal health damage.
+- Preserve forgiving early play and quiet nights at home. No compulsory nightly siege.
+
+**Exit:** Danger, avoidance, retreat, rescue and entrance consequences are legible.
+**Ask:** Enemy aesthetic/behavior, evasion rules, damage/lethality, friendly-fire
+handling, door breaches and teammate-rescue timing. Optional betrayal is not
+implemented as a side effect of a damage system.
+
+### M5b. Exposed production and infrastructure protection
+
+- Preserve safe, space-limited underground farming. Test a small outdoor extension
+  with higher yields or faster growth, using existing crops where practical.
+- Connect outdoor exposure to actual tested hazards, especially at night. Protection,
+  lighting or other investment can reduce risk; crops are not destroyed by a nightly rule.
+- Apply the same productivity-versus-exposure principle to other infrastructure only
+  if the first agricultural test produces meaningful choices.
+- Compare a second generation strategy or small power storage increment separately
+  when their different costs/benefits would create a useful allocation decision.
+
+**Exit:** Both indoor and outdoor production have reasons to exist; risk and mitigation
+are understandable. **Ask:** Yield versus speed advantage, hazard/damage model,
+protection effects, energy costs and any changes to crop definitions. No rebalance
+is authorized by this planning entry.
+
+### M6. Complete group rescue run
+
+- Assemble the tested systems into a complete run with clear progress, recovery,
+  an approved extraction and explicit victory/defeat conditions.
+- Start from the provisional seven-day target, then test difficulty-dependent lengths.
+- Include only a few capability-changing investments that create tradeoffs: weapons
+  and armor, backpacks/tools, farming, power/storage, repairs/protection. Do not
+  require every branch for the first complete run.
+- Decide save/resume scope before long sessions. Revalidate the complete group loop,
+  not just aggregate resource totals, for 2/4/6 players.
+
+**Exit:** Groups can finish or fail a run without developer intervention and describe
+useful role division and recoverable setbacks. **Ask:** Extraction, loss conditions,
+difficulty presets, full-run length, persistence and the minimal upgrade roster.
+
+### Later progression and optional conflict — separately approved slices
+
+Transportation, expanded workstations, resurrection infrastructure and optional
+player conflict remain intended directions after the first loop is evaluated.
+Prioritize investments that unlock destinations, carrying ability, production,
+protection or teammate recovery rather than only statistical increases.
+
+- Prototype DNA/food/biomass/power reconstruction only after downed rescue is tested.
+- Test optional player damage/killing in explicitly selected modes/settings. Scarcity
+  may invite selfish allocation or betrayal; killing must not become the best way
+  to obtain supplies. Do not enable lethal friendly fire implicitly.
+- Treat transport as an expedition/logistics change, not a mandatory early vehicle system.
+
+**Ask:** Mode defaults/consent and conflict access, lethality and safeguards, death/
+resurrection timing and costs, vehicle form and upgrade priorities. No class system,
+large item catalog or meta-progression is established.
 
 ### M7. Multiplayer completion and reliability
-**Goal:** Friends can play together locally and online.
 
-- Build on the networking plan established early; implement and validate shared state, inventory, world seed, farming, power, time, enemies, and rescue progress.
-- Support 2–6 players as feasible; local, online, and mixed local/remote play are target experiences, not assumed completed features.
-- Test disconnect/reconnect, host loss policy, join timing, and latency behavior.
+Build on the early cooperation proof rather than defer all multiplayer risk here.
+Validate 2–6-player world/seed, time, inventories, farming, hunger, power, doors,
+threats and rescue state. Test local/online configurations actually supported,
+join timing, disconnect/reconnect, host loss and latency; mixed local/remote play
+is a target to scope, not an assumed delivered feature.
 
-**Exit:** Real-device and multi-machine tests pass on supported configurations, with known limitations documented.
+**Exit:** Real-device and multi-machine tests pass, with limitations recorded.
+**Ask:** Hosting/lobby experience, supported platforms, reconnect/host-loss policy
+and whether mixed play is necessary for the first release.
 
-**Ask owner:** Hosting/lobby UX, reconnect policy, supported platforms, and whether mixed local/remote play is mandatory for first release.
+### M8. Cohesion, audio and balance
 
-### M8. Visual identity, audio, and balance pass
-**Goal:** The prototype communicates the intended game, not just its mechanics.
+Preserve the approved visual standard as new modules enter the game; do not defer
+coherent art until this pass. Add restrained audio, atmosphere and readable warnings.
+Run repeated seeded and real group playtests; compare strategies and shortages for
+2/4/6 players. Profile before optimizing or enlarging the library.
 
-- Consistent pixel-art tiles, characters, machines, crops, salvage, and enemy silhouettes.
-- Atmospheric contrast, restrained music, sound cues, readable lighting and warnings, approachable UI.
-- Balance food/power/fuel/loot for 2, 4, and 6 players; run repeated seeded simulations and real group playtests.
-- Optimize only after measuring bottlenecks.
+**Exit:** Players understand decisions, enjoy downtime and want another run.
+**Ask:** Any major visual/audio change and content expansion supported by playtests.
 
-**Exit:** Players understand the game visually, can complete a run, and want to play again. No major readability or economy blockers remain.
+## 6. Balance baseline, provisional categories and historical fixtures
 
-**Ask owner:** Approve a cohesive art/audio direction before commissioning or generating a large asset set.
+### Current implemented baseline — preserve until a separate change is approved
 
-## 3. Provisional seven-day economy for simulation
+- Ten-minute cycles: 6 minutes Day, 1 Dusk, 3 Night. Time continues in inventory.
+- One Food per player/day, hybrid personal eating, two personal starting Food.
+  First deadline is Day 2 dawn. No communal auto-withdrawal or future credit banking.
+- Gradual hunger recovery: one accumulated miss removed per satisfied daily
+  requirement by default. Warning at one miss, 90% movement at two, 80% at three+.
+  No health, death or incapacity from hunger is implemented.
+- Four underground plots; two shared Cave Potato seeds and two shared Glowcap seeds.
+  Potato: 2 elapsed cycles, 3 Food + seed. Glowcap: 3 cycles, 2 Food + Organic + seed.
+  A whole harvest must fit; no yield or seed is silently destroyed.
+- Six personal slots, stack size ten, 24 communal slots by default (configurable).
+  Live resource IDs are `scrap`, `organic`, `food`, `potato_seed`, `glowcap_seed`.
+- Three finite surface sites hold 12 Scrap, 8 Organic Material and 14 Scrap. They
+  retain their original materials; M3b adds six separate seeded Food sources. Power,
+  Fuel and machine parts are not implemented.
 
-**These are test fixtures, not locked recipes or final tuning.** Keep them data-driven and verify solvability across seeds and player counts.
+| Players | Personal starting Food, group total | Shared starter seeds | Plots |
+|---:|---:|---:|---:|
+| 2 | 4 | 4 | 4 |
+| 4 | 8 | 4 | 4 |
+| 6 | 12 | 4 | 4 |
 
-- Test day length: **10 minutes** (6 day, 1 dusk, 3 night); seven days approximately 70 minutes plus pauses.
-- Food need: **1 unit per active player per day**. Missing food causes staged penalties before death.
-- Four-player example starting stocks: **10 food, 6 seeds, 6 fuel, 8 scrap, 1 component, 2 biomass**. Scale starting stocks carefully for 2–6 players; do not assume this example is universal.
-- Crops under consideration: Cave Potato (2 days, 3 food), Glowcap (3 days, 2 food + biomass), Bitterleaf (2 days, biomass). Harvest returns a seed. The older two-plot fixture is superseded by **four plots in M2b**.
-- Power example: generator capacity **4**, fuel use **1/day while active**; beacon demand **2**, grow lights **1**, workshop **1**, recovery chamber **2**. Verify when loads consume power and fuel, especially during partial days.
-- Beacon example: earn one signal day after a qualifying powered day/night; short outage pauses; **three consecutive missed days reset** is a candidate to test, not an approved final penalty.
-- Candidate craftables: bandage, basic weapon, salvage tool, backpack expansion, additional farm plot, generator repair, fuel-efficiency upgrade.
-- Death recovery: teammates can rescue downed players; DNA-and-vegetable bioreconstitution is a later test with a meaningful resource cost.
+The [M3a timed ledger](docs/M3A_FOOD_BALANCE.md) reports zero missed meals for 2/4
+players in both tested schedules; six players miss eight individual meals with
+regular care, ten with delayed care. This is an accepted limitation pending future
+scavenging, outdoor production and infrastructure; it is not a hidden rebalance.
+Simulation evidence is not a human multiplayer playtest.
 
-**Balance gate:** Simulate baseline, cautious, aggressive, and unlucky strategies for 2, 4, and 6 players. Check food sustainability, fuel availability, recovery from a bad day, and whether beacon progress is achievable. If the sample numbers make survival trivial or impossible, propose changes and request approval.
+### Provisional resource direction — not a migration or final catalog
 
-## 4. Milestone review protocol
+Metal, Biomass, basic machine parts, advanced machine parts, Food, Fuel and Seeds
+are the owner's category direction. Keep Scrap and Organic Material working until
+item naming/mapping, recipes and any migration are reviewed. Do not presume that
+Organic is already a generator fuel or implement every category immediately.
 
-At the end of each milestone, Codex must provide:
+### Older economy examples — archived, not active defaults
 
-1. A concise summary of what changed and why.
-2. How to launch and manually test it.
-3. Build/test results, including tests that could not be run.
-4. Screenshots or captures **only if actually produced and inspected**.
-5. Open design decisions and a recommended next slice.
-6. Git commit reference if committed, and a clean/dirty working-tree report.
+Earlier Roadmap examples included four-player stocks of 10 Food, 6 seeds, 6 Fuel,
+8 Scrap, 1 component and 2 biomass; generator capacity 4 at 1 Fuel/day; beacon 2,
+grow lights/workshop 1 each and recovery chamber 2; a three-missed-day beacon reset;
+Bitterleaf and several craftables. These were provisional simulation ideas, not
+approved systems or current stocks. M2a/M2b/M3a supersede their inventory, crop,
+starting-stock and hunger assumptions. No third crop, compulsory powered growing,
+health consequence or beacon reset follows from these archived examples.
 
-Then **stop and wait for owner approval**. Do not continue automatically.
+**Balance gate:** Before changing any stock, yield, cost or severity, simulate timed
+baseline, cautious, aggressive and unlucky strategies for 2/4/6 players. Include
+travel, harvest/replant timing, storage distribution, consumer shutdowns and recovery
+from a bad day as systems become available. Present changes and get approval.
 
-## 5. First group playtest rubric
+## 7. Review and sequencing changes
 
-Ask players to rate (1–5) and describe:
+The older broad M2 economy and M3 farming/power/beacon headings are now split into
+completed M2a, M2b, M3a and proposed M3b–M3g slices. M4–M8 retain their broad purposes;
+an early cooperation gate precedes their final multiplayer completion, and M5b
+makes exposed production an explicit test. Earlier implementation history is kept
+above and in the decision/playtest logs. No working system is replaced by this plan.
 
-- Enjoyment of the refuge and its atmosphere.
-- Ease of understanding food, power, crops, and the beacon.
-- Freedom to choose tasks without being assigned roles.
-- Reward and risk of exploration.
-- Tension of returning before night.
-- Fairness of setbacks, rescue, and resource scarcity.
-- Desire to play another run and what they would do differently.
+At each milestone report what changed, how to run/test it, actual validation,
+unverified configurations, inspected captures when available, consequential open
+choices, the proposed next small slice, commit reference and worktree status.
+Then stop for owner approval.
 
-Record observations separately from proposed fixes. Prioritize fixing the core loop over adding content.
+Ask group playtesters to rate atmosphere, clarity of needs and beacon, freedom to
+choose work, exploration risk/reward, fairness of shortages and rescue, optional
+conflict behavior when tested, and desire for another run. Separate observations
+from fixes; prioritize the first survival loop over additional content.

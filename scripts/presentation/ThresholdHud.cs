@@ -7,7 +7,9 @@ namespace Hollowlight.Presentation;
 
 public partial class ThresholdHud : CanvasLayer
 {
+    private Label _hunger = null!, _mealInfo = null!;
     private Label _clock = null!;
+    private ColorRect _mealPanel = null!;
     private ColorRect _phaseBar = null!;
     private Label _status = null!, _location = null!, _prompt = null!, _feedback = null!, _debug = null!;
     private ColorRect _promptPanel = null!, _feedbackPanel = null!, _locationPanel = null!;
@@ -23,6 +25,10 @@ public partial class ThresholdHud : CanvasLayer
             Region = new Rect2(13, 76, 15, 17) }, Position = new Vector2(11, 11), Centered = false, Scale = Vector2.One * 0.5f,
             TextureFilter = CanvasItem.TextureFilterEnum.Nearest });
         _status = Label(new Vector2(23, 10), 9, "ead4a9");
+        Panel(new Rect2(49, 7, 59, 19));
+        _hunger = Label(new Vector2(54, 10), 8, "b8cbb5");
+        _mealPanel = Panel(new Rect2(7, 190, 370, 19));
+        _mealInfo = Label(new Vector2(12, 192), 8, "ead4a9");
         Panel(new Rect2(112, 7, 128, 19));
         _clock = Label(new Vector2(118, 10), 8, "ead4a9");
         _phaseBar = new ColorRect { Position = new Vector2(113, 24), Size = new Vector2(0, 1),
@@ -77,13 +83,22 @@ public partial class ThresholdHud : CanvasLayer
         return label;
     }
     public void Present(string location, SuppliesSnapshot supplies,
-        string prompt, string feedback, string debug, bool showDebug, ClockSnapshot clock)
+        string prompt, string feedback, string debug, bool showDebug, ClockSnapshot clock, HungerSnapshot? hunger = null)
     {
         long seconds = clock.PhaseElapsedTicks / System.TimeSpan.TicksPerSecond;
         _clock.Text = $"Day {clock.DayNumber}  {clock.Phase} {seconds / 60:00}:{seconds % 60:00}";
         _phaseBar.Size = new Vector2(Mathf.Floor(126f * clock.PhaseElapsedTicks / clock.PhaseDurationTicks), 1);
         _phaseBar.Color = new Color(clock.Phase == DayPhase.Day ? "d4ad73" : clock.Phase == DayPhase.Dusk ? "ab7b4f" : "638e85");
         _status.Text = $"{supplies.Personal.UsedSlots}/6";
+        _hunger.Text = hunger == null ? "" : $"{hunger.Stage}";
+        _hunger.Modulate = hunger?.Stage is HungerStage.Critical or HungerStage.Starving ? new Color("e8ab85") : Colors.White;
+        _mealInfo.Visible = _mealPanel.Visible = Supplies.Visible && hunger != null;
+        if (hunger != null)
+        {
+            long until = System.Math.Max(0, (hunger.NextMealTicks - clock.ElapsedTicks) / System.TimeSpan.TicksPerSecond);
+            _mealInfo.Text = $"Today {hunger.Eaten}/{hunger.Required} | Dawn {until / 60:00}:{until % 60:00} | Missed {hunger.MissedMeals} | Speed {hunger.SpeedMultiplier:0%}";
+        }
+        Supplies.RefreshMeal(hunger);
         Supplies.Refresh(supplies);
         if (location != _lastLocation)
         {

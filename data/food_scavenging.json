@@ -1,0 +1,14 @@
+{
+  "entranceX": 344,
+  "entranceY": 184,
+  "surfaceMinX": 320,
+  "nearMinDistance": 32,
+  "nearMaxDistance": 112,
+  "farMinDistance": 160,
+  "farMaxDistance": 288,
+  "minimumSpacing": 32,
+  "types": [
+    { "id": "wild_plant", "name": "edible wild plant", "asset": "food_plant", "nearCount": 2, "farCount": 1, "nearMin": 1, "nearMax": 2, "farMin": 1, "farMax": 2 },
+    { "id": "container", "name": "abandoned food container", "asset": "food_container", "nearCount": 1, "farCount": 2, "nearMin": 1, "nearMax": 3, "farMin": 2, "farMax": 4 }
+  ]
+}
