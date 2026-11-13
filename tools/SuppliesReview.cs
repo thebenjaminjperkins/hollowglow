@@ -26,6 +26,7 @@ public partial class SuppliesReview : Node
                 _world.Config = (WorldConfig)_world.Config.Duplicate();
                 _world.Config.StorageSlots = 1;
                 _world.Config.FarmingEnabled = false;
+                _world.Config.PowerEnabled = false;
                 _world.Config.HungerEnabled = false;
                 _world.Config.ScavengingEnabled = false;
                 _actor = _world.GetNode<PlayerCharacter>("Player");
@@ -38,6 +39,7 @@ public partial class SuppliesReview : Node
             {
                 string entry = ProjectSettings.GetSetting("application/run/main_scene").AsString();
                 var room = GD.Load<PackedScene>(entry).Instantiate<SanctuaryRoom>();
+                room.PowerEnabled = false;
                 room.HungerEnabled = false;
                 room.ScavengingEnabled = false;
                 room.InputOverride = _input;

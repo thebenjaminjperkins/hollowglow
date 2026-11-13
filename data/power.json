@@ -1,0 +1,13 @@
+{
+  "capacity": 4,
+  "tankCapacity": 5,
+  "startingFuel": 2,
+  "fuelResource": "fuel",
+  "idleFuelPerDay": 0.2,
+  "fuelPerPuDay": 0.2,
+  "consumers": [
+    { "id": "beacon", "name": "Radio beacon", "demand": 2 },
+    { "id": "workbench", "name": "Workbench", "demand": 2 },
+    { "id": "lighting", "name": "Sanctuary lights", "demand": 1 }
+  ]
+}

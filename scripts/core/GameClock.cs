@@ -30,8 +30,8 @@ public sealed class GameClock
     // subsequently share the same authority lock, including direct developer skips.
     internal void BindAuthority(object gate, Action<long> advanced)
     {
-        if (_advanced != null) throw new InvalidOperationException("Clock already has an authority.");
-        _advanceGate = gate; _advanced = advanced;
+        if (_advanced != null && !ReferenceEquals(_advanceGate, gate)) throw new InvalidOperationException("Clock already has another authority.");
+        _advanceGate = gate; _advanced += advanced;
     }
     private double _fractionalTick;
     public long CycleTicks { get; }

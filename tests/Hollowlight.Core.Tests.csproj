@@ -6,6 +6,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../scripts/core/SalvageState.cs" Link="SalvageState.cs" />
+    <Compile Include="../scripts/core/Power.cs" Link="Power.cs" />
+    <Compile Include="../scripts/core/SharedPower.cs" Link="SharedPower.cs" />
+    <None Include="../data/power.json" Link="data/power.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../data/fuel_scavenging.json" Link="data/fuel_scavenging.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/Hunger.cs" Link="Hunger.cs" />
     <Compile Include="../scripts/core/SharedHunger.cs" Link="SharedHunger.cs" />
     <None Include="../data/hunger.json" Link="data/hunger.json" CopyToOutputDirectory="PreserveNewest" />
@@ -14,7 +18,7 @@
     <Compile Include="../scripts/core/SharedAgriculture.cs" Link="SharedAgriculture.cs" />
     <None Include="../data/farming.json" Link="data/farming.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/SharedSupplies.cs" Link="SharedSupplies.cs" />
-    <Compile Include="../scripts/core/FoodScavenging.cs" Link="FoodScavenging.cs" />
+    <Compile Include="../scripts/core/FiniteScavenging.cs" Link="FiniteScavenging.cs" />
     <None Include="../data/food_scavenging.json" Link="data/food_scavenging.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/SupplySetup.cs" Link="SupplySetup.cs" />
     <None Include="../data/supplies.json" Link="data/supplies.json" CopyToOutputDirectory="PreserveNewest" />

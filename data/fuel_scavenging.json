@@ -1,0 +1,25 @@
+{
+  "entranceX": 344,
+  "entranceY": 184,
+  "surfaceMinX": 320,
+  "nearMinDistance": 32,
+  "nearMaxDistance": 112,
+  "farMinDistance": 160,
+  "farMaxDistance": 288,
+  "minimumSpacing": 32,
+  "types": [
+    {
+      "id": "cache",
+      "name": "fuel cache",
+      "asset": "fuel_cache",
+      "nearCount": 1,
+      "farCount": 1,
+      "nearMin": 2,
+      "nearMax": 3,
+      "farMin": 3,
+      "farMax": 5
+    }
+  ],
+  "resourceId": "fuel",
+  "domain": "fuel"
+}

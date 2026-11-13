@@ -8,10 +8,10 @@ using Hollowlight.Core;
 public static class ScavengingTests
 {
     public static string Data(string name) => File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "data", name + ".json"));
-    public static FoodScavengingSetup Setup => FoodScavengingSetup.Parse(Data("food_scavenging"));
-    public static FoodWorld Generate(int seed, string layout = "sanctuary") => FoodScavenging.Generate(Setup, CaveLayout.Parse(Data(layout)),
+    public static ScavengingSetup Setup => ScavengingSetup.Parse(Data("food_scavenging"));
+    public static SourceWorld Generate(int seed, string layout = "sanctuary") => FiniteScavenging.Generate(Setup, CaveLayout.Parse(Data(layout)),
         SupplySetup.Parse(Data("supplies")).Sites, seed);
-    public static SharedSupplies State(FoodWorld world, int[]? players = null)
+    public static SharedSupplies State(SourceWorld world, int[]? players = null)
     {
         var setup = SupplySetup.Parse(Data("supplies"));
         return new(setup.Resources, setup.Sites.Concat(world.Sources.Select(s => s.Site)).Select(s =>
@@ -81,9 +81,9 @@ public static class ScavengingTests
                 race.Snapshot(1).Remaining[first.Site.Id] == 0, "Two actors cannot duplicate a finite source");
         }
         var altered = Setup with { Types = Setup.Types.Select(t => t with { NearMin = 1, NearMax = 1, FarMin = 1, FarMax = 1 }).ToArray() };
-        var samePositions = FoodScavenging.Generate(altered, CaveLayout.Parse(Data("sanctuary")), SupplySetup.Parse(Data("supplies")).Sites, 1701);
+        var samePositions = FiniteScavenging.Generate(altered, CaveLayout.Parse(Data("sanctuary")), SupplySetup.Parse(Data("supplies")).Sites, 1701);
         Check(generated.Sources.Select(s => (s.Site.X,s.Site.Y)).SequenceEqual(samePositions.Sources.Select(s => (s.Site.X,s.Site.Y))), "Quantity configuration does not perturb placement stream");
-        try { FoodScavenging.Generate(Setup with { NearMaxDistance = 16 }, CaveLayout.Parse(Data("sanctuary")), Array.Empty<GatheringSite>(), 1); throw new Exception("Invalid bands accepted"); }
+        try { FiniteScavenging.Generate(Setup with { NearMaxDistance = 16 }, CaveLayout.Parse(Data("sanctuary")), Array.Empty<GatheringSite>(), 1); throw new Exception("Invalid bands accepted"); }
         catch (ArgumentException) { }
         Console.WriteLine("PASS: 512 seeded layout cases, stable independent streams, approved quantities/bands, spacing, partial/full collection, conservation, depletion, reset and 32 concurrent gathers");
     }

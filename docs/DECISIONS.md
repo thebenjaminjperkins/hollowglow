@@ -354,3 +354,52 @@ Dates use the owner's America/New_York timezone.
 - Only proposing capacities, fuel rules, overload, consumer loads, UI and seven-day
   estimates is authorized now. M4a implementation requires owner approval. Existing
   crops must retain their behavior; future grow-light dependence is not established.
+
+
+## Approved M4a with non-destructive allocation — 2026-11-12
+
+- Owner approved 4-PU generation, 2-PU beacon/workbench and 1-PU supplemental lights,
+  five-Fuel tank, two shared starting Fuel, manual loading and two finite caches
+  (near 2–3 / far 3–5). No player-count scaling or automatic communal withdrawal.
+- Preserve continuous burn formula 0.2 + 0.2 × supplied PU per complete clock cycle.
+  Integer credit counters preserve fractions; stopping burns nothing, exhaustion
+  stops at zero, and refueling never restarts automatically. Whole items transfer
+  only if they fit; partial tank space cannot silently destroy the rest of a unit.
+- Owner explicitly rejected the proposed breaker trip for overload: reject only
+  the activation, show requested demand/capacity and preserve running consumers.
+  No automatic priority, destructive trip, fault, damage or rescue progression.
+- Start before enabling additional consumers. Stop/empty retains switch selections
+  without supply; restart is explicit. Users can disable selected switches while off.
+- Power and refueling commands share SharedSupplies' authority lock with inventory
+  and clock callbacks. Separate power revisions avoid invalidating menus on every
+  burn tick; inventory tokens protect manual loading. Captured pointer-down tokens
+  reject stale clicks. No playable multiplayer transport or disk-save claim.
+- Reuse existing generator, workbench, communications shelf and lamps. Status diodes
+  and task/supplemental lighting reflect power; ambient/bioluminescent visibility stays.
+  The only new original imagegen family is Fuel canisters, with preserved source,
+  full prompt, icon and palette-normalized two-state PNGs under assets/power.
+- Generalize the Food placement module to FiniteScavenging, retaining Food's exact
+  default domains/IDs/ranges and independent quantity/placement streams. Fuel gets
+  its own domain and respects Food as nonblocking ground props. Terrain stays authored.
+- Existing farm growth, stages, yields, four plots, Food/material nodes, hunger,
+  starting Food/seeds and inventory limits are unchanged. No grow lights or cooking,
+  crafting output, batteries, alternate generators, faults or combat added.
+- Stop after M4a validation for owner review before M4b rescue progression.
+
+
+## M4a commit authorized; M4b rules awaiting approval — 2026-11-13
+
+- Owner approved M4a on reported validation, pending final hands-on confirmation,
+  and explicitly requested its commit before M4b. Preserve that distinction; no
+  hands-on acceptance or hardware/network validation is implied by the commit.
+- Revalidated build, core/concurrency tests, seven-day Fuel balances, power on both
+  layouts, hunger regression and artwork checks before committing the baseline.
+- Requested M4b: seven full elapsed signal days at the existing 2-PU beacon load,
+  continuous powered-only progress, pause on interruptions, configurable grace/
+  degradation and a proposed three-day uninterrupted-outage reset. Precise outage
+  parameters require owner approval before any M4b code is implemented.
+- Prototype victory may use a notification/screen rather than surface extraction.
+  Post-victory simulation behavior is another consequential approval choice.
+  Preserve food, power, recoverability and all other systems; no new failure rule.
+- Inspect partial-interval accounting when a time skip crosses Fuel exhaustion:
+  rescue must receive exactly the powered portion before the outage begins.

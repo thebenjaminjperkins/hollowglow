@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 using Hollowlight.World;
 
@@ -15,6 +16,8 @@ public partial class RoomPresentation : Node
     private CanvasModulate _ambient = null!;
     private readonly List<PointLight2D> _lights = new();
     private bool _neutral;
+    private readonly List<PointLight2D> _lamps = new();
+    private PointLight2D? _workshop, _generator;
     public override void _Ready()
     {
         var actor = World.GetNode<PlayerCharacter>("Player");
@@ -33,8 +36,9 @@ public partial class RoomPresentation : Node
                 if (old is PointLight2D light)
                 {
                     _lights.Add(light);
+                    if(prop.Kind==PixelSprite.Motif.Generator)_generator=light;
                     if (prop.Kind == PixelSprite.Motif.Lamp)
-                    { light.Position = new Vector2(0, -24); light.TextureScale *= LampRadiusScale; light.Energy = LampEnergy; }
+                    { _lamps.Add(light); light.Position = new Vector2(0, -24); light.TextureScale *= LampRadiusScale; light.Energy = LampEnergy; }
                 }
             }
             string? asset = AssetFor(prop.Kind);
@@ -49,11 +53,27 @@ public partial class RoomPresentation : Node
         {
             if (child is not Interactable target) continue;
             target.Art.Hide();
-            if (target.IsFoodSource) continue;
+            if (target.IsFiniteSource) continue;
             target.AddChild(new RoomSprite { Name = "RoomArt", Asset = target.IsStorage ? "storage" : target.PresentationAsset, InteractionOwner = target });
+        }
+        if(World.Config.PowerEnabled)
+        {
+            var bench=System.Linq.Enumerable.First(map.GetChildren().OfType<SanctuaryProp>(),p=>p.Kind==PixelSprite.Motif.Bench);
+            _workshop=new PointLight2D { Texture=_lamps[0].Texture,TextureScale=.25f,Energy=.4f,Color=new Color("efbb79"),
+                Position=new Vector2(0,-12),RangeZMin=-10,RangeZMax=10 };
+            bench.AddChild(_workshop);_lights.Add(_workshop);
         }
         _ambient = new CanvasModulate { Color = AmbientTint };
         World.AddChild(_ambient);
+    }
+    public override void _Process(double delta)
+    {
+        var power=World.Electrical;
+        if(power==null)return;
+        bool Powered(string id)=>power.Consumers.Any(c=>c.Id==id&&c.Powered);
+        foreach(var lamp in _lamps)lamp.Visible=!_neutral&&Powered("lighting");
+        if(_workshop!=null)_workshop.Visible=!_neutral&&Powered("workbench");
+        if(_generator!=null)_generator.Visible=!_neutral&&power.Running;
     }
     private static string? AssetFor(PixelSprite.Motif kind) => kind switch
     {

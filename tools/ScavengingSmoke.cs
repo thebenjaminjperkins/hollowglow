@@ -17,7 +17,7 @@ public partial class ScavengingSmoke : Node
     private ThresholdWorld _world = null!;
     private PlayerCharacter _actor = null!;
     private SuppliesSnapshot Stock => _world.SuppliesFor(1);
-    private IReadOnlyList<GeneratedFoodSite> Sources => _world.ScavengingWorld!.Sources;
+    private IReadOnlyList<GeneratedSourceSite> Sources => _world.ScavengingWorld!.Sources;
     public override async void _Ready()
     {
         try
@@ -106,10 +106,10 @@ public partial class ScavengingSmoke : Node
         }
         catch (Exception error) { GD.PushError(error.ToString()); GetTree().Quit(1); }
     }
-    private Interactable Target(GeneratedFoodSite source) => _world.GetChildren().OfType<Interactable>().Single(t => t.ObjectId == source.Site.Id);
-    private ScavengingArt Art(GeneratedFoodSite source) => Target(source).GetNode<ScavengingArt>("FoodArt");
-    private async Task Approach(GeneratedFoodSite source) { _actor.Position = new(source.ApproachX, source.ApproachY); await Frames(3); }
-    private async Task Gather(GeneratedFoodSite source)
+    private Interactable Target(GeneratedSourceSite source) => _world.GetChildren().OfType<Interactable>().Single(t => t.ObjectId == source.Site.Id);
+    private ScavengingArt Art(GeneratedSourceSite source) => Target(source).GetNode<ScavengingArt>("FoodArt");
+    private async Task Approach(GeneratedSourceSite source) { _actor.Position = new(source.ApproachX, source.ApproachY); await Frames(3); }
+    private async Task Gather(GeneratedSourceSite source)
     {
         await Approach(source); await InteractKey();
     }
@@ -122,7 +122,7 @@ public partial class ScavengingSmoke : Node
     }
     private async Task Frames(int count)
     { for (int i = 0; i < count; i++) { await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame); await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame); } }
-    private async Task Capture(string name, GeneratedFoodSite source)
+    private async Task Capture(string name, GeneratedSourceSite source)
     {
         if (!OS.GetCmdlineUserArgs().Contains("--capture-scavenging")) return;
         Vector2 saved = _actor.Position;

@@ -48,6 +48,15 @@
         24,
         24
       ]
+    },
+    "fuel": {
+      "path": "res://assets/power/fuel_icon.png",
+      "region": [
+        0,
+        0,
+        24,
+        24
+      ]
     }
   }
 }

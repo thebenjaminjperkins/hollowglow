@@ -562,3 +562,42 @@ remains `24b7f70`, with no new M2b commit made before review.
   integrated hunger regression and approved/new sprite palette/anchor checks.
 - All passed. Earlier inspected graphical captures and daily balance reports remain
   in the baseline; no power gameplay or crop change was made during this checkpoint.
+
+
+## M4a power generation and manual allocation — 2026-11-12
+
+- M3b accepted baseline is `5e6abff`. M4a uses the owner's capacity-rejection
+  adjustment rather than the original breaker proposal.
+- Core checks cover exact Fuel credits, configured/idle/load rates, partial tank
+  capacity, no auto refill/restart, time subdivision/skips, snapshot serialization,
+  reset, 64 concurrent load/allocation races and 32 refuel-versus-time/storage races.
+- Seeded Fuel placement checks cover 256 seeds on each authored layout: exactly
+  two caches and 5–8 Fuel, with a separate Food stream. Seven-day 2/4/6-actor ledgers
+  use actual minimum/maximum worlds, finite gathering and manual transfers/refills.
+  Scheduled operation costs exactly 4.9 Fuel, full load 7. The poorest world has
+  no full-load reserve at the final boundary; no hidden balancing stock was added.
+- PowerSmoke passes live generator/chest/cache interactions, manual loading/restart,
+  5/4 rejection preserving beacon/workbench, switch reallocation, actual lamp state,
+  current-load rate/runtime, controller ownership/navigation, mouse/keyboard/controller
+  events, stale held clicks, range exit, continuous menu time, depletion and reset.
+- Graphical smoke/captures were inspected at gameplay zoom. Corrected an overlap
+  between runtime text and Start/Stop. Fuel PNGs follow the shared native density,
+  palette, alpha, anchor and original-source/prompt preservation conventions.
+- Existing Food scavenging and hunger regressions pass with power enabled. Legacy
+  stock-specific inventory/farm/clock/movement fixtures disable power explicitly.
+  Existing farm data, food values and matched environment artwork are preserved.
+- Live game still controls one actor. Controller events/concurrency simulations do
+  not establish physical-device, network or human group testing. Workbench has no
+  crafting output; beacon has no rescue progress. M4a stops for owner review.
+
+
+## M4a pre-M4b commit checkpoint — 2026-11-13
+
+- User authorized committing validated M4a pending their final hands-on confirmation.
+- Build: zero warnings/errors. Core suite, power concurrency/exact accounting,
+  both-layout PowerSmoke, HungerSmoke, approved-art and Fuel-art checks pass.
+- Recomputed seven-day Fuel ledger matches the existing M4a report byte-for-byte.
+- Existing inspected graphical captures remain the visual evidence for M4a; no new
+  graphical/hardware/network playtest is claimed at this checkpoint.
+- M4b is a scoping request until its precise outage rules are approved. No M4b
+  gameplay or outage penalty was implemented during this checkpoint.

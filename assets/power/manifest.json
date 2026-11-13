@@ -1,0 +1,17 @@
+{
+  "frame": [
+    40,
+    40
+  ],
+  "anchor": [
+    20,
+    36
+  ],
+  "states": [
+    "available",
+    "depleted"
+  ],
+  "native_pixels_per_world_unit": 2,
+  "source_sha256": "5c542210e7f7a22c030fbaf281a9c99fb19ff74e205a768ebcb24b66ad9adc1c",
+  "palette": "assets/sanctuary/manifest.json"
+}

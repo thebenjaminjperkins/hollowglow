@@ -14,6 +14,24 @@ The refuge uses matched PNG sprites, modular TileMapLayer terrain and adjustable
 lighting. L compares neutral and lamplit views. Earlier scenes remain available
 for historical comparisons; M2a adds finite gathering and shared-chest transfers without survival consumption.
 
+## M4a — Basic power generation and manual allocation
+
+Withdraw the **two shared Fuel** from the chest, approach the existing generator,
+and press **E / A**. Load from your backpack, start it, and select consumers:
+**beacon 2 PU, workbench 2 PU, sanctuary lighting 1 PU** against **4 PU** generation.
+An over-capacity activation is rejected; powered consumers keep running. Disable
+another manually. Local machine interactions open their focused switch.
+
+The five-Fuel tank burns continuously at **0.2 + 0.2 × supplied PU per full day**.
+Stopping preserves fractional Fuel; emptying the tank stops supply. Refueling and
+restarting are manual. Two seeded finite Fuel caches provide 2–3 near / 3–5 far Fuel,
+with no player-count scaling. The panel shows state, load, spare capacity, Fuel,
+burn and estimated runtime. Crop growth is unchanged; beacon rescue progress and
+crafting production are not implemented.
+
+See the [power operation/testing guide](docs/M4A_POWER.md), [daily Fuel balances](docs/M4A_FUEL_BALANCE.md)
+and [Fuel art sources/prompts](assets/power/README.md). M4a stops for review before M4b.
+
 ## M3b — Finite surface Food scavenging
 
 Six sources now appear on the surface: two wild plants and one food container near
@@ -238,7 +256,7 @@ validation uses two actors against the same authoritative model. Slot operations
 use the same lock and session/revision token. UI gesture tokens are captured at
 selection/pointer-down and stale previews cannot move a replacement stack.
 
-No weight, encumbrance, crafting, fuel or power is implemented; M3a adds hunger. Existing
+No weight, encumbrance or crafting is implemented; M3a adds hunger and M4a adds Fuel/power. Existing
 refuge workstations remain decorative; garden beds now contain functional plots; the authored surface growth is
 the finite Organic Material source. Approved art and modular terrain are unchanged.
 

@@ -18,6 +18,7 @@ public sealed partial class SharedSupplies
         {
             if (_hunger != null) throw new InvalidOperationException("Hunger is initialized once per session.");
             definition.Validate();
+            if (_powerClock != null && !ReferenceEquals(_powerClock, clock)) throw new ArgumentException("Meals must share the power clock.");
             if (_agriculture != null && !ReferenceEquals(Farm.Clock, clock))
                 throw new ArgumentException("Farming and meals must share the session clock.");
             if (!_resources.TryGetValue(definition.StartingResource, out var food) || !food.Edible)

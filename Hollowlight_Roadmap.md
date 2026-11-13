@@ -1,5 +1,5 @@
 # HOLLOWLIGHT
-## Development & Playtesting Roadmap | v0.3 — approved direction; M3b completed
+## Development & Playtesting Roadmap | v0.3 — M4a validated baseline; M4b scoping
 
 **Companions:** [Vision](Hollowlight_Vision.md), [Bootstrap](Hollowlight_Bootstrap.md),
 [decision history](docs/DECISIONS.md) and [validation log](docs/PLAYTEST_LOG.md).
@@ -7,7 +7,10 @@
 This is an incremental plan, not authorization to implement future milestones.
 The owner has approved M3a's implementation scope, including gradual recovery;
 M3a is implemented and validated. The revised Vision/Roadmap were approved, followed
-by explicit approval of the leaner M3b Food-scavenging scope. M3b is implemented, validated and accepted by the owner. Further gameplay still needs separate approval. Bootstrap has
+by explicit approval of the leaner M3b Food-scavenging scope. M3b is implemented, validated and accepted by the owner. M4a was subsequently approved with non-destructive capacity rejection and is now
+approved on reported validation pending final hands-on confirmation. Its validated
+baseline is authorized for commit. M4b outage parameters still need owner approval
+before implementation. Bootstrap has
 no changed initialization or technical requirements and remains unchanged.
 
 ## 1. Current position and priority
@@ -24,15 +27,16 @@ Keep each step independently playable, test it, report and stop for review.
 | M1.5 art benchmarks and sanctuary integration | Approved and integrated; modular PNG/atlas standard |
 | M2a shared supplies and inventory UX | Approved; included in commit `24b7f70` |
 | M2b agriculture and continuous time | Approved; committed as `453114a` |
-| M3a food consumption and hunger | Approved scope, implementation/validation complete; awaiting owner review |
+| M3a food consumption and hunger | Implemented/validated; preserved in accepted M3b baseline `5e6abff` |
 | M3b finite surface Food scavenging | Approved and completed; committed baseline includes M3a and approved design revisions |
+| M4a basic power generation and manual allocation | Reported validation approved; commit authorized; final hands-on confirmation pending |
 | Subsequent gameplay | Proposals only; separate approval required |
 
 Live play controls one actor. Core models support independent actor inventories,
 meal states and conflicting operations; tests and simulations do not constitute
 playable multiplayer. There are two authored layouts with reusable TileMapLayer
-terrain, not a procedural world generator. No functioning power, beacon, crafting,
-protective doors, enemies, damage, outdoor farming or transport exists yet.
+terrain, not a procedural world generator. M4a provides basic power and a beacon consumer indicator. Rescue progress, crafting,
+protective doors, enemies, damage, outdoor farming and transport remain future work.
 M3b adds seeded resource placement, not terrain generation.
 
 ## 2. Rules for development
@@ -215,17 +219,16 @@ with gradual recovery. M2b was committed as `453114a` before implementation.
 checks, hunger recovery and movement, farming/clock/inventory regression checks on
 both layouts, reset, conservation and gameplay-scale visual inspection. Details:
 [meal rules](docs/M3A_HUNGER.md), [daily balance ledger](docs/M3A_FOOD_BALANCE.md).
-M3a implementation and validation are complete; owner acceptance remains pending.
+M3a implementation and validation are preserved in the accepted M3b baseline.
 Broader power/beacon/crafting scope remains unapproved. No implementation is authorized
 by the planning proposals below.
 
 ## 4. Proposed route to the first connected survival loop
 
-**Sequencing approved; implementation is gated per slice.** M3b alone has subsequent
-explicit implementation approval and is completed and accepted below. The next
-power scope is now named M4a by the owner, followed by M4b rescue progression; both
-remain proposals requiring separate implementation approval. No step silently rebalances crops, renames
-resources or implements later danger systems.
+**Sequencing approved; implementation is gated per slice.** M3b is accepted and
+committed. M4a was separately approved and is implemented below for review. M4b
+and later slices remain proposals. No step silently rebalances crops, renames
+resources or introduces later danger systems.
 
 ### M3b. Finite surface Food scavenging — approved and completed
 
@@ -253,29 +256,38 @@ Regular farm care plus timely scavenging meets all tested 2/4/6-player deadlines
 The eight-Food world with delayed care leaves six players two meals short on Day 7;
 a late far expedition causes five misses on Day 6. No other systems were rebalanced.
 Actual terrain generation, hostile surface danger and power remain outside this slice.
-**Gate:** Owner accepted M3b and requested a Git commit. Stop before implementing
-M4a power generation; only scoping it is authorized.
+**Gate:** Owner accepted M3b and requested its commit (`5e6abff`). Subsequent M4a
+approval is recorded below; M4b is not authorized.
 
-### M4a. Basic power generation and manual allocation — proposal
+### M4a. Basic power generation and manual allocation — validated baseline accepted pending hands-on
 
-Formerly the M3c planning entry; the owner named this next slice M4a.
+Formerly M3c; named M4a by the owner. M3b baseline committed as `5e6abff` first.
 
-**Goal:** Establish understandable generation, operating costs and competing demand.
+- Approved generator: 4 PU, five-Fuel tank, two shared starting Fuel in the chest.
+  Manual personal-inventory loading, start/stop and consumer switches.
+- Consumers: beacon 2 PU, workbench 2 PU, supplemental lighting 1 PU. Beacon is
+  powered-state feedback only; workbench has readiness/task lighting, no crafting.
+- Owner's adjustment: reject an activation above capacity, warn with requested
+  demand/capacity, preserve powered consumers. No breaker trips or automatic priorities.
+- Continuous burn: 0.2 + 0.2 × supplied PU per cycle while running. Exact fractional
+  credits, no off-state burn, no automatic refill/restart, safe whole-unit tank loading.
+- Two seeded finite Fuel caches: near 2–3, far 3–5. Same authority/gathering rules,
+  reachable approaches, partial collection and depleted PNGs; no player scaling.
+- Generator panel and local machine controls expose state, active switches, spare
+  capacity, Fuel, rate and runtime. World time continues during controls.
+- Existing crops/four plots, Food/material sites, hunger, starting Food/seeds and
+  inventory capacities are preserved. No grow-light dependence or growth bonus.
 
-- Begin with one generator strategy and the smallest needed fuel/input acquisition
-  loop. Use existing approved machinery where appropriate.
-- Add explicit capacity, operation, one or two selectable consumers and clear
-  shortage feedback. Fuel accounting must remain correct across partial days/skips.
-- Keep underground crops functional as they are. Do not retroactively require grow
-  lights or power unless that separate change is approved.
+**Validation:** Exact conservation, fractional/time subdivision, depletion, tank limits,
+finite seeded caches, concurrency/stale commands, reset, real input-event/UI checks,
+previous gameplay regressions and inspected graphical captures. [Guide](docs/M4A_POWER.md),
+[daily 2/4/6-player Fuel ledger](docs/M4A_FUEL_BALANCE.md). Scheduled operation costs
+4.9 Fuel/week, full load 7; costs are shared rather than multiplied per player.
 
-**Ask:** Fuel-based versus biomass-first generation, input sources/costs, consumer
-roster, shortage allocation and whether a tiny storage buffer is necessary now.
-Recommendation: one generation method first; compare another only after this works.
-
-**Exit:** Players can operate/shut down consumers, recognize overload or lack of
-input, restore service and conserve resources. Multiple generator types and a full
-wiring/construction system are excluded.
+**Gate:** Owner approved the reported validation pending final hands-on confirmation
+and requested committing M4a before M4b. M4b implementation waits for approval of
+specific outage rules and consequential victory behavior. Grow-light effects and
+all additional survival systems remain outside that slice.
 
 ### M4b. Rescue progression and recoverable signal interruption — later proposal
 
@@ -473,10 +485,11 @@ Run repeated seeded and real group playtests; compare strategies and shortages f
   Potato: 2 elapsed cycles, 3 Food + seed. Glowcap: 3 cycles, 2 Food + Organic + seed.
   A whole harvest must fit; no yield or seed is silently destroyed.
 - Six personal slots, stack size ten, 24 communal slots by default (configurable).
-  Live resource IDs are `scrap`, `organic`, `food`, `potato_seed`, `glowcap_seed`.
+  Live resource IDs are `scrap`, `organic`, `food`, `potato_seed`, `glowcap_seed`,
+  plus `fuel` introduced by M4a.
 - Three finite surface sites hold 12 Scrap, 8 Organic Material and 14 Scrap. They
-  retain their original materials; M3b adds six separate seeded Food sources. Power,
-  Fuel and machine parts are not implemented.
+  retain their original materials; M3b adds six separate seeded Food sources.
+  M4a introduces power and Fuel; machine parts are not implemented.
 
 | Players | Personal starting Food, group total | Shared starter seeds | Plots |
 |---:|---:|---:|---:|

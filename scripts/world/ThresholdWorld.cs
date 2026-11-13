@@ -23,7 +23,7 @@ public partial class ThresholdWorld : Node2D
     public IReadOnlyList<CropDefinition> CropDefinitions => _state.Crops;
     public PlotSnapshot Plot(string id) => _state.Plot(id);
     public string? FocusedPlotId => _focusedPlot?.PlotId;
-    public FoodWorld? ScavengingWorld { get; private set; }
+    public SourceWorld? ScavengingWorld { get; private set; }
     private SupplySetup _setup = null!;
     private bool _inventoryVisible;
     private Interactable? _openedChest;
@@ -54,13 +54,15 @@ public partial class ThresholdWorld : Node2D
         }
         if (Config.ScavengingEnabled)
         {
-            ScavengingWorld = FoodScavenging.Generate(FoodScavengingSetup.Parse(FileAccess.GetFileAsString("res://data/food_scavenging.json")),
+            ScavengingWorld = FiniteScavenging.Generate(ScavengingSetup.Parse(FileAccess.GetFileAsString("res://data/food_scavenging.json")),
                 GetNode<ThresholdMap>("Map").Layout, _setup.Sites, Config.WorldSeed);
             _setup = _setup with { Sites = _setup.Sites.Concat(ScavengingWorld.Sources.Select(s => s.Site)).ToArray() };
         }
+        PreparePowerSources();
         _controlledActor = GetNode<PlayerCharacter>("Player");
         _farming = Config.FarmingEnabled ? AgricultureSetup.Parse(FileAccess.GetFileAsString("res://data/farming.json")) : null;
-        _state = _setup.CreateState(new[] { _controlledActor.PlayerId }, Config.StorageSlots, _farming?.Resources);
+        _state = _setup.CreateState(new[] { _controlledActor.PlayerId }, Config.StorageSlots, (_farming?.Resources ?? System.Array.Empty<ResourceDefinition>()).Concat(Config.PowerEnabled
+                ? new[] { new ResourceDefinition("fuel", "Fuel", "Fuel") } : System.Array.Empty<ResourceDefinition>()));
         if (_farming != null)
         {
             var beds = GetNode<ThresholdMap>("Map").GetChildren().OfType<SanctuaryProp>().Where(p => p.Kind == PixelSprite.Motif.Garden).ToArray();
@@ -75,9 +77,11 @@ public partial class ThresholdWorld : Node2D
         }
         if (Config.HungerEnabled)
             _state.InitializeHunger(HungerDefinition.Parse(FileAccess.GetFileAsString("res://data/hunger.json")), Clock);
+        InitializeElectrical();
         StartingStoredTotal = _state.Snapshot(_controlledActor.PlayerId).Storage.Total;
         if (FarmingEnabled) _feedback = "Starter seeds are in the shared chest. C chooses a crop at a plot.";
         _hud = GetNode<ThresholdHud>("HUD");
+        InitializePowerPanel();
         _controlledActor.InteractionRequested += Interact;
         _hud.Supplies.CloseRequested += CloseInventory;
         _hud.Supplies.EatRequested += HandleEat;
@@ -93,9 +97,9 @@ public partial class ThresholdWorld : Node2D
             ObjectId = id, DisplayName = name, Position = position, IsStorage = storage,
             ResourceId = resource, PresentationAsset = asset
         };
-        target.IsFoodSource = ScavengingWorld?.Sources.Any(s => s.Site.Id == id) == true;
+        target.IsFiniteSource = ScavengingWorld?.Sources.Any(s => s.Site.Id == id) == true || FuelWorld?.Sources.Any(s => s.Site.Id == id) == true;
         target.Initialize(storage ? PixelSprite.Motif.Storage : PixelSprite.Motif.Salvage);
-        if (target.IsFoodSource)
+        if (target.IsFiniteSource)
         {
             target.CollisionLayer = 0; // Ground-level salvage; preserve all existing navigation/collision.
             target.Art.Hide();
@@ -122,6 +126,7 @@ public partial class ThresholdWorld : Node2D
         if (_focusedPlot != null && _focused != null && _controlledActor.GlobalPosition.DistanceSquaredTo(_focusedPlot.GlobalPosition) <
             _controlledActor.GlobalPosition.DistanceSquaredTo(_focused.GlobalPosition)) _focused = null;
         else if (_focused != null) _focusedPlot = null;
+        UpdateElectrical();
         foreach (var target in _interactables) target.Art.Highlight = target == _focused;
     }
 
@@ -146,8 +151,13 @@ public partial class ThresholdWorld : Node2D
 
     private void Interact(PlayerCharacter actor)
     {
+        if(ModalOpen)return;
+        var station=FindStation(actor);
         var target = FindTarget(actor);
         var plot = FindPlot(actor);
+        if(station!=null && (target==null || actor.Position.DistanceSquaredTo(station.Position)<actor.Position.DistanceSquaredTo(target.Position)) &&
+            (plot==null || actor.Position.DistanceSquaredTo(station.Position)<actor.Position.DistanceSquaredTo(plot.Position)))
+        { OpenPower(station);return; }
         if (plot != null && (target == null || actor.GlobalPosition.DistanceSquaredTo(plot.GlobalPosition) < actor.GlobalPosition.DistanceSquaredTo(target.GlobalPosition)))
         {
             var state = _state.Plot(plot.PlotId);
@@ -168,12 +178,12 @@ public partial class ThresholdWorld : Node2D
 
     public SupplyResult GatherSupplies(PlayerCharacter actor, string nodeId, SupplyVersion version)
     {
-        if (actor != _controlledActor || _inventoryVisible || FindTarget(actor)?.ObjectId != nodeId)
+        if (actor != _controlledActor || ModalOpen || FindTarget(actor)?.ObjectId != nodeId)
             return new(SupplyStatus.AccessDenied, 0, _state.Snapshot(_controlledActor.PlayerId).Version);
         var target = _interactables.First(t => t.ObjectId == nodeId);
         var result = _state.Gather(actor.PlayerId, nodeId, int.MaxValue, version);
         if (result.Status == SupplyStatus.Applied && _state.Snapshot(actor.PlayerId).Remaining[nodeId] == 0) target.SetCollected();
-        if (target.IsFoodSource && result.Status == SupplyStatus.Empty) Notify("This Food source has been picked clean.");
+        if (target.IsFiniteSource && result.Status == SupplyStatus.Empty) Notify($"This {target.ResourceId} source has been picked clean.");
         else Report(result, $"Gathered {target.DisplayName}:");
         return result;
     }
@@ -194,7 +204,7 @@ public partial class ThresholdWorld : Node2D
     }
     public FarmResult UsePlot(PlayerCharacter actor, string plotId, string cropId, SupplyVersion version)
     {
-        if (actor != _controlledActor || _inventoryVisible || FindPlot(actor)?.PlotId != plotId)
+        if (actor != _controlledActor || ModalOpen || FindPlot(actor)?.PlotId != plotId)
             return new(FarmStatus.AccessDenied, version);
         var plot = _state.Plot(plotId);
         FarmResult result = plot.Stage == CropStage.Empty ? _state.Plant(actor.PlayerId, plotId, cropId, version)
@@ -212,7 +222,7 @@ public partial class ThresholdWorld : Node2D
     }
     private void CycleCrop(int direction)
     {
-        if (_inventoryVisible || _focusedPlot == null || _state.Plot(_focusedPlot.PlotId).Stage != CropStage.Empty) return;
+        if (ModalOpen || _focusedPlot == null || _state.Plot(_focusedPlot.PlotId).Stage != CropStage.Empty) return;
         _selectedCrop = (_selectedCrop + direction + _state.Crops.Count) % _state.Crops.Count;
     }
 
@@ -234,6 +244,7 @@ public partial class ThresholdWorld : Node2D
 
     private void OpenInventory(Interactable? chest = null)
     {
+        ClosePower();
         _hud.HideHelp();
         _openedChest = chest;
         _inventoryVisible = true;
@@ -296,6 +307,7 @@ public partial class ThresholdWorld : Node2D
 
     public override void _Process(double delta)
     {
+        if(PowerVisible)_powerPanel.Refresh(_state.Power(),_state.Snapshot(_controlledActor.PlayerId).Version);
         bool outside = _controlledActor.Position.X >= ThresholdMap.SurfaceStart;
         var snapshot = _state.Snapshot(_controlledActor.PlayerId);
         string prompt = _focused == null ? ""
@@ -315,12 +327,13 @@ public partial class ThresholdWorld : Node2D
                 prompt = plot.Stage == CropStage.Mature ? $"E / A Harvest {crop.Name}" : $"{crop.Name} | {plot.Stage} | {days:0.0} days left | E / A Inspect";
             }
         }
+        if(_focusedStation!=null && !ModalOpen)prompt=$"E / A  Manage {_focusedStation.Label}";
         string debug = _debug
             ? $"{Engine.GetFramesPerSecond()} fps | pos {_controlledActor.Position.Round()} | vel {_controlledActor.Velocity.Round()}\n" +
               $"target: {_focused?.ObjectId ?? "none"} | world seed {Config.WorldSeed}\nF2: home   F3: surface   R: restore all salvage\nF4: +1 min   F5: +1 day   Shift+F5: +3 days"
             : "";
         _hud.Present(outside ? "SURFACE CLEARING" : "REFUGE / HOME", snapshot,
-            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId));
+            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId),PowerVisible);
     }
 
     public override void _UnhandledKeyInput(InputEvent @event)
@@ -341,7 +354,7 @@ public partial class ThresholdWorld : Node2D
                 Notify(key.ShiftPressed ? "Debug: advanced three days." : "Debug: advanced one day.");
                 break;
             case Key.F1: _debug = !_debug; break;
-            case Key.H: _hud.ToggleHelp(); break;
+            case Key.H: if(!PowerVisible)_hud.ToggleHelp(); break;
             case Key.F2: Teleport(Home); Notify("Debug: returned home; quantities preserved."); break;
             case Key.F3: Teleport(Outside); Notify("Debug: moved outside; quantities preserved."); break;
             default: return;
@@ -351,7 +364,7 @@ public partial class ThresholdWorld : Node2D
 
     private void Teleport(Vector2 position)
     {
-        CloseInventory();
+        ClosePower();CloseInventory();
         _controlledActor.Position = position;
         _controlledActor.Velocity = Vector2.Zero;
         _controlledActor.GetNode<Camera2D>("Camera2D").ResetSmoothing();
@@ -361,6 +374,7 @@ public partial class ThresholdWorld : Node2D
 
     public override void _ExitTree()
     {
+        if(_powerPanel!=null) { _powerPanel.CloseRequested-=ClosePower;_powerPanel.OperationRequested-=HandlePowerCommand; }
         if (_controlledActor != null)
         {
             _controlledActor.InventoryOpen = false;

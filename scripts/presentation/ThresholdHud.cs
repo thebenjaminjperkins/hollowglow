@@ -83,7 +83,7 @@ public partial class ThresholdHud : CanvasLayer
         return label;
     }
     public void Present(string location, SuppliesSnapshot supplies,
-        string prompt, string feedback, string debug, bool showDebug, ClockSnapshot clock, HungerSnapshot? hunger = null)
+        string prompt, string feedback, string debug, bool showDebug, ClockSnapshot clock, HungerSnapshot? hunger = null, bool powerOpen = false)
     {
         long seconds = clock.PhaseElapsedTicks / System.TimeSpan.TicksPerSecond;
         _clock.Text = $"Day {clock.DayNumber}  {clock.Phase} {seconds / 60:00}:{seconds % 60:00}";
@@ -107,8 +107,8 @@ public partial class ThresholdHud : CanvasLayer
             _locationTime = 3;
         }
         Toast(_prompt, _promptPanel, prompt, 191);
-        _prompt.Visible = _promptPanel.Visible = prompt.Length > 0 && !Supplies.Visible;
-        Toast(_feedback, _feedbackPanel, Supplies.Visible ? "" : feedback, 171);
+        _prompt.Visible = _promptPanel.Visible = prompt.Length > 0 && !Supplies.Visible && !powerOpen;
+        Toast(_feedback, _feedbackPanel, Supplies.Visible || powerOpen ? "" : feedback, 171);
         _feedback.Visible = _feedbackPanel.Visible = _feedback.Text.Length > 0;
         _debug.Text = debug;
         _debug.Visible = showDebug;

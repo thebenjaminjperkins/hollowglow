@@ -20,6 +20,7 @@ public partial class InventoryUxReview : Node
         try
         {
             var room = GD.Load<PackedScene>(ProjectSettings.GetSetting("application/run/main_scene").AsString()).Instantiate<SanctuaryRoom>();
+            room.PowerEnabled = false;
             room.HungerEnabled = false;
             room.ScavengingEnabled = false;
             room.InputOverride = _input; AddChild(room);

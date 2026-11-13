@@ -5,37 +5,38 @@ using System.Text.Json;
 
 namespace Hollowlight.Core;
 
-public sealed record FoodSourceType(string Id, string Name, string Asset, int NearCount, int FarCount,
+public sealed record SourceType(string Id, string Name, string Asset, int NearCount, int FarCount,
     int NearMin, int NearMax, int FarMin, int FarMax);
-public sealed record FoodScavengingSetup(int EntranceX, int EntranceY, int SurfaceMinX, int NearMinDistance,
-    int NearMaxDistance, int FarMinDistance, int FarMaxDistance, int MinimumSpacing, FoodSourceType[] Types)
+public sealed record ScavengingSetup(int EntranceX, int EntranceY, int SurfaceMinX, int NearMinDistance,
+    int NearMaxDistance, int FarMinDistance, int FarMaxDistance, int MinimumSpacing, SourceType[] Types, string ResourceId = "food", string Domain = "food")
 {
-    public static FoodScavengingSetup Parse(string json) => JsonSerializer.Deserialize<FoodScavengingSetup>(json,
+    public static ScavengingSetup Parse(string json) => JsonSerializer.Deserialize<ScavengingSetup>(json,
         new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? throw new JsonException("Missing scavenging setup.");
     public void Validate()
     {
-        if (NearMinDistance < 16 || NearMaxDistance < NearMinDistance || FarMinDistance <= NearMaxDistance ||
+        if (string.IsNullOrWhiteSpace(ResourceId) || string.IsNullOrWhiteSpace(Domain) || NearMinDistance < 16 || NearMaxDistance < NearMinDistance || FarMinDistance <= NearMaxDistance ||
             FarMaxDistance < FarMinDistance || MinimumSpacing < 16 || Types.Length == 0 ||
             Types.Select(t => t.Id).Distinct().Count() != Types.Length || Types.Any(t => string.IsNullOrWhiteSpace(t.Id) ||
                 string.IsNullOrWhiteSpace(t.Name) || string.IsNullOrWhiteSpace(t.Asset) || t.NearCount < 0 || t.FarCount < 0 ||
                 t.NearMin < 1 || t.FarMin < 1 || t.NearMax < t.NearMin || t.FarMax < t.FarMin ||
                 t.NearMax > SharedSupplies.StackLimit || t.FarMax > SharedSupplies.StackLimit) ||
             Types.Sum(t => t.NearCount + t.FarCount) is < 1 or > 32)
-            throw new ArgumentException("Invalid finite Food source configuration.");
+            throw new ArgumentException("Invalid finite source configuration.");
     }
 }
-public sealed record GeneratedFoodSite(GatheringSite Site, string Type, string Band, int PathDistance, int ApproachX, int ApproachY);
-public sealed record FoodWorld(int Seed, IReadOnlyList<GeneratedFoodSite> Sources);
+public sealed record GeneratedSourceSite(GatheringSite Site, string Type, string Band, int PathDistance, int ApproachX, int ApproachY);
+public sealed record SourceWorld(int Seed, IReadOnlyList<GeneratedSourceSite> Sources);
 
 // Resource placement on supplied terrain, not a terrain generator. No player-count
 // input, clock, inventory mutation, retries on collection, or respawn timer.
-public static class FoodScavenging
+public static class FiniteScavenging
 {
     private readonly record struct Cell(int X, int Y);
-    public static FoodWorld Generate(FoodScavengingSetup setup, CaveLayout layout, IEnumerable<GatheringSite> existing, int seed)
+    public static SourceWorld Generate(ScavengingSetup setup, CaveLayout layout, IEnumerable<GatheringSite> existing, int seed, IEnumerable<GatheringSite>? groundSources = null)
     {
         setup.Validate();
         var oldSites = existing.ToArray();
+        var ground = (groundSources ?? Array.Empty<GatheringSite>()).ToArray();
         bool Walkable(int x, int y)
         {
             // Actor feet are 8x6. Check their clearance, including thin prop bodies.
@@ -52,7 +53,7 @@ public static class FoodScavenging
             return true;
         }
         var entrance = new Cell(setup.EntranceX / 16, setup.EntranceY / 16);
-        if (!Walkable(entrance.X * 16 + 8, entrance.Y * 16 + 8)) throw new ArgumentException("Food placement needs a clear entrance.");
+        if (!Walkable(entrance.X * 16 + 8, entrance.Y * 16 + 8)) throw new ArgumentException("Source placement needs a clear entrance.");
         var distances = new Dictionary<Cell, int> { [entrance] = 0 }; var queue = new Queue<Cell>(); queue.Enqueue(entrance);
         var directions = new[] { new Cell(1, 0), new Cell(0, 1), new Cell(-1, 0), new Cell(0, -1) };
         while (queue.Count > 0)
@@ -72,14 +73,15 @@ public static class FoodScavenging
             // Leave a quiet visual envelope and avoid existing interactive/decorative props.
             if (!layout.IsFloor(c.X, c.Y - 1) || !layout.IsFloor(c.X - 1, c.Y) || !layout.IsFloor(c.X + 1, c.Y)) return false;
             return layout.Props.All(p => Square(x - p.X) + Square(y - p.Y) >= 28 * 28) &&
-                oldSites.All(p => Square(x - p.X) + Square(y - p.Y) >= 48 * 48);
+                oldSites.All(p => Square(x - p.X) + Square(y - p.Y) >= 48 * 48) &&
+                ground.All(p => Square(x - p.X) + Square(y - p.Y) >= Square(setup.MinimumSpacing));
         }).ToList();
-        var random = new SeedStream(seed, "food-placement-v1");
+        var random = new SeedStream(seed, setup.Domain + "-placement-v1");
         for (int i = candidates.Count - 1; i > 0; i--) { int j = random.Next(i + 1); (candidates[i], candidates[j]) = (candidates[j], candidates[i]); }
-        var slots = new List<(FoodSourceType Type, string Band, int Ordinal)>();
+        var slots = new List<(SourceType Type, string Band, int Ordinal)>();
         foreach (string band in new[] { "near", "far" }) foreach (var type in setup.Types)
             for (int n = 0; n < (band == "near" ? type.NearCount : type.FarCount); n++) slots.Add((type, band, n));
-        var placed = new List<GeneratedFoodSite>();
+        var placed = new List<GeneratedSourceSite>();
         bool Place(int index)
         {
             if (index == slots.Count) return true;
@@ -89,17 +91,17 @@ public static class FoodScavenging
                 int distance = distances[cell], x = cell.X * 16 + 8, y = cell.Y * 16 + 8;
                 if (distance < (near ? setup.NearMinDistance : setup.FarMinDistance) || distance > (near ? setup.NearMaxDistance : setup.FarMaxDistance) ||
                     placed.Any(p => Square(p.Site.X - x) + Square(p.Site.Y - y) < Square(setup.MinimumSpacing))) continue;
-                string id = $"food-{band}-{type.Id}-{ordinal}";
-                var quantities = new SeedStream(seed, "food-quantity-v1:" + id);
+                string id = $"{setup.Domain}-{band}-{type.Id}-{ordinal}";
+                var quantities = new SeedStream(seed, setup.Domain + "-quantity-v1:" + id);
                 int min = near ? type.NearMin : type.FarMin, max = near ? type.NearMax : type.FarMax;
-                var site = new GatheringSite(id, type.Name, "food", min + quantities.Next(max - min + 1), x, y, type.Asset);
+                var site = new GatheringSite(id, type.Name, setup.ResourceId, min + quantities.Next(max - min + 1), x, y, type.Asset);
                 placed.Add(new(site, type.Id, band, distance, x, y + 12));
                 if (Place(index + 1)) return true;
                 placed.RemoveAt(placed.Count - 1);
             }
             return false;
         }
-        if (!Place(0)) throw new ArgumentException("Terrain cannot fit the configured Food sources with safe approaches and spacing.");
+        if (!Place(0)) throw new ArgumentException("Terrain cannot fit the configured sources with safe approaches and spacing.");
         return new(seed, Array.AsReadOnly(placed.ToArray()));
     }
     private static long Square(int n) => (long)n * n;

@@ -31,7 +31,7 @@ public static class FoodBalanceSimulation
     }
     public static void RunScavenging(string output)
     {
-        FoodWorld? minimum = null, maximum = null;
+        SourceWorld? minimum = null, maximum = null;
         for (int seed = 0; seed < 4096 && (minimum == null || maximum == null); seed++)
         {
             var world = ScavengingTests.Generate(seed); int total = world.Sources.Sum(s => s.Site.Quantity);
@@ -65,7 +65,7 @@ public static class FoodBalanceSimulation
         File.WriteAllText(output, report.ToString());
         Console.WriteLine($"PASS: actual seeded 8/default/17-Food worlds, daily 2/4/6-player ledgers, regular/delayed farm care and late expedition stress; report {output}");
     }
-    private static void Simulate(int count, bool delayed, StringBuilder report, FoodWorld? scavenging = null, bool late = false)
+    private static void Simulate(int count, bool delayed, StringBuilder report, SourceWorld? scavenging = null, bool late = false)
     {
         var ids = Enumerable.Range(1, count).ToArray(); var setup = AgricultureSetup.Parse(Data("farming"));
         var supplySetup = SupplySetup.Parse(Data("supplies"));

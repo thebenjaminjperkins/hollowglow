@@ -11,7 +11,7 @@ public partial class ScavengingArt : Node2D
     public int StateFrame => _sprite.Frame;
     public override void _Ready()
     {
-        _sprite = new Sprite2D { Texture = GD.Load<Texture2D>($"res://assets/scavenging/{Source.PresentationAsset}.png"),
+        _sprite = new Sprite2D { Texture = GD.Load<Texture2D>($"res://assets/{(Source.ResourceId == "fuel" ? "power" : "scavenging")}/{Source.PresentationAsset}.png"),
             Hframes = 2, Centered = false, Position = new Vector2(-10, -18), Scale = Vector2.One * 0.5f,
             TextureFilter = CanvasItem.TextureFilterEnum.Nearest };
         AddChild(_sprite);

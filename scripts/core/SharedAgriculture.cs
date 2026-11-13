@@ -15,6 +15,7 @@ public sealed partial class SharedSupplies
             if (_agriculture != null) throw new InvalidOperationException("Farming is initialized once per session.");
             if (_mealClock != null && !ReferenceEquals(_mealClock, clock))
                 throw new ArgumentException("Farming and meals must share the session clock.");
+            if (_powerClock != null && !ReferenceEquals(_powerClock, clock)) throw new ArgumentException("Farming must share the power clock.");
             var candidate = new Agriculture(setup, clock, plotIds);
             foreach (var crop in candidate.Crops)
                 if (!_resources.ContainsKey(crop.SeedResource) || crop.Yields.Keys.Any(id => !_resources.ContainsKey(id)))
