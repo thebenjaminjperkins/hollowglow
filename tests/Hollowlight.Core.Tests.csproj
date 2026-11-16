@@ -6,6 +6,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../scripts/core/SalvageState.cs" Link="SalvageState.cs" />
+    <Compile Include="../scripts/core/Crafting.cs" Link="Crafting.cs" />
+    <Compile Include="../scripts/core/SharedCrafting.cs" Link="SharedCrafting.cs" />
+    <None Include="../data/crafting.json" Link="data/crafting.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/Rescue.cs" Link="Rescue.cs" />
     <Compile Include="../scripts/core/SharedRescue.cs" Link="SharedRescue.cs" />
     <None Include="../data/rescue.json" Link="data/rescue.json" CopyToOutputDirectory="PreserveNewest" />

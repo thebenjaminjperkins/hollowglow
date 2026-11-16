@@ -57,6 +57,24 @@
         24,
         24
       ]
+    },
+    "backpack_kit": {
+      "path": "res://assets/sanctuary/character.png",
+      "region": [
+        13,
+        76,
+        15,
+        17
+      ]
+    },
+    "bed_kit": {
+      "path": "res://assets/farming/bed.png",
+      "region": [
+        0,
+        8,
+        36,
+        40
+      ]
     }
   }
 }

@@ -21,7 +21,7 @@ public partial class PowerSmoke : Node
         try
         {
             var room=GD.Load<PackedScene>(ProjectSettings.GetSetting("application/run/main_scene").AsString()).Instantiate<SanctuaryRoom>();
-            room.InputOverride=_input;AddChild(room);_world=room.World;_actor=_world.GetNode<PlayerCharacter>("Player");await Frames(3);
+            room.CraftingEnabled=false;room.InputOverride=_input;AddChild(room);_world=room.World;_actor=_world.GetNode<PlayerCharacter>("Player");await Frames(3);
             Check(!Power.Running&&Power.Fuel==0&&Power.Demand==0&&Stock.Storage.Count("fuel")==2,"Stopped empty 4-PU generator; two shared starter Fuel; all switches off");
             Check(_world.FuelWorld!.Sources.Count==2&&_world.ScavengingWorld!.Sources.Count==6&&_world.GrowingPlots.Count==4,
                 "Two finite Fuel caches coexist with unchanged six Food sources and four plots");

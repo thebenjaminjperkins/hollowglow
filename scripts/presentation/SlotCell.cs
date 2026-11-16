@@ -27,13 +27,16 @@ public partial class SlotCell : Control
     {
         var stack = OwnerPanel.Stack(Address);
         _count.Text = stack == null ? "" : stack.Quantity.ToString();
-        TooltipText = stack == null ? "" : OwnerPanel.ResourceName(stack.ResourceId);
+        TooltipText = (stack == null ? "Empty" : OwnerPanel.ResourceName(stack.ResourceId)) +
+            (Address.Container==InventoryKind.Personal&&Address.Index>=SharedSupplies.PlayerSlots?" | Storage only":"");
         QueueRedraw();
     }
     public override void _Draw()
     {
         DrawRect(new Rect2(Vector2.Zero, Size), new Color("303b3e"));
         DrawLine(new Vector2(1, Size.Y - 1), Size - Vector2.One, new Color("19262d"));
+        if(Address.Container==InventoryKind.Personal&&Address.Index>=SharedSupplies.PlayerSlots)
+            DrawLine(new Vector2(2,2),new Vector2(Size.X-2,2),new Color("638e85"),1);
         var stack = OwnerPanel.Stack(Address);
         Texture2D? icon = stack == null ? null : OwnerPanel.Appearance.Icon(stack.ResourceId);
         if (icon != null)

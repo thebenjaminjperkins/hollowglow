@@ -14,6 +14,22 @@ The refuge uses matched PNG sprites, modular TileMapLayer terrain and adjustable
 lighting. L compares neutral and lamplit views. Earlier scenes remain available
 for historical comparisons; M2a adds finite gathering and shared-chest transfers without survival consumption.
 
+## M5a — Basic crafting and resource investment (approved)
+
+Enable the existing **2-PU workbench**, approach it and press **E / A**. Three
+immediate recipes use personal ingredients: Backpack Extension (**8 Scrap + 3
+Organic**), Growing-Bed Kit (**12 Scrap + 4 Organic**), and Cave Potato Seed
+Propagation (**1 seed + 1 Organic → 2 seeds**). Withdraw communal materials first.
+
+Kits remain transferable. In inventory, select a backpack kit and use **Install /
+U / left-stick click** for eight slots; the original six remain reserved for the
+future hotbar, with two added storage-only slots. Take a bed kit to the garden
+marker and press **E / A** for one shared fifth plot. Existing crop values remain.
+
+See the [crafting/testing guide](docs/M5A_CRAFTING.md) and
+[revised-cost daily investment balances](docs/M5A_CRAFTING_BALANCE.md). M4b is
+committed as `2690c74` with report correction `ad4684b`; M5a is owner-approved.
+
 ## M4b — Radio beacon and rescue (approved)
 
 Power the existing **2-PU beacon** to accumulate seven signal days. Approach the
@@ -43,8 +59,7 @@ The five-Fuel tank burns continuously at **0.2 + 0.2 × supplied PU per full day
 Stopping preserves fractional Fuel; emptying the tank stops supply. Refueling and
 restarting are manual. Two seeded finite Fuel caches provide 2–3 near / 3–5 far Fuel,
 with no player-count scaling. The panel shows state, load, spare capacity, Fuel,
-burn and estimated runtime. Crop growth is unchanged; M4b adds beacon rescue progress. Crafting production
-remains deferred.
+burn and estimated runtime. Crop growth is unchanged; M4b adds beacon rescue progress. M5a now adds the three approved crafting recipes.
 
 See the [power operation/testing guide](docs/M4A_POWER.md), [daily Fuel balances](docs/M4A_FUEL_BALANCE.md)
 and [Fuel art sources/prompts](assets/power/README.md). M4a is preserved in commit `4cd4ce8`.
@@ -273,7 +288,7 @@ validation uses two actors against the same authoritative model. Slot operations
 use the same lock and session/revision token. UI gesture tokens are captured at
 selection/pointer-down and stale previews cannot move a replacement stack.
 
-No weight, encumbrance or crafting is implemented; M3a adds hunger and M4a adds Fuel/power. Existing
+No weight or encumbrance is implemented; M5a adds only three basic crafting recipes. Existing
 refuge workstations remain decorative; garden beds now contain functional plots; the authored surface growth is
 the finite Organic Material source. Approved art and modular terrain are unchanged.
 
@@ -340,17 +355,18 @@ or installed system-wide. Git initialization needed execution outside the sandbo
 read-only metadata mount and then succeeded. No existing history or remotes were changed.
 Normal prerequisites above are still required on another machine or after `/tmp` cleanup.
 
-To launch with these temporary tools in this workspace:
+For M5a, .NET 8.0.424 is available in `$HOME/.dotnet`; the temporary engine was
+restored under `/tmp/hollowlight-godot-m5`. To launch in this workspace:
 
 ```sh
-export PATH="/tmp/hollowlight-dotnet:$PATH"
-export DOTNET_ROOT=/tmp/hollowlight-dotnet
-export DOTNET_CLI_HOME=/tmp/hollowlight-cli
-export NUGET_PACKAGES=/tmp/hollowlight-nuget
+export PATH="$HOME/.dotnet:$PATH"
+export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_CLI_HOME=/tmp/hollowlight-m5-cli
+export NUGET_PACKAGES="$HOME/.nuget/packages"
 export XDG_DATA_HOME=/tmp/hollowlight-data
 export XDG_CONFIG_HOME=/tmp/hollowlight-config
 export XDG_CACHE_HOME=/tmp/hollowlight-cache
-/tmp/hollowlight-godot/Godot_v4.4.1-stable_mono_linux_x86_64/Godot_v4.4.1-stable_mono_linux.x86_64 --path .
+/tmp/hollowlight-godot-m5/Godot_v4.4.1-stable_mono_linux_x86_64/Godot_v4.4.1-stable_mono_linux.x86_64 --path .
 ```
 
 The isolated NuGet cache was populated from the official editor's bundled packages.

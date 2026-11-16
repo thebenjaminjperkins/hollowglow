@@ -667,3 +667,65 @@ remains `24b7f70`, with no new M2b commit made before review.
 - Regenerated the combined ledger and reran the core suite; all pass. Only completion
   labels changed to D8 00:30; simulation timestamps, Food/Fuel totals and game UI
   are unchanged. No M5a gameplay implementation was introduced.
+
+## M5a basic crafting and resource investment — 2026-11-15
+
+- Rechecked approved revised prices against 26 finite Scrap, eight finite Organic
+  and four renewable Organic per baseline seven-day farm. Mixed investment costs
+  20 Scrap/8 Organic; second backpack plus bed cannot fit. Preflight found no new
+  consequential conflict and implementation proceeded under the owner's approval.
+- Build succeeds with zero warnings/errors using Godot 4.4.1 .NET SDK packages and
+  .NET 8.0.424. Complete core suite passes, including revised recipes, personal-only
+  inputs, post-consumption/full-stack capacity, seed propagation/configuration,
+  transferable kit ownership, preserved first six indices, storage-only metadata,
+  five-plot growth/harvests, stale sessions, Fuel exhaustion, victory and reset.
+- 96 craft/install/power races check one exact spend/output or safe rejection.
+  Existing supply/slot/farm/food/power/rescue concurrency and conservation tests pass.
+- New combined M5a ledger executes actual gathering, explicit transfers, powered
+  Craft/Install operations, per-player upgrades, farming, food deadlines, manual
+  Fuel loading and rescue for 2/4/6 actors. Three real seeds cover minimum Food,
+  default and minimum Fuel; delayed care is also tested. All 24 scenarios rescue;
+  material/seed/Food/Fuel conservation checked daily. Mixed fifth-plot policy adds
+  six Food in regular care, three delayed. Poorest Food/six actors/delayed care
+  improves from two missed meals to none and one Food left. No crop rebalance.
+- Regenerated previous M3b Food, M4a Fuel and M4b combined ledgers match byte-for-byte.
+  All four approved-art checks pass; original PNGs, authored layouts, resource
+  quantities, farm/hunger/power/rescue definitions and Vision are byte-identical.
+- CraftingSmoke, RescueSmoke, PowerSmoke, HungerSmoke, ScavengingSmoke, FarmingSmoke,
+  playable-refuge ThresholdSmoke, InventoryUxReview and ClockSmoke pass on both
+  layouts: 18 engine regression runs, no errors. PowerSmoke explicitly disables
+  crafting to preserve its historical direct-switch workbench fixture; the new
+  smoke exercises full crafting with beacon/workbench power allocation enabled.
+- Live crafting checks include keyboard/controller confirmation, positive mouse
+  craft and stale held clicks, controller ownership, communal-material refusal,
+  range revocation, continuous menu time/Fuel, kit installation, expanded slot
+  navigation/splitting, remote-bed rejection, free feet approach, fifth plot,
+  propagation, passive unpowered growth, exact harvests and installed-upgrade reset.
+- Final graphical smoke and seven captures inspected at 1536×864 actual gameplay
+  zoom. Recipes, install action, expanded pack/chest, new tray and mature crop fit
+  the existing pixel-art scene. Removed future-system wording from product copy
+  and separated idle readiness from successful crafting feedback. Reused approved
+  PNG atlas icons and bed/crop assets, adding no new raster art or geometry assets.
+- Temporary pinned engine restored under /tmp/hollowlight-godot-m5. One graphical
+  approval timed out; retry succeeded. Sandbox cannot access the desktop directly.
+  Mesa software rendering reports unsupported V-Sync, with captures successful.
+  Editor import initially lacked dotnet on PATH; corrected launch environment and
+  reimported cleanly. No source workaround or engine-setting change was needed.
+- Scope remains one controlled actor in live play. Simulated actor groups and
+  injected controller events are not human/network/physical-controller validation.
+  No new equipment, hotbar activation, recipes beyond three, clearing, grow lights,
+  enemies, terrain generation or save/load system. M5a stops for owner review.
+
+## M5a accepted commit checkpoint — 2026-11-15
+
+- Owner accepted the validated implementation and requested its Git commit before
+  M6a world/geography design. No gameplay code changed during this checkpoint.
+- Build passes with zero warnings/errors. Complete core suite, crafting/concurrency,
+  24 timed investment scenarios and all four approved-art checks pass again.
+- The M5a balance ledger reproduces byte-for-byte. Repeated all 18 engine regressions
+  on both compact layouts: crafting, rescue, power, hunger, scavenging, farming,
+  movement/collision, inventory UX and clock. All pass without engine errors.
+- Prior inspected gameplay-scale M5a captures remain the visual evidence; this
+  checkpoint does not claim another graphical, hardware or network playtest.
+- M6a is design-only until approval; no new world, survival rules or resource
+  distribution was implemented as part of the commit checkpoint.

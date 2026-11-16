@@ -1,0 +1,66 @@
+{
+  "resources": [
+    {
+      "id": "backpack_kit",
+      "name": "Backpack Extension",
+      "shortName": "Pack Kit"
+    },
+    {
+      "id": "bed_kit",
+      "name": "Growing-Bed Kit",
+      "shortName": "Bed Kit"
+    }
+  ],
+  "backpackKit": "backpack_kit",
+  "bedKit": "bed_kit",
+  "backpackSlots": 8,
+  "maximumPlots": 5,
+  "socketOffset": {
+    "x": 0,
+    "y": 54
+  },
+  "recipes": [
+    {
+      "id": "backpack_extension",
+      "name": "Backpack Extension",
+      "icon": "backpack_kit",
+      "consumer": "workbench",
+      "description": "Add two backpack storage slots for mixed expedition supplies. Install once per player.",
+      "inputs": {
+        "scrap": 8,
+        "organic": 3
+      },
+      "outputs": {
+        "backpack_kit": 1
+      }
+    },
+    {
+      "id": "growing_bed",
+      "name": "Growing-Bed Kit",
+      "icon": "bed_kit",
+      "consumer": "workbench",
+      "description": "Install at the garden marker for one shared plot. Needs a seed. Maximum five plots this run.",
+      "inputs": {
+        "scrap": 12,
+        "organic": 4
+      },
+      "outputs": {
+        "bed_kit": 1
+      }
+    },
+    {
+      "id": "potato_propagation",
+      "name": "Cave Potato Seed Propagation",
+      "icon": "potato_seed",
+      "consumer": "workbench",
+      "description": "Propagate one Cave Potato Seed into two. Keep a seed for the original plot and plant the extra.",
+      "inputs": {
+        "potato_seed": 1,
+        "organic": 1
+      },
+      "outputs": {
+        "potato_seed": 2
+      }
+    }
+  ]
+}

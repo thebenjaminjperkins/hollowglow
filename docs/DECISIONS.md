@@ -442,3 +442,49 @@ Dates use the owner's America/New_York timezone.
 - Scope and behavior are unchanged. Updated acceptance labels to reflect that approval.
 - M5a requires a separate recipe/architecture/economy proposal and approval before
   gameplay implementation. No crafting is implemented in this checkpoint.
+
+## M5a revised crafting scope — 2026-11-15
+
+- Owner approved implementation after a revised-cost preflight: backpack 8 Scrap +
+  3 Organic; growing-bed kit 12 Scrap + 4 Organic; potato propagation 1 seed + 1
+  Organic → 2 seeds. No resource renames/new material catalog, loot or crop changes.
+- Budget check completed before implementation: one backpack + working bed costs
+  20 Scrap/8 Organic, while two backpacks + bed require 28 Scrap against finite 26.
+  Two players may outfit both instead of expanding; 4/6 can outfit three after a
+  Glowcap harvest, or only one while expanding. No significant new design conflict.
+- Three data-driven immediate recipes at the existing manually powered 2-PU bench.
+  Ingredients are personal only; communal withdrawal remains explicit. Power-at-
+  commit, inventory/power session revisions, private-copy preflight after consumed
+  inputs, output capacity and one locked commit protect transactions.
+- Kits are ordinary transferable inventory outputs. Installing a backpack consumes
+  one kit and expands only that actor to eight slots. First six indices remain
+  unchanged/reserved for future hotbar use; added two are storage-only. No equipment
+  or actual hotbar activation system. Manual inventory actions may use stored items.
+- One bed kit or installed fifth plot per session; backpack kit count is bounded
+  by current party members still needing an upgrade. Prevent unusable excess kits.
+  Upgraded actors may craft for others; installation establishes ownership.
+- Install the shared plot at one prevalidated garden socket, relative to existing
+  modular garden placement. Reuse approved bed/crop PNGs without adding collision
+  bodies or changing existing geometry. No free placement, clearing or grow lights.
+- Seed propagation is generic configurable recipe input/output, independent of
+  harvesting; its consumer can change for a future seed-processing facility.
+  Original four plots, starting seeds, crop growth/yields/returns are unchanged.
+- Contextual recipe panel, confirmed mouse/key/controller crafting and existing
+  inventory Install action (U / left-stick click). World continues while its owner
+  is held stationary. Stale clicks, range exit, reset and terminal rescue guards apply.
+- M4b commits remain 2690c74/ad4684b. M5a stops uncommitted for owner review; no
+  salvage tool, additional recipes, equipment, combat or world-layout milestone.
+
+## M5a accepted commit; M6a design gate — 2026-11-15
+
+- Owner accepted M5a and explicitly requested committing the validated milestone.
+  Acceptance labels updated; no gameplay or economy change in this checkpoint.
+- Next request is M6a World Layout and Geography: a believable mountain sanctuary
+  and coherent surface, favoring one continuous local region with potential later
+  travel connections to distant regions. This supersedes older milestone ordering
+  only for the next scoping step; it does not authorize new world implementation.
+- Inspect current Vision/Roadmap and spatial constraints, propose alternatives,
+  approximate scale, generation and logical resource placement, then ask approval.
+- Preserve approved art, existing systems and both compact regression layouts.
+  Combat, environmental danger, vehicles, doors and outdoor farming remain future
+  mechanics; geography should reserve room for them without implementing them.

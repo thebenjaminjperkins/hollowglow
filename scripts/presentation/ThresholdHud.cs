@@ -89,7 +89,7 @@ public partial class ThresholdHud : CanvasLayer
         _clock.Text = $"Day {clock.DayNumber}  {clock.Phase} {seconds / 60:00}:{seconds % 60:00}";
         _phaseBar.Size = new Vector2(Mathf.Floor(126f * clock.PhaseElapsedTicks / clock.PhaseDurationTicks), 1);
         _phaseBar.Color = new Color(clock.Phase == DayPhase.Day ? "d4ad73" : clock.Phase == DayPhase.Dusk ? "ab7b4f" : "638e85");
-        _status.Text = $"{supplies.Personal.UsedSlots}/6";
+        _status.Text = $"{supplies.Personal.UsedSlots}/{supplies.Personal.Capacity}";
         _hunger.Text = hunger == null ? "" : $"{hunger.Stage}";
         _hunger.Modulate = hunger?.Stage is HungerStage.Critical or HungerStage.Starving ? new Color("e8ab85") : Colors.White;
         _mealInfo.Visible = _mealPanel.Visible = Supplies.Visible && hunger != null;

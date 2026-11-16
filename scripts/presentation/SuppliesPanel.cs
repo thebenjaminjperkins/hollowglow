@@ -13,6 +13,22 @@ public partial class SuppliesPanel : Control
     public event Action<SlotRequest>? OperationRequested;
     public event Action? CloseRequested;
     public event Action<EatRequest>? EatRequested;
+    public event Action<InstallRequest>? InstallRequested;
+    private Button? _install;
+    private InstallRequest? _pointerInstall;
+    private bool HasKitResource=>_resources.Any(r=>r.Id is "backpack_kit" or "bed_kit");
+    public void InstallFocused()
+    {var request=CurrentInstallRequest();if(request!=null)InstallRequested?.Invoke(request);}
+    private InstallRequest? CurrentInstallRequest()
+    {
+        if(!Visible||_splitting||_storeFocused)return null;
+        var address=_source??Focused;
+        return address.Container==InventoryKind.Personal&&(Stack(address)?.ResourceId is "backpack_kit" or "bed_kit")
+            ? new(address.Index,_source!=null?_selectionVersion:_state.Version):null;
+    }
+    public void ShowInstallResult(CraftResult result)
+    {CancelSelection();Notice(result.Status==CraftStatus.Applied?"Installed":result.Status==CraftStatus.AccessDenied?"Bed needs garden marker; kit kept":CraftingPanel.Message(result.Status));}
+
     private HungerSnapshot? _meal;
     private Button? _eat;
     private EatRequest? _pointerMeal;
@@ -71,7 +87,9 @@ public partial class SuppliesPanel : Control
         if (!Visible) return;
         if (_source != null && state.Version != _selectionVersion)
         { CancelSelection(); Notice("Changed; reselect"); }
+        bool resized=_state.Personal.Capacity!=state.Personal.Capacity;
         _state = state;
+        if(resized)Rebuild();
         foreach (var cell in _cells) cell.Refresh();
         UpdateDetail();
     }
@@ -114,6 +132,7 @@ public partial class SuppliesPanel : Control
     private void Notice(string text) { _notice = text; _noticeTime = 2.5; UpdateDetail(); }
     public void CancelSelection()
     {
+        _pointerInstall=null;
         _source = null; _splitting = false; _quantity = 0;
         if (_splitBox != null) _splitBox.Visible = false;
         foreach (var cell in _cells) cell.QueueRedraw();
@@ -192,23 +211,25 @@ public partial class SuppliesPanel : Control
     private void Rebuild()
     {
         if (_content != null) { RemoveChild(_content); _content.QueueFree(); }
-        _cells.Clear(); _store = null; _eat = null;
+        _cells.Clear(); _store = null; _eat = null; _install=null;
         _content = new Control { MouseFilter = MouseFilterEnum.Ignore }; AddChild(_content);
         int cell = Appearance.CellSize, leftWidth = Appearance.BackpackColumns * cell + 16;
-        int backRows = (6 + Appearance.BackpackColumns - 1) / Appearance.BackpackColumns;
+        int backRows = (_state.Personal.Capacity + Appearance.BackpackColumns - 1) / Appearance.BackpackColumns;
         int width = leftWidth + (ChestOpen ? Appearance.ChestColumns * cell + 24 : 0);
-        int gridRows = ChestOpen ? Math.Max(backRows, Appearance.ChestRows) : backRows + (_meal != null ? 1 : 0);
+        int gridRows = ChestOpen ? Math.Max(backRows, Appearance.ChestRows) : backRows + (_meal != null || HasKitResource ? 1 : 0);
         int height = gridRows * cell + 42;
         Position = new Vector2(Mathf.Floor((384 - width) / 2f), Mathf.Floor((216 - height - 32) / 2f));
         _content.AddChild(new ColorRect { Size = new Vector2(width, height + 32), Color = new Color("202832f5"), MouseFilter = MouseFilterEnum.Ignore });
         Text("BACKPACK", 8, 5, 9);
-        AddGrid(InventoryKind.Personal, 0, 6, Appearance.BackpackColumns, new Vector2(8, 20));
+        AddGrid(InventoryKind.Personal, 0, _state.Personal.Capacity, Appearance.BackpackColumns, new Vector2(8, 20));
+        int actionY=24+backRows*cell, controlHeight=backRows>2&&ChestOpen?12:18;
+        int useY=actionY+(ChestOpen?(backRows>2?14:22):0);
         if (ChestOpen)
         {
             Text($"COMMUNAL CHEST  {Page + 1}/{PageCount}", leftWidth + 8, 5, 8);
             AddGrid(InventoryKind.Storage, Page * PageSize, Math.Min(PageSize, _state.Storage.Capacity - Page * PageSize),
                 Appearance.ChestColumns, new Vector2(leftWidth + 8, 20));
-            _store = Button("Store all", new Vector2(8, 24 + backRows * cell), new Vector2(leftWidth - 16, 18), StoreAll);
+            _store = Button("Store all", new Vector2(8, actionY), new Vector2(leftWidth - 16, controlHeight), StoreAll);
             _store.MouseEntered += () => { _storeFocused = true; UpdateDetail(); };
             if (PageCount > 1)
             {
@@ -218,12 +239,18 @@ public partial class SuppliesPanel : Control
         }
         if (_meal != null)
         {
-            _eat = Button("Eat  F / RS", new Vector2(8, (ChestOpen ? 46 : 24) + backRows * cell),
-                new Vector2(leftWidth - 16, 18), () => {
+            _eat = Button("Eat  F / RS", new Vector2(8, useY),
+                new Vector2(leftWidth - 16, controlHeight), () => {
                     if (_pointerMeal != null) EatRequested?.Invoke(_pointerMeal);
                     _pointerMeal = null;
                 });
             _eat.ButtonDown += () => _pointerMeal = CurrentEatRequest();
+        }
+        if(HasKitResource)
+        {
+            _install=Button("Install U / LS",new Vector2(8,useY),new Vector2(leftWidth-16,controlHeight),()=>{
+                if(_pointerInstall!=null)InstallRequested?.Invoke(_pointerInstall);_pointerInstall=null;});
+            _install.ButtonDown+=()=>_pointerInstall=CurrentInstallRequest();
         }
         _detail = Text("", 8, height - 16, 8);
         _hint = Text("", 8, height + 1, 8);
@@ -279,6 +306,7 @@ public partial class SuppliesPanel : Control
             _eat.Visible = edibleAddress.Container == InventoryKind.Personal && edible != null && _resources.Any(r => r.Id == edible.ResourceId && r.Edible);
             _eat.Disabled = _splitting || _storeFocused || _meal == null || _meal.Eaten >= _meal.Required;
         }
+        if(_install!=null){_install.Visible=CurrentInstallRequest()!=null;_install.Disabled=_splitting||_storeFocused;}
         _detail.Text = _noticeTime > 0 ? _notice : _storeFocused ? "Store all that fits; keep any remainder." : stack == null ? "Empty slot" :
             _resources.First(r => r.Id == stack.ResourceId).Name + (_resources.First(r => r.Id == stack.ResourceId).Edible ? " (edible)" : "");
         bool swapping = _source != null && Stack(_source.Value) is { } source && stack != null && source.ResourceId != stack.ResourceId;
@@ -295,7 +323,7 @@ public partial class SuppliesPanel : Control
         if (_splitting) { ChangeSplit(x == 0 ? -y : x); return; }
         if (_storeFocused)
         {
-            _storeFocused = false; FocusSlot(new(InventoryKind.Personal, Math.Min(5, Appearance.BackpackColumns))); return;
+            _storeFocused = false; FocusSlot(new(InventoryKind.Personal, Math.Min(_state.Personal.Capacity-1, Appearance.BackpackColumns))); return;
         }
         int columns = Focused.Container == InventoryKind.Personal ? Appearance.BackpackColumns : Appearance.ChestColumns;
         int local = Focused.Container == InventoryKind.Personal ? Focused.Index : Focused.Index - Page * PageSize;
@@ -303,9 +331,9 @@ public partial class SuppliesPanel : Control
         if (ChestOpen && x > 0 && Focused.Container == InventoryKind.Personal && col == columns - 1)
         { FocusSlot(new(InventoryKind.Storage, Page * PageSize + Math.Min(row, Appearance.ChestRows - 1) * Appearance.ChestColumns)); return; }
         if (x < 0 && Focused.Container == InventoryKind.Storage && col == 0)
-        { FocusSlot(new(InventoryKind.Personal, Math.Min(5, row * Appearance.BackpackColumns + Appearance.BackpackColumns - 1))); return; }
-        int count = Focused.Container == InventoryKind.Personal ? 6 : Math.Min(PageSize, _state.Storage.Capacity - Page * PageSize);
-        if (ChestOpen && Focused.Container == InventoryKind.Personal && y > 0 && local + columns >= 6)
+        { FocusSlot(new(InventoryKind.Personal, Math.Min(_state.Personal.Capacity-1, row * Appearance.BackpackColumns + Appearance.BackpackColumns - 1))); return; }
+        int count = Focused.Container == InventoryKind.Personal ? _state.Personal.Capacity : Math.Min(PageSize, _state.Storage.Capacity - Page * PageSize);
+        if (ChestOpen && Focused.Container == InventoryKind.Personal && y > 0 && local + columns >= _state.Personal.Capacity)
         { _storeFocused = true; UpdateDetail(); return; }
         int next = Math.Clamp(row + y, 0, (count - 1) / columns) * columns + Math.Clamp(col + x, 0, columns - 1);
         FocusSlot(new(Focused.Container, (Focused.Container == InventoryKind.Storage ? Page * PageSize : 0) + Math.Min(next, count - 1)));
@@ -336,6 +364,7 @@ public partial class SuppliesPanel : Control
                     if (key.Echo) break;
                     switch (key.PhysicalKeycode)
                     {
+                        case Key.U: InstallFocused(); break;
                         case Key.F: EatFocused(); break;
                         case Key.Enter: Confirm(); break;
                         case Key.Space: if (!_storeFocused) BeginSplit(_source ?? Focused); break;
@@ -355,6 +384,7 @@ public partial class SuppliesPanel : Control
             {
                 case JoyButton.DpadLeft: Navigate(-1, 0); break; case JoyButton.DpadRight: Navigate(1, 0); break;
                 case JoyButton.DpadUp: Navigate(0, -1); break; case JoyButton.DpadDown: Navigate(0, 1); break;
+                case JoyButton.LeftStick: InstallFocused(); break;
                 case JoyButton.RightStick: EatFocused(); break;
                 case JoyButton.A: Confirm(); break; case JoyButton.B: Back(); break;
                 case JoyButton.X: if (!_storeFocused) QuickTransfer(_source ?? Focused); break; case JoyButton.Y: if (!_storeFocused) BeginSplit(_source ?? Focused); break;

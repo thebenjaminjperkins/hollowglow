@@ -20,7 +20,7 @@ public partial class ThresholdWorld
     public IReadOnlyList<PowerStation> PowerStations => _stations;
     public bool PowerVisible => _powerPanel != null && _powerPanel.Visible;
     public PowerPanel PowerControls => _powerPanel;
-    private bool ModalOpen => _inventoryVisible || PowerVisible || BeaconVisible;
+    private bool ModalOpen => _inventoryVisible || PowerVisible || BeaconVisible || CraftingVisible;
 
     private void PreparePowerSources()
     {
@@ -73,12 +73,12 @@ public partial class ThresholdWorld
     }
     public void ClosePower()
     {
-        if(_powerPanel!=null)_powerPanel.Close();if(_beaconPanel!=null)_beaconPanel.Close();_openStation=null;
+        if(_craftPanel!=null)_craftPanel.Close();if(_powerPanel!=null)_powerPanel.Close();if(_beaconPanel!=null)_beaconPanel.Close();_openStation=null;
         if(_controlledActor!=null)_controlledActor.InventoryOpen=_inventoryVisible;
     }
     public PowerResult PowerCommand(PlayerCharacter actor, PowerRequest request)
     {
-        if(actor!=_controlledActor || !(PowerVisible||BeaconVisible) || _openStation==null || actor.GlobalPosition.DistanceTo(_openStation.Position)>Config.InteractionRange)
+        if(actor!=_controlledActor || !(PowerVisible||BeaconVisible||CraftingVisible) || _openStation==null || actor.GlobalPosition.DistanceTo(_openStation.Position)>Config.InteractionRange)
             return new(PowerStatus.AccessDenied,0,0,_powerDefinition?.Capacity??0);
         return _state.ApplyPower(actor.PlayerId,request);
     }
@@ -96,6 +96,6 @@ public partial class ThresholdWorld
         if(_focused!=null && _controlledActor.Position.DistanceSquaredTo(_focused.Position)<=distance) _focusedStation=null;
         if(_focusedPlot!=null && _controlledActor.Position.DistanceSquaredTo(_focusedPlot.Position)<=distance) _focusedStation=null;
         if(_focusedStation!=null) { _focused=null;_focusedPlot=null; }
-        if((PowerVisible||BeaconVisible) && (_openStation==null || _controlledActor.Position.DistanceTo(_openStation.Position)>Config.InteractionRange))ClosePower();
+        if((PowerVisible||BeaconVisible||CraftingVisible) && (_openStation==null || _controlledActor.Position.DistanceTo(_openStation.Position)>Config.InteractionRange))ClosePower();
     }
 }

@@ -15,9 +15,10 @@ public readonly record struct SlotAddress(InventoryKind Container, int Index);
 public enum SlotAction { Move, QuickTransfer, DepositAll }
 public sealed record SlotRequest(SlotAction Action, SlotAddress Source, SlotAddress Destination, int Quantity, SupplyVersion Version);
 public sealed record SupplyResult(SupplyStatus Status, int Amount, SupplyVersion Version);
-public sealed record InventorySnapshot(IReadOnlyList<ItemStack?> Slots)
+public sealed record InventorySnapshot(IReadOnlyList<ItemStack?> Slots, int HotbarSlots = 0)
 {
     public int Capacity => Slots.Count;
+    public bool IsStorageOnly(int slot) => slot >= HotbarSlots && slot < Capacity;
     public int UsedSlots => Slots.Count(slot => slot != null);
     public int Total => Slots.Sum(slot => slot?.Quantity ?? 0);
     public int Count(string resource) => Slots.Where(slot => slot?.ResourceId == resource).Sum(slot => slot!.Quantity);
@@ -70,7 +71,7 @@ public sealed partial class SharedSupplies
         lock (_gate)
         {
             if (!_players.TryGetValue(playerId, out var player)) throw new ArgumentOutOfRangeException(nameof(playerId));
-            return new(Version, player.Snapshot(), _storage.Snapshot(),
+            return new(Version, player.Snapshot(PlayerSlots), _storage.Snapshot(),
                 new ReadOnlyDictionary<string, int>(new Dictionary<string, int>(_remaining)));
         }
     }
@@ -191,6 +192,13 @@ public sealed partial class SharedSupplies
             if (slots < 1 || slots > 256) throw new ArgumentOutOfRangeException(nameof(slots), "Use 1–256 storage slots.");
             _slots = new ItemStack?[slots];
         }
+        public int Capacity => _slots.Length;
+        public Inventory Copy(int? capacity=null)
+        {
+            var result=new Inventory(capacity??Capacity);
+            if(result.Capacity<Capacity)throw new ArgumentException("Inventory cannot shrink.");
+            Array.Copy(_slots,result._slots,_slots.Length);return result;
+        }
         public bool CanAddAll(IEnumerable<ItemStack> items)
         {
             var trial = new Inventory(_slots.Length);
@@ -213,7 +221,7 @@ public sealed partial class SharedSupplies
         public int Total => _slots.Sum(s => s?.Quantity ?? 0);
         public int Count(string id) => _slots.Where(s => s?.ResourceId == id).Sum(s => s!.Quantity);
         public int RoomFor(string id) => _slots.Sum(s => s == null ? StackLimit : s.ResourceId == id ? StackLimit - s.Quantity : 0);
-        public InventorySnapshot Snapshot() => new(Array.AsReadOnly((ItemStack?[])_slots.Clone()));
+        public InventorySnapshot Snapshot(int hotbarSlots=0) => new(Array.AsReadOnly((ItemStack?[])_slots.Clone()),hotbarSlots);
         public void Add(string id, int amount)
         {
             // Capacity was computed under the same owner lock. Fill partial stacks first.

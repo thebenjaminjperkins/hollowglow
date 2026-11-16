@@ -59,10 +59,11 @@ public partial class ThresholdWorld : Node2D
             _setup = _setup with { Sites = _setup.Sites.Concat(ScavengingWorld.Sources.Select(s => s.Site)).ToArray() };
         }
         PreparePowerSources();
+        PrepareCrafting();
         _controlledActor = GetNode<PlayerCharacter>("Player");
         _farming = Config.FarmingEnabled ? AgricultureSetup.Parse(FileAccess.GetFileAsString("res://data/farming.json")) : null;
         _state = _setup.CreateState(new[] { _controlledActor.PlayerId }, Config.StorageSlots, (_farming?.Resources ?? System.Array.Empty<ResourceDefinition>()).Concat(Config.PowerEnabled
-                ? new[] { new ResourceDefinition("fuel", "Fuel", "Fuel") } : System.Array.Empty<ResourceDefinition>()));
+                ? new[] { new ResourceDefinition("fuel", "Fuel", "Fuel") } : System.Array.Empty<ResourceDefinition>()).Concat(_craftSetup?.Resources ?? System.Array.Empty<ResourceDefinition>()));
         if (_farming != null)
         {
             var beds = GetNode<ThresholdMap>("Map").GetChildren().OfType<SanctuaryProp>().Where(p => p.Kind == PixelSprite.Motif.Garden).ToArray();
@@ -79,11 +80,13 @@ public partial class ThresholdWorld : Node2D
             _state.InitializeHunger(HungerDefinition.Parse(FileAccess.GetFileAsString("res://data/hunger.json")), Clock);
         InitializeElectrical();
         InitializeRescueWorld();
+        InitializeCraftingWorld();
         StartingStoredTotal = _state.Snapshot(_controlledActor.PlayerId).Storage.Total;
         if (FarmingEnabled) _feedback = "Starter seeds are in the shared chest. C chooses a crop at a plot.";
         _hud = GetNode<ThresholdHud>("HUD");
         InitializePowerPanel();
         InitializeBeaconPanel();
+        InitializeCraftingPanel();
         _controlledActor.InteractionRequested += Interact;
         _hud.Supplies.CloseRequested += CloseInventory;
         _hud.Supplies.EatRequested += HandleEat;
@@ -155,12 +158,13 @@ public partial class ThresholdWorld : Node2D
     private void Interact(PlayerCharacter actor)
     {
         if(ModalOpen)return;
+        if(AtGardenSocket(actor)){UseGardenSocket(actor);return;}
         var station=FindStation(actor);
         var target = FindTarget(actor);
         var plot = FindPlot(actor);
         if(station!=null && (target==null || actor.Position.DistanceSquaredTo(station.Position)<actor.Position.DistanceSquaredTo(target.Position)) &&
             (plot==null || actor.Position.DistanceSquaredTo(station.Position)<actor.Position.DistanceSquaredTo(plot.Position)))
-        { if(station.Id=="beacon"&&RescueEnabled)OpenBeacon(station);else OpenPower(station);return; }
+        { if(station.Id=="beacon"&&RescueEnabled)OpenBeacon(station);else if(station.Id=="workbench"&&CraftingEnabled)OpenCrafting(station);else OpenPower(station);return; }
         if (plot != null && (target == null || actor.GlobalPosition.DistanceSquaredTo(plot.GlobalPosition) < actor.GlobalPosition.DistanceSquaredTo(target.GlobalPosition)))
         {
             var state = _state.Plot(plot.PlotId);
@@ -311,6 +315,7 @@ public partial class ThresholdWorld : Node2D
     public override void _Process(double delta)
     {
         RefreshBeacon();
+        RefreshCrafting();
         if(PowerVisible)_powerPanel.Refresh(_state.Power(),_state.Snapshot(_controlledActor.PlayerId).Version);
         bool outside = _controlledActor.Position.X >= ThresholdMap.SurfaceStart;
         var snapshot = _state.Snapshot(_controlledActor.PlayerId);
@@ -332,12 +337,13 @@ public partial class ThresholdWorld : Node2D
             }
         }
         if(_focusedStation!=null && !ModalOpen)prompt=$"E / A  Manage {_focusedStation.Label}";
+        if(AtGardenSocket(_controlledActor)&&!ModalOpen)prompt="E / A  Install growing bed (kit required)";
         string debug = _debug
             ? $"{Engine.GetFramesPerSecond()} fps | pos {_controlledActor.Position.Round()} | vel {_controlledActor.Velocity.Round()}\n" +
               $"target: {_focused?.ObjectId ?? "none"} | world seed {Config.WorldSeed}\nF2: home   F3: surface   R: restore all salvage\nF4: +1 min   F5: +1 day   Shift+F5: +3 days"
             : "";
         _hud.Present(outside ? "SURFACE CLEARING" : "REFUGE / HOME", snapshot,
-            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId),PowerVisible||BeaconVisible);
+            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId),PowerVisible||BeaconVisible||CraftingVisible);
     }
 
     public override void _UnhandledKeyInput(InputEvent @event)
@@ -358,7 +364,7 @@ public partial class ThresholdWorld : Node2D
                 Notify(key.ShiftPressed ? "Debug: advanced three days." : "Debug: advanced one day.");
                 break;
             case Key.F1: _debug = !_debug; break;
-            case Key.H: if(!PowerVisible&&!BeaconVisible)_hud.ToggleHelp(); break;
+            case Key.H: if(!PowerVisible&&!BeaconVisible&&!CraftingVisible)_hud.ToggleHelp(); break;
             case Key.F2: Teleport(Home); Notify("Debug: returned home; quantities preserved."); break;
             case Key.F3: Teleport(Outside); Notify("Debug: moved outside; quantities preserved."); break;
             default: return;
@@ -378,6 +384,8 @@ public partial class ThresholdWorld : Node2D
 
     public override void _ExitTree()
     {
+        if(_craftPanel!=null){_craftPanel.CloseRequested-=ClosePower;_craftPanel.AllocationRequested-=OpenCraftAllocation;_craftPanel.CraftRequested-=HandleCraft;}
+        if(_hud!=null)_hud.Supplies.InstallRequested-=HandleInstall;
         if(_beaconPanel!=null){_beaconPanel.CloseRequested-=ClosePower;_beaconPanel.OperationRequested-=HandleBeaconCommand;_beaconPanel.AllocationRequested-=OpenBeaconAllocation;}
         if(_powerPanel!=null) { _powerPanel.CloseRequested-=ClosePower;_powerPanel.OperationRequested-=HandlePowerCommand; }
         if (_controlledActor != null)

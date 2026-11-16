@@ -54,6 +54,7 @@ def main():
     evolved.update(json.loads((ROOT / 'tools/art/m3b_runtime_hashes.json').read_text()))
     evolved.update(json.loads((ROOT / 'tools/art/m4a_runtime_hashes.json').read_text()))
     evolved.update(json.loads((ROOT / 'tools/art/m4b_runtime_hashes.json').read_text()))
+    evolved.update(json.loads((ROOT / 'tools/art/m5a_runtime_hashes.json').read_text()))
     for path, digest in preserved.items():
         digest = evolved.get(path, digest)
         contents = (ROOT / path).read_bytes()
@@ -64,7 +65,7 @@ def main():
             contents = contents.replace(b'run/main_scene="res://scenes/SanctuaryRoom.tscn"',
                                         b'run/main_scene="res://scenes/Threshold.tscn"')
         assert hashlib.sha256(contents).hexdigest() == digest, path
-    print(f'PASS: common palette, 2px/world density, anchors, periodic terrain joins, corner masks; {len(preserved) - len(evolved) - 1} legacy files unchanged; approved M2a / inventory UX / M2b / M3a / M3b / M4a / M4b runtime and entry changes verified')
+    print(f'PASS: common palette, 2px/world density, anchors, periodic terrain joins, corner masks; {len(preserved) - len(evolved) - 1} legacy files unchanged; approved M2a / inventory UX / M2b / M3a / M3b / M4a / M4b / M5a runtime and entry changes verified')
     if args.captures:
         out = ROOT / 'docs/screenshots/sanctuary-room'
         out.mkdir(parents=True, exist_ok=True)

@@ -1,5 +1,5 @@
 # HOLLOWLIGHT
-## Development & Playtesting Roadmap | v0.3 — M4b approved baseline
+## Development & Playtesting Roadmap | v0.3 — M5a approved baseline
 
 **Companions:** [Vision](Hollowlight_Vision.md), [Bootstrap](Hollowlight_Bootstrap.md),
 [decision history](docs/DECISIONS.md) and [validation log](docs/PLAYTEST_LOG.md).
@@ -31,13 +31,14 @@ Keep each step independently playable, test it, report and stop for review.
 | M3b finite surface Food scavenging | Approved and completed; committed baseline includes M3a and approved design revisions |
 | M4a basic power generation and manual allocation | Committed `4cd4ce8`; final hands-on confirmation pending |
 | M4b beacon transmission and rescue | Implemented, validated and approved 2026-11-15 |
+| M5a basic crafting and resource investment | Implemented, validated and approved by owner |
 | Subsequent gameplay | Proposals only; separate approval required |
 
 Live play controls one actor. Core models support independent actor inventories,
 meal states and conflicting operations; tests and simulations do not constitute
 playable multiplayer. There are two authored layouts with reusable TileMapLayer
-terrain, not a procedural world generator. M4b adds powered signal accumulation, capped outage setbacks and a terminal rescue screen. Crafting,
-protective doors, enemies, damage, outdoor farming and transport remain future work.
+terrain, not a procedural world generator. M4b adds powered signal accumulation, capped outage setbacks and a terminal rescue screen. M5a adds three powered recipes and kit installation.
+Protective doors, enemies, damage, outdoor farming and transport remain future work.
 M3b adds seeded resource placement, not terrain generation.
 
 ## 2. Rules for development
@@ -322,6 +323,40 @@ Accepted six-player Food shortages remain possible with delayed harvests.
 **Gate:** Owner approved M4b on 2026-11-15 and requested its commit before M5a
 crafting scoping. M5a requires a proposal and separate implementation approval;
 actual multiplayer, final defeat and surface extraction remain open.
+
+### M5a. Basic crafting and resource investment — approved and completed
+
+Owner named this slice M5a, extending the earlier M3e planning entry below. M4b
+was committed as `2690c74` first; report-only time labels corrected in `ad4684b`.
+
+- Approved revised recipes: Backpack Extension 8 Scrap + 3 Organic; Growing-Bed Kit
+  12 Scrap + 4 Organic; seed propagation 1 Cave Potato Seed + 1 Organic → 2 seeds.
+- Immediate transactions at the powered 2-PU workbench, using personal ingredients
+  only. Explicit communal withdrawals; no new material categories or renamed IDs.
+- Transferable kits; one personal installation for eight slots, preserving the first
+  six indices for future hotbar use and marking the added two as storage-only.
+- One shared extra plot at a predefined reusable garden socket, maximum five. The
+  four original plots/crops and all food, Fuel, hunger/rescue values remain unchanged.
+- Atomic preflight after input consumption, session/revision checks, power-at-commit,
+  stale pointer protection, ownership, duplicate/party kit caps, reset and victory guards.
+- Compact contextual recipe panel and existing inventory Install action; mouse,
+  keyboard/controller navigation. World continues, only the menu owner stands still.
+
+**Pre-implementation balance gate:** Revised costs permit one backpack + working
+bed for 20 Scrap/8 Organic; two backpacks + bed need 28 Scrap against finite 26.
+Thus 2-player groups choose both backpacks or one plus farming; 4/6-player groups
+can afford at most three backpacks without expansion (third waits for Organic),
+or one plus expansion. No significant conflict; implementation was authorized.
+
+**Validation:** Core/concurrency and actual transaction-based timed 2/4/6-player
+ledgers; headless live crafting and prior systems on both layouts. See
+[guide](docs/M5A_CRAFTING.md), [daily balance](docs/M5A_CRAFTING_BALANCE.md) and
+[validation log](docs/PLAYTEST_LOG.md) for graphical evidence/status and limitations.
+
+**Gate:** Owner accepted M5a and requested its commit before scoping M6a World
+Layout and Geography. M6a requires design approval before implementation. No
+tool-unlocked salvage content, equipment, extra recipes, clearing, grow lights,
+combat or world-layout expansion is implemented by the M5a milestone.
 
 ### M3e. One bounded repair/crafting allocation choice
 
