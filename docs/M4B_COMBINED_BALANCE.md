@@ -22,7 +22,7 @@ Finite Food 12, surface Fuel 5 + 2 starter.
 | 6 | 0 | 0 | -2 | 0 | 20 | 0.680 | 2.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +8 | 0 | 28 | 0.680 | 2.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 2.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 2.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -40,7 +40,7 @@ Finite Food 12, surface Fuel 5 + 2 starter.
 | 6 | 0 | 0 | -2 | 0 | 20 | 1.000 | 1.050 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +8 | 0 | 28 | 1.000 | 0.050 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 0.000; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 0.000; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -76,7 +76,7 @@ Finite Food 12, surface Fuel 5 + 2 starter.
 | 6 | 0 | 0 | -4 | 0 | 12 | 0.680 | 2.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +6 | 0 | 18 | 0.680 | 2.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 2.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 2.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -94,7 +94,7 @@ Finite Food 12, surface Fuel 5 + 2 starter.
 | 6 | 0 | 0 | -4 | 0 | 12 | 1.000 | 1.050 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +6 | 0 | 18 | 1.000 | 0.050 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 0.000; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 0.000; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -130,7 +130,7 @@ Finite Food 12, surface Fuel 5 + 2 starter.
 | 6 | 0 | 0 | -6 | 0 | 4 | 0.680 | 2.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +4 | 0 | 8 | 0.680 | 2.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 2.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 2.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -148,7 +148,7 @@ Finite Food 12, surface Fuel 5 + 2 starter.
 | 6 | 0 | 0 | -6 | 0 | 4 | 1.000 | 1.050 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +4 | 0 | 8 | 1.000 | 0.050 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 0.000; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 0.000; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -184,7 +184,7 @@ Finite Food 14, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -2 | 0 | 22 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +8 | 0 | 30 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -202,7 +202,7 @@ Finite Food 14, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -4 | 0 | 14 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +6 | 0 | 20 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -220,7 +220,7 @@ Finite Food 14, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -6 | 0 | 6 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +4 | 0 | 10 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -238,7 +238,7 @@ Finite Food 8, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -2 | 0 | 16 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +8 | 0 | 24 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -256,7 +256,7 @@ Finite Food 8, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -2 | 0 | 16 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 4 | 0 | +2 | 0 | 18 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 08:30 Cave Potato +3; D5 08:40 Cave Potato +3; D7 08:50 Glowcap +2; D7 09:00 Glowcap +2.
 
@@ -274,7 +274,7 @@ Finite Food 8, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -4 | 0 | 8 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +6 | 0 | 14 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -292,7 +292,7 @@ Finite Food 8, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -4 | 0 | 8 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 4 | 0 | 0 | 0 | 8 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 08:30 Cave Potato +3; D5 08:40 Cave Potato +3; D7 08:50 Glowcap +2; D7 09:00 Glowcap +2.
 
@@ -310,7 +310,7 @@ Finite Food 8, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -6 | 0 | 0 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 10 | 0 | +4 | 0 | 4 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 0. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 05:30 Cave Potato +3; D5 05:40 Cave Potato +3; D7 05:50 Glowcap +2; D7 06:00 Glowcap +2; D7 08:30 Cave Potato +3; D7 08:40 Cave Potato +3.
 
@@ -328,7 +328,7 @@ Finite Food 8, surface Fuel 6 + 2 starter.
 | 6 | 0 | 0 | -6 | 0 | 0 | 0.680 | 3.950 | 5.950 | 0.000 | Feasible lower bound |
 | 7 | 4 | 0 | -2 | 2 | 0 | 0.680 | 3.270 | 6.950 | 0.000 | Feasible lower bound |
 
-Outcome: Rescued at D8 01:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 2. Fuel sufficient with these collection/refill timings.
+Outcome: Rescued at D8 00:30; signal 7.000, lost 0.000, Fuel left 3.240; total missed meals 2. Fuel sufficient with these collection/refill timings.
 
 Harvest ledger through termination: D3 03:00 Cave Potato +3; D3 03:10 Cave Potato +3; D4 03:20 Glowcap +2; D4 03:30 Glowcap +2; D5 08:30 Cave Potato +3; D5 08:40 Cave Potato +3; D7 08:50 Glowcap +2; D7 09:00 Glowcap +2.
 

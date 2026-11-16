@@ -659,3 +659,11 @@ remains `24b7f70`, with no new M2b commit made before review.
 - The previous temporary Godot .NET engine is no longer installed. No new engine
   launch or visual playtest is claimed; the prior inspected captures and both-layout
   engine results remain the M4b runtime evidence. No gameplay changes in this checkpoint.
+
+## M4b ledger display correction — 2026-11-15
+
+- Proposal analysis exposed a report-only minute-label error: formatting a fractional
+  minute rounded 00:30 to 01:30. Cast elapsed seconds before formatting minutes.
+- Regenerated the combined ledger and reran the core suite; all pass. Only completion
+  labels changed to D8 00:30; simulation timestamps, Food/Fuel totals and game UI
+  are unchanged. No M5a gameplay implementation was introduced.
