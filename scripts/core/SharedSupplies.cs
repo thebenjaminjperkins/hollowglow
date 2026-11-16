@@ -79,6 +79,7 @@ public sealed partial class SharedSupplies
     {
         lock (_gate)
         {
+            if (RunCompleted) return Result(SupplyStatus.AccessDenied);
             if (expected != Version) return Result(SupplyStatus.Stale);
             if (!_players.TryGetValue(playerId, out var player)) return Result(SupplyStatus.InvalidPlayer);
             if (requested <= 0) return Result(SupplyStatus.InvalidQuantity);
@@ -97,6 +98,7 @@ public sealed partial class SharedSupplies
     {
         lock (_gate)
         {
+            if (RunCompleted) return Result(SupplyStatus.AccessDenied);
             if (expected != Version) return Result(SupplyStatus.Stale);
             if (!_players.TryGetValue(playerId, out var player)) return Result(SupplyStatus.InvalidPlayer);
             if (requested <= 0) return Result(SupplyStatus.InvalidQuantity);
@@ -115,6 +117,7 @@ public sealed partial class SharedSupplies
     {
         lock (_gate)
         {
+            if (RunCompleted) return Result(SupplyStatus.AccessDenied);
             if (expected != Version) return Result(SupplyStatus.Stale);
             if (!_players.TryGetValue(playerId, out var player)) return Result(SupplyStatus.InvalidPlayer);
             int amount = 0;
@@ -134,6 +137,7 @@ public sealed partial class SharedSupplies
     {
         lock (_gate)
         {
+            if (RunCompleted) return Result(SupplyStatus.AccessDenied);
             if (request.Version != Version) return Result(SupplyStatus.Stale);
             if (!_players.TryGetValue(playerId, out var player)) return Result(SupplyStatus.InvalidPlayer);
             if (request.Action == SlotAction.DepositAll) return DepositAll(playerId, request.Version);

@@ -14,6 +14,23 @@ The refuge uses matched PNG sprites, modular TileMapLayer terrain and adjustable
 lighting. L compares neutral and lamplit views. Earlier scenes remain available
 for historical comparisons; M2a adds finite gathering and shared-chest transfers without survival consumption.
 
+## M4b — Radio beacon and rescue (approved)
+
+Power the existing **2-PU beacon** to accumulate seven signal days. Approach the
+radio and press **E / A** for contextual progress, ETA and outage information.
+Outages have a 0.25-day grace, then lose 0.25 signal-day per outage day, capped at
+one day per episode. Short restorations keep episode history; 0.25 uninterrupted
+powered day renews grace and cap. Startup waiting has no penalty.
+
+**Rescued** freezes the completed run and offers **New Run** and **Quit**. Existing
+Food, Fuel and farming values are unchanged. Finite Fuel can make rescue unreachable
+if wasted or exhausted after setbacks; no forced game-over or hidden refill is added.
+
+See the [rules and testing guide](docs/M4B_RESCUE.md),
+[combined daily Food/Fuel/rescue ledger](docs/M4B_COMBINED_BALANCE.md), and
+[reviewed screenshots](docs/screenshots/rescue/). M4a baseline is committed as
+`4cd4ce8`; the owner approved M4b on 2026-11-15.
+
 ## M4a — Basic power generation and manual allocation
 
 Withdraw the **two shared Fuel** from the chest, approach the existing generator,
@@ -26,11 +43,11 @@ The five-Fuel tank burns continuously at **0.2 + 0.2 × supplied PU per full day
 Stopping preserves fractional Fuel; emptying the tank stops supply. Refueling and
 restarting are manual. Two seeded finite Fuel caches provide 2–3 near / 3–5 far Fuel,
 with no player-count scaling. The panel shows state, load, spare capacity, Fuel,
-burn and estimated runtime. Crop growth is unchanged; beacon rescue progress and
-crafting production are not implemented.
+burn and estimated runtime. Crop growth is unchanged; M4b adds beacon rescue progress. Crafting production
+remains deferred.
 
 See the [power operation/testing guide](docs/M4A_POWER.md), [daily Fuel balances](docs/M4A_FUEL_BALANCE.md)
-and [Fuel art sources/prompts](assets/power/README.md). M4a stops for review before M4b.
+and [Fuel art sources/prompts](assets/power/README.md). M4a is preserved in commit `4cd4ce8`.
 
 ## M3b — Finite surface Food scavenging
 

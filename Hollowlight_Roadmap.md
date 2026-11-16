@@ -1,5 +1,5 @@
 # HOLLOWLIGHT
-## Development & Playtesting Roadmap | v0.3 — M4a validated baseline; M4b scoping
+## Development & Playtesting Roadmap | v0.3 — M4b approved baseline
 
 **Companions:** [Vision](Hollowlight_Vision.md), [Bootstrap](Hollowlight_Bootstrap.md),
 [decision history](docs/DECISIONS.md) and [validation log](docs/PLAYTEST_LOG.md).
@@ -9,8 +9,8 @@ The owner has approved M3a's implementation scope, including gradual recovery;
 M3a is implemented and validated. The revised Vision/Roadmap were approved, followed
 by explicit approval of the leaner M3b Food-scavenging scope. M3b is implemented, validated and accepted by the owner. M4a was subsequently approved with non-destructive capacity rejection and is now
 approved on reported validation pending final hands-on confirmation. Its validated
-baseline is authorized for commit. M4b outage parameters still need owner approval
-before implementation. Bootstrap has
+baseline is committed as `4cd4ce8`. The owner approved M4b with a capped setback;
+M4b is implemented, validated and approved by the owner (2026-11-15). Bootstrap has
 no changed initialization or technical requirements and remains unchanged.
 
 ## 1. Current position and priority
@@ -29,13 +29,14 @@ Keep each step independently playable, test it, report and stop for review.
 | M2b agriculture and continuous time | Approved; committed as `453114a` |
 | M3a food consumption and hunger | Implemented/validated; preserved in accepted M3b baseline `5e6abff` |
 | M3b finite surface Food scavenging | Approved and completed; committed baseline includes M3a and approved design revisions |
-| M4a basic power generation and manual allocation | Reported validation approved; commit authorized; final hands-on confirmation pending |
+| M4a basic power generation and manual allocation | Committed `4cd4ce8`; final hands-on confirmation pending |
+| M4b beacon transmission and rescue | Implemented, validated and approved 2026-11-15 |
 | Subsequent gameplay | Proposals only; separate approval required |
 
 Live play controls one actor. Core models support independent actor inventories,
 meal states and conflicting operations; tests and simulations do not constitute
 playable multiplayer. There are two authored layouts with reusable TileMapLayer
-terrain, not a procedural world generator. M4a provides basic power and a beacon consumer indicator. Rescue progress, crafting,
+terrain, not a procedural world generator. M4b adds powered signal accumulation, capped outage setbacks and a terminal rescue screen. Crafting,
 protective doors, enemies, damage, outdoor farming and transport remain future work.
 M3b adds seeded resource placement, not terrain generation.
 
@@ -226,8 +227,8 @@ by the planning proposals below.
 ## 4. Proposed route to the first connected survival loop
 
 **Sequencing approved; implementation is gated per slice.** M3b is accepted and
-committed. M4a was separately approved and is implemented below for review. M4b
-and later slices remain proposals. No step silently rebalances crops, renames
+committed. M4a is committed; M4b was separately approved and is implemented below
+for review. Later slices remain proposals. No step silently rebalances crops, renames
 resources or introduces later danger systems.
 
 ### M3b. Finite surface Food scavenging — approved and completed
@@ -257,7 +258,7 @@ The eight-Food world with delayed care leaves six players two meals short on Day
 a late far expedition causes five misses on Day 6. No other systems were rebalanced.
 Actual terrain generation, hostile surface danger and power remain outside this slice.
 **Gate:** Owner accepted M3b and requested its commit (`5e6abff`). Subsequent M4a
-approval is recorded below; M4b is not authorized.
+approval is recorded below; M4b was subsequently approved as recorded below.
 
 ### M4a. Basic power generation and manual allocation — validated baseline accepted pending hands-on
 
@@ -285,30 +286,42 @@ previous gameplay regressions and inspected graphical captures. [Guide](docs/M4A
 4.9 Fuel/week, full load 7; costs are shared rather than multiplied per player.
 
 **Gate:** Owner approved the reported validation pending final hands-on confirmation
-and requested committing M4a before M4b. M4b implementation waits for approval of
-specific outage rules and consequential victory behavior. Grow-light effects and
+and requested committing M4a before M4b; commit `4cd4ce8` preserves that baseline.
+M4b rules and terminal victory behavior were subsequently approved. Grow-light effects and
 all additional survival systems remain outside that slice.
 
-### M4b. Rescue progression and recoverable signal interruption — later proposal
+### M4b. Rescue progression and recoverable signal interruption — approved and completed
 
-Formerly M3d. M4a represents the beacon as a consumer only; signal-day progression
-and outage consequences belong here.
+- Seven net accumulated signal days at the existing 2-PU beacon load. Continuous
+  elapsed-time accounting; unpowered intervals never earn signal. Startup waiting
+  before first transmission has no penalty.
+- Approved adjustment: 0.25-day grace, then 0.25 signal-day lost per outage day,
+  capped at one signal day per episode and floored at zero. No three-day full reset.
+- Anti-exploit rule: brief restorations immediately earn progress but retain the
+  episode's off-time/grace/loss cap. Renew only after 0.25 uninterrupted powered day.
+  Target, grace, rate, cap and stable-recovery interval are configurable.
+- Contextual radio interface with progress, conditional ETA, outage/grace and active
+  degradation warnings; existing world indicator distinguishes transmission/outage.
+- Shared terminal Rescued screen freezes the completed run exactly at victory,
+  offers New Run/Quit and prevents duplicate completion and post-victory mutations.
+- All existing Fuel, Food, farming, hunger, inventory, art and collision values stay
+  unchanged. No extraction, arbitrary game-over, combat or infrastructure expansion.
 
-**Goal:** Make power allocation serve a visible group objective.
+**Validated:** Core default/configured rescue rules, startup/outages/anti-exploit,
+Fuel-exhaustion/time-skip boundaries, recovery/cap/floor, terminal mutations/reset
+and concurrent once-only completion. Live input/UI, freeze/New Run/Quit and existing
+movement/power/hunger/scavenging/farm regressions pass on both authored layouts;
+graphical captures inspected. [Guide](docs/M4B_RESCUE.md),
+[combined daily 2/4/6-player ledgers](docs/M4B_COMBINED_BALANCE.md).
 
-- Connect a critical beacon load to the tested power model; display signal and
-  rescue progress without requiring a new management menu.
-- Make short interruptions recoverable and prolonged loss consequential.
-- Use developer controls to test qualifying time, recovery and reset; preserve
-  continuous world time and independent player food needs.
+**Balance finding:** Scheduled service reaches rescue; full load in the seven-Fuel
+world has zero margin. Wasteful startup or continuing full load after an extended
+outage can exhaust finite Fuel before rescue; there is no compensating stock change.
+Accepted six-player Food shortages remain possible with delayed harvests.
 
-**Ask:** What earns progress, difficulty-dependent duration, short-outage grace,
-prolonged-loss threshold and reset versus substantial delay. Recommendation: test
-pause for short interruptions and a bounded delay for long ones before testing a
-full reset. This recommendation is not an approved rule. Final extraction stays open.
-
-**Exit:** Group choices visibly affect the beacon; outages and recovery are legible
-and deterministic. No final extraction sequence or automatic defeat rule is assumed.
+**Gate:** Owner approved M4b on 2026-11-15 and requested its commit before M5a
+crafting scoping. M5a requires a proposal and separate implementation approval;
+actual multiplayer, final defeat and surface extraction remain open.
 
 ### M3e. One bounded repair/crafting allocation choice
 

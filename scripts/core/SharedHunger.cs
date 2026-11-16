@@ -52,6 +52,7 @@ public sealed partial class SharedSupplies
     {
         lock (_gate)
         {
+            if (RunCompleted) return new(EatStatus.AccessDenied,0);
             if (!_meals.TryGetValue(playerId, out var meal)) return new(EatStatus.InvalidPlayer, 0);
             if (request.Version != Version || request.Day != _mealDay) return new(EatStatus.Stale, 0);
             var player = _players[playerId];

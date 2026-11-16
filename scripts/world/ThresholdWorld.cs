@@ -78,10 +78,12 @@ public partial class ThresholdWorld : Node2D
         if (Config.HungerEnabled)
             _state.InitializeHunger(HungerDefinition.Parse(FileAccess.GetFileAsString("res://data/hunger.json")), Clock);
         InitializeElectrical();
+        InitializeRescueWorld();
         StartingStoredTotal = _state.Snapshot(_controlledActor.PlayerId).Storage.Total;
         if (FarmingEnabled) _feedback = "Starter seeds are in the shared chest. C chooses a crop at a plot.";
         _hud = GetNode<ThresholdHud>("HUD");
         InitializePowerPanel();
+        InitializeBeaconPanel();
         _controlledActor.InteractionRequested += Interact;
         _hud.Supplies.CloseRequested += CloseInventory;
         _hud.Supplies.EatRequested += HandleEat;
@@ -112,6 +114,7 @@ public partial class ThresholdWorld : Node2D
     public override void _PhysicsProcess(double delta)
     {
         Clock.Advance(delta);
+        if(Signal?.Completed==true){ShowRescued();return;}
         _controlledActor.HungerSpeedMultiplier = (float)(HungerFor(_controlledActor.PlayerId)?.SpeedMultiplier ?? 1);
         _feedbackTime = System.Math.Max(0, _feedbackTime - delta);
         Vector2 position = _controlledActor.GlobalPosition;
@@ -157,7 +160,7 @@ public partial class ThresholdWorld : Node2D
         var plot = FindPlot(actor);
         if(station!=null && (target==null || actor.Position.DistanceSquaredTo(station.Position)<actor.Position.DistanceSquaredTo(target.Position)) &&
             (plot==null || actor.Position.DistanceSquaredTo(station.Position)<actor.Position.DistanceSquaredTo(plot.Position)))
-        { OpenPower(station);return; }
+        { if(station.Id=="beacon"&&RescueEnabled)OpenBeacon(station);else OpenPower(station);return; }
         if (plot != null && (target == null || actor.GlobalPosition.DistanceSquaredTo(plot.GlobalPosition) < actor.GlobalPosition.DistanceSquaredTo(target.GlobalPosition)))
         {
             var state = _state.Plot(plot.PlotId);
@@ -307,6 +310,7 @@ public partial class ThresholdWorld : Node2D
 
     public override void _Process(double delta)
     {
+        RefreshBeacon();
         if(PowerVisible)_powerPanel.Refresh(_state.Power(),_state.Snapshot(_controlledActor.PlayerId).Version);
         bool outside = _controlledActor.Position.X >= ThresholdMap.SurfaceStart;
         var snapshot = _state.Snapshot(_controlledActor.PlayerId);
@@ -333,7 +337,7 @@ public partial class ThresholdWorld : Node2D
               $"target: {_focused?.ObjectId ?? "none"} | world seed {Config.WorldSeed}\nF2: home   F3: surface   R: restore all salvage\nF4: +1 min   F5: +1 day   Shift+F5: +3 days"
             : "";
         _hud.Present(outside ? "SURFACE CLEARING" : "REFUGE / HOME", snapshot,
-            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId),PowerVisible);
+            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId),PowerVisible||BeaconVisible);
     }
 
     public override void _UnhandledKeyInput(InputEvent @event)
@@ -354,7 +358,7 @@ public partial class ThresholdWorld : Node2D
                 Notify(key.ShiftPressed ? "Debug: advanced three days." : "Debug: advanced one day.");
                 break;
             case Key.F1: _debug = !_debug; break;
-            case Key.H: if(!PowerVisible)_hud.ToggleHelp(); break;
+            case Key.H: if(!PowerVisible&&!BeaconVisible)_hud.ToggleHelp(); break;
             case Key.F2: Teleport(Home); Notify("Debug: returned home; quantities preserved."); break;
             case Key.F3: Teleport(Outside); Notify("Debug: moved outside; quantities preserved."); break;
             default: return;
@@ -374,6 +378,7 @@ public partial class ThresholdWorld : Node2D
 
     public override void _ExitTree()
     {
+        if(_beaconPanel!=null){_beaconPanel.CloseRequested-=ClosePower;_beaconPanel.OperationRequested-=HandleBeaconCommand;_beaconPanel.AllocationRequested-=OpenBeaconAllocation;}
         if(_powerPanel!=null) { _powerPanel.CloseRequested-=ClosePower;_powerPanel.OperationRequested-=HandlePowerCommand; }
         if (_controlledActor != null)
         {

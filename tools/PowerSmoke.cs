@@ -49,7 +49,7 @@ public partial class PowerSmoke : Node
             await KeyPress(Key.Up);await KeyPress(Key.Up);await KeyPress(Key.Enter);
             Check(Power.Running&&Power.RatePerDay==.2m,"Keyboard starts generator at idle burn rate");
             await KeyPress(Key.Down);await KeyPress(Key.Down);await KeyPress(Key.Down);await KeyPress(Key.Enter);
-            Check(Power.Consumers.Single(c=>c.Id=="beacon").Powered&&Power.Demand==2,"Beacon reports powered without rescue progress");
+            Check(Power.Consumers.Single(c=>c.Id=="beacon").Powered&&Power.Demand==2,"Beacon receives its existing two-PU allocation");
             await Joy(JoyButton.DpadDown);await Joy(JoyButton.A);
             Check(Power.Demand==4&&Power.Consumers.Single(c=>c.Id=="workbench").Powered,"Controller enables workbench within 4-PU capacity");
             await ClickRow(5);await Frames(2);

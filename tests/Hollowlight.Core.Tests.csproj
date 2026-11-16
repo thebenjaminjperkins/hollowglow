@@ -6,6 +6,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../scripts/core/SalvageState.cs" Link="SalvageState.cs" />
+    <Compile Include="../scripts/core/Rescue.cs" Link="Rescue.cs" />
+    <Compile Include="../scripts/core/SharedRescue.cs" Link="SharedRescue.cs" />
+    <None Include="../data/rescue.json" Link="data/rescue.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/Power.cs" Link="Power.cs" />
     <Compile Include="../scripts/core/SharedPower.cs" Link="SharedPower.cs" />
     <None Include="../data/power.json" Link="data/power.json" CopyToOutputDirectory="PreserveNewest" />

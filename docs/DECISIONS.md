@@ -403,3 +403,42 @@ Dates use the owner's America/New_York timezone.
   Preserve food, power, recoverability and all other systems; no new failure rule.
 - Inspect partial-interval accounting when a time skip crosses Fuel exhaustion:
   rescue must receive exactly the powered portion before the outage begins.
+
+## M4b approved capped rescue setback — 2026-11-13
+
+- M4a baseline committed as `4cd4ce8`, clean tree verified before M4b work. Owner
+  approved M4a on reported validation pending final hands-on confirmation.
+- M4b owner approval: seven accumulated powered signal days at existing 2 PU;
+  no penalty before first transmission; 0.25-day outage grace then continuous
+  0.25 signal-day loss per off-day, capped at one lost day and floored at zero.
+  This explicitly supersedes the earlier proposed three-day full reset.
+- Owner authorized implementing a simple documented anti-exploit rule: retain
+  episode off-time, used grace and loss cap through brief restorations; renew only
+  after 0.25 uninterrupted powered day. Restoring transmission earns progress
+  immediately, including during that healthy-window requirement. Both grace and
+  cap carry across blips; current outage duration resets immediately on restoration.
+- All rescue rule values are configured in data/rescue.json. Contextual radio
+  controls expose status/progress/conditional ETA/outage/degradation; no new HUD
+  meter. Reuse existing approved radio prop and diode, with amber interruption.
+- Owner chose a shared terminal Rescued screen with New Run/Quit. Exact-time
+  completion freezes the authority clock and rejects item, farm, meal and power
+  mutations; the scene pauses all world movement/simulation and leaves ending UI
+  active. No duplicate completion or post-win Fuel burn during oversized skips.
+- Split powered/unpowered time at Fuel exhaustion. Use exact signal credits and
+  existing exact Fuel accounting, one session authority lock, immutable snapshots.
+  This prepares a synchronization boundary without claiming networking or disk saves.
+- Preserve all existing Food/Fuel stocks, seeds, crop timing/yields/four plots,
+  hunger/consumption/recovery, inventories, collisions, camera and PNG artwork.
+- Combined timed 2/4/6-player simulations report both reachable and exhausted-Fuel
+  outcomes. Finite Fuel can make rescue unreachable after waste/setbacks; no hidden
+  refill, punitive new defeat condition or economy rebalance was authorized.
+- M4b stops for owner review. Extraction, final defeat and future infrastructure
+  remain unimplemented. See docs/M4B_RESCUE.md and M4B_COMBINED_BALANCE.md.
+
+
+## M4b accepted commit checkpoint — 2026-11-15
+
+- Owner approved M4b and requested its commit before scoping M5a crafting.
+- Scope and behavior are unchanged. Updated acceptance labels to reflect that approval.
+- M5a requires a separate recipe/architecture/economy proposal and approval before
+  gameplay implementation. No crafting is implemented in this checkpoint.

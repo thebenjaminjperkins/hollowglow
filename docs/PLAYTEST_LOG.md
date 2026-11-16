@@ -601,3 +601,61 @@ remains `24b7f70`, with no new M2b commit made before review.
   graphical/hardware/network playtest is claimed at this checkpoint.
 - M4b is a scoping request until its precise outage rules are approved. No M4b
   gameplay or outage penalty was implemented during this checkpoint.
+
+## M4b radio beacon and rescue — 2026-11-13
+
+- M4a committed first as `4cd4ce8`; worktree clean before implementing approved M4b.
+- Build succeeds with zero warnings/errors; core suite passes. Rescue assertions
+  include startup, continuous transmission, short/extended/repeated outages,
+  exhausted grace across eight short blips, stable renewal of grace/cap, floor/cap,
+  custom definitions, Fuel-boundary skips versus stepping, exact-zero-Fuel victory,
+  terminal command rejection, reset and 16 competing exactly-once completion races.
+- Combined 2/4/6-actor ledgers share real Food/Fuel/farm/hunger/rescue authority with
+  timed seed withdrawal, planting/replanting, harvest visits, surface collection,
+  chest distribution and explicit operator refill visits. Seeds 8/1701/499 cover
+  minimum Fuel, default and minimum Food worlds. Daily seven-day flows and shortages
+  are reported; continuation ends at victory or Day 14. Conservation checked daily.
+- All scheduled scenarios rescue at D8 00:30. Poorest Fuel world leaves 2.24 Fuel;
+  continuous full load finishes exactly empty. Six actors/minimum Food/delayed care
+  miss two meals on Day 7, preserving the known deficit rather than altering yields.
+- Stress: poorest Fuel world with five days of workbench-only startup cannot finish
+  rescue even with beacon-only service afterward. Full load plus a 2.5-day outage
+  also cannot finish after finite Fuel is exhausted. These outcomes have no forced
+  game-over or replacement supplies; conservation/optional-load choices remain visible.
+- Headless RescueSmoke, PowerSmoke, HungerSmoke, ScavengingSmoke, FarmingSmoke and
+  playable-refuge ThresholdSmoke pass on both authored layouts (12 runs, no errors).
+  Includes actual mouse/key/controller events, contextual panel/range/cancellation,
+  stationary owner with continuing world, degradation/recovery, terminal scene/clock/
+  Fuel/meal/movement freeze, New Run reset, plus existing diagonal/wall/passages,
+  resource limits, planting/full-harvest safety and stale-command regressions.
+  Separate terminal Quit path exits successfully.
+- Graphical smoke inspected at actual gameplay scale: offline, transmitting,
+  degrading and Rescued. Active degradation now overrides transient switch messages;
+  completed-run HUD is hidden behind the terminal screen. Files live under
+  docs/screenshots/rescue. Reused sprites, modular terrain and environmental lights
+  unchanged; no new art assets or baked light. Screenshot fixtures skip unserved
+  days intentionally, explaining Critical hunger in later captures.
+- FramePostDraw waiting stalled in this environment; the capture tool now explicitly
+  requests a frame. Final screenshots and input assertions succeeded with Mesa
+  software rendering; its unsupported V-Sync warning is environmental. Editor import
+  succeeded. No graphics-driver issue is attributed to game simulation.
+- Food and Fuel legacy balance reports were regenerated and matched byte-for-byte.
+  Existing artwork and Food/Fuel/farm/hunger/power configuration bytes are unchanged.
+- This remains a one-controlled-actor prototype. Core simulations and injected
+  controller events do not establish human group play, physical-controller or
+  network-session validation. No disk-save/extraction/final defeat implementation.
+- M4b is uncommitted and stops for owner review; no later milestone started.
+
+
+## M4b accepted commit revalidation — 2026-11-15
+
+- Owner accepted M4b and authorized committing the milestone before M5a scoping.
+- Re-ran the complete core suite and combined 2/4/6-player Food/Fuel/rescue ledger;
+  all pass, and the ledger matches the prior report byte-for-byte. All four art
+  preservation/palette checks pass; git diff whitespace check passes.
+- Rebuilt using the installed .NET 8.0.424 and cached Godot 4.4.1 SDK packages.
+  Stale ignored build metadata referenced deleted /tmp packages; a package restore
+  repaired those local paths without source changes. Build passes with zero warnings/errors.
+- The previous temporary Godot .NET engine is no longer installed. No new engine
+  launch or visual playtest is claimed; the prior inspected captures and both-layout
+  engine results remain the M4b runtime evidence. No gameplay changes in this checkpoint.

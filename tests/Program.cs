@@ -9,6 +9,7 @@ static void Check(bool condition, string message)
 }
 
 ClockTests.Run();
+RescueTests.Run();
 PowerTests.Run();
 FuelPlacementTests.Run();
 ScavengingTests.Run();
@@ -19,6 +20,8 @@ if (Array.IndexOf(args, "--scavenging-balance") is int scavengingIndex && scaven
     FoodBalanceSimulation.RunScavenging(scavengingIndex + 1 < args.Length ? args[scavengingIndex + 1] : "docs/M3B_FOOD_BALANCE.md");
 if (Array.IndexOf(args,"--power-balance") is int powerIndex && powerIndex>=0)
     PowerBalanceSimulation.Run(powerIndex+1<args.Length?args[powerIndex+1]:"docs/M4A_FUEL_BALANCE.md");
+if (Array.IndexOf(args,"--rescue-balance") is int rescueIndex && rescueIndex>=0)
+    RescueBalanceSimulation.Run(rescueIndex+1<args.Length?args[rescueIndex+1]:"docs/M4B_COMBINED_BALANCE.md");
 FarmingTests.Run();
 SuppliesTests.Run();
 SlotOperationsTests.Run();

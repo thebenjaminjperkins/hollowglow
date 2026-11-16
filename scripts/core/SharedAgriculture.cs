@@ -39,6 +39,7 @@ public sealed partial class SharedSupplies
     {
         lock (_gate)
         {
+            if (RunCompleted) return new(FarmStatus.AccessDenied,expected);
             if (!_players.TryGetValue(playerId, out var player)) return new(FarmStatus.InvalidPlayer, expected);
             if (!Farm.Plots.TryGetValue(plotId, out var plot)) return new(FarmStatus.UnknownPlot, expected);
             var version = new SupplyVersion(_session, plot.Revision);
@@ -57,6 +58,7 @@ public sealed partial class SharedSupplies
     {
         lock (_gate)
         {
+            if (RunCompleted) return new(FarmStatus.AccessDenied,expected);
             if (!_players.TryGetValue(playerId, out var player)) return new(FarmStatus.InvalidPlayer, expected);
             if (!Farm.Plots.TryGetValue(plotId, out var plot)) return new(FarmStatus.UnknownPlot, expected);
             var state = Farm.Snapshot(plotId, _session);

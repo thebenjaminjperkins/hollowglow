@@ -56,6 +56,7 @@ public sealed partial class SharedSupplies
         {
             if (_power == null) throw new InvalidOperationException("Power is not initialized.");
             PowerResult Result(PowerStatus status, int amount = 0, int? demand = null) => new(status, amount, demand ?? Demand, _power.Capacity);
+            if(RunCompleted)return Result(PowerStatus.AccessDenied);
             if (!_players.TryGetValue(playerId, out var player)) return Result(PowerStatus.InvalidPlayer);
             if (request.Version != PowerVersion) return Result(PowerStatus.Stale);
             switch (request.Action)
@@ -73,7 +74,7 @@ public sealed partial class SharedSupplies
                 case PowerAction.SetRunning:
                     if (request.Enabled == _running) return Result(PowerStatus.NoChange);
                     if (request.Enabled && _tankCredits == 0) return Result(PowerStatus.NoFuel);
-                    _running = request.Enabled; _powerRevision++; return Result(PowerStatus.Applied);
+                    _running = request.Enabled; SynchronizeRescueSignal(); _powerRevision++; return Result(PowerStatus.Applied);
                 case PowerAction.SetConsumer:
                     var consumer = _consumers.FirstOrDefault(c => c.Id == request.Consumer);
                     if (consumer == null) return Result(PowerStatus.UnknownConsumer);
@@ -82,7 +83,7 @@ public sealed partial class SharedSupplies
                     if (request.Enabled && wanted > _power.Capacity) return Result(PowerStatus.OverCapacity, demand: wanted);
                     if (request.Enabled && !_running) return Result(PowerStatus.NoSupply, demand: wanted);
                     if (request.Enabled) _enabledConsumers.Add(consumer.Id); else _enabledConsumers.Remove(consumer.Id);
-                    _powerRevision++; return Result(PowerStatus.Applied);
+                    SynchronizeRescueSignal(); _powerRevision++; return Result(PowerStatus.Applied);
                 default: return Result(PowerStatus.InvalidRequest);
             }
         }
@@ -90,11 +91,15 @@ public sealed partial class SharedSupplies
     private void AdvancePower(long ticks)
     {
         long elapsed = ticks - _lastPowerTicks; _lastPowerTicks = ticks;
-        if (!_running || elapsed == 0) return;
+        if(elapsed==0)return;
+        if(!_running){AdvanceRescue(elapsed,false);return;}
+        long transmitted=PoweredTicks(elapsed);
         decimal rate = BurnRate * 1000000;
         decimal burned = elapsed >= decimal.Ceiling(_tankCredits / rate) ? _tankCredits : (decimal)elapsed * rate;
         _tankCredits -= burned; _consumedCredits += burned;
-        if (_tankCredits == 0) { _running = false; _powerRevision++; }
+        AdvanceRescue(transmitted,true);
+        if(!RunCompleted)AdvanceRescue(elapsed-transmitted,false);
+        if (_tankCredits == 0) { _running = false; SynchronizeRescueSignal(); _powerRevision++; }
         // Burn never mutates item slots/revisions. A fuel-empty transition invalidates
         // power requests, while ordinary continuous burn leaves controls usable.
     }

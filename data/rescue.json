@@ -1,0 +1,7 @@
+{
+  "targetDays": 7,
+  "outageGraceDays": 0.25,
+  "lossPerOutageDay": 0.25,
+  "maxEpisodeLossDays": 1,
+  "stableRecoveryDays": 0.25
+}

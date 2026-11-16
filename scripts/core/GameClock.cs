@@ -26,6 +26,14 @@ public sealed class GameClock
     private long _elapsedTicks;
     private object _advanceGate = new();
     private Action<long>? _advanced;
+    private Func<long,long>? _limit;
+    public bool Frozen { get; private set; }
+    internal void Freeze() => Frozen=true;
+    internal void BindAdvanceLimit(object gate,Func<long,long> limit)
+    {
+        if(!ReferenceEquals(_advanceGate,gate) || _limit!=null)throw new InvalidOperationException("Invalid clock limit owner.");
+        _limit=limit;
+    }
     // Bind at session initialization. Time advancement and inventory/meal commands
     // subsequently share the same authority lock, including direct developer skips.
     internal void BindAuthority(object gate, Action<long> advanced)
@@ -61,12 +69,15 @@ public sealed class GameClock
         lock (_advanceGate)
         {
             if (!double.IsFinite(seconds) || seconds < 0) throw new ArgumentOutOfRangeException(nameof(seconds));
+            if(Frozen)return;
             double ticks = seconds * TimeSpan.TicksPerSecond + _fractionalTick;
             long whole = checked((long)Math.Round(ticks));
             long next = checked(_elapsedTicks + whole);
-            _elapsedTicks = next;
-            _fractionalTick = ticks - whole;
+            long limited=_limit?.Invoke(next)??next;
+            _elapsedTicks = limited;
+            _fractionalTick = limited==next?ticks-whole:0;
             _advanced?.Invoke(_elapsedTicks);
+            if(Frozen)_fractionalTick=0;
         }
     }
     public ClockState SaveState() { lock (_advanceGate) return new(_elapsedTicks, _fractionalTick); }

@@ -13,6 +13,7 @@ public partial class SanctuaryRoom : Node
     [Export(PropertyHint.Range, "0.5,2,0.05")] public float LampRadiusScale { get; set; } = 1.15f;
     public bool ScavengingEnabled { get; set; } = true;
     public int WorldSeed { get; set; } = 1701;
+    public bool RescueEnabled { get; set; } = true;
     public bool PowerEnabled { get; set; } = true;
     public bool HungerEnabled { get; set; } = true;
     public PlayerInput? InputOverride { get; set; }
@@ -38,6 +39,7 @@ public partial class SanctuaryRoom : Node
             bool capture = Array.Exists(OS.GetCmdlineUserArgs(), arg => arg == "--capture-room");
             _world = GD.Load<PackedScene>("res://scenes/Threshold.tscn").Instantiate<ThresholdWorld>();
             _world.Config = (WorldConfig)_world.Config.Duplicate();
+            _world.Config.RescueEnabled = RescueEnabled;
             _world.Config.PowerEnabled = PowerEnabled;
             _world.Config.HungerEnabled = HungerEnabled;
             _world.Config.ScavengingEnabled = ScavengingEnabled;

@@ -20,7 +20,7 @@ public partial class ThresholdWorld
     public IReadOnlyList<PowerStation> PowerStations => _stations;
     public bool PowerVisible => _powerPanel != null && _powerPanel.Visible;
     public PowerPanel PowerControls => _powerPanel;
-    private bool ModalOpen => _inventoryVisible || PowerVisible;
+    private bool ModalOpen => _inventoryVisible || PowerVisible || BeaconVisible;
 
     private void PreparePowerSources()
     {
@@ -67,18 +67,18 @@ public partial class ThresholdWorld
     }
     private void OpenPower(PowerStation station)
     {
-        CloseInventory();_hud.HideHelp();_openStation=station;
+        ClosePower();CloseInventory();_hud.HideHelp();_openStation=station;
         _controlledActor.InventoryOpen=true;_powerPanel.ControllerDevice=_controlledActor.ControllerDevice;
         _powerPanel.Open(_state.Power(),_state.Snapshot(_controlledActor.PlayerId).Version,station.Id);
     }
     public void ClosePower()
     {
-        if(_powerPanel!=null)_powerPanel.Close();_openStation=null;
+        if(_powerPanel!=null)_powerPanel.Close();if(_beaconPanel!=null)_beaconPanel.Close();_openStation=null;
         if(_controlledActor!=null)_controlledActor.InventoryOpen=_inventoryVisible;
     }
     public PowerResult PowerCommand(PlayerCharacter actor, PowerRequest request)
     {
-        if(actor!=_controlledActor || !PowerVisible || _openStation==null || actor.GlobalPosition.DistanceTo(_openStation.Position)>Config.InteractionRange)
+        if(actor!=_controlledActor || !(PowerVisible||BeaconVisible) || _openStation==null || actor.GlobalPosition.DistanceTo(_openStation.Position)>Config.InteractionRange)
             return new(PowerStatus.AccessDenied,0,0,_powerDefinition?.Capacity??0);
         return _state.ApplyPower(actor.PlayerId,request);
     }
@@ -96,6 +96,6 @@ public partial class ThresholdWorld
         if(_focused!=null && _controlledActor.Position.DistanceSquaredTo(_focused.Position)<=distance) _focusedStation=null;
         if(_focusedPlot!=null && _controlledActor.Position.DistanceSquaredTo(_focusedPlot.Position)<=distance) _focusedStation=null;
         if(_focusedStation!=null) { _focused=null;_focusedPlot=null; }
-        if(PowerVisible && (_openStation==null || _controlledActor.Position.DistanceTo(_openStation.Position)>Config.InteractionRange))ClosePower();
+        if((PowerVisible||BeaconVisible) && (_openStation==null || _controlledActor.Position.DistanceTo(_openStation.Position)>Config.InteractionRange))ClosePower();
     }
 }
