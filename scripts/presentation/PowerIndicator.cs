@@ -9,7 +9,7 @@ public partial class PowerIndicator : Node2D
     public ThresholdWorld World { get; set; } = null!;
     public string Consumer { get; set; } = "generator";
     private Color _color = new("79533e");
-    public override void _Ready() { Position=new Vector2(8,-12);ZIndex=1; }
+    public override void _Ready() { Position=new Vector2(8,-12);ZIndex=0; }
     public override void _Process(double delta)
     {
         var p=World.Electrical;

@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-16",
+  "engine": "Godot 4.4.1 .NET",
+  "sdk": "8.0.424",
+  "baselineFiles": 549,
+  "protectedFiles": 241,
+  "protectedPrefixes": [
+    "assets/",
+    "data/",
+    "studies/"
+  ],
+  "allProtectedUnchanged": true,
+  "note": "Compared with workspace snapshot before M6b; includes existing uncommitted M6a and isolated study. No pre-existing assets, gameplay JSON or study artifacts changed."
+}

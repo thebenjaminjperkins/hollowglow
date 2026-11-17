@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="945" viewBox="0 0 980 945"><rect width="100%" height="100%" fill="#182128"/><style>text{font-family:DejaVu Sans,sans-serif;fill:#ead4a9} .small{font-size:14px} .title{font-size:25px;font-weight:bold} .label{font-size:16px}</style>
+<text x="28" y="38" class="title">M6c follow-up: proposed sanctuary footprint</text><text x="28" y="65" class="small">PROPOSAL ONLY — north up; one grid cell = 16 world units; no gameplay geometry changed</text>
+<rect x="70" y="115" width="640" height="640" rx="3" fill="#242d32" stroke="#69797e" stroke-width="2"/>
+<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse" x="70" y="115"><path d="M 20 0 H 0 V 20" fill="none" stroke="#69797e" stroke-opacity=".15"/></pattern></defs>
+<polygon points="150,295 170,275 150,255 190,215 250,215 270,195 370,195 370,155 450,155 450,195 530,195 550,215 610,215 630,275 610,295 630,355 630,495 610,515 630,575 610,635 570,655 470,655 470,675 450,675 450,735 330,735 330,675 270,675 250,655 190,655 170,615 150,595 150,515 170,495 150,435 150,355 170,335" fill="#454b43" stroke="#93a39b" stroke-width="9" stroke-linejoin="round"/>
+<rect x="70" y="115" width="640" height="640" fill="url(#grid)"/>
+<rect x="190" y="255" width="100" height="60" rx="3" fill="#5d594b" stroke="#69797e" stroke-width="2"/>
+<text x="198" y="278" font-size="14" fill="#ead4a9">Workshop</text>
+<rect x="310" y="215" width="90.0" height="60" rx="3" fill="#5d594b" stroke="#69797e" stroke-width="2"/>
+<text x="318" y="238" font-size="14" fill="#ead4a9">Storage</text>
+<rect x="490" y="255" width="100" height="80" rx="3" fill="#3c5547" stroke="#69797e" stroke-width="2"/>
+<text x="498" y="278" font-size="14" fill="#ead4a9">Garden</text>
+<rect x="170" y="395" width="90.0" height="80" rx="3" fill="#5d594b" stroke="#69797e" stroke-width="2"/>
+<text x="178" y="418" font-size="14" fill="#ead4a9">Power</text>
+<rect x="550" y="395" width="60" height="80" rx="3" fill="#5d594b" stroke="#69797e" stroke-width="2"/>
+<text x="558" y="418" font-size="14" fill="#ead4a9">Radio</text>
+<rect x="190" y="575" width="100" height="40" rx="3" fill="#5d594b" stroke="#69797e" stroke-width="2"/>
+<text x="198" y="598" font-size="14" fill="#ead4a9">Bedrolls</text>
+<rect x="370" y="155" width="80" height="40" rx="3" fill="#3c424a" stroke="#69797e" stroke-width="2"/>
+<text x="378" y="178" font-size="14" fill="#ead4a9">Reserved</text>
+<text x="376" y="145" font-size="14" fill="#ead4a9">Shallow resurrection alcove</text>
+<rect x="510" y="287.0" width="20" height="15" rx="3" fill="#638e85" stroke="#69797e" stroke-width="2"/>
+<rect x="550" y="287.0" width="20" height="15" rx="3" fill="#638e85" stroke="#69797e" stroke-width="2"/>
+<rect x="510" y="311.0" width="20" height="15" rx="3" fill="#638e85" stroke="#69797e" stroke-width="2"/>
+<rect x="550" y="311.0" width="20" height="15" rx="3" fill="#638e85" stroke="#69797e" stroke-width="2"/>
+<rect x="590" y="275" width="18" height="35" rx="3" fill="none" stroke="#93b9a0" stroke-width="2" stroke-dasharray="4 3"/>
+<rect x="490" y="535" width="80" height="80" rx="3" fill="none" stroke="#93b9a0" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="493" y="575" font-size="14" fill="#ead4a9">Turn</text>
+<text x="493" y="595" font-size="14" fill="#ead4a9">space</text>
+<text x="290" y="415" font-size="17" fill="#ead4a9">OPEN SHARED FLOOR</text>
+<text x="270" y="441.0" font-size="13" fill="#ead4a9">Clear sightlines; no room partitions</text>
+<rect x="310" y="595" width="160" height="80" rx="3" fill="none" stroke="#d4ad73" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="318" y="635" font-size="13" fill="#ead4a9">Clear door apron</text>
+<path d="M 330 675 H 390 M 390 675 H 450" stroke="#d4ad73" stroke-width="7" stroke-dasharray="6 4"/>
+<text x="318" y="779" font-size="14" fill="#ead4a9">Surface threshold / future paired iron doors</text>
+<text x="735" y="120" font-size="14" fill="#ead4a9">PROVISIONAL SCALE</text>
+<text x="735" y="148" font-size="14" fill="#ead4a9">Main chamber ~24×24 tiles</text>
+<text x="735" y="173" font-size="14" fill="#ead4a9">~384×384 world units</text>
+<text x="735" y="210" font-size="14" fill="#ead4a9">32×32 local planning canvas</text>
+<text x="735" y="235" font-size="13" fill="#ead4a9">placed within existing region</text>
+<text x="735" y="282" font-size="14" fill="#ead4a9">CIRCULATION</text>
+<text x="735" y="309" font-size="14" fill="#ead4a9">Main clear routes ≥4 tiles</text>
+<text x="735" y="334" font-size="14" fill="#ead4a9">Door opening: 6 tiles</text>
+<text x="735" y="359" font-size="14" fill="#ead4a9">Two future 3-tile leaves</text>
+<text x="735" y="384" font-size="14" fill="#ead4a9">4-tile-deep clear apron</text>
+<text x="735" y="431" font-size="14" fill="#ead4a9">PRESERVE</text>
+<text x="735" y="458" font-size="14" fill="#ead4a9">Four initial growing plots</text>
+<text x="735" y="483" font-size="13" fill="#ead4a9">Existing fifth-plot kit option</text>
+<text x="735" y="508" font-size="14" fill="#ead4a9">Same machinery and supplies</text>
+<text x="735" y="533" font-size="13" fill="#ead4a9">No resurrection functionality</text>
+<text x="735" y="580" font-size="14" fill="#ead4a9">Dashed amber = reserved</text>
+<text x="735" y="605" font-size="13" fill="#ead4a9">future door closure/sweep area</text>
+<text x="735" y="650" font-size="13" fill="#ead4a9">Outline is a planning silhouette,</text>
+<text x="735" y="675" font-size="14" fill="#ead4a9">not an approved tile mask.</text>
+<text x="28" y="835" font-size="16" fill="#ead4a9">Storage → workshop / garden / power: target roughly 1–3 seconds; radio ≤4 seconds.</text>
+<text x="28" y="861" font-size="14" fill="#ead4a9">Doorway trip target roughly 4–6 seconds. Estimates at existing 80-unit/s speed, not measurements.</text>
+<text x="28" y="897" font-size="14" fill="#ead4a9">Existing camera coverage and sight radius remain unchanged; the entire cave need not fit on one screen.</text>
+</svg>

@@ -1,0 +1,38 @@
+[
+  {
+    "scene": "InventoryUxReview",
+    "iteration": 1,
+    "exit": 0,
+    "passed": true
+  },
+  {
+    "scene": "HungerSmoke",
+    "iteration": 1,
+    "exit": 0,
+    "passed": true
+  },
+  {
+    "scene": "InventoryUxReview",
+    "iteration": 2,
+    "exit": 0,
+    "passed": true
+  },
+  {
+    "scene": "HungerSmoke",
+    "iteration": 2,
+    "exit": 0,
+    "passed": true
+  },
+  {
+    "scene": "InventoryUxReview",
+    "iteration": 3,
+    "exit": 0,
+    "passed": true
+  },
+  {
+    "scene": "HungerSmoke",
+    "iteration": 3,
+    "exit": 0,
+    "passed": true
+  }
+]

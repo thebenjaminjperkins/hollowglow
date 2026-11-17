@@ -1,0 +1,123 @@
+{
+  "Seed": 1701,
+  "DaylightSeconds": 360,
+  "Measurement": "Godot physics and authoritative elapsed time; each destination and deposit includes two seconds inspection/menu time; immediate E gathering.",
+  "Chores": [
+    {
+      "Activity": "workbench",
+      "OneWayWalkingSeconds": 2.5833332999999996,
+      "RoundTripWithInteractionsSeconds": 9.2833333
+    },
+    {
+      "Activity": "generator",
+      "OneWayWalkingSeconds": 4.483333399999998,
+      "RoundTripWithInteractionsSeconds": 13.0666667
+    },
+    {
+      "Activity": "garden",
+      "OneWayWalkingSeconds": 2.3999999999999986,
+      "RoundTripWithInteractionsSeconds": 8.899999999999999
+    }
+  ],
+  "Trips": [
+    {
+      "Source": "radio-shell",
+      "Location": "hut",
+      "Resource": "scrap",
+      "Quantity": 12,
+      "OutboundFromChestSeconds": 11.6666667,
+      "RoundTripWithInteractionsSeconds": 27.1666667,
+      "DaylightFraction": 0.07546296305555555
+    },
+    {
+      "Source": "tool-case",
+      "Location": "hollow",
+      "Resource": "organic",
+      "Quantity": 8,
+      "OutboundFromChestSeconds": 17.566666599999998,
+      "RoundTripWithInteractionsSeconds": 38.616666599999995,
+      "DaylightFraction": 0.10726851833333331
+    },
+    {
+      "Source": "machine-housing",
+      "Location": "yard",
+      "Resource": "scrap",
+      "Quantity": 14,
+      "OutboundFromChestSeconds": 33.61666670000001,
+      "RoundTripWithInteractionsSeconds": 71.0666667,
+      "DaylightFraction": 0.1974074075
+    },
+    {
+      "Source": "food-near-wild_plant-0",
+      "Location": "entrance",
+      "Resource": "food",
+      "Quantity": 1,
+      "OutboundFromChestSeconds": 5.650000000000006,
+      "RoundTripWithInteractionsSeconds": 14.78333330000001,
+      "DaylightFraction": 0.041064814722222245
+    },
+    {
+      "Source": "food-near-wild_plant-1",
+      "Location": "hut",
+      "Resource": "food",
+      "Quantity": 1,
+      "OutboundFromChestSeconds": 8.783333400000004,
+      "RoundTripWithInteractionsSeconds": 21.650000000000006,
+      "DaylightFraction": 0.0601388888888889
+    },
+    {
+      "Source": "food-near-container-0",
+      "Location": "hut",
+      "Resource": "food",
+      "Quantity": 2,
+      "OutboundFromChestSeconds": 10.383333399999998,
+      "RoundTripWithInteractionsSeconds": 24.583333399999987,
+      "DaylightFraction": 0.06828703722222218
+    },
+    {
+      "Source": "food-far-wild_plant-0",
+      "Location": "hollow",
+      "Resource": "food",
+      "Quantity": 2,
+      "OutboundFromChestSeconds": 15.866666600000002,
+      "RoundTripWithInteractionsSeconds": 35.23333330000003,
+      "DaylightFraction": 0.09787037027777785
+    },
+    {
+      "Source": "food-far-container-0",
+      "Location": "hamlet",
+      "Resource": "food",
+      "Quantity": 4,
+      "OutboundFromChestSeconds": 17.716666699999962,
+      "RoundTripWithInteractionsSeconds": 39.5,
+      "DaylightFraction": 0.10972222222222222
+    },
+    {
+      "Source": "food-far-container-1",
+      "Location": "yard",
+      "Resource": "food",
+      "Quantity": 4,
+      "OutboundFromChestSeconds": 35.849999999999966,
+      "RoundTripWithInteractionsSeconds": 75.51666669999997,
+      "DaylightFraction": 0.20976851861111104
+    },
+    {
+      "Source": "fuel-near-cache-0",
+      "Location": "hut",
+      "Resource": "fuel",
+      "Quantity": 2,
+      "OutboundFromChestSeconds": 8.949999999999989,
+      "RoundTripWithInteractionsSeconds": 21.716666599999996,
+      "DaylightFraction": 0.06032407388888888
+    },
+    {
+      "Source": "fuel-far-cache-0",
+      "Location": "yard",
+      "Resource": "fuel",
+      "Quantity": 4,
+      "OutboundFromChestSeconds": 33.48333339999999,
+      "RoundTripWithInteractionsSeconds": 70.7833334,
+      "DaylightFraction": 0.19662037055555556
+    }
+  ]
+}

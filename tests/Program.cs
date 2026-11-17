@@ -9,6 +9,9 @@ static void Check(bool condition, string message)
 }
 
 ClockTests.Run();
+RegionTests.Run();
+        GarageTests.Run();
+        HallTests.Run();
 RescueTests.Run();
 CraftingTests.Run();
 PowerTests.Run();
@@ -95,3 +98,6 @@ foreach (string path in Directory.GetFiles(Path.Combine(AppContext.BaseDirectory
             Check(layout.IsFloor(prop.X / 16, prop.Y / 16), $"{layout.Name}: solid prop anchored on floor");
     Console.WriteLine($"PASS: {layout.Name}: connected floor, closed boundary and usable gameplay anchors");
 }
+
+if(Array.IndexOf(args,"--region-balance") is int regionIndex && regionIndex>=0)
+    CraftingBalanceSimulation.RunRegion(args[regionIndex+1],args[regionIndex+2]);

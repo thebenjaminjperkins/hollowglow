@@ -224,6 +224,19 @@ at actual gameplay zoom, not only in enlarged reference art. Preserve reusable
 terrain and props suitable for future procedural assembly, rather than a painted
 whole-room background.
 
+The owner's 2026-11-16 overgrown-garage reference updates the provisional visual
+target: a beautiful world reclaimed by nature, with slightly less uniform rust
+and more surviving paint, weathered wood and recognizable machinery. Moss, vines,
+ferns, small flowers and occasional mushrooms vary from light colonization to
+heavy overgrowth. Restrained Bloom accents use unusual plant shapes, muted violet
+foliage and subtle teal bioluminescence. Keep detailed material shading and readable
+silhouettes; avoid covering every object equally or making the world relentlessly
+bleak or cartoonishly cheerful. Daylight Bloom should be beautiful; its danger
+should emerge primarily through future nighttime behavior and environmental change.
+This is an art target, not authorization to implement those mechanics. Preserve
+M6b's working assets until a [small visual comparison](docs/ART_DIRECTION_UPDATE.md)
+is reviewed; no gameplay, resource, collision or interaction changes follow from it.
+
 Warm cave gardens and humming electronics contrast with muted ruins, luminous
 growth, fog and nocturnal movement. Ambient sound, restrained music and environmental
 storytelling should support that contrast. Keep crop stages, machines, hazards,

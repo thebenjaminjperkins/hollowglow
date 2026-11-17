@@ -17,6 +17,17 @@ public partial class ThresholdHud : CanvasLayer
     private string _lastLocation = "";
     private double _locationTime;
     public SuppliesPanel Supplies { get; private set; } = null!;
+    public HudChrome? Chrome {get;private set;}
+    private readonly List<CanvasItem> _legacyChrome=new();
+    public void UseResponsiveChrome()
+    {
+        if(Chrome!=null)return;
+        // Keep legacy rendering for raw historical scenes, and preserve modal coordinate/hit targets.
+        var legacy=new Control{Modulate=new(1,1,1,0),MouseFilter=Control.MouseFilterEnum.Ignore};AddChild(legacy);
+        foreach(var child in GetChildren())if(child is CanvasItem item&&(_legacyChrome.Contains(item)||child==_phaseBar||child is Sprite2D))
+            item.Reparent(legacy,true);
+        Chrome=new HudChrome{Scale=Vector2.One*.5f};AddChild(Chrome);
+    }
 
     public override void _Ready()
     {
@@ -63,6 +74,7 @@ public partial class ThresholdHud : CanvasLayer
         var panel = new ColorRect { Position = rect.Position, Size = rect.Size, Color = new Color("222a2ee8"),
             MouseFilter = Control.MouseFilterEnum.Ignore };
         AddChild(panel);
+        _legacyChrome.Add(panel);
         panel.AddChild(new ColorRect { Size = new Vector2(rect.Size.X, 1), Color = new Color("87785b"),
             MouseFilter = Control.MouseFilterEnum.Ignore });
         return panel;
@@ -80,6 +92,7 @@ public partial class ThresholdHud : CanvasLayer
     {
         var label = MakeLabel(position, size, color);
         AddChild(label);
+        _legacyChrome.Add(label);
         return label;
     }
     public void Present(string location, SuppliesSnapshot supplies,
@@ -112,6 +125,9 @@ public partial class ThresholdHud : CanvasLayer
         _feedback.Visible = _feedbackPanel.Visible = _feedback.Text.Length > 0;
         _debug.Text = debug;
         _debug.Visible = showDebug;
+        Chrome?.Present(_status.Text,_hunger.Text,_clock.Text,location,
+            _prompt.Visible?prompt:"",_feedback.Visible?feedback:"",_mealInfo.Text,debug,
+            _locationTime>0&&!Supplies.Visible&&!powerOpen,_mealInfo.Visible,showDebug,(float)clock.PhaseElapsedTicks/clock.PhaseDurationTicks,_phaseBar.Color);
     }
     private static void Toast(Label label, ColorRect panel, string text, int y)
     {

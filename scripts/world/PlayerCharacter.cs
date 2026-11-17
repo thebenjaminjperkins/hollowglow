@@ -13,6 +13,8 @@ public partial class PlayerCharacter : CharacterBody2D
     public int ControllerDevice => _input is KeyboardInput keyboard ? keyboard.ControllerDevice : 0;
     public float HungerSpeedMultiplier { get; set; } = 1;
     public bool InventoryOpen { get; set; }
+    public bool InteractionHeld => _input.InteractHeld();
+    public Vector2 RequestedMovement => _input.ReadMovement();
     private PlayerInput _input = null!;
 
     public override void _Ready() => _input = GetNode<PlayerInput>(InputPath);

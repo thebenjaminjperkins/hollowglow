@@ -1,0 +1,36 @@
+{
+  "identicalCollisionShapes": 655,
+  "geometrySourcesMovementAndCaptureTimesUnchanged": true,
+  "lightDeltaRgbMean": {
+    "before_left": {
+      "left_floor": 87.816,
+      "right_floor": 49.408,
+      "behind_divider": 62.592,
+      "through_door": 49.531
+    },
+    "before_right": {
+      "left_floor": 48.565,
+      "right_floor": 89.585,
+      "behind_divider": 88.224,
+      "through_door": 28.816
+    },
+    "after_left": {
+      "left_floor": 48.762,
+      "right_floor": 0.0,
+      "behind_divider": 0.0,
+      "through_door": 27.599
+    },
+    "after_right": {
+      "left_floor": 0.0,
+      "right_floor": 28.612,
+      "behind_divider": 49.041,
+      "through_door": 0.0
+    }
+  },
+  "presentationAdapterCpuMs": {
+    "median": 0.0536,
+    "p95": 1.497,
+    "max": 30.9825
+  },
+  "limitations": "CPU adapter timings exclude rendering/GPU/capture costs. Fixed simulation delta is not a measured frame rate. Photometry uses static floor with discovery masking disabled only in the diagnostic shots."
+}

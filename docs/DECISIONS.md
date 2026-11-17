@@ -488,3 +488,134 @@ Dates use the owner's America/New_York timezone.
 - Preserve approved art, existing systems and both compact regression layouts.
   Combat, environmental danger, vehicles, doors and outdoor farming remain future
   mechanics; geography should reserve room for them without implementing them.
+
+## M6a approved geography implementation — 2026-11-15
+
+- M5a committed as `29c0b79`; working tree was clean before M6a. Owner approved
+  the hybrid local-world design and refinements. M6a remains uncommitted for review.
+- Keep a selectable `mountain-region` profile; default/alternate compact regression
+  maps stay intact. Surface 192×144 cells, sanctuary 64×48 cells/five chambers, one
+  walk-through threshold. Both zones retain one authoritative session and clock.
+- Profile data owns landmark bounds, route graph/width/chance, chambers/links,
+  anchors, props and source assignments. Seeded domains separate quantity rolls
+  from geography and decoration. Current variation is constrained but structural:
+  landmark positions, river course, route bends/optional connection and approaches.
+  Data-only moved-landmark/removed-edge/mirrored-geography tests demonstrate extension.
+- Central storage/farm/workshop/power routes remain short. Actual Godot physics
+  expeditions, not graph estimates, include threshold, gathering and chest deposit.
+  Three seeds yield 13.4–78.2s round trips against 360s daylight. Far trips are shorter
+  than the planning estimate; do not enlarge the world or slow movement silently.
+- Add only a small modular region art sheet/material atlas using built-in image_gen
+  references and deterministic normalization into the approved 64-color, 2px/world
+  pipeline. Terrain uses TileMapLayer; physical ground and prop footprints remain
+  separate, derived from the generated mask. Existing assets are byte-preserved.
+- Surface tints and sanctuary point lights remain adjustable presentation. No dark-
+  exposure penalty, night enemy, door, outdoor farming or vehicle is introduced.
+- Preserve original source IDs/quantity streams and every existing survival value.
+  Physical source locations follow landmarks, with reachable interaction sockets.
+  Existing full/partial gathering and authority operations remain the sole item path.
+- Daily economy replays use measured individual trip timings and explicit deposits,
+  both existing investment policies, regular/delayed harvesting, 2/4/6 actors and
+  three seeds. Scavenger resupply waits for return; workshop lighting allocation
+  remains manual. No compensating stock or yield changes are authorized.
+- Review scope includes current tiling/ruin repetition, landmark recognition and
+  chore/expedition scale. Whole-region loading and one controlled actor are honest
+  prototype limitations; no networking, streaming or persistence is claimed.
+
+## 2026-11-16 — M6b Cinder Maintenance Garage implementation
+
+- Owner approved the isolated 14-day study as a feasibility baseline, not final
+  gameplay balance. Keep its future resources and recipes outside playable systems.
+- Approved one separate `garage-expedition` review profile based on M6a, preserving
+  the existing default/alternate compact fixtures and original region profile.
+- Conserve existing allocations: 14 yard Scrap becomes parts4/crate4/compressor2/
+  van4; relocate the original far Food/Fuel rolls without adding stock. One reusable
+  transferable salvage-tool fixture is approved only for this prototype location.
+  Future crafting/acquisition may supply the same item; there is no type-wide
+  uniqueness assumption, durability, new equipment system or free-tool world rule.
+- Containers use take-only slot operations with partial collection. Held dismantling
+  uses actor/object work tickets, whole-part capacity checks and cancellation.
+  Clock skips do not fabricate active labor. Different actors may work different
+  objects; conflicts on the same stage cannot duplicate awards.
+- Vehicle inspection defaults to preservation. Choosing dismantling only arms it;
+  controller confirmation must be released before a fresh hold can remove a part.
+  First completed 2-Scrap removal irreversibly ends restoration opportunity;
+  second removal yields the last 2. Unfinished work is harmless. Partial and stripped
+  art persist in-session. Restoration is absent, so the tradeoff is not yet balanced.
+- Shared explored geography belongs to session authority. Current visibility belongs
+  to observers, is wall-occluded, and does not expose remote dynamic-object state.
+  Reusable world model and multi-actor tests are implemented; no networking or disk
+  saves. New Run resets discovery, inventories, tool and all object states.
+- Preserve PNG/atlas production, shared 64-color palette, two native pixels/world
+  unit, adjustable environmental light, camera coverage and movement/collision rules.
+  New garage footprints are data-defined; chassis and other shells remain solid.
+- Measured efficient trips are approximately 90–94 seconds including collection and
+  deposit, below the 2–4-minute first-human-visit target. Do not pad holds or travel.
+  The owner must evaluate whether discovery, carrying and preservation choices are
+  engaging. No Food, Fuel, farming, hunger, power, rescue or recipe rebalance.
+- Stop at M6b for visual/gameplay review, without combat, functional vehicles,
+  restoration, additional locations or further survival systems.
+
+## 2026-11-16 — Updated provisional nature/Bloom art direction
+
+- Owner supplied an overgrown garage reference after the functional M6b checkpoint.
+  Preserve detail, pixel density and material quality; slightly reduce uniform rust,
+  reveal original paint/wood and vary natural colonization across objects.
+- Add moss, vines, ferns, small flowers and occasional mushrooms as visual targets;
+  restrained unusual Bloom forms use muted violet foliage and subtle teal glow.
+  Daylight beauty precedes future nighttime behavioral danger. This authorizes no
+  danger mechanics, harvestable supplies or changes to the survival economy.
+- Record the target without restarting M6b or replacing current artwork. The
+  proposed next visual trial compares a lightly colonized fuel cabinet, heavily
+  colonized compressor and moderately overgrown modular wall/Bloom corner at native
+  and actual gameplay scales. See docs/ART_DIRECTION_UPDATE.md for the scope and
+  review criteria. Further production/replacements await approval.
+- Documentation only in this update: existing runtime, resources, art, collisions,
+  world generation, interaction behavior and validated tests are preserved.
+
+## 2026-11-16 — M6c technical-first approval and checkpoint
+
+- Owner approved rendering/layering/anchor/bounds/wall/fog/light-zone/occlusion
+  corrections with existing artwork. Stop after technical evidence for review;
+  the bounded beautiful-decay asset comparison requires a subsequent approval.
+- Keep shared explored geography, observer-local sight and illumination logically
+  independent. Lighting cannot grant discovery; hidden dynamic state stays masked.
+  Footprint-aware rendering does not change point-based interaction access.
+- Add shared presentation metadata, ground-contact wall assembly, sprite-derived
+  visual bounds and reusable axis-aligned lighting-zone nodes. Physics, generated
+  geography, item quantities, day lengths, power allocation and all economy values
+  are preserved. No new consumer is introduced by the diagnostic review lamp.
+- Point lights cast against visual wall boundaries/selected large props. Retain a
+  readable ambient floor and roofless/cutaway presentation; moving sun shadows and
+  a roof-hiding system are outside this technical phase. Existing painted shading
+  remains until the limited art comparison is approved.
+- Existing fern reactions/mushroom pulses remain. New vegetation sway and Bloom
+  activity are deferred; their later implementation must be subtle, asynchronous,
+  leave quiet areas and preserve interactable-state readability.
+- Evidence uses matched seed/camera/time captures and sampled real-input movement,
+  not asset previews or numerical claims of human multiplayer balance. Rendering
+  diagnostics never add supplies, alter collision or change survival rules.
+
+## 2026-11-16 — M6c bounded follow-up and opt-in sanctuary hall
+
+- Owner approved four bounded steps: compact viewport-relative HUD, conservative
+  softer fog/contact grounding, garage architectural assembly and a new opt-in
+  `sanctuary-hall-review` profile. The earlier five-chamber plan is a prototype,
+  retained as a regression fixture. Default compact play is unchanged.
+- Hall uses a roughly 24×24 irregular main cave, open center, short perimeter
+  routes, four initial plots and the existing fifth-plot upgrade. Reserve roughly
+  eight future plot positions, utility/battery space and a turning pad without
+  implementing additional upgrades, production or power consumers.
+- Six-tile entrance has matching stone/steel abutments and cutaway lintel only.
+  Two future iron leaves are not operable, instantiated or blocking. The shallow
+  resurrection alcove contains an inert shell using existing artwork.
+- Separate authority for explored/current geography from illumination and contact
+  shadows. Fog feathers inward; dynamic fragments remain hidden outside current
+  sight. Existing discovery code and source PNGs remain unchanged. Contact patches
+  use data-driven per-asset profiles; garage walls use shared full-width assembly.
+- Preserve existing camera coverage, sprite scale, movement, physics of prior
+  layouts, resources, food, farming, recipes, fuel, hunger and rescue behavior.
+  Tests use six physical actor proxies and a wide body; no networking or vehicles.
+- Implemented evidence: docs/SANCTUARY_HALL_REVIEW.md and
+  docs/screenshots/sanctuary-hall/README.md. Stop for visual/gameplay review before
+  default replacement or the paused environmental artwork comparison.

@@ -5,7 +5,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../scripts/core/SanctuaryPlan.cs" Link="SanctuaryPlan.cs" />
+    <None Include="../data/regions/sanctuary_hall.json" Link="data/regions/sanctuary_hall.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/SalvageState.cs" Link="SalvageState.cs" />
+    <Compile Include="../scripts/core/WorldDiscovery.cs" Link="WorldDiscovery.cs" />
+    <Compile Include="../scripts/core/SharedExploration.cs" Link="SharedExploration.cs" />
+    <Compile Include="../scripts/core/GaragePlan.cs" Link="GaragePlan.cs" />
+    <None Include="../data/locations/garage.json" Link="data/locations/garage.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="../scripts/core/MountainRegion.cs" Link="MountainRegion.cs" />
+    <None Include="../data/regions/mountain.json" Link="data/regions/mountain.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="../scripts/core/Crafting.cs" Link="Crafting.cs" />
     <Compile Include="../scripts/core/SharedCrafting.cs" Link="SharedCrafting.cs" />
     <None Include="../data/crafting.json" Link="data/crafting.json" CopyToOutputDirectory="PreserveNewest" />

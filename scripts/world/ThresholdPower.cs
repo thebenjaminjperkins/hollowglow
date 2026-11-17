@@ -20,12 +20,13 @@ public partial class ThresholdWorld
     public IReadOnlyList<PowerStation> PowerStations => _stations;
     public bool PowerVisible => _powerPanel != null && _powerPanel.Visible;
     public PowerPanel PowerControls => _powerPanel;
-    private bool ModalOpen => _inventoryVisible || PowerVisible || BeaconVisible || CraftingVisible;
+    private bool ModalOpen => _inventoryVisible || PowerVisible || BeaconVisible || CraftingVisible || GarageMenuVisible || Dismantling;
 
     private void PreparePowerSources()
     {
         if(!Config.PowerEnabled)return;
         _powerDefinition=PowerDefinition.Parse(FileAccess.GetFileAsString("res://data/power.json"));
+        if(Region!=null){FuelWorld=new(Config.WorldSeed,Region.Sources.Where(s=>s.Site.ResourceId=="fuel").ToArray());return;}
         var ground=ScavengingWorld?.Sources.Select(s=>s.Site).ToArray() ?? Array.Empty<GatheringSite>();
         var ids=ground.Select(g=>g.Id).ToHashSet();
         FuelWorld=FiniteScavenging.Generate(ScavengingSetup.Parse(FileAccess.GetFileAsString("res://data/fuel_scavenging.json")),
@@ -58,6 +59,7 @@ public partial class ThresholdWorld
         PowerStation? nearest=null;float best=Config.InteractionRange*Config.InteractionRange;
         foreach(var station in _stations)
         {
+            if(!CurrentlyVisible(station.Position))continue;
             float distance=actor.GlobalPosition.DistanceSquaredTo(station.Position);
             if(distance>best)continue;
             if(GetWorld2D().DirectSpaceState.IntersectRay(PhysicsRayQueryParameters2D.Create(actor.GlobalPosition,station.Position,1)).Count>0)continue;

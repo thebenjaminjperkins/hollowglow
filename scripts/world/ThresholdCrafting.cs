@@ -27,7 +27,7 @@ public partial class ThresholdWorld
         if(_craftSetup==null)return;
         _state.InitializeCrafting(_craftSetup);
         var garden=GetNode<ThresholdMap>("Map").GetChildren().OfType<SanctuaryProp>().First(p=>p.Kind==PixelSprite.Motif.Garden);
-        _gardenSocket=garden.Position+new Vector2(_craftSetup.SocketOffset.X,_craftSetup.SocketOffset.Y);
+        _gardenSocket=Region==null?garden.Position+new Vector2(_craftSetup.SocketOffset.X,_craftSetup.SocketOffset.Y):Point(Region.Anchor("expansion"));
         var layout=GetNode<ThresholdMap>("Map").Layout;
         if(!layout.IsFloor((int)_gardenSocket.X/16,(int)_gardenSocket.Y/16))throw new InvalidOperationException("Garden expansion requires floor.");
         AddChild(new GardenSocketArt {World=this,Position=_gardenSocket});

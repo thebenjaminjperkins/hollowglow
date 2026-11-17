@@ -6,6 +6,7 @@ public partial class KeyboardInput : PlayerInput
 {
     [Export] public int ControllerDevice { get; set; } = 0;
     private bool _wasPressed;
+    public override bool InteractHeld() => Input.IsPhysicalKeyPressed(Key.E) || Input.IsJoyButtonPressed(ControllerDevice, JoyButton.A);
     public override Vector2 ReadMovement()
     {
         float x = (Held(Key.D, Key.Right) ? 1 : 0) - (Held(Key.A, Key.Left) ? 1 : 0);

@@ -26,6 +26,7 @@ public partial class GrowingPlotArt : Node2D
             Hframes = 3, Vframes = 2, Position = new Vector2(-8, -35), Scale = Vector2.One * 0.5f,
             TextureFilter = TextureFilterEnum.Nearest };
         AddChild(_crop);
+        World.GetNodeOrNull<WorldVisuals>("WorldVisuals")?.Register(this,"crop");
     }
     public override void _Process(double delta)
     {

@@ -11,6 +11,7 @@ public partial class SanctuaryRoom : Node
     [Export] public Color AmbientTint { get; set; } = new(0.78f, 0.80f, 0.84f);
     [Export(PropertyHint.Range, "0,2,0.05")] public float LampEnergy { get; set; } = 0.9f;
     [Export(PropertyHint.Range, "0.5,2,0.05")] public float LampRadiusScale { get; set; } = 1.15f;
+    public string LayoutProfile { get; set; } = "compact";
     public bool ScavengingEnabled { get; set; } = true;
     public int WorldSeed { get; set; } = 1701;
     public bool CraftingEnabled { get; set; } = true;
@@ -28,7 +29,9 @@ public partial class SanctuaryRoom : Node
     {
         window.ContentScaleSize = new Vector2I(768, 432);
         window.ContentScaleMode = Window.ContentScaleModeEnum.CanvasItems;
+        window.ContentScaleAspect=Window.ContentScaleAspectEnum.Keep;
         window.ContentScaleStretch = Window.ContentScaleStretchEnum.Integer;
+        window.MinSize=new Vector2I(960,540);
         window.Size = new Vector2I(1536, 864);
     }
     public override async void _Ready()
@@ -46,6 +49,13 @@ public partial class SanctuaryRoom : Node
             _world.Config.HungerEnabled = HungerEnabled;
             _world.Config.ScavengingEnabled = ScavengingEnabled;
             _world.Config.WorldSeed = WorldSeed;
+            _world.Config.LayoutProfile=LayoutProfile;
+            foreach(string argument in OS.GetCmdlineUserArgs())
+            {
+                if(argument.StartsWith("--world-layout="))_world.Config.LayoutProfile=argument.Substring(15);
+                if(argument.StartsWith("--world-seed="))_world.Config.WorldSeed=int.Parse(argument.Substring(13));
+            }
+            if(_world.Config.LayoutProfile is not ("compact" or "mountain-region" or "garage-expedition" or "sanctuary-hall-review"))throw new ArgumentException("Unknown world layout profile.");
             _actor = _world.GetNode<PlayerCharacter>("Player");
             PlayerInput? input = InputOverride ?? (capture ? new RoomCaptureInput() : null);
             if (input != null)

@@ -1,0 +1,54 @@
+{
+  "LegacyCollisionShapesIdentical": 655,
+  "AllMatchedViewsAndClockTimesIdentical": true,
+  "LightingRgbDelta": {
+    "left": {
+      "left_floor": 48.762,
+      "right_floor": 0.0,
+      "blocked_right": 0.0,
+      "doorway": 27.599
+    },
+    "right": {
+      "left_floor": 0.0,
+      "right_floor": 28.612,
+      "blocked_right": 49.041,
+      "doorway": 0.0
+    }
+  },
+  "MeasuredStorageWalkSeconds": {
+    "garden": 1.75,
+    "workshop": 1.3,
+    "power": 2.217,
+    "radio": 2.883,
+    "entrance": 3.733
+  },
+  "MinimumSimulatedActorSeparation": 16,
+  "MaximumPairwiseWalkSeconds": 4.083333400000001,
+  "HudCapturePixels": {
+    "hud-2560x1080.png": [
+      1536,
+      864
+    ],
+    "hud-1024x768.png": [
+      768,
+      432
+    ],
+    "hud-1920x1080.png": [
+      1536,
+      864
+    ],
+    "hud-1536x864.png": [
+      1536,
+      864
+    ],
+    "hud-1280x720.png": [
+      768,
+      432
+    ],
+    "hud-960x540.png": [
+      768,
+      432
+    ]
+  },
+  "Notes": "Captures retain native integer-scaled game-content pixels; letterboxing and OS frame are not part of viewport PNGs. Wide-body and six-actor tests are physical proxies, not implemented multiplayer/vehicles."
+}

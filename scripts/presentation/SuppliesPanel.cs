@@ -10,6 +10,8 @@ namespace Hollowlight.Presentation;
 // cross into World; immutable snapshots remain authoritative after every gesture.
 public partial class SuppliesPanel : Control
 {
+    public bool SourceOnly {get;set;}
+    public string StorageTitle {get;set;}="COMMUNAL CHEST";
     public event Action<SlotRequest>? OperationRequested;
     public event Action? CloseRequested;
     public event Action<EatRequest>? EatRequested;
@@ -21,7 +23,7 @@ public partial class SuppliesPanel : Control
     {var request=CurrentInstallRequest();if(request!=null)InstallRequested?.Invoke(request);}
     private InstallRequest? CurrentInstallRequest()
     {
-        if(!Visible||_splitting||_storeFocused)return null;
+        if(!Visible||_splitting||_storeFocused||SourceOnly)return null;
         var address=_source??Focused;
         return address.Container==InventoryKind.Personal&&(Stack(address)?.ResourceId is "backpack_kit" or "bed_kit")
             ? new(address.Index,_source!=null?_selectionVersion:_state.Version):null;
@@ -217,7 +219,7 @@ public partial class SuppliesPanel : Control
         int backRows = (_state.Personal.Capacity + Appearance.BackpackColumns - 1) / Appearance.BackpackColumns;
         int width = leftWidth + (ChestOpen ? Appearance.ChestColumns * cell + 24 : 0);
         int gridRows = ChestOpen ? Math.Max(backRows, Appearance.ChestRows) : backRows + (_meal != null || HasKitResource ? 1 : 0);
-        int height = gridRows * cell + 42;
+        int height = gridRows * cell + 42 + (SourceOnly ? 22 : 0);
         Position = new Vector2(Mathf.Floor((384 - width) / 2f), Mathf.Floor((216 - height - 32) / 2f));
         _content.AddChild(new ColorRect { Size = new Vector2(width, height + 32), Color = new Color("202832f5"), MouseFilter = MouseFilterEnum.Ignore });
         Text("BACKPACK", 8, 5, 9);
@@ -226,10 +228,10 @@ public partial class SuppliesPanel : Control
         int useY=actionY+(ChestOpen?(backRows>2?14:22):0);
         if (ChestOpen)
         {
-            Text($"COMMUNAL CHEST  {Page + 1}/{PageCount}", leftWidth + 8, 5, 8);
+            Text($"{StorageTitle}  {Page + 1}/{PageCount}", leftWidth + 8, 5, 8);
             AddGrid(InventoryKind.Storage, Page * PageSize, Math.Min(PageSize, _state.Storage.Capacity - Page * PageSize),
                 Appearance.ChestColumns, new Vector2(leftWidth + 8, 20));
-            _store = Button("Store all", new Vector2(8, actionY), new Vector2(leftWidth - 16, controlHeight), StoreAll);
+            _store = Button(SourceOnly?"Take all":"Store all", new Vector2(8, actionY), new Vector2(leftWidth - 16, controlHeight), StoreAll);
             _store.MouseEntered += () => { _storeFocused = true; UpdateDetail(); };
             if (PageCount > 1)
             {
@@ -253,6 +255,7 @@ public partial class SuppliesPanel : Control
             _install.ButtonDown+=()=>_pointerInstall=CurrentInstallRequest();
         }
         _detail = Text("", 8, height - 16, 8);
+        if(SourceOnly){_detail.Size=new Vector2(width-16,14);_detail.ClipText=true;}
         _hint = Text("", 8, height + 1, 8);
         _hint.Size = new Vector2(width - 16, 32);
         _hint.AutowrapMode = TextServer.AutowrapMode.WordSmart;
@@ -307,7 +310,7 @@ public partial class SuppliesPanel : Control
             _eat.Disabled = _splitting || _storeFocused || _meal == null || _meal.Eaten >= _meal.Required;
         }
         if(_install!=null){_install.Visible=CurrentInstallRequest()!=null;_install.Disabled=_splitting||_storeFocused;}
-        _detail.Text = _noticeTime > 0 ? _notice : _storeFocused ? "Store all that fits; keep any remainder." : stack == null ? "Empty slot" :
+        _detail.Text = _noticeTime > 0 ? _notice : _storeFocused ? (SourceOnly?"Take what fits; remainder stays here.":"Store all that fits; keep any remainder.") : stack == null ? "Empty slot" :
             _resources.First(r => r.Id == stack.ResourceId).Name + (_resources.First(r => r.Id == stack.ResourceId).Edible ? " (edible)" : "");
         bool swapping = _source != null && Stack(_source.Value) is { } source && stack != null && source.ResourceId != stack.ResourceId;
         if (_splitting)
@@ -317,6 +320,7 @@ public partial class SuppliesPanel : Control
         }
         _hint.Text = UsingController ? (_source == null ? (ChestOpen ? "A Select   X Quick   Y Split   B Close" : "A Select  Y Split\nB Close") : (swapping ? "A Swap stacks   B Cancel" : (ChestOpen ? "A Place / merge   B Cancel" : "A Place / merge\nB Cancel"))) :
             (_source == null ? (ChestOpen ? "Click Select   Shift-click Quick   Right-click Split" : "Click Select\nRight-click Split") : (swapping ? "Swap stacks   Esc Cancel" : (ChestOpen ? $"Place {_quantity}   Esc Cancel" : $"Place {_quantity}\nEsc Cancel")));
+        if(SourceOnly&&_source==null)_hint.Text=UsingController?"A Select  X Take  Y Split\nB Close":"Click Select  Q Take\nRight-click Split  Esc Close";
     }
     public void Navigate(int x, int y)
     {

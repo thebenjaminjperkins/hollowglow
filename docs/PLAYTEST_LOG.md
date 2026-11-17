@@ -729,3 +729,155 @@ remains `24b7f70`, with no new M2b commit made before review.
   checkpoint does not claim another graphical, hardware or network playtest.
 - M6a is design-only until approval; no new world, survival rules or resource
   distribution was implemented as part of the commit checkpoint.
+
+## M6a selectable mountain-region review — 2026-11-15
+
+- Checkpoint: M5a `29c0b79` committed and clean before work. M6a implemented only
+  after owner approval; no default-world switch or new survival mechanics.
+- Build: .NET 8.0.424 / Godot 4.4.1 .NET succeeds without warnings/errors.
+- Core: 32 generated seeds reproduce and connect required landmarks, five chambers,
+  home/threshold/garden expansion and all finite-source approaches. Budgets match
+  original Food/Fuel quantity streams and 26 Scrap/8 Organic exactly. Data-only
+  moved yard, removed edge and east/west mirror also pass. All prior models pass.
+- Runtime: RegionSmoke walks using real player movement/collision and E/chest
+  interactions for all eleven sources, in seeds 1701, 499 and 8 (33 round trips).
+  Clock/session/crop planting survive transitions; growth advances during exploration,
+  all gathered supplies conserve, depletion persists and reset restores starting state.
+  Chores are measured through the same physics path, not raw coordinate distances.
+- Measured trips: 13.4–78.2s including gathering/inspection and explicit deposit;
+  3.7–21.7% of 360s daylight. Storage-to-workbench/garden/generator is about 2–5s
+  walking. See M6A_TRAVEL.md and raw JSON in docs/measurements/region.
+- Economy: 36 transaction-based replays (2/4/6 actors × three measured seeds ×
+  regular/delayed care × backpacks-only/mixed farm investment) conserve Food, seeds,
+  materials and Fuel daily and reach once-only rescue at D8 00:30. Daily shortages,
+  reserve and Fuel/signal ledgers are in M6A_ECONOMY.md. Known inefficient-Fuel
+  unreachable cases from M4b remain; M6a does not rebalance them.
+- Runtime regressions: crafting, rescue, power, hunger, scavenging, farming,
+  Threshold movement, inventory UX and clock on both compact layouts: 18/18 pass.
+  Additional live CraftingSmoke/PowerSmoke pass in the mountain-region profile,
+  including fifth plot, partial tank loading, stale inputs and time skips.
+- Art: deterministic PNG export, shared palette/binary alpha/density/anchors/source
+  hashes, periodic joins and approved prior-asset preservation checks pass. Godot
+  editor imports succeed. Built-in image_gen source prompts/masters are retained.
+- Visual inspection: actual gameplay-zoom common/garden/entry/ruins/crossing and
+  surface/sanctuary overviews captured on the available desktop using software
+  OpenGL rendering. Corrected overly busy grass and stretched bridge support texture
+  before final captures. Modular material/ruin repetition remains a review compromise.
+- Evidence: docs/screenshots/region, docs/M6A_GEOGRAPHY.md, M6A_TRAVEL.md and daily
+  economy report. No physical-controller, multi-machine, human group expedition or
+  hardware-performance claim. One controlled actor and whole-region loading remain.
+- Stop: M6a selectable, uncommitted and pending owner visual/gameplay review.
+
+## 2026-11-16 — M6b garage review profile
+
+- Built with Godot 4.4.1 .NET and SDK 8.0.424, zero warnings/errors. Core suite
+  passes, including 32 seeded garage layouts, unchanged rolled resource budgets,
+  road/access connectivity, partial/full loot, stale commands, carried tool transfer,
+  capacity revalidation, consent, cancellation, staged work, time skips, 64 competing
+  pickup/work races, simultaneous separate-object work and shared discovery tests.
+- 23 engine runs pass: nine existing smoke/review scenes in default and alternate
+  compact layouts, garage seeds 1701/499/8, preserved-van branch and original M6a
+  RegionSmoke. Existing inventory, agriculture, hunger, Food/Fuel, power, rescue,
+  crafting and reset checks remain successful. Raw outcome summary is recorded as
+  a review artifact in docs/measurements/garage/runtime-validation.json; the
+  implementation itself remains uncommitted pending owner review.
+- Garage tests walk actual physics routes, search/open slot UI, split/quick-take,
+  pick up the tool, dismantle the compressor, preserve or stage the van, return,
+  deposit and reset. Keyboard/controller button events are exercised. A final
+  controller-confirmation guard requires release before a fresh destructive hold.
+- Clock-measured known-route expeditions are about 90–94 seconds, with roughly
+  70–72 seconds of outbound/return travel and 17 seconds circulating on site.
+  Search/menu input is automated and deliberately fast. This does not validate
+  human 2–4-minute expedition pacing. No artificial interaction delays were added.
+- Inspected actual gameplay-scale captures of forecourt, workshop, visual container
+  interface, van inspection, intact/partial/stripped states and explored memory.
+  Fixed container label/button overlap. Added a wider overview explicitly labeled
+  non-gameplay zoom; normal captures preserve camera scale. Floor/walls/objects use
+  modular PNG assets and atlas assembly, not a static scene background.
+- Art checks verify deterministic source processing, provenance, original palette,
+  binary alpha, anchors, periodic floor edges and legacy benchmark preservation.
+  Initial preservation comparison confirmed all prior assets, data and isolated
+  study files unchanged. Existing M6a work is preserved alongside M6b additions.
+- Remaining review limits: hard-edged tile fog, anchor-based large-object visibility,
+  minor reference-derived frame registration, no disk saves/networking, no physical
+  controller or human group expedition test. Van preservation lacks a functional
+  restoration payoff; economic balance is intentionally unclaimed.
+- Evidence: docs/M6B_GARAGE.md, docs/M6B_TRAVEL.md, docs/screenshots/garage and raw
+  timing JSON. Stop for owner visual/gameplay review; no subsequent systems started.
+
+## 2026-11-16 — M6c technical presentation checkpoint
+
+- Technical-first scope approved; no environmental art production/replacement.
+  Preserve the updated beautiful-decay target for the later bounded comparison.
+- Captured the working M6b renderer before changes using the same review harness,
+  then matched seed, camera, actor positions and authoritative clock times after.
+  PNGs are 1536×864, normal zoom. Real-input clips cover sanctuary props/vegetation
+  and garage exterior-to-interior movement. Side-by-side panels retain native size.
+- Corrected fixed-layer cave faces, repeated/gapped masonry assembly, discovery
+  rectangles cutting raised sprites, delayed masks, unpainted terrain-corner holes,
+  player-dependent global tint, missing wall light occlusion and globally elevated
+  power indicators. Held-tool scale now matches the existing native density.
+- Reusable surface metadata records ground/visual bounds and static/dynamic roles.
+  Lighting zones are generic components. Session explored/current data remain
+  independent of spatial ambience and actual shadow-enabled lights. No logical
+  visibility, interaction distances, gameplay collision or generated layout changed.
+- Measured all 655 collision shapes, generated ground/source data, movement speed
+  and range identical before/after. All 271 pre-existing art/data/study files remain
+  byte-identical. Existing PNGs, atlases, source artwork and palettes are preserved.
+- Real rendered light probes: left-source change behind solid divider 62.59 → 0.00
+  mean RGB levels; through-door change remains 27.60. Reversing source produces
+  zero change behind the wall in the other direction. Diagnostic fog is disabled
+  only for these static-ground measurements; gameplay captures retain visibility.
+- Build has zero warnings/errors; core suite, all 23 final runtime processes and
+  six targeted repeat exits pass. Early parallel runs showed two native Godot C#
+  exit aborts after gameplay assertions passed. Explicit renderer-owned resource
+  cleanup was added; subsequent matrix/repeats exit cleanly. Initial failures and
+  attribution limits are retained in the investigation artifact, not hidden.
+- Power smoke test now follows tagged physical lights rather than the old prop
+  hierarchy; the on/off visibility assertion is retained. New discovery revision
+  tests ensure unchanged observations do not rebuild masks and observer departure
+  updates current sight without erasing shared geography.
+- Point-light occlusion is functional; sunlight directional shadows, full roofs,
+  smoother-than-cell sight boundaries, richer terrain/composition and new controlled
+  vegetation/Bloom animation remain deferred. Software Mesa/Linux captures do not
+  establish hardware GPU, physical-controller or multiplayer performance.
+- Evidence: docs/M6C_TECHNICAL.md, docs/screenshots/m6c, docs/recordings/m6c,
+  docs/measurements/m6c. Stop at the technical checkpoint for owner review before
+  producing the fuel-cabinet/compressor/wall-corner/environment art comparison.
+
+## 2026-11-16 — M6c hall and presentation follow-up checkpoint
+
+- Implemented the four approved steps using existing artwork: viewport-relative
+  compact HUD, inward-feathered fog and per-asset contact shadows, full-width garage
+  wall/doorway assembly, and opt-in sanctuary hall. No default layout replacement,
+  functional bunker doors, new gameplay or environmental art production.
+- Hall has 561 walkable tiles including entrance/alcove versus 1036 in the original
+  five-chamber sanctuary. Four plots and the original fifth-plot kit work; future
+  garden and utility reservations grant no supplies, consumers or extra plots.
+- Actual-input station walks: storage to workshop 1.30s, garden 1.75s, power 2.22s,
+  radio 2.88s and inner entrance landing 3.73s. All 30 directed pairs measured;
+  longest 4.08s. These are efficient known-route walks, not human coordination times.
+- Six colliding 8×6-footprint actor proxies pass opposing entrance lanes with minimum
+  16-unit center separation. A 48×24-unit physical proxy reaches station drop areas
+  and turning space; its circumscribed-circle clearance checks the full rotation
+  envelope. This does not establish human multiplayer balance or vehicle handling.
+- Six requested windows tested: 960×540, 1280×720, 1536×864, 1920×1080, 1024×768,
+  2560×1080. Safe margins and 384×216-unit world coverage pass. Integer scaling
+  preserves aspect ratio; content captures exclude OS frame and letterboxing.
+- Build: zero warnings/errors. Core suites pass, including 16 hall seeds with exact
+  prior-profile surface/source equivalence. All 23 existing runtime cases pass.
+  Hall runtime covers personal seed withdrawal/planting, finite material gathering,
+  powered bed-kit crafting, fifth plot, exact harvest yields, fuel exhaustion and
+  reset. Existing art export/palette/density checkers pass.
+- Matched old-profile views preserve all 655 collision shapes, source data, actor/
+  camera positions and clock times. Light probes show zero contribution behind
+  solid walls in both directions, with positive light through the doorway. All
+  273 protected pre-existing art/data/study/discovery files remain byte-identical.
+- Evidence: docs/SANCTUARY_HALL_REVIEW.md, docs/screenshots/sanctuary-hall and
+  docs/measurements/sanctuary-hall. Reproduction scripts package native captures
+  without resizing and assert preserved inputs, matching views and clearance.
+- Limits: coarse authoritative fog grid remains visible beneath softer edges;
+  reused materials for the inert chamber/frame, terrain repetition and point-light/
+  cutaway limits remain. Linux software-rendered evidence does not prove hardware
+  performance, physical-controller feel or real multiplayer circulation. Broader
+  artwork remains paused. Stop for owner visual/gameplay review.

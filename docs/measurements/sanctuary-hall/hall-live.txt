@@ -1,0 +1,231 @@
+Godot Engine v4.4.1.stable.mono.official.49a5bc7b6 - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:360)
+OpenGL API 4.6 (Core Profile) Mesa 26.2.1 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 22.1.8, 256 bits)
+
+PASS: Four starting plots and original power consumers; no future infrastructure installed
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Structural iron-frame sample contains visible pixels
+PASS: Final approach clear
+PASS: Storage approach and interaction work
+PASS: Final approach clear
+PASS: Existing planting consumes a withdrawn seed in the hall
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Crop grows during actual walking and exploration
+PASS: Final approach clear
+PASS: Contextual access: generator
+PASS: Final approach clear
+PASS: Contextual access: workbench
+PASS: Final approach clear
+PASS: Contextual access: beacon
+PASS: HUD panel stays in safe viewport bounds: (960, 540)
+PASS: HUD panel stays in safe viewport bounds: (960, 540)
+PASS: HUD panel stays in safe viewport bounds: (960, 540)
+PASS: HUD panel stays in safe viewport bounds: (960, 540)
+PASS: HUD panel stays in safe viewport bounds: (960, 540)
+PASS: HUD panel stays in safe viewport bounds: (960, 540)
+PASS: World camera coverage preserved at (960, 540)
+PASS: HUD panel stays in safe viewport bounds: (1280, 720)
+PASS: HUD panel stays in safe viewport bounds: (1280, 720)
+PASS: HUD panel stays in safe viewport bounds: (1280, 720)
+PASS: HUD panel stays in safe viewport bounds: (1280, 720)
+PASS: HUD panel stays in safe viewport bounds: (1280, 720)
+PASS: HUD panel stays in safe viewport bounds: (1280, 720)
+PASS: World camera coverage preserved at (1280, 720)
+PASS: HUD panel stays in safe viewport bounds: (1536, 864)
+PASS: HUD panel stays in safe viewport bounds: (1536, 864)
+PASS: HUD panel stays in safe viewport bounds: (1536, 864)
+PASS: HUD panel stays in safe viewport bounds: (1536, 864)
+PASS: HUD panel stays in safe viewport bounds: (1536, 864)
+PASS: HUD panel stays in safe viewport bounds: (1536, 864)
+PASS: World camera coverage preserved at (1536, 864)
+PASS: HUD panel stays in safe viewport bounds: (1920, 1080)
+PASS: HUD panel stays in safe viewport bounds: (1920, 1080)
+PASS: HUD panel stays in safe viewport bounds: (1920, 1080)
+PASS: HUD panel stays in safe viewport bounds: (1920, 1080)
+PASS: HUD panel stays in safe viewport bounds: (1920, 1080)
+PASS: HUD panel stays in safe viewport bounds: (1920, 1080)
+PASS: World camera coverage preserved at (1920, 1080)
+PASS: HUD panel stays in safe viewport bounds: (1024, 768)
+PASS: HUD panel stays in safe viewport bounds: (1024, 768)
+PASS: HUD panel stays in safe viewport bounds: (1024, 768)
+PASS: HUD panel stays in safe viewport bounds: (1024, 768)
+PASS: HUD panel stays in safe viewport bounds: (1024, 768)
+PASS: HUD panel stays in safe viewport bounds: (1024, 768)
+PASS: World camera coverage preserved at (1024, 768)
+PASS: HUD panel stays in safe viewport bounds: (2560, 1080)
+PASS: HUD panel stays in safe viewport bounds: (2560, 1080)
+PASS: HUD panel stays in safe viewport bounds: (2560, 1080)
+PASS: HUD panel stays in safe viewport bounds: (2560, 1080)
+PASS: HUD panel stays in safe viewport bounds: (2560, 1080)
+PASS: HUD panel stays in safe viewport bounds: (2560, 1080)
+PASS: World camera coverage preserved at (2560, 1080)
+PASS: Six collision-enabled actors pass the door apron in opposing lanes
+PASS: Simulated actors remain separated, with no overlapping feet
+PASS: Spectator-only exclusion ends; live player collision settings preserved
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: Wide proxy physical clearance
+PASS: 48x24 proxy also fits rotated in the turning pad
+PASS: Circumscribed rotation sweep is clear for every proxy orientation
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Hall entrance reaches same surface
+PASS: Final approach clear
+PASS: Finite unchanged material gathering: radio-shell
+PASS: Final approach clear
+PASS: Finite unchanged material gathering: tool-case
+PASS: Surface return reaches new hall
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Final approach clear
+PASS: Existing powered recipe crafts a bed kit with finite personal materials
+PASS: Final approach clear
+PASS: Existing fifth plot installs; future reservation creates no extra plots
+PASS: Resurrection and utility reservations add no consumers
+PASS: Final approach clear
+PASS: Hall farming matures through ordinary clock skips and Fuel exhaustion
+PASS: Final approach clear
+PASS: Existing three-Food harvest and seed return work in the relocated garden
+PASS: hall measurements, six-actor circulation, wide proxy, responsive HUD, existing farming/power/crafting and reset
+PASS: Hall reset restores original inventory, four empty plots, seeds and clock

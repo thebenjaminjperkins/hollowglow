@@ -14,6 +14,67 @@ The refuge uses matched PNG sprites, modular TileMapLayer terrain and adjustable
 lighting. L compares neutral and lamplit views. Earlier scenes remain available
 for historical comparisons; M2a adds finite gathering and shared-chest transfers without survival consumption.
 
+## M6c follow-up — Sanctuary hall (opt-in review)
+
+```sh
+godot --path . -- --world-layout=sanctuary-hall-review --world-seed=1701
+```
+
+Compact irregular main cave, perimeter work areas, reserved garden/utility space
+and a six-tile framed entrance for future bunker doors. Four starting plots and
+the existing fifth-plot upgrade remain unchanged; no functional doors or new systems.
+The default refuge and earlier review layouts remain available.
+
+The follow-up also adds bounded viewport-relative HUD chrome, conservative softer
+fog edges, per-asset contact shadows and coherent garage wall/threshold assembly.
+See the [run guide and validation](docs/SANCTUARY_HALL_REVIEW.md), including an
+editor-path fallback if `godot` is unavailable, and the
+[matched gameplay-scale gallery](docs/screenshots/sanctuary-hall/README.md).
+Implemented and validated; awaiting visual/gameplay review. The environmental
+artwork comparison remains paused.
+
+## M6c — Original technical presentation checkpoint
+
+Shared ground-contact sorting, wall assembly, ground-projected discovery masks,
+spatial lighting zones and point-light occlusion now use the existing artwork.
+Gameplay geometry, quantities and movement remain unchanged. Environmental art
+replacement and additional animation await approval of this technical checkpoint.
+
+See the [technical report and run instructions](docs/M6C_TECHNICAL.md),
+[matched before/after screenshots](docs/screenshots/m6c/README.md),
+[garage movement comparison](docs/recordings/m6c/garage-motion-comparison.mp4) and
+[sanctuary movement comparison](docs/recordings/m6c/sanctuary-motion-comparison.mp4).
+
+## M6b — Cinder Maintenance Garage (selectable review profile)
+
+```sh
+godot --path . -- --world-layout=garage-expedition --world-seed=1701
+```
+
+One road-connected garage with shared exploration memory, finite searchable loot,
+a transferable salvage tool and interruptible machine/van dismantling. Preserving
+the van leaves its future restoration opportunity intact; restoration is not yet
+implemented. Existing economy and compact defaults are unchanged.
+
+See the [run/test guide, including the current installed editor path](docs/M6B_GARAGE.md),
+[gameplay screenshots](docs/screenshots/garage/README.md) and
+[measured expedition breakdown](docs/M6B_TRAVEL.md). Implemented and validated;
+awaiting owner visual/gameplay review. No networking added.
+
+## M6a — Mountain region (selectable review profile)
+
+```sh
+godot --path . -- --world-layout=mountain-region --world-seed=1701
+```
+
+Five connected sanctuary chambers and a seeded continuous surface with roads,
+creek crossings, wooded hollow and ruins. Walk through the cave arch to travel;
+existing gameplay and resource budgets remain unchanged. The compact refuge
+remains the default. See the [run/test guide and installed-binary fallback](docs/M6A_GEOGRAPHY.md),
+[measured expeditions](docs/M6A_TRAVEL.md), [daily economy replay](docs/M6A_ECONOMY.md)
+and [review screenshots](docs/screenshots/region/). M5a is committed as `29c0b79`;
+M6a is implemented for owner review and is uncommitted.
+
 ## M5a — Basic crafting and resource investment (approved)
 
 Enable the existing **2-PU workbench**, approach it and press **E / A**. Three

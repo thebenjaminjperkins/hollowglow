@@ -1,5 +1,5 @@
 # HOLLOWLIGHT
-## Development & Playtesting Roadmap | v0.3 — M5a approved baseline
+## Development & Playtesting Roadmap | v0.3 — M6c hall follow-up review
 
 **Companions:** [Vision](Hollowlight_Vision.md), [Bootstrap](Hollowlight_Bootstrap.md),
 [decision history](docs/DECISIONS.md) and [validation log](docs/PLAYTEST_LOG.md).
@@ -32,12 +32,16 @@ Keep each step independently playable, test it, report and stop for review.
 | M4a basic power generation and manual allocation | Committed `4cd4ce8`; final hands-on confirmation pending |
 | M4b beacon transmission and rescue | Implemented, validated and approved 2026-11-15 |
 | M5a basic crafting and resource investment | Implemented, validated and approved by owner |
+| M6a world layout and geography | Implemented/validated selectable review profile; owner visual/gameplay review pending |
+| Isolated 14-day economy study | Accepted feasibility baseline; candidate values do not change gameplay balance |
+| M6b Cinder Maintenance Garage | Approved scope implemented as separate review profile; visual/gameplay review pending |
+| M6c world presentation | Technical phase provisionally accepted; approved hall/presentation follow-up implemented and validated, awaiting visual/gameplay review; environmental artwork paused |
 | Subsequent gameplay | Proposals only; separate approval required |
 
 Live play controls one actor. Core models support independent actor inventories,
 meal states and conflicting operations; tests and simulations do not constitute
-playable multiplayer. There are two authored layouts with reusable TileMapLayer
-terrain, not a procedural world generator. M4b adds powered signal accumulation, capped outage setbacks and a terminal rescue screen. M5a adds three powered recipes and kit installation.
+playable multiplayer. Two compact authored layouts remain regression fixtures; an opt-in M6a region
+now generates geography, routes and reusable TileMapLayer terrain. M4b adds powered signal accumulation, capped outage setbacks and a terminal rescue screen. M5a adds three powered recipes and kit installation.
 Protective doors, enemies, damage, outdoor farming and transport remain future work.
 M3b adds seeded resource placement, not terrain generation.
 
@@ -354,9 +358,96 @@ ledgers; headless live crafting and prior systems on both layouts. See
 [validation log](docs/PLAYTEST_LOG.md) for graphical evidence/status and limitations.
 
 **Gate:** Owner accepted M5a and requested its commit before scoping M6a World
-Layout and Geography. M6a requires design approval before implementation. No
+Layout and Geography. M6a was subsequently approved and is documented below. No
 tool-unlocked salvage content, equipment, extra recipes, clearing, grow lights,
 combat or world-layout expansion is implemented by the M5a milestone.
+
+### M6a. World layout and geography — implemented for review
+
+- Accepted M5a committed as `29c0b79`, with a clean checkpoint before M6a.
+- Opt-in `--world-layout=mountain-region`: 192×144-cell continuous surface,
+  64×48-cell five-chamber sanctuary, one active threshold and shared session.
+  Original compact/default and alternate regression layouts remain unchanged.
+- Data-driven landmark/route graph, seeded terrain and source placement, coherent
+  mountain/river/crossing relationships and reusable PNG/TileMapLayer art. Tests
+  vary seeds, graph edges, landmark bounds and east/west orientation.
+- Central daily-work loop: measured storage-to-farm/workbench/power walks 2–5s.
+  All eleven source round trips measured in three seeds with actual physics,
+  interactions and deposits: 13.4–78.2s versus 360s daylight. This is shorter than
+  the earlier far one-way estimate; scale remains a review finding.
+- Preserve every existing resource budget and survival value. Timed 2/4/6-player
+  Food/Fuel/crafting/rescue replays, conservation, reachable approaches and legacy
+  regressions pass. No enemies, doors, transport or outdoor farming implemented.
+
+**Review gate:** [Guide](docs/M6A_GEOGRAPHY.md), [travel measurements](docs/M6A_TRAVEL.md),
+[daily economy](docs/M6A_ECONOMY.md) and [captures](docs/screenshots/region/).
+M6a stays selectable and uncommitted until reviewed. Evaluate atmosphere, landmark
+recognition, texture repetition, chore convenience and expedition scale before
+making it the normal world. Future survival mechanics require separate approval.
+
+### M6b. Cinder Maintenance Garage — implemented for review
+
+- Opt-in `--world-layout=garage-expedition`, preserving M6a and both compact fixtures.
+  One modular road-connected garage replaces the freight-yard allocation with four
+  searchable containers, a compressor, two-stage van and one reusable prototype tool.
+- Original quantities retained: cabinet4 + crate4 + compressor2 + van4 use the
+  existing 14-Scrap node; original far Food/Fuel rolls relocate without duplication.
+  Partial collection respects actual inventory; no automatic pooling or extra supplies.
+- Tool possession is personal and transferable. Responsive held work is interruptible
+  and commits whole parts exactly once. First successful van removal irreversibly
+  removes restoration opportunity; preservation is default. Restoration is unimplemented.
+- Reusable world-level session discovery distinguishes shared explored terrain from
+  observer-local current visibility. Offscreen dynamic state is hidden. No networking
+  or disk-save feature is introduced; depletion/exploration persists until New Run.
+- Shared-palette PNG state sheets, floor TileMapLayer and reusable walls follow the
+  approved art pipeline. Original camera, movement and interaction distances remain.
+- Core conservation/concurrency/navigation/discovery checks and 23 engine runs pass.
+  Three seeded dismantling trips measure 90.5–93.5s, including real movement and
+  collection/deposit. The 2–4-minute human first visit remains an unverified target;
+  no artificial delays enforce it. Food, Fuel, crop and crafting values are unchanged.
+
+**Review gate:** [Guide](docs/M6B_GARAGE.md), [captures](docs/screenshots/garage/README.md)
+and [measurements](docs/M6B_TRAVEL.md). Stop for owner visual/gameplay review. Combat,
+restoration, vehicles and additional locations require separate approval. The accepted
+14-day study is feasibility evidence, not a final balance specification or authority
+to rebalance the live economy.
+
+**Art follow-up:** The owner's overgrown-garage reference updates the provisional
+target toward surviving paint/wood, varied natural vegetation and restrained
+violet/teal Bloom. Preserve completed M6b functionality and assets. Review the
+[small cabinet/compressor/wall comparison proposal](docs/ART_DIRECTION_UPDATE.md)
+before replacements or a wider art pass; no gameplay or economy change is authorized.
+
+### M6c. World presentation and environmental cohesion — technical checkpoint
+
+- Owner approved technical-first corrections using existing art, reusable metadata,
+  and independent mapping/current-visibility/illumination. No gameplay expansion.
+- Shared ground-contact Y-sorting, visual/ground bounds, wall assembly, conservative
+  surface visibility masks, spatial lighting zones and actual point-light occlusion.
+  Preserve colliders, generation, interaction rules, camera and pixel density.
+- Validate sanctuary and garage at actual gameplay zoom with matched captures,
+  actual-input movement clips, bidirectional wall/door lighting probes and regressions.
+- Existing texture/material/repetition limits remain explicit. Updated beautiful-decay
+  artwork and controlled asynchronous vegetation/Bloom activity belong to phase two.
+
+The original technical phase is provisionally accepted. The approved bounded
+follow-up now includes viewport-relative HUD chrome, conservative inward fog
+feathering, per-asset contact shadows, coherent garage walls/thresholds and an
+opt-in `sanctuary-hall-review` profile. The roughly 24×24 irregular main chamber
+keeps perimeter functions and an open center, four starting plots plus the existing
+fifth upgrade, reserved future garden/utility space, inert resurrection alcove and
+a six-tile entrance frame without functional doors. Old layouts remain fixtures;
+default play and all resource/economy values are preserved.
+
+Validation includes 16 hall seeds, core suites, 23 existing engine cases, six HUD
+window sizes, six colliding actor proxies, 48×24-unit clearance, 30 measured station
+walks, real farming/crafting/reset and matched lighting/collision evidence.
+
+**Hard review gate:** [Follow-up report](docs/SANCTUARY_HALL_REVIEW.md) and
+[matched gameplay-scale gallery](docs/screenshots/sanctuary-hall/README.md).
+Stop for visual/gameplay approval before replacing the default sanctuary or
+producing/replacing fuel-cabinet, compressor, wall-corner or environment artwork.
+No additional locations, survival mechanics, resource rebalance or broad asset pass.
 
 ### M3e. One bounded repair/crafting allocation choice
 

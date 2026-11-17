@@ -15,6 +15,7 @@ public partial class RoomTerrain : Node2D
         field.Modulate = new Color(0.22f, 0.24f, 0.27f);
         Floor = Layer("Floor", "floor", 32, 16, -5);
         Walls = Layer("Walls", "wall", 4, 2, -4);
+        var texture=GD.Load<Texture2D>("res://assets/sanctuary/wall.png");
         for (int y = 0; y < 22; y++)
         for (int x = 0; x < 40; x++)
         {
@@ -38,7 +39,8 @@ public partial class RoomTerrain : Node2D
                 if (edge)
                 {
                     int index = (Layout.IsFloor(x, y + 1) ? 0 : 4) + patch;
-                    Walls.SetCell(cell, 0, new Vector2I(index % 4, index / 4));
+                    if(Layout.IsFloor(x,y+1))WallAssembly.CaveFace(GetParent(),x,y,texture,patch);
+                    else Walls.SetCell(cell, 0, new Vector2I(index % 4, index / 4));
                 }
             }
         }

@@ -1,0 +1,18 @@
+{
+  "Seed": 8,
+  "Branch": "dismantle",
+  "Seconds": {
+    "outbound_walking": 35.06666660000048,
+    "site_walking": 16.916666600000312,
+    "inspection_inventory": 0.7666667000000018,
+    "dismantling": 3.3500000000000014,
+    "cancelled_active_work": 0.2833334000000036,
+    "return_walking": 34.016666700000414,
+    "deposit_inventory": 0.0833332999999925
+  },
+  "TotalSeconds": 90.4833333000012,
+  "Scrap": 14,
+  "Food": 3,
+  "Fuel": 3,
+  "Measurement": "Actual Godot physics/input; efficient known route; no deliberate inspection delays or teleports. Includes one cancelled first removal in dismantle branch."
+}

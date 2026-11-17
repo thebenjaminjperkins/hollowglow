@@ -36,9 +36,23 @@ public static class RoomAssets
     {
         // An adjustable soft contact shadow is an effect, not baked room illumination.
         var gradient = new Gradient { Colors = new[] { new Color(0.05f, 0.07f, 0.09f, 0.35f), new Color(0, 0, 0, 0) } };
-        owner.AddChild(new Sprite2D { ZIndex = -1, Texture = new GradientTexture2D {
+        var shadow=new Sprite2D { ZIndex = -1, Texture = new GradientTexture2D {
             Width = 64, Height = 16, Gradient = gradient, Fill = GradientTexture2D.FillEnum.Radial,
             FillFrom = Vector2.One * 0.5f, FillTo = new Vector2(1, 0.5f)
-        }, Scale = new Vector2(width / 64, 0.25f), Position = new Vector2(0, 1) });
+        }, Scale = new Vector2(width / 64, 0.25f), Position = new Vector2(0, 1) };
+        shadow.SetMeta("contact_shadow",true);owner.AddChild(shadow);
+    }
+    private static Dictionary<string,float[][]>? _contacts;
+    public static void AddContactShadow(Node2D owner,string family,float fallback)
+    {
+        _contacts??=JsonSerializer.Deserialize<Dictionary<string,float[][]>>(FileAccess.GetFileAsString("res://data/contact_shadows.json"))!;
+        if(!_contacts.TryGetValue(family,out var patches)){AddContactShadow(owner,fallback);return;}
+        foreach(var p in patches)
+        {
+            var gradient=new Gradient{Colors=new[]{new Color(.035f,.045f,.05f,p[4]),new Color(0,0,0,0)}};
+            var shadow=new Sprite2D{ZIndex=-1,Position=new(p[0]+p[2]/2,p[1]+p[3]/2),Scale=new(p[2]/64,p[3]/32),
+                Texture=new GradientTexture2D{Width=64,Height=32,Gradient=gradient,Fill=GradientTexture2D.FillEnum.Radial,FillFrom=Vector2.One*.5f,FillTo=new(1,.5f)}};
+            shadow.SetMeta("contact_shadow",true);owner.AddChild(shadow);
+        }
     }
 }

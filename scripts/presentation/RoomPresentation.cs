@@ -13,6 +13,7 @@ public partial class RoomPresentation : Node
     public float LampEnergy { get; set; } = 0.9f;
     public float LampRadiusScale { get; set; } = 1.15f;
     public RoomTerrain Terrain { get; private set; } = null!;
+    public WorldVisuals Visuals {get;private set;}=null!;
     private CanvasModulate _ambient = null!;
     private readonly List<PointLight2D> _lights = new();
     private bool _neutral;
@@ -23,6 +24,7 @@ public partial class RoomPresentation : Node
         var actor = World.GetNode<PlayerCharacter>("Player");
         actor.GetNode<Camera2D>("Camera2D").Zoom = Vector2.One * 2;
         World.GetNode<ThresholdHud>("HUD").Scale = Vector2.One * 2;
+        World.GetNode<ThresholdHud>("HUD").UseResponsiveChrome();
         actor.GetNode<CanvasItem>("Art").Hide();
         actor.AddChild(new RoomCharacter { Name = "RoomCharacter" });
         var map = World.GetNode<ThresholdMap>("Map");
@@ -38,7 +40,7 @@ public partial class RoomPresentation : Node
                     _lights.Add(light);
                     if(prop.Kind==PixelSprite.Motif.Generator)_generator=light;
                     if (prop.Kind == PixelSprite.Motif.Lamp)
-                    { _lamps.Add(light); light.Position = new Vector2(0, -24); light.TextureScale *= LampRadiusScale; light.Energy = LampEnergy; }
+                    { _lamps.Add(light); light.SetMeta("power_consumer","lighting"); light.Position = new Vector2(0, -24); light.TextureScale *= LampRadiusScale; light.Energy = LampEnergy; }
                 }
             }
             string? asset = AssetFor(prop.Kind);
@@ -47,8 +49,14 @@ public partial class RoomPresentation : Node
                     Position = new Vector2(-18, -25), Scale = Vector2.One * 0.5f, TextureFilter = CanvasItem.TextureFilterEnum.Nearest });
             else if (asset != null) prop.AddChild(new RoomSprite { Name = "RoomArt", Asset = asset, Reactive = prop.Kind == PixelSprite.Motif.Fern });
         }
-        Terrain = new RoomTerrain { Name = "RoomTerrain", Layout = map.Layout };
-        map.AddChild(Terrain);
+        if(map.Region==null){Terrain = new RoomTerrain { Name = "RoomTerrain", Layout = map.Layout };map.AddChild(Terrain);}
+        else
+        {
+            map.AddChild(new MountainTerrain {Name="MountainTerrain",Region=map.Region});
+            if(map.Region.Garage!=null)map.AddChild(new GarageEnvironment{Plan=map.Region.Garage});
+            if(map.Region.Definition.Hall!=null)map.AddChild(new HallEnvironment{Plan=map.Region.Definition.Hall});
+            foreach(var placement in map.Region.Decorations)map.AddChild(new RegionProp {Placement=placement,Position=new Vector2(placement.X,placement.Y)});
+        }
         foreach (var child in World.GetChildren())
         {
             if (child is not Interactable target) continue;
@@ -63,11 +71,13 @@ public partial class RoomPresentation : Node
                 Position=new Vector2(0,-12),RangeZMin=-10,RangeZMax=10 };
             bench.AddChild(_workshop);_lights.Add(_workshop);
         }
-        _ambient = new CanvasModulate { Color = AmbientTint };
+        _ambient = new CanvasModulate { Color = Colors.White };
         World.AddChild(_ambient);
+        Visuals=new WorldVisuals{Name="WorldVisuals",World=World,CaveAmbient=AmbientTint};World.AddChild(Visuals);
     }
     public override void _Process(double delta)
     {
+        Visuals.Neutral=_neutral;
         var power=World.Electrical;
         if(power==null)return;
         bool Powered(string id)=>power.Consumers.Any(c=>c.Id==id&&c.Powered);
@@ -92,7 +102,7 @@ public partial class RoomPresentation : Node
     public void ToggleLighting()
     {
         _neutral = !_neutral;
-        _ambient.Color = _neutral ? Colors.White : AmbientTint;
+        Visuals.Neutral=_neutral;
         foreach (var light in _lights) light.Visible = !_neutral;
     }
     public override void _UnhandledKeyInput(InputEvent @event)

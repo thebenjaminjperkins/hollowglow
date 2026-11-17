@@ -16,7 +16,7 @@ public partial class RoomSprite : Node2D
     {
         _sprite = RoomAssets.MakeSprite(Asset);
         AddChild(_sprite);
-        if (Asset != "vine") RoomAssets.AddContactShadow(this, Mathf.Min(RoomAssets.Get(Asset).Size.X * 0.35f, 23));
+        if (Asset != "vine") RoomAssets.AddContactShadow(this,"sanctuary/"+Asset, Mathf.Min(RoomAssets.Get(Asset).Size.X * 0.35f, 23));
         if (Reactive)
         {
             var area = new Area2D { CollisionLayer = 0, CollisionMask = 2 };

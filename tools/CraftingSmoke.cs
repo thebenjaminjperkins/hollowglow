@@ -72,7 +72,7 @@ public partial class CraftingSmoke : Node
             await Capture("backpack");_world.CloseInventory();await Chest();await Capture("expanded-chest");
             _world.TransferSupplies(_actor,"scrap",12,true,Stock.Version);_world.TransferSupplies(_actor,"organic",4,true,Stock.Version);_world.CloseInventory();await Bench();
             Panel.Select(1);await Joy(JoyButton.A);Check(Stock.Personal.Count("bed_kit")==1&&_world.GrowingPlots.Count==4,"Controller crafts transferable bed kit without silently installing it");
-            _world.ClosePower();_actor.Position=new Vector2(136,208);await Frames(3);await KeyPress(Key.Tab);inventory.FocusSlot(new(InventoryKind.Personal,Slot("bed_kit")));await KeyPress(Key.U);
+            _world.ClosePower();_actor.Position=_world.HomePosition;await Frames(3);await KeyPress(Key.Tab);inventory.FocusSlot(new(InventoryKind.Personal,Slot("bed_kit")));await KeyPress(Key.U);
             Check(Stock.Personal.Count("bed_kit")==1&&_world.GrowingPlots.Count==4,"Remote bed installation rejects without consuming kit");_world.CloseInventory();
             _actor.Position=_world.GardenSocket+new Vector2(0,12);await Frames(3);
             var query=new PhysicsShapeQueryParameters2D {Shape=new RectangleShape2D {Size=new Vector2(8,6)},Transform=new Transform2D(0,_actor.Position),CollisionMask=1};
@@ -96,7 +96,7 @@ public partial class CraftingSmoke : Node
     private int Slot(string item)=>Enumerable.Range(0,Stock.Personal.Capacity).First(i=>Stock.Personal.Slots[i]?.ResourceId==item);
     private async Task Bench(){var station=_world.PowerStations.Single(s=>s.Id=="workbench");_actor.Position=station.Position;await Frames(3);_input.Tap=true;await Frames(3);Check(_world.CraftingVisible,"Workbench interaction opens crafting context");}
     private async Task Generator(){var station=_world.PowerStations.Single(s=>s.Id=="generator");_actor.Position=station.Position;await Frames(3);_input.Tap=true;await Frames(3);Check(_world.PowerVisible,"Generator keeps manual allocation interface");}
-    private async Task Chest(){_actor.Position=new Vector2(88,242);await Frames(3);_input.Tap=true;await Frames(3);Check(_world.ChestAccessible,"Explicit communal chest interaction");}
+    private async Task Chest(){_actor.Position=_world.StoragePosition+new Vector2(0,18);await Frames(3);_input.Tap=true;await Frames(3);Check(_world.ChestAccessible,"Explicit communal chest interaction");}
     private async Task CraftMouse(bool pressed)
     {
         var button=Panel.GetChildren().OfType<Button>().ElementAt(3);var point=GetViewport().GetFinalTransform()*(button.GetGlobalTransformWithCanvas()*(button.Size/2));

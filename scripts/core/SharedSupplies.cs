@@ -85,6 +85,7 @@ public sealed partial class SharedSupplies
             if (!_players.TryGetValue(playerId, out var player)) return Result(SupplyStatus.InvalidPlayer);
             if (requested <= 0) return Result(SupplyStatus.InvalidQuantity);
             if (!_nodes.TryGetValue(nodeId, out var node)) return Result(SupplyStatus.UnknownNode);
+            if (_objects.Values.Any(o=>o.Definition.NodeId==nodeId)) return Result(SupplyStatus.AccessDenied);
             int available = _remaining[nodeId];
             if (available == 0) return Result(SupplyStatus.Empty);
             int amount = Math.Min(requested, Math.Min(available, player.RoomFor(node.ResourceId)));

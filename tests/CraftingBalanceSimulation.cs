@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using Hollowlight.Core;
 
 public static class CraftingBalanceSimulation
@@ -24,7 +25,23 @@ public static class CraftingBalanceSimulation
         File.WriteAllText(output,report.ToString().TrimEnd()+"\n");
         Console.WriteLine("PASS: revised 2/4/6-player crafting investments, timed expanded farm, material/seed/Food/Fuel conservation and rescue completion");
     }
-    private static void Simulate(int count, bool delayed, StringBuilder report, SourceWorld scavenging, bool expand)
+    public static void RunRegion(string output,string measurements)
+    {
+        var report=new StringBuilder("# M6a seven-day geography / economy replay\n\n");
+        report.AppendLine("Uses the unchanged authoritative M5a model and recipes, with actual Godot physics travel measurements for seeds 499, 1701 and 8. Two roles: one sanctuary operator/gardener, one sequential scavenger; additional actors consume Food normally. The scavenger starts near Food at D1 00:00, returns/deposits after each source, then retrieves the three material nodes individually. Near Fuel departs D2 03:00; far Food departs D3 00:00, sequentially; far Fuel departs D4 03:00. Collection occurs at measured outbound time, deposits at measured round-trip time. Each measured trip includes two seconds at the source and two at storage. Timings are rounded up to whole seconds. No teleport or extra stock in the economy replay.\n");
+        report.AppendLine("Sanctuary duties retain the documented M5a ten-second plot spacing and twice/three-times-daily visits, with thirty-second workshop visits. Actual storage/workshop/generator/garden round trips are measured separately and fit these allowances. Crafting begins ten seconds after all materials return, then forty seconds later for the second kit. The operator explicitly turns lighting off for workshop visits and restores it at Night; capacity rules are unchanged. The scavenger skips shared resupply while away and explicitly withdraws on return. Other actors remain at the sanctuary; manual refueling retains M5a assumptions. These are coordinated core simulations, not network multiplayer or human navigation results.\n");
+        foreach(int seed in new[]{499,1701,8})
+        {
+            using var json=JsonDocument.Parse(File.ReadAllText(Path.Combine(measurements,$"travel-{seed}.json")));
+            var trips=json.RootElement.GetProperty("Trips").EnumerateArray().ToDictionary(t=>t.GetProperty("Source").GetString()!,t=>new Travel((int)Math.Ceiling(t.GetProperty("OutboundFromChestSeconds").GetDouble()),(int)Math.Ceiling(t.GetProperty("RoundTripWithInteractionsSeconds").GetDouble())));
+            foreach(int count in new[]{2,4,6})foreach(bool delayed in new[]{false,true})foreach(bool expand in new[]{false,true})
+                Simulate(count,delayed,report,ScavengingTests.Generate(seed),expand,trips);
+        }
+        report.AppendLine("## Interpretation\n\nDaily Food supply minus need is a flow, while reserve includes carried-over supplies; negative daily flow need not mean missed meals. Finite Fuel and resource budgets are unchanged. Each scenario asserts exact conservation, available crafting costs, unchanged original crop yields, and rescue completion. The six-player minimum-Food delayed-care case remains the tightest. Human detours, missed deposits or running the workshop unnecessarily can worsen these results; no economy correction is applied by M6a.\n");
+        File.WriteAllText(output,report.ToString());Console.WriteLine("PASS: measured M6a expeditions replayed for 2/4/6 actors, all three seeds, regular/delayed care, conserved Food/materials/Fuel and rescue");
+    }
+    private record Travel(int Outbound,int RoundTrip);
+    private static void Simulate(int count, bool delayed, StringBuilder report, SourceWorld scavenging, bool expand,System.Collections.Generic.Dictionary<string,Travel>? travel=null)
     {
         var crafting=CraftingSetup.Parse(Data("crafting"));
         var ids = Enumerable.Range(1, count).ToArray(); var setup = AgricultureSetup.Parse(Data("farming"));
@@ -40,6 +57,7 @@ public static class CraftingBalanceSimulation
         s.InitializeCrafting(crafting);
         var events = new SortedDictionary<int, List<Action>>();
         int scavenged = 0, lastProduced = 0, lastScavenged = 0; long lastConsumed = 0, lastMissed = 0;
+        bool scavengerAway=false;
         int produced = 0, organic = 0; var harvests = new List<string>();
         void At(int second, Action action)
         { if (!events.TryGetValue(second, out var list)) events[second] = list = new(); list.Add(action); }
@@ -56,11 +74,14 @@ public static class CraftingBalanceSimulation
                 for (int i = 0; i < count; i++)
                 {
                     int id = (i + day) % count + 1;
+                    if(travel is not null&&id==2&&scavengerAway)continue;
                     int need = Math.Max(0, round - s.Snapshot(id).Personal.Count("food"));
                     int amount = Math.Min(need, s.Snapshot(id).Storage.Count("food"));
                     Transfer(id, "food", amount, true);
                 }
         }
+        int materialReturn=210;
+        if(travel is null)
         {
             foreach (string band in new[] { "near", "far" })
             {
@@ -75,10 +96,30 @@ public static class CraftingBalanceSimulation
                         delivered += result.Amount;
                     });
                 }
-                At(returned, () => {
-                    Transfer(2, "food", delivered, false); scavenged += delivered;
-                });
+                At(returned, () => {Transfer(2, "food", delivered, false); scavenged += delivered;});
             }
+        }
+        else
+        {
+            int cursor=0;
+            foreach(var node in scavenging.Sources.Where(x=>x.Band=="near"))cursor=FieldTrip(node,cursor);
+            foreach(var site in SupplySetup.Parse(Data("supplies")).Sites)
+            {
+                var duration=travel[site.Id];int departure=cursor;
+                At(departure,()=>scavengerAway=true);
+                At(departure+duration.Outbound,()=>Check(s.Gather(2,site.Id,int.MaxValue,s.Snapshot(2).Version).Amount==site.Quantity,"Measured material collection fits"));
+                cursor+=duration.RoundTrip;int returnDay=cursor/600;At(cursor,()=>{Transfer(2,site.ResourceId,site.Quantity,false);scavengerAway=false;Resupply(returnDay);});
+            }
+            materialReturn=cursor;
+            cursor=1200;foreach(var node in scavenging.Sources.Where(x=>x.Band=="far"))cursor=FieldTrip(node,cursor);
+        }
+        int FieldTrip(GeneratedSourceSite node,int departure)
+        {
+            var duration=travel![node.Site.Id];
+            At(departure,()=>scavengerAway=true);
+            At(departure+duration.Outbound,()=>Check(s.Gather(2,node.Site.Id,int.MaxValue,s.Snapshot(2).Version).Amount==node.Site.Quantity,"Measured Food collection fits"));
+            int returned=departure+duration.RoundTrip;
+            At(returned,()=>{Transfer(2,"food",node.Site.Quantity,false);scavenged+=node.Site.Quantity;scavengerAway=false;Resupply(returned/600);});return returned;
         }
 
         void Command(PowerAction action,bool enabled=false,string consumer="",int quantity=1)
@@ -95,9 +136,11 @@ public static class CraftingBalanceSimulation
         }
         foreach(var source in fuelWorld.Sources)
         {
-            int time=source.Band=="near"?780:1980;
-            At(time-30,()=>Check(s.Gather(2,source.Site.Id,int.MaxValue,s.Snapshot(2).Version).Amount==source.Site.Quantity,"Actual finite Fuel collection fits"));
-            At(time,()=>{Transfer(2,"fuel",source.Site.Quantity,false);Refill();});
+            int departure=source.Band=="near"?780:1980;
+            int time=travel is null?departure:departure+travel[source.Site.Id].RoundTrip;
+            if(travel is not null)At(departure,()=>scavengerAway=true);
+            At(travel is null?time-30:departure+travel[source.Site.Id].Outbound,()=>Check(s.Gather(2,source.Site.Id,int.MaxValue,s.Snapshot(2).Version).Amount==source.Site.Quantity,"Actual finite Fuel collection fits"));
+            At(time,()=>{Transfer(2,"fuel",source.Site.Quantity,false);if(travel is not null){scavengerAway=false;Resupply(time/600);}Refill();});
         }
         At(30,()=>{Refill();Command(PowerAction.SetConsumer,true,"beacon");});
         // Explicit operator visits, never automatic tank topping by the game.
@@ -112,11 +155,14 @@ public static class CraftingBalanceSimulation
 
         int scrapSpent=0,organicSpent=0,propagations=0,bagsInstalled=0;
         var material=SupplySetup.Parse(Data("supplies")).Sites;
+        if(travel is null)
+        {
         for(int i=0;i<material.Length;i++)
         {
             var node=material[i];At(150+i*10,()=>Check(s.Gather(2,node.Id,int.MaxValue,s.Snapshot(2).Version).Amount==node.Quantity,"Finite material trip fits six-slot scavenger"));
         }
         At(210,()=>{Transfer(2,"scrap",26,false);Transfer(2,"organic",8,false);});
+        }
         void Make(string recipeId,int recipient=1)
         {
             var recipe=crafting.Recipes.Single(r=>r.Id==recipeId);
@@ -136,10 +182,10 @@ public static class CraftingBalanceSimulation
         }
         void Workshop(int start,string recipe,int recipient=1)
         {
-            At(start,()=>Command(PowerAction.SetConsumer,true,"workbench"));
-            At(start+10,()=>Make(recipe,recipient));At(start+30,()=>Command(PowerAction.SetConsumer,false,"workbench"));
+            At(start,()=>{if(travel is not null)Command(PowerAction.SetConsumer,false,"lighting");Command(PowerAction.SetConsumer,true,"workbench");});
+            At(start+10,()=>Make(recipe,recipient));At(start+30,()=>{Command(PowerAction.SetConsumer,false,"workbench");if(travel is not null&&(start+30)%600>=420)Command(PowerAction.SetConsumer,true,"lighting");});
         }
-        Workshop(210,"backpack_extension");Workshop(250,expand?"growing_bed":"backpack_extension",expand?1:2);
+        Workshop(travel is null?210:materialReturn+10,"backpack_extension");Workshop(travel is null?250:materialReturn+50,expand?"growing_bed":"backpack_extension",expand?1:2);
         if(expand)
         {
             Workshop(1380,"potato_propagation");

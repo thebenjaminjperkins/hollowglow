@@ -1,0 +1,26 @@
+{
+  "initialFailures": [
+    {
+      "name": "InventoryUxReview-default",
+      "exit": -6,
+      "passed": false,
+      "tail": [
+        "-- END OF BACKTRACE --",
+        "================================================================"
+      ]
+    },
+    {
+      "name": "HungerSmoke-alternate",
+      "exit": -6,
+      "passed": false,
+      "tail": [
+        "ERROR: Leaked unsafe reference to object: <RectangleShape2D#-9223371933993662690>",
+        "   at: finalize (modules/mono/csharp_script.cpp:179)"
+      ]
+    }
+  ],
+  "observation": "Both native exit aborts occurred after all scene gameplay assertions passed; isolated unmodified reruns exited zero.",
+  "cleanup": "Renderer-owned materials and image resources now explicitly release managed bindings on scene exit; shared source assets/shader are retained.",
+  "finalEvidence": "23-process runtime matrix and six targeted repeat runs exited cleanly after cleanup.",
+  "attribution": "A specific upstream engine defect or sole cause has not been established; no engine upgrade or forced garbage collection was introduced."
+}

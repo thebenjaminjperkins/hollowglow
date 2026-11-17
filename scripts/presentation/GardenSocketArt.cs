@@ -10,7 +10,7 @@ public partial class GardenSocketArt : Node2D
     public ThresholdWorld World {get;set;}=null!;
     public override void _Process(double delta)
     {
-        Visible=World.GardenMarkerVisible;
+        Visible=World.GardenMarkerVisible&&World.CurrentlyVisible(Position);
         QueueRedraw();
     }
     public override void _Draw()

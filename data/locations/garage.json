@@ -1,0 +1,126 @@
+{
+  "width": 24,
+  "height": 18,
+  "offsetX": -12,
+  "offsetY": -9,
+  "entry": [
+    18,
+    13
+  ],
+  "rows": [
+    "........................",
+    ".######################.",
+    ".#.....#..............#.",
+    ".#.....#..............#.",
+    ".#.....#..............#.",
+    ".###..##..............#.",
+    ".#....................#.",
+    ".#....................#.",
+    ".......#..............#.",
+    ".......#..............#.",
+    ".#.....#..............#.",
+    ".########....####....##.",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................"
+  ],
+  "objects": [
+    {
+      "id": "office",
+      "name": "Office cupboard",
+      "kind": "container",
+      "asset": "cupboard",
+      "x": 4,
+      "y": 3,
+      "fromBudget": "food-far-container-1",
+      "quantity": 0,
+      "width": 24,
+      "height": 10
+    },
+    {
+      "id": "fuel",
+      "name": "Fuel cabinet",
+      "kind": "container",
+      "asset": "fuel-cabinet",
+      "x": 20,
+      "y": 3,
+      "fromBudget": "fuel-far-cache-0",
+      "quantity": 0,
+      "width": 24,
+      "height": 10
+    },
+    {
+      "id": "parts",
+      "name": "Parts cabinet",
+      "kind": "container",
+      "asset": "cupboard",
+      "x": 10,
+      "y": 3,
+      "fromBudget": "machine-housing",
+      "quantity": 4,
+      "width": 24,
+      "height": 10
+    },
+    {
+      "id": "crate",
+      "name": "Bench crate",
+      "kind": "container",
+      "asset": "crate",
+      "x": 10,
+      "y": 8,
+      "fromBudget": "machine-housing",
+      "quantity": 4,
+      "width": 22,
+      "height": 10
+    },
+    {
+      "id": "compressor",
+      "name": "Air compressor",
+      "kind": "machinery",
+      "asset": "compressor",
+      "x": 20,
+      "y": 8,
+      "fromBudget": "machine-housing",
+      "quantity": 2,
+      "width": 28,
+      "height": 10,
+      "stages": [
+        2
+      ],
+      "seconds": 0.8
+    },
+    {
+      "id": "van",
+      "name": "Damaged service van",
+      "kind": "vehicle",
+      "asset": "van",
+      "x": 15,
+      "y": 8,
+      "fromBudget": "machine-housing",
+      "quantity": 4,
+      "width": 48,
+      "height": 76,
+      "offsetY": -30,
+      "stages": [
+        2,
+        2
+      ],
+      "seconds": 1.2
+    },
+    {
+      "id": "rack",
+      "name": "Salvage tool rack",
+      "kind": "tool-rack",
+      "asset": "rack",
+      "x": 9,
+      "y": 5,
+      "fromBudget": "",
+      "quantity": 1,
+      "width": 22,
+      "height": 8
+    }
+  ]
+}

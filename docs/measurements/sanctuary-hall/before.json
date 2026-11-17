@@ -1,0 +1,4919 @@
+{
+  "Tag": "hall-before",
+  "Views": [
+    {
+      "Name": "sanctuary",
+      "Actor": "(536, 490)",
+      "Seconds": 0.2166667
+    },
+    {
+      "Name": "cave-vegetation",
+      "Actor": "(684, 388)",
+      "Seconds": 0.35
+    },
+    {
+      "Name": "garage-entry",
+      "Actor": "(4104, 1912)",
+      "Seconds": 0.55
+    },
+    {
+      "Name": "garage-bay",
+      "Actor": "(4104, 1800)",
+      "Seconds": 0.6833333
+    },
+    {
+      "Name": "garage-dusk",
+      "Actor": "(4104, 1912)",
+      "Seconds": 390.1333334
+    },
+    {
+      "Name": "garage-night",
+      "Actor": "(4104, 1912)",
+      "Seconds": 480.0666666
+    },
+    {
+      "Name": "occlusion-left",
+      "Actor": "(3928, 1800)",
+      "Seconds": 480.2
+    },
+    {
+      "Name": "occlusion-right",
+      "Actor": "(3928, 1800)",
+      "Seconds": 480.2666666
+    },
+    {
+      "Name": "occlusion-off",
+      "Actor": "(3928, 1800)",
+      "Seconds": 480.3333333
+    }
+  ],
+  "Collisions": [
+    {
+      "Position": "(1000, 824)",
+      "Type": "RectangleShape2D",
+      "Size": "(2000, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1048, 808)",
+      "Type": "RectangleShape2D",
+      "Size": "(2096, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1064, 792)",
+      "Type": "RectangleShape2D",
+      "Size": "(2128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1096, 776)",
+      "Type": "RectangleShape2D",
+      "Size": "(2192, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1104, 760)",
+      "Type": "RectangleShape2D",
+      "Size": "(2208, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(112, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(224, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(112, 504)",
+      "Type": "RectangleShape2D",
+      "Size": "(224, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1224, 24)",
+      "Type": "RectangleShape2D",
+      "Size": "(2448, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1232, 40)",
+      "Type": "RectangleShape2D",
+      "Size": "(2464, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1232, 56)",
+      "Type": "RectangleShape2D",
+      "Size": "(2464, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1488, 72)",
+      "Type": "RectangleShape2D",
+      "Size": "(1952, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1488, 744)",
+      "Type": "RectangleShape2D",
+      "Size": "(1472, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1504, 88)",
+      "Type": "RectangleShape2D",
+      "Size": "(1888, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1512, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(1872, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1512, 552)",
+      "Type": "RectangleShape2D",
+      "Size": "(1680, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1520, 120)",
+      "Type": "RectangleShape2D",
+      "Size": "(1856, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1520, 936)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1528, 136)",
+      "Type": "RectangleShape2D",
+      "Size": "(1840, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1528, 728)",
+      "Type": "RectangleShape2D",
+      "Size": "(1392, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1536, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(1856, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1536, 232)",
+      "Type": "RectangleShape2D",
+      "Size": "(1856, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1536, 248)",
+      "Type": "RectangleShape2D",
+      "Size": "(1824, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1536, 712)",
+      "Type": "RectangleShape2D",
+      "Size": "(1376, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1544, 216)",
+      "Type": "RectangleShape2D",
+      "Size": "(1904, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1544, 696)",
+      "Type": "RectangleShape2D",
+      "Size": "(1360, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1552, 264)",
+      "Type": "RectangleShape2D",
+      "Size": "(1792, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1560, 168)",
+      "Type": "RectangleShape2D",
+      "Size": "(1904, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1560, 184)",
+      "Type": "RectangleShape2D",
+      "Size": "(1904, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1560, 200)",
+      "Type": "RectangleShape2D",
+      "Size": "(1904, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1560, 680)",
+      "Type": "RectangleShape2D",
+      "Size": "(1360, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1576, 920)",
+      "Type": "RectangleShape2D",
+      "Size": "(432, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1584, 536)",
+      "Type": "RectangleShape2D",
+      "Size": "(1568, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1592, 568)",
+      "Type": "RectangleShape2D",
+      "Size": "(1520, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1592, 664)",
+      "Type": "RectangleShape2D",
+      "Size": "(1424, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1600, 584)",
+      "Type": "RectangleShape2D",
+      "Size": "(1504, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1600, 648)",
+      "Type": "RectangleShape2D",
+      "Size": "(1440, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1608, 632)",
+      "Type": "RectangleShape2D",
+      "Size": "(1456, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1616, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(1696, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1616, 616)",
+      "Type": "RectangleShape2D",
+      "Size": "(1472, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1624, 520)",
+      "Type": "RectangleShape2D",
+      "Size": "(1584, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1624, 600)",
+      "Type": "RectangleShape2D",
+      "Size": "(1488, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1624, 936)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1656, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(1648, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1656, 504)",
+      "Type": "RectangleShape2D",
+      "Size": "(1552, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1672, 472)",
+      "Type": "RectangleShape2D",
+      "Size": "(1552, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1672, 488)",
+      "Type": "RectangleShape2D",
+      "Size": "(1552, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(168, 264)",
+      "Type": "RectangleShape2D",
+      "Size": "(336, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1680, 376)",
+      "Type": "RectangleShape2D",
+      "Size": "(1536, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1680, 392)",
+      "Type": "RectangleShape2D",
+      "Size": "(1504, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1680, 408)",
+      "Type": "RectangleShape2D",
+      "Size": "(1504, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1680, 424)",
+      "Type": "RectangleShape2D",
+      "Size": "(1504, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1680, 440)",
+      "Type": "RectangleShape2D",
+      "Size": "(1536, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1680, 456)",
+      "Type": "RectangleShape2D",
+      "Size": "(1536, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1688, 312)",
+      "Type": "RectangleShape2D",
+      "Size": "(1648, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1688, 360)",
+      "Type": "RectangleShape2D",
+      "Size": "(1552, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1704, 328)",
+      "Type": "RectangleShape2D",
+      "Size": "(1616, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1712, 344)",
+      "Type": "RectangleShape2D",
+      "Size": "(1600, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(176, 168)",
+      "Type": "RectangleShape2D",
+      "Size": "(352, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(176, 248)",
+      "Type": "RectangleShape2D",
+      "Size": "(352, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(176, 520)",
+      "Type": "RectangleShape2D",
+      "Size": "(352, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1832, 920)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(184, 120)",
+      "Type": "RectangleShape2D",
+      "Size": "(368, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(184, 136)",
+      "Type": "RectangleShape2D",
+      "Size": "(368, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(184, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(368, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(184, 184)",
+      "Type": "RectangleShape2D",
+      "Size": "(368, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(184, 200)",
+      "Type": "RectangleShape2D",
+      "Size": "(368, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(184, 216)",
+      "Type": "RectangleShape2D",
+      "Size": "(368, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(184, 536)",
+      "Type": "RectangleShape2D",
+      "Size": "(368, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(192, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(384, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(192, 232)",
+      "Type": "RectangleShape2D",
+      "Size": "(384, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(192, 552)",
+      "Type": "RectangleShape2D",
+      "Size": "(384, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1952, 888)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1992, 1304)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(1992, 1336)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(200, 568)",
+      "Type": "RectangleShape2D",
+      "Size": "(400, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2040, 1272)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2040, 1464)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2040, 889)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 0,
+      "Mask": 0
+    },
+    {
+      "Position": "(2056, 1912)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2072, 1528)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2072, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2072, 1977)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 0,
+      "Mask": 0
+    },
+    {
+      "Position": "(208, 584)",
+      "Type": "RectangleShape2D",
+      "Size": "(416, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(208, 88)",
+      "Type": "RectangleShape2D",
+      "Size": "(416, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2120, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2152, 1304)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2152, 1480)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2152, 1576)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2168, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2176, 2296)",
+      "Type": "RectangleShape2D",
+      "Size": "(4352, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2176, 8)",
+      "Type": "RectangleShape2D",
+      "Size": "(4352, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2184, 1288)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2184, 1912)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2200, 1209)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 0,
+      "Mask": 0
+    },
+    {
+      "Position": "(2200, 1688)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2232, 1384)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2248, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2248, 1416)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2264, 1096)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2280, 1049)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 0,
+      "Mask": 0
+    },
+    {
+      "Position": "(2312, 1096)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(232, 344)",
+      "Type": "RectangleShape2D",
+      "Size": "(26, 9)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(232, 600)",
+      "Type": "RectangleShape2D",
+      "Size": "(464, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(232, 72)",
+      "Type": "RectangleShape2D",
+      "Size": "(464, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2328, 1209)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 0,
+      "Mask": 0
+    },
+    {
+      "Position": "(2360, 1096)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2376, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2408, 1016)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2424, 1225)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2456, 1112)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2472, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2472, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2472, 440)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2488, 1256)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2488, 1400)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2488, 40)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2488, 72)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2520, 1592)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2536, 1160)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2536, 120)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2536, 168)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2552, 1512)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(256, 504)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2568, 1400)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2568, 1448)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2568, 1480)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2568, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2568, 248)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2584, 1352)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2584, 1880)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2584, 200)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2616, 1544)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2616, 1640)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2632, 1080)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2632, 1240)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2648, 1416)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2648, 1544)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2664, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2664, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2680, 457)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 0,
+      "Mask": 0
+    },
+    {
+      "Position": "(2696, 1128)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2712, 1464)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2728, 1512)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2728, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2728, 184)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2760, 1304)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2760, 40)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2792, 1800)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(280, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2808, 1352)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2808, 968)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2840, 1032)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2840, 200)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2856, 1064)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2872, 1864)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2888, 1128)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2888, 120)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2888, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2888, 633)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2920, 120)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2920, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2952, 232)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2968, 1320)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2984, 1224)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(2984, 1672)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3000, 248)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3016, 1208)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3016, 1496)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3016, 360)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3032, 1256)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3032, 1720)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3032, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3048, 1160)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3080, 1736)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3080, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3096, 1096)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3096, 136)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3112, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(312, 632)",
+      "Type": "RectangleShape2D",
+      "Size": "(624, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3128, 1448)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3144, 1272)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3176, 232)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3192, 648)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3192, 664)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3192, 680)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3192, 696)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(320, 488)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(320, 504)",
+      "Type": "RectangleShape2D",
+      "Size": "(64, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(320, 616)",
+      "Type": "RectangleShape2D",
+      "Size": "(640, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(320, 648)",
+      "Type": "RectangleShape2D",
+      "Size": "(640, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(320, 664)",
+      "Type": "RectangleShape2D",
+      "Size": "(640, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(320, 680)",
+      "Type": "RectangleShape2D",
+      "Size": "(640, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(320, 696)",
+      "Type": "RectangleShape2D",
+      "Size": "(640, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 1384)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 264)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 568)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 584)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 600)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 616)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 632)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 712)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 728)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 744)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3208, 760)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 1224)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 472)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 488)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 504)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 776)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 792)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 808)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3224, 824)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 1272)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 392)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 408)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 424)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 440)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 456)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 840)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 856)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 872)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3240, 888)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 2232)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 2248)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 2264)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 2280)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 312)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 328)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 344)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 360)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 376)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 904)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 920)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 936)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3256, 952)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 1000)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 1016)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2104)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2120)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2136)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2152)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2168)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2184)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2200)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 2216)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 232)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 248)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 264)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 968)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3272, 984)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 1032)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 1048)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 1064)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 1080)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 136)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 168)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 184)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 1976)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 1992)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 200)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 2008)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 2024)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 2040)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 2056)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 2072)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 2088)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3288, 216)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1096)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1112)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1128)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1144)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 120)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1848)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1864)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1880)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1896)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1912)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1928)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1944)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 1960)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 56)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 72)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3304, 88)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1160)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1176)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1208)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1704)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1720)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1736)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1768)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1784)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1800)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 24)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3320, 40)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3336, 1224)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3336, 1240)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3336, 1256)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3336, 1272)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3336, 1656)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3336, 1672)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3336, 1688)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1288)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1304)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1320)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1336)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 136)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1448)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1464)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1480)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1496)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1512)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3352, 1528)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(336, 712)",
+      "Type": "RectangleShape2D",
+      "Size": "(672, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3368, 1352)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3368, 1368)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3368, 1384)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3368, 1400)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3368, 1416)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3368, 1432)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(344, 440)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(344, 728)",
+      "Type": "RectangleShape2D",
+      "Size": "(688, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(368, 744)",
+      "Type": "RectangleShape2D",
+      "Size": "(736, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3832, 1736)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3832, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3832, 1768)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3832, 1800)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3832, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3832, 1864)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(384, 376)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3848, 1784)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3880, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(24, 10)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3888, 1880)",
+      "Type": "RectangleShape2D",
+      "Size": "(128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(392, 360)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3920, 1784)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3928, 1736)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3928, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3928, 1768)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3928, 1801)",
+      "Type": "RectangleShape2D",
+      "Size": "(8, 6)",
+      "Layer": 2,
+      "Mask": 1
+    },
+    {
+      "Position": "(3928, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3928, 1848)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3928, 1864)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3960, 1784)",
+      "Type": "RectangleShape2D",
+      "Size": "(22, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3976, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(24, 10)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(3976, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(22, 10)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4000, 1720)",
+      "Type": "RectangleShape2D",
+      "Size": "(352, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4048, 1880)",
+      "Type": "RectangleShape2D",
+      "Size": "(64, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4056, 1802)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 76)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(408, 328)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4088, 1400)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4120, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4136, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(24, 10)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4136, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 10)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(416, 312)",
+      "Type": "RectangleShape2D",
+      "Size": "(64, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(416, 344)",
+      "Type": "RectangleShape2D",
+      "Size": "(96, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4160, 1880)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1736)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1768)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1784)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1800)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1848)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4168, 1864)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4200, 1256)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4216, 1592)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4232, 1416)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4232, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(424, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4264, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4280, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4296, 1432)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4296, 1624)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4312, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(432, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1000)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1016)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1032)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 104)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1048)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1064)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1080)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1096)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1112)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1128)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1144)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1160)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1176)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 120)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1208)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1224)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1240)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1256)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1272)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1288)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1304)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1320)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1336)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1352)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 136)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1368)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1384)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1400)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1416)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1432)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1448)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1464)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1480)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1496)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1512)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 152)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1528)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1544)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1560)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1576)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1592)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1608)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1624)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1640)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1656)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1672)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 168)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1688)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1704)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1720)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1736)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1768)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1784)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1800)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 184)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1848)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1864)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1880)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1896)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1912)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1928)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1944)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1960)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1976)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 1992)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 200)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2008)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2024)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2040)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2056)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2072)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2088)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2104)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2120)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2136)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2152)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 216)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2168)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2184)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2200)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2216)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2232)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2248)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2264)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 2280)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 232)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 24)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 248)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 264)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 312)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 328)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 344)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 360)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 376)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 392)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 40)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 408)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 424)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 440)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 456)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 472)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 488)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 504)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 520)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 536)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 552)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 56)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 568)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 584)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 600)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 616)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 632)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 648)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 664)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 680)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 696)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 712)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 72)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 728)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 744)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 760)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 776)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 792)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 808)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 824)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 840)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 856)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 872)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 88)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 888)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 904)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 920)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 936)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 952)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 968)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(4344, 984)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(440, 264)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(488, 168)",
+      "Type": "RectangleShape2D",
+      "Size": "(30, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(488, 600)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(488, 72)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(504, 536)",
+      "Type": "RectangleShape2D",
+      "Size": "(22, 7)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(536, 473)",
+      "Type": "RectangleShape2D",
+      "Size": "(12, 7)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(544, 264)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(552, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(552, 536)",
+      "Type": "RectangleShape2D",
+      "Size": "(22, 7)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(56, 376)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(56, 392)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(560, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(64, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(568, 312)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(584, 328)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(584, 600)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(600, 344)",
+      "Type": "RectangleShape2D",
+      "Size": "(112, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(600, 584)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(616, 360)",
+      "Type": "RectangleShape2D",
+      "Size": "(48, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(624, 376)",
+      "Type": "RectangleShape2D",
+      "Size": "(32, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(64, 344)",
+      "Type": "RectangleShape2D",
+      "Size": "(128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(64, 360)",
+      "Type": "RectangleShape2D",
+      "Size": "(128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(64, 408)",
+      "Type": "RectangleShape2D",
+      "Size": "(128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(64, 424)",
+      "Type": "RectangleShape2D",
+      "Size": "(128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(64, 440)",
+      "Type": "RectangleShape2D",
+      "Size": "(128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1000)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1016)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1032)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1048)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1064)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1080)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1096)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1112)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1128)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1144)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1160)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1176)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1192)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1208)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1224)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1240)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1256)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1272)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1288)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1304)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1320)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1336)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1352)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1368)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1384)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1400)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1416)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1432)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1448)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1464)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1480)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1496)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1512)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1528)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1544)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1560)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1576)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1592)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1608)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1624)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1640)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1656)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1672)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1688)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1704)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1720)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1736)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1752)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1768)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1784)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1800)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1816)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1832)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1848)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1864)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1880)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1896)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1912)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1928)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1944)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1960)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1976)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 1992)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2008)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2024)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2040)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2056)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2072)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2088)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2104)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2120)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2136)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2152)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2168)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2184)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2200)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2216)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2232)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2248)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2264)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 2280)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 920)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 936)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 952)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 968)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(648, 984)",
+      "Type": "RectangleShape2D",
+      "Size": "(1296, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(664, 488)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(664, 504)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(672, 520)",
+      "Type": "RectangleShape2D",
+      "Size": "(64, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(696, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(16, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(696, 408)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(712, 280)",
+      "Type": "RectangleShape2D",
+      "Size": "(80, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(72, 328)",
+      "Type": "RectangleShape2D",
+      "Size": "(144, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(72, 456)",
+      "Type": "RectangleShape2D",
+      "Size": "(144, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(720, 536)",
+      "Type": "RectangleShape2D",
+      "Size": "(128, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(744, 408)",
+      "Type": "RectangleShape2D",
+      "Size": "(28, 8)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(80, 312)",
+      "Type": "RectangleShape2D",
+      "Size": "(160, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(80, 472)",
+      "Type": "RectangleShape2D",
+      "Size": "(160, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(88, 488)",
+      "Type": "RectangleShape2D",
+      "Size": "(176, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(944, 904)",
+      "Type": "RectangleShape2D",
+      "Size": "(1888, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(96, 296)",
+      "Type": "RectangleShape2D",
+      "Size": "(192, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(960, 888)",
+      "Type": "RectangleShape2D",
+      "Size": "(1920, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(984, 872)",
+      "Type": "RectangleShape2D",
+      "Size": "(1968, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(992, 840)",
+      "Type": "RectangleShape2D",
+      "Size": "(1984, 16)",
+      "Layer": 1,
+      "Mask": 0
+    },
+    {
+      "Position": "(992, 856)",
+      "Type": "RectangleShape2D",
+      "Size": "(1984, 16)",
+      "Layer": 1,
+      "Mask": 0
+    }
+  ],
+  "Ground": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111110111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111110111110000111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111100000111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111000001111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111110000011111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111100000011111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111110011111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111111111111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111100001111111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111100000011111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111110000011111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111000011111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111101111100001111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111110000111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111000111111111111100100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111011111111110111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111000011111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111110001111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111110001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111001111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111111001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111101111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111110000111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111110000011111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111110000011111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000222222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000222222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000222222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000222222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000002222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000002222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000002222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000002222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000002222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000222222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000022222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000033322222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000033332222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000433333222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000444333322222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000004344433322222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000003334443322222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000033333444332222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000003334444422222222222222222222222222222222222222222222222222222722222222222222222222222220000000000000000000000000000000000000000000000000000000003334444442222222222222222222222222222222222222222222222227777777772222222222222222222220000000000000000000000000000000000000000000000000000000333334444444222222222222222222222222222222222222222222222777777777777722222222222222222220000000000000000000000000000000000000000000000000000033333344444444422222222222222222222222222222222222222222227777777777777772222222222222222220000000000000000000000000000000000000000000000000000233333444444444442222222222222222222222222222222222222222277777777777777777222222222222222220000000000000000000000000000000000000000000000000000233333344444444444222222222222222222222222222222222222222777777777777777777722222222222222220000000000000000000000000000000000000000000000000000233333324444444444422222222222222222222222222222222222222777777777777777777722222222222222220000000000000000000000000000000000000000000000000000233333222444444444442222222222222222222222222222222222227777777774477777777772222222222222220000000000000000000000000000000000000000000000000000233333222244444444444222222222222222222222222222222222227777777444444777777772222222222222220000000000000000000000000000000000000000000000000000233333222224444444444422222222222222222222222222222222227777774433344477777772222222222222220000000000000000000000000000000000000000000000000002233333222222444444444442222222222222222222222222222222227777744333334477777772222222222222220000000000000000000000000000000000000000000000000002233333222222244444444444222222222222222222222222222222277777443333333447777777222222222222220000000000000000000000000000000000000000000000000022233333222222224444444444422222222222222222222222222222227774433333334477777772222222222222220000000000000000000000000000000000000000000000000022233333222222222444444444422222222222222222222222222222227744333333344477777772222222222222220000000000000000000000000000000000000000000000000022233333222222222244444444442222222222222222222222222222227443333344444777777772222222222222220000000000000000000000000000000000000000000000000022233333222222222224444444442222222222222222222222222222224433333444447777777772222222222222220000000000000000000000000000000000000000000000000222233333222222222224444444442222222222222222222222222222244333334444477777777722222222222222220000000000000000000000000000000000000000000000002222233333222222222224444444442222222222222222222222222222443333344444777777777722222222222222220000000000000000000000000000000000000000000022222222233333222222222224444444442222222222222222222222222224433333444447777777777222222222222222220000000000000000000000000000000000000000000222222222233333222222222234444444443222222222222222222222222244333334444447777777772222222222222222220000000000000000000000000000000000000000000222222222233333222222222334444444443322222222222222222222222443333344444447777777722222222222222222220000000000000000000000000000000000000000000222222222233333222222222334444444444444444444444444444444444433333444444447777772222222222222222222220000000000000000000000000000000000000000000222222222233333222222222334444444444444444444444443333333333333334444444442722222222222222222222222220000000000000000000000000000000000000000002222222222233333222222223334444444444444444444444433333333333333344444444442222222222222222222222222220000000000000000000000000000000000000000022222222222233333222222222333444444444444444444444333333333333333444444444442222222222222222222222222220000000000000000000000000000000000000000222222222222233333222222222333444444444444444444443333333333333334444444444442222222222222222222222222220000000000000000000000000000000000022202222222222222233333222222222333344444444444444444433333333333333344444444444442222222222222222222222222220000000000000000000000000000000000222222222222222222233333222222222233334444444444444444333334444444444444424444444442222222222222222222222222220000000000000000000000000000000000222222222222222222233333222222222223333344444444444443333344444444444444224444444442222222222222222222222222220000000000000000000000000000000000222222222222222222233333222222222222333333444444444433333444444444444422224444444442222222222222222222222222220000000000000000000000000000000002222222222222222222333332222222222222222322222222222333332222222222222222224444444442222222222222222222222222220000000000000000000000000222000022222222222222222223333322222222222222222222222222223333322222222222222222224444444442222222222222222222222222220020002222000000220000002222222222222222222222222233333222222222222222222222222222233333222222222222222222224444444442222222222222222222222222220022222222200002222000022222222222222222222222222333332222222222222222222222222222333332222222222222222222224444444442222222222222222222222222220022222222200002222200022222222222222222222222223333322222222222222222222222222223333322222222222222222222224444444442222222222222222222222222220022222222200022222200022222222222222222222222233333222222222222222222222222222233333222222222222222222222224444444442222222222222222222222222220022222222222222222222222222222222222222222222333332222222222222222222222222222333332222222222222222222222224444444442222222222222222222222222220022222222222222222222222222222222222222222223333322222222222222222222222222333333322222222222222222222222224444444442222222222222222222222222220022222222222222222222222222222222222222222233333222222222222222222222222223333333222222222222222222222222224444444442222222222222222222222222220022222222222222222222222222222222222222222333332222222222222222222222222233333332222222222222222222222222224444444442222222222222222222222222220022222222222222222222222222222222222222223333322222222222222222222222222333333322222222222222222222222222224444444442222222222222222222222222220022222222222222222222222222222222222222233333222222222222222222222222223333333222222222222222222222222222244444444442222222222222222222222222220022222222222222222222222222222232222222333332222222222222222222222222233333222222222222222222222222222222444444444422222222222222222222222222220022222222222222222222222222333333333223333322222222222222222222222222333332222222222222222222222222222224444444444422222222222222222222222222220022222222222222222222222233333333333333333222222222222222222222222223333322222222222222222222222222222244444444444222222222222222222222222222220022222222222222222222222333333333333333332222222222222222222222222233333222222222222222222222222222222444444444442222222222222222222222222222220022222222222222222222223333333333333333322222222222222222222222222333332222222222222222222222222222224444444444422222222222222222222222222222220022222222222222222222223333333333333333322222222222222222222222223333322222222222222222222222222222244444444444222222222222222222222222222222220022222222222222222222233333333333333333332222222222222222222222233333222222222222222222222222222222444444444442222222222222222222222222222222220022222222222222222222233333333333333333333333333333333333333333333332222222222222222222222222222224444444444422222222222222222222222222222222220022222222222222222222233333333333333333333333333333333333333333333322222222222222222222222222222244444444444222222222222222222222222222222222220022222222222222222222233333333333333333333333333333333333333333333222222222222222222222222222222444444444442222222222222222222222222222222222220022222222222222222222333333333333333333333333333333333333333333332222222222222222222222222222224444444444422222222222222222222222222222222222220022222222222222222222233333333333333333333333333333333333333333322222222222222222222222222222224444444444222222222222222222222222222222222222220022222222222222222222233333333333333333332222222222222222222222222222222222222222222222222222244444444442222222222222222222222222222222222222220022222222222222222222233333333333333333332222222222222222222222222222222222222222222222222222244444444422222222222222222222222222222222222222220022222222222222222222233333333333333333332222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222223333333333333333322222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222223333333333333333322222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333333333333333222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333333333333332222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333333333333222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333332232222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333332222222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333332222222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333332222222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222333332222222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222233333222222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222223333322222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222333332222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222233333222222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222223333322222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222336662222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222236663222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222236663222222222222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222236663222255552222222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222236665555555555555222222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222236665555555555555552222222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222225556665555555555555555522222222222222222222222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222555555556665555555555555555555552222222222222222222222222222222222222224666666642222222222222222222222222222222222255550022222222222225552255555555555556665555555555555555555555555222222222222222222222222222222222224666666642222222222222222222222222222255555555550022222225555555555555555555555556665555555555555555555555555555522252222222222222222222222222224666666642222222222222222222222222225555555555550022555555555555555555555555555556665555522225555555555555555555555555555222222222222222222222224666666642222222222552222222555555555555555555550055555555555555555555555555552226663322222222222552255555555555555555555555522222222222222222224666666642255555555555555555555555555555555555550055555555555555555555555222222226663332222222222222222225555555555555555555555552222222222222224666666655555555555555555555555555555555555555550055555555555555555522222222222226663333222222222222222222222555555555555555555555552222222222224666666655555555555555555555555555555555555555550055555555555555552222222222222226663333333333333333333333333332255555555555555555555222222555555666666655555555555555555555555555552255555522220055555555555552222222222222222226662333333333333333333333333333222255555555555555555555555555555666666655555555555555555555222222222222222222220055555552222222222222222222222226662233333333333333333333333333322225555555555555555555555555555666666655555555555552222222222222222222222222220055222222222222222222222222222222222223333333333333333333333333332222222555555555555555555555555666666655555555555222222222222222222222222222220022222222222222222222222222222222222222333333333333333333333333333222222222255555555555555555555666666655522222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222223333322222222222225552555555222224666666642222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222333332222222222222222222222222224666666642222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222233333222222222222222222222222224666666642222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222223333322222222222222222222222224666666642222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222333332222222222222222222222224666666642222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222233333222222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222223333322222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222333332222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222233333222222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222223333322222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222333332222222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222233333333222222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222223333333322222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222333333332222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222233333333222222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222223333333322222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222333332222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222233333222222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222223333322222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222333332222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222233333222224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222223333322224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222333332224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222233333224444444442222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222223333324444444442244444444422222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222333334444444444444444444442222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222233333333333334444444444444777777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222223333333333344440000000440077777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222333333333444440444044477077777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222233333334444470777077777077777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222223333333444370777777777077777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222244444470777777777077777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222224444470777077777077777772222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222444470000077000077777772222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222244470777777777077777777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222224470777777777777777777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222470777777777747777777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222770777777777444777777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222227770777777774444477777722222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222770777777777044447777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222770777777777044447777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222770777777777044447777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222770777777777044447777222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222270777777777444447772222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222270777777777444447772222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222270777777777744477722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222270777777777774777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222270777777777077777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222270000000000077777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222277777777777777777722222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220022222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222220000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "Sources": [
+    {
+      "Id": "radio-shell",
+      "Name": "radio shell",
+      "ResourceId": "scrap",
+      "Quantity": 12,
+      "X": 2424,
+      "Y": 1224,
+      "Asset": "salvage"
+    },
+    {
+      "Id": "tool-case",
+      "Name": "organic growth",
+      "ResourceId": "organic",
+      "Quantity": 8,
+      "X": 2888,
+      "Y": 632,
+      "Asset": "mushrooms"
+    },
+    {
+      "Id": "food-near-wild_plant-0",
+      "Name": "edible wild plant",
+      "ResourceId": "food",
+      "Quantity": 1,
+      "X": 2040,
+      "Y": 888,
+      "Asset": "food_plant"
+    },
+    {
+      "Id": "food-near-wild_plant-1",
+      "Name": "edible wild plant",
+      "ResourceId": "food",
+      "Quantity": 1,
+      "X": 2200,
+      "Y": 1208,
+      "Asset": "food_plant"
+    },
+    {
+      "Id": "food-near-container-0",
+      "Name": "abandoned food container",
+      "ResourceId": "food",
+      "Quantity": 2,
+      "X": 2328,
+      "Y": 1208,
+      "Asset": "food_container"
+    },
+    {
+      "Id": "food-far-wild_plant-0",
+      "Name": "edible wild plant",
+      "ResourceId": "food",
+      "Quantity": 2,
+      "X": 2680,
+      "Y": 456,
+      "Asset": "food_plant"
+    },
+    {
+      "Id": "food-far-container-0",
+      "Name": "abandoned food container",
+      "ResourceId": "food",
+      "Quantity": 4,
+      "X": 2072,
+      "Y": 1976,
+      "Asset": "food_container"
+    },
+    {
+      "Id": "fuel-near-cache-0",
+      "Name": "fuel cache",
+      "ResourceId": "fuel",
+      "Quantity": 2,
+      "X": 2280,
+      "Y": 1048,
+      "Asset": "fuel_cache"
+    },
+    {
+      "Id": "garage-office",
+      "Name": "Office cupboard",
+      "ResourceId": "food",
+      "Quantity": 4,
+      "X": 3880,
+      "Y": 1764,
+      "Asset": "cupboard"
+    },
+    {
+      "Id": "garage-fuel",
+      "Name": "Fuel cabinet",
+      "ResourceId": "fuel",
+      "Quantity": 4,
+      "X": 4136,
+      "Y": 1764,
+      "Asset": "fuel-cabinet"
+    },
+    {
+      "Id": "garage-parts",
+      "Name": "Parts cabinet",
+      "ResourceId": "scrap",
+      "Quantity": 4,
+      "X": 3976,
+      "Y": 1764,
+      "Asset": "cupboard"
+    },
+    {
+      "Id": "garage-crate",
+      "Name": "Bench crate",
+      "ResourceId": "scrap",
+      "Quantity": 4,
+      "X": 3976,
+      "Y": 1844,
+      "Asset": "crate"
+    },
+    {
+      "Id": "garage-compressor",
+      "Name": "Air compressor",
+      "ResourceId": "scrap",
+      "Quantity": 2,
+      "X": 4136,
+      "Y": 1844,
+      "Asset": "compressor"
+    },
+    {
+      "Id": "garage-van",
+      "Name": "Damaged service van",
+      "ResourceId": "scrap",
+      "Quantity": 4,
+      "X": 4056,
+      "Y": 1844,
+      "Asset": "van"
+    },
+    {
+      "Id": "garage-rack",
+      "Name": "Salvage tool rack",
+      "ResourceId": "salvage_tool",
+      "Quantity": 1,
+      "X": 3960,
+      "Y": 1796,
+      "Asset": "rack"
+    }
+  ],
+  "MoveSpeed": 80,
+  "InteractionRange": 22,
+  "FixedSimulationFrameMilliseconds": [
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668,
+    16.666666666666668
+  ],
+  "AdapterCpuMilliseconds": [
+    0,
+    0.1096,
+    0.059,
+    0.0477,
+    0.0459,
+    0.0534,
+    0.6528,
+    0.0501,
+    0.0648,
+    0.0649,
+    0.0467,
+    0.0515,
+    0.0456,
+    0.0445,
+    0.6515,
+    0.05,
+    0.0481,
+    0.0523,
+    0.064,
+    0.1209,
+    0.0522,
+    0.0544,
+    1.0072,
+    0.0588,
+    0.0446,
+    0.0486,
+    1.3503,
+    0.0476,
+    0.0481,
+    0.0515,
+    0.0455,
+    0.0385,
+    0.0404,
+    0.075,
+    1.4308,
+    0.0451,
+    0.0414,
+    0.0467,
+    0.0575,
+    0.0458,
+    0.0472,
+    2.9679,
+    4.3327,
+    3.039,
+    2.8861,
+    2.6962,
+    2.6887,
+    2.7636,
+    3.4536,
+    2.9522,
+    0.0449,
+    0.0452,
+    0.0425,
+    2.9576,
+    1.1926,
+    0.0433,
+    0.0489,
+    0.0518,
+    0.048,
+    0.0515,
+    0.0595,
+    0.058,
+    0.0754,
+    0.0809,
+    0.0467,
+    0.0601,
+    0.0549,
+    0.084,
+    0.0479
+  ]
+}

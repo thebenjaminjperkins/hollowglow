@@ -7,4 +7,5 @@ public abstract partial class PlayerInput : Node
 {
     public abstract Vector2 ReadMovement();
     public abstract bool InteractPressed();
+    public virtual bool InteractHeld() => false;
 }

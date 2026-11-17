@@ -1,0 +1,10 @@
+{
+  "engine": "Godot 4.4.1 .NET",
+  "renderer": "Compatibility / Mesa llvmpipe",
+  "profile": "garage-expedition",
+  "seed": 1701,
+  "physicsFrames": 180,
+  "exitCode": 0,
+  "errors": false,
+  "note": "Normal graphical launch and engine quit-after test after renderer resource cleanup; harmless unsupported VSync warning retained in environment."
+}

@@ -1,0 +1,209 @@
+[
+  {
+    "name": "ClockSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restarts clock and clears modal input",
+      "PASS: live clock continuity, exploration/inventory time, developer skips and reset"
+    ]
+  },
+  {
+    "name": "ClockSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restarts clock and clears modal input",
+      "PASS: live clock continuity, exploration/inventory time, developer skips and reset"
+    ]
+  },
+  {
+    "name": "ThresholdSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores both typed source quantities",
+      "PASS: typed gathering, chest UI transfers, stale-command rejection, and live physics movement, normalized diagonals, walls, passage, fall recovery, range, pickups, storage, debug teleports, and two scene resets"
+    ]
+  },
+  {
+    "name": "ThresholdSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores both typed source quantities",
+      "PASS: typed gathering, chest UI transfers, stale-command rejection, and live physics movement, normalized diagonals, walls, passage, fall recovery, range, pickups, storage, debug teleports, and two scene resets"
+    ]
+  },
+  {
+    "name": "InventoryUxReview-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Controller View exits session",
+      "PASS: inventory UX mouse, keyboard, controller events, modal ownership, LOS tolerance, access revocation, configurable paging, cancellation and stale-state handling"
+    ]
+  },
+  {
+    "name": "InventoryUxReview-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Controller View exits session",
+      "PASS: inventory UX mouse, keyboard, controller events, modal ownership, LOS tolerance, access revocation, configurable paging, cancellation and stale-state handling"
+    ]
+  },
+  {
+    "name": "FarmingSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores empty plots, shared starter seeds, personal inventory and clock",
+      "PASS: complete farming loop, contextual crop selection, passive growth, exact harvests, full-pack safety, replant and reset"
+    ]
+  },
+  {
+    "name": "FarmingSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores empty plots, shared starter seeds, personal inventory and clock",
+      "PASS: complete farming loop, contextual crop selection, passive growth, exact harvests, full-pack safety, replant and reset"
+    ]
+  },
+  {
+    "name": "HungerSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores hunger, clock, Food and movement",
+      "PASS: integrated hunger UI, inputs, automatic meals, stale gestures, movement, farming, time and reset"
+    ]
+  },
+  {
+    "name": "HungerSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores hunger, clock, Food and movement",
+      "PASS: integrated hunger UI, inputs, automatic meals, stale gestures, movement, farming, time and reset"
+    ]
+  },
+  {
+    "name": "ScavengingSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores identical seeded placements/quantities, fresh depletion and hunger",
+      "PASS: live seeded Food scavenging, reachability, E gathering, partial/full capacity, transfer/eat, depletion/no respawn and reset"
+    ]
+  },
+  {
+    "name": "ScavengingSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores identical seeded placements/quantities, fresh depletion and hunger",
+      "PASS: live seeded Food scavenging, reachability, E gathering, partial/full capacity, transfer/eat, depletion/no respawn and reset"
+    ]
+  },
+  {
+    "name": "PowerSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears Fuel burn, power state and modal controls",
+      "PASS: live power controls, overload rejection, keyboard/controller/mouse, fractional burn/time, finite Fuel, manual refill/restart and reset"
+    ]
+  },
+  {
+    "name": "PowerSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears Fuel burn, power state and modal controls",
+      "PASS: live power controls, overload rejection, keyboard/controller/mouse, fractional burn/time, finite Fuel, manual refill/restart and reset"
+    ]
+  },
+  {
+    "name": "RescueSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: New Run restores unchanged starting Food, Fuel, four plots and clock",
+      "PASS: contextual beacon controls, outage/recovery, terminal rescue freeze, exactly-once completion and New Run reset"
+    ]
+  },
+  {
+    "name": "RescueSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: New Run restores unchanged starting Food, Fuel, four plots and clock",
+      "PASS: contextual beacon controls, outage/recovery, terminal rescue freeze, exactly-once completion and New Run reset"
+    ]
+  },
+  {
+    "name": "CraftingSmoke-default",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears upgrades, kits, expansion and crafting state",
+      "PASS: live crafting, personal-only materials, power/stale mouse, kit installation, eight-slot navigation, fifth plot, seed propagation, farming and reset"
+    ]
+  },
+  {
+    "name": "CraftingSmoke-alternate",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears upgrades, kits, expansion and crafting state",
+      "PASS: live crafting, personal-only materials, power/stale mouse, kit installation, eight-slot navigation, fifth plot, seed propagation, farming and reset"
+    ]
+  },
+  {
+    "name": "garage-1701",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears shared discovery",
+      "PASS: garage live navigation, searching/partial transfers, tool/van controls, cancellation, fog/memory, quantities, survival continuity, measured trip and reset"
+    ]
+  },
+  {
+    "name": "garage-499",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears shared discovery",
+      "PASS: garage live navigation, searching/partial transfers, tool/van controls, cancellation, fog/memory, quantities, survival continuity, measured trip and reset"
+    ]
+  },
+  {
+    "name": "garage-8",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears shared discovery",
+      "PASS: garage live navigation, searching/partial transfers, tool/van controls, cancellation, fog/memory, quantities, survival continuity, measured trip and reset"
+    ]
+  },
+  {
+    "name": "garage-preserve",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset clears shared discovery",
+      "PASS: garage live navigation, searching/partial transfers, tool/van controls, cancellation, fog/memory, quantities, survival continuity, measured trip and reset"
+    ]
+  },
+  {
+    "name": "region-preserved",
+    "exit": 0,
+    "passed": true,
+    "tail": [
+      "PASS: Reset restores same-seed geography, original finite sources and shared time",
+      "PASS: region physics travel, portal continuity, chores, all finite sources, farming/economy conservation and reset"
+    ]
+  }
+]

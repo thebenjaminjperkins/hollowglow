@@ -1,0 +1,19 @@
+PASS: configurable clock phases, exact boundaries, 60Hz consistency, multi-day skips and serializable resume
+PASS: 32 seeded regions, reproducibility, landmark/route variation, data-only geography changes, five connected chambers, all resource approaches and unchanged Food/Fuel/material budgets
+PASS: 32 seeded garage layouts, source budgets/road/approaches, searching/partial/full capacity, carried/shared tools, consent/cancel/clock-skip/staged salvage, 64 races, reusable shared discovery versus current sight and reset
+PASS: 16 hall seeds, identical surface and supplies, all station/plot/entrance approaches, six-tile opening, four starting plots and future-only reservations
+PASS: startup, continuous/repeated outages, anti-flap recovery, capped/floored loss, Fuel-boundary skips, recovery, terminal freeze/reset and exactly-once concurrent victory
+PASS: revised recipes, personal-only ingredients, power/overflow safety, kit transfers/ownership, hotbar indices, fifth-plot growth, 96 craft/install/power races, exhaustion, victory and reset
+PASS: power capacity rejection, exact fractional/idle/load burn, tank limits, personal loading, no auto refill/restart, clock subdivision/skips, reset and 64 concurrent load/allocation races
+PASS: two finite seeded Fuel caches across 512 layout/seed cases; 5–8 surface Fuel, separate Food stream
+PLACEMENT sanctuary: food-near-wild_plant-0 (408,216) d96 q2; food-near-wild_plant-1 (360,120) d80 q1; food-near-container-0 (376,152) d64 q1; food-far-wild_plant-0 (488,200) d160 q1; food-far-container-0 (472,120) d192 q3; food-far-container-1 (488,312) d272 q2
+PLACEMENT sanctuary_alternate: food-near-wild_plant-0 (408,216) d96 q2; food-near-wild_plant-1 (360,120) d80 q1; food-near-container-0 (376,152) d64 q1; food-far-wild_plant-0 (488,200) d160 q1; food-far-container-0 (472,120) d192 q3; food-far-container-1 (488,312) d272 q2
+PASS: 512 seeded layout cases, stable independent streams, approved quantities/bands, spacing, partial/full collection, conservation, depletion, reset and 32 concurrent gathers
+PASS: hunger deadlines, manual/automatic meals, gradual/configurable recovery, partial meals, edible validation, reset, time skips, conservation and 64 concurrent eat/time/transfer races
+PASS: shared seeds, planting costs, stages, exact elapsed maturity/yields, full-pack/seed capacity safety, replant/reset, and 32 concurrent planting/harvest races
+PASS: six-slot/ten-stack limits, typed resources, partial transfers, full storage, finite gathering, resets, stale/replayed commands, 32 two-actor races, 2000 conservation checks
+PASS: slot moves, partial merges, splits, whole-stack swaps, quick transfers, invalid requests, stale/replayed commands, 32 split races and 3000 conservation checks
+PASS: pickup uniqueness, actor isolation, deposits, conservation, reset, invalid quantities
+PASS: directional presentation, diagonal ties, idle and vegetation settling
+PASS: Rootfall Nook: connected floor, closed boundary and usable gameplay anchors
+PASS: Hearth Hollow: connected floor, closed boundary and usable gameplay anchors

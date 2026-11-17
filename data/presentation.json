@@ -1,0 +1,17 @@
+{
+  "nativePixelsPerWorldUnit": 2,
+  "families": {
+    "character": { "ground": [-4, -2, 8, 6] },
+    "machine": { "ground": [-18, -6, 36, 12], "occludesLight": true },
+    "storage": { "ground": [-13, -5, 26, 10], "occludesLight": true },
+    "workbench": { "ground": [-18, -5, 36, 10], "occludesLight": true },
+    "shelf": { "ground": [-16, -5, 32, 10], "occludesLight": true },
+    "fern": { "ground": [-9, -4, 18, 8] },
+    "mushrooms": { "ground": [-9, -4, 18, 8] },
+    "garden": { "ground": [-18, -6, 36, 12] },
+    "crop": { "ground": [-8, -4, 16, 8] },
+    "wall": { "ground": [-8, -16, 16, 16], "staticGeometry": true },
+    "decoration": { "ground": [-8, -4, 16, 8], "staticGeometry": true },
+    "item": { "ground": [-8, -4, 16, 8] }
+  }
+}

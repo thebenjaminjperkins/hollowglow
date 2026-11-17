@@ -1,0 +1,197 @@
+{
+  "Seed": 1701,
+  "Walking": [
+    {
+      "From": "storage",
+      "To": "garden",
+      "Seconds": 1.75
+    },
+    {
+      "From": "storage",
+      "To": "workshop",
+      "Seconds": 1.3000000000000007
+    },
+    {
+      "From": "storage",
+      "To": "power",
+      "Seconds": 2.216666700000001
+    },
+    {
+      "From": "storage",
+      "To": "radio",
+      "Seconds": 2.8833334000000015
+    },
+    {
+      "From": "storage",
+      "To": "entrance",
+      "Seconds": 3.733333299999998
+    },
+    {
+      "From": "garden",
+      "To": "storage",
+      "Seconds": 1.75
+    },
+    {
+      "From": "garden",
+      "To": "workshop",
+      "Seconds": 2.916666599999999
+    },
+    {
+      "From": "garden",
+      "To": "power",
+      "Seconds": 3.583333400000001
+    },
+    {
+      "From": "garden",
+      "To": "radio",
+      "Seconds": 1.9833332999999982
+    },
+    {
+      "From": "garden",
+      "To": "entrance",
+      "Seconds": 3.933333300000001
+    },
+    {
+      "From": "workshop",
+      "To": "storage",
+      "Seconds": 1.3000000000000043
+    },
+    {
+      "From": "workshop",
+      "To": "garden",
+      "Seconds": 2.883333399999998
+    },
+    {
+      "From": "workshop",
+      "To": "power",
+      "Seconds": 1.75
+    },
+    {
+      "From": "workshop",
+      "To": "radio",
+      "Seconds": 4.050000000000011
+    },
+    {
+      "From": "workshop",
+      "To": "entrance",
+      "Seconds": 4.083333400000001
+    },
+    {
+      "From": "power",
+      "To": "storage",
+      "Seconds": 2.233333299999998
+    },
+    {
+      "From": "power",
+      "To": "garden",
+      "Seconds": 3.5999999999999943
+    },
+    {
+      "From": "power",
+      "To": "workshop",
+      "Seconds": 1.7166666000000106
+    },
+    {
+      "From": "power",
+      "To": "radio",
+      "Seconds": 3.75
+    },
+    {
+      "From": "power",
+      "To": "entrance",
+      "Seconds": 2.9666667000000047
+    },
+    {
+      "From": "radio",
+      "To": "storage",
+      "Seconds": 2.9000000000000057
+    },
+    {
+      "From": "radio",
+      "To": "garden",
+      "Seconds": 1.9666666000000106
+    },
+    {
+      "From": "radio",
+      "To": "workshop",
+      "Seconds": 4.033333299999995
+    },
+    {
+      "From": "radio",
+      "To": "power",
+      "Seconds": 3.7166666999999904
+    },
+    {
+      "From": "radio",
+      "To": "entrance",
+      "Seconds": 2.766666700000002
+    },
+    {
+      "From": "entrance",
+      "To": "storage",
+      "Seconds": 3.766666700000002
+    },
+    {
+      "From": "entrance",
+      "To": "garden",
+      "Seconds": 3.9666666999999904
+    },
+    {
+      "From": "entrance",
+      "To": "workshop",
+      "Seconds": 4.083333399999987
+    },
+    {
+      "From": "entrance",
+      "To": "power",
+      "Seconds": 2.983333299999998
+    },
+    {
+      "From": "entrance",
+      "To": "radio",
+      "Seconds": 2.783333299999981
+    }
+  ],
+  "Hud": [
+    {
+      "Window": "(960, 540)",
+      "Viewport": "(768, 432)",
+      "Passed": true
+    },
+    {
+      "Window": "(1280, 720)",
+      "Viewport": "(768, 432)",
+      "Passed": true
+    },
+    {
+      "Window": "(1536, 864)",
+      "Viewport": "(768, 432)",
+      "Passed": true
+    },
+    {
+      "Window": "(1920, 1080)",
+      "Viewport": "(768, 432)",
+      "Passed": true
+    },
+    {
+      "Window": "(1024, 768)",
+      "Viewport": "(768, 432)",
+      "Passed": true
+    },
+    {
+      "Window": "(2560, 1080)",
+      "Viewport": "(768, 432)",
+      "Passed": true
+    }
+  ],
+  "SimulatedActors": 6,
+  "MinimumActorSeparation": 16,
+  "LiveActorCollisionMask": 1,
+  "ProxyFootprint": [
+    48,
+    24
+  ],
+  "StartingPlots": 4,
+  "InstalledPlots": 5,
+  "Note": "Walking measured through normal input and physics; clearance proxies are test-only, not multiplayer or wheelbarrow mechanics."
+}

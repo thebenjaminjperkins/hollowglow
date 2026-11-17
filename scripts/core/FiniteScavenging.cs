@@ -104,10 +104,24 @@ public static class FiniteScavenging
         if (!Place(0)) throw new ArgumentException("Terrain cannot fit the configured sources with safe approaches and spacing.");
         return new(seed, Array.AsReadOnly(placed.ToArray()));
     }
+    // Roll quantities without terrain placement. Domains/IDs match compact fixtures exactly.
+    public static IReadOnlyList<GeneratedSourceSite> RollBudget(ScavengingSetup setup,int seed)
+    {
+        setup.Validate();var result=new List<GeneratedSourceSite>();
+        foreach(string band in new[]{"near","far"})foreach(var type in setup.Types)
+        for(int ordinal=0;ordinal<(band=="near"?type.NearCount:type.FarCount);ordinal++)
+        {
+            bool near=band=="near";string id=$"{setup.Domain}-{band}-{type.Id}-{ordinal}";
+            var stream=new SeedStream(seed,setup.Domain+"-quantity-v1:"+id);
+            int min=near?type.NearMin:type.FarMin,max=near?type.NearMax:type.FarMax;
+            result.Add(new(new GatheringSite(id,type.Name,setup.ResourceId,min+stream.Next(max-min+1),0,0,type.Asset),type.Id,band,0,0,0));
+        }
+        return result.AsReadOnly();
+    }
     private static long Square(int n) => (long)n * n;
     // Specified SplitMix64 stream + FNV-1a domain labels, independent of runtime
     // Random implementation, decoration, player count and quantity/placement draws.
-    private sealed class SeedStream
+    internal sealed class SeedStream
     {
         private ulong _value;
         public SeedStream(int seed, string domain)

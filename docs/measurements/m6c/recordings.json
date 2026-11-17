@@ -1,0 +1,15 @@
+{
+  "frames": {
+    "before-sanctuary-motion": 27,
+    "before-garage-motion": 65,
+    "after-sanctuary-motion": 27,
+    "after-garage-motion": 65
+  },
+  "playbackFps": 15,
+  "comparisonOrder": "Before left; after right",
+  "nativePanelPixels": [
+    1536,
+    864
+  ],
+  "note": "Actual physics/input, sampled during cell waypoint traversal; short review clips, not real-time performance or expedition timing evidence. Side-by-side panels are not resized. MP4 is lossy; PNGs are the pixel comparison reference."
+}

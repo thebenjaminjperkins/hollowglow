@@ -37,7 +37,7 @@ public partial class FarmingSmoke : Node
             await AtPlot(0);
             Input.ParseInputEvent(new InputEventJoypadButton { Device = 0, ButtonIndex = JoyButton.RightShoulder, Pressed = true });
             await Frames(2);
-            Check(_world.GetNode<ThresholdHud>("HUD").GetChildren().OfType<Label>().Any(l => l.Text.StartsWith("E / A Plant Glowcap")),
+            Check(WorldVisuals.Descendants(_world.GetNode<ThresholdHud>("HUD").Chrome!).OfType<Label>().Any(l => l.Text.StartsWith("E / A Plant Glowcap")),
                 "Controller shoulder selects crop contextually");
             Input.ParseInputEvent(new InputEventJoypadButton { Device = 0, ButtonIndex = JoyButton.RightShoulder, Pressed = false });
             Input.ParseInputEvent(new InputEventJoypadButton { Device = 0, ButtonIndex = JoyButton.LeftShoulder, Pressed = true });

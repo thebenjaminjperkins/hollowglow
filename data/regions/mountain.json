@@ -1,0 +1,400 @@
+{
+  "surfaceWidth": 192,
+  "surfaceHeight": 144,
+  "surfaceOffsetX": 80,
+  "sanctuaryWidth": 64,
+  "sanctuaryHeight": 48,
+  "orientations": [
+    "identity"
+  ],
+  "mountain": {
+    "x": 0.1,
+    "y": 0.1,
+    "rx": 0.29,
+    "ry": 0.3
+  },
+  "river": [
+    [
+      0.66,
+      0.0
+    ],
+    [
+      0.6,
+      0.3
+    ],
+    [
+      0.67,
+      0.6
+    ],
+    [
+      0.62,
+      1.0
+    ]
+  ],
+  "landmarks": [
+    {
+      "id": "entrance",
+      "name": "Mountain forecourt",
+      "kind": "entrance",
+      "minX": 0.18,
+      "maxX": 0.24,
+      "minY": 0.4,
+      "maxY": 0.45,
+      "radius": 7,
+      "attachment": "mountain-foot"
+    },
+    {
+      "id": "hut",
+      "name": "Roadkeeper's shelter",
+      "kind": "shelter",
+      "minX": 0.33,
+      "maxX": 0.41,
+      "minY": 0.46,
+      "maxY": 0.52,
+      "radius": 7
+    },
+    {
+      "id": "hollow",
+      "name": "Fernwater hollow",
+      "kind": "grove",
+      "minX": 0.4,
+      "maxX": 0.49,
+      "minY": 0.18,
+      "maxY": 0.27,
+      "radius": 10
+    },
+    {
+      "id": "hamlet",
+      "name": "Ashwell ruins",
+      "kind": "hamlet",
+      "minX": 0.26,
+      "maxX": 0.43,
+      "minY": 0.76,
+      "maxY": 0.87,
+      "radius": 11
+    },
+    {
+      "id": "bridge",
+      "name": "Old stone crossing",
+      "kind": "bridge",
+      "minX": 0.58,
+      "maxX": 0.68,
+      "minY": 0.66,
+      "maxY": 0.75,
+      "radius": 6,
+      "attachment": "river"
+    },
+    {
+      "id": "footbridge",
+      "name": "Willow crossing",
+      "kind": "footbridge",
+      "minX": 0.6,
+      "maxX": 0.7,
+      "minY": 0.19,
+      "maxY": 0.3,
+      "radius": 4,
+      "attachment": "river"
+    },
+    {
+      "id": "yard",
+      "name": "Cinder freight yard",
+      "kind": "yard",
+      "minX": 0.84,
+      "maxX": 0.91,
+      "minY": 0.8,
+      "maxY": 0.89,
+      "radius": 11
+    }
+  ],
+  "routes": [
+    {
+      "id": "approach",
+      "from": "entrance",
+      "to": "hut",
+      "kind": "road",
+      "halfWidth": 4,
+      "chance": 1
+    },
+    {
+      "id": "valley-road",
+      "from": "hut",
+      "to": "hamlet",
+      "kind": "road",
+      "halfWidth": 4,
+      "chance": 1
+    },
+    {
+      "id": "bridge-road",
+      "from": "hamlet",
+      "to": "bridge",
+      "kind": "road",
+      "halfWidth": 4,
+      "chance": 1
+    },
+    {
+      "id": "freight-road",
+      "from": "bridge",
+      "to": "yard",
+      "kind": "road",
+      "halfWidth": 4,
+      "chance": 1
+    },
+    {
+      "id": "woodland",
+      "from": "entrance",
+      "to": "hollow",
+      "kind": "trail",
+      "halfWidth": 2,
+      "chance": 1
+    },
+    {
+      "id": "willow-trail",
+      "from": "hollow",
+      "to": "footbridge",
+      "kind": "trail",
+      "halfWidth": 2,
+      "chance": 1
+    },
+    {
+      "id": "ridge-trail",
+      "from": "footbridge",
+      "to": "yard",
+      "kind": "trail",
+      "halfWidth": 2,
+      "chance": 1
+    },
+    {
+      "id": "hollow-link",
+      "from": "hollow",
+      "to": "hamlet",
+      "kind": "trail",
+      "halfWidth": 2,
+      "chance": 0.5
+    }
+  ],
+  "chambers": [
+    {
+      "id": "common",
+      "name": "Common chamber",
+      "x": 31,
+      "y": 29,
+      "rx": 10,
+      "ry": 8
+    },
+    {
+      "id": "workshop",
+      "name": "Workshop chamber",
+      "x": 15,
+      "y": 24,
+      "rx": 8,
+      "ry": 7
+    },
+    {
+      "id": "garden",
+      "name": "Garden grotto",
+      "x": 48,
+      "y": 25,
+      "rx": 9,
+      "ry": 8
+    },
+    {
+      "id": "radio",
+      "name": "Radio chamber",
+      "x": 30,
+      "y": 10,
+      "rx": 8,
+      "ry": 6
+    },
+    {
+      "id": "vestibule",
+      "name": "Entrance vestibule",
+      "x": 47,
+      "y": 40,
+      "rx": 8,
+      "ry": 6
+    }
+  ],
+  "chamberLinks": [
+    [
+      "common",
+      "workshop"
+    ],
+    [
+      "common",
+      "garden"
+    ],
+    [
+      "common",
+      "radio"
+    ],
+    [
+      "common",
+      "vestibule"
+    ],
+    [
+      "workshop",
+      "radio"
+    ],
+    [
+      "radio",
+      "garden"
+    ]
+  ],
+  "anchors": {
+    "home": [
+      32,
+      31
+    ],
+    "chest": [
+      33,
+      29
+    ],
+    "insidePortal": [
+      47,
+      44
+    ],
+    "insideLanding": [
+      47,
+      40
+    ],
+    "expansion": [
+      44,
+      29
+    ]
+  },
+  "props": [
+    {
+      "Kind": "Generator",
+      "X": 232,
+      "Y": 344,
+      "Width": 26,
+      "Height": 9,
+      "Radius": 42,
+      "Energy": 0.4,
+      "Color": "efbb79"
+    },
+    {
+      "Kind": "Bench",
+      "X": 344,
+      "Y": 440,
+      "Width": 32,
+      "Height": 8
+    },
+    {
+      "Kind": "Shelf",
+      "X": 488,
+      "Y": 168,
+      "Width": 30,
+      "Height": 8
+    },
+    {
+      "Kind": "Garden",
+      "X": 696,
+      "Y": 408,
+      "Width": 28,
+      "Height": 8
+    },
+    {
+      "Kind": "Garden",
+      "X": 744,
+      "Y": 408,
+      "Width": 28,
+      "Height": 8
+    },
+    {
+      "Kind": "Bedroll",
+      "X": 504,
+      "Y": 536,
+      "Width": 22,
+      "Height": 7
+    },
+    {
+      "Kind": "Bedroll",
+      "X": 552,
+      "Y": 536,
+      "Width": 22,
+      "Height": 7
+    },
+    {
+      "Kind": "Lamp",
+      "X": 472,
+      "Y": 424,
+      "Radius": 90,
+      "Energy": 0.9,
+      "Color": "efbb79"
+    },
+    {
+      "Kind": "Lamp",
+      "X": 776,
+      "Y": 584,
+      "Radius": 80,
+      "Energy": 0.8,
+      "Color": "efbb79"
+    },
+    {
+      "Kind": "Lamp",
+      "X": 312,
+      "Y": 392,
+      "Radius": 76,
+      "Energy": 0.8,
+      "Color": "efbb79"
+    },
+    {
+      "Kind": "Mushrooms",
+      "X": 760,
+      "Y": 360,
+      "Radius": 38,
+      "Energy": 0.3,
+      "Color": "81b6a6"
+    },
+    {
+      "Kind": "Mushrooms",
+      "X": 424,
+      "Y": 168,
+      "Radius": 28,
+      "Energy": 0.2,
+      "Color": "81b6a6"
+    },
+    {
+      "Kind": "Fern",
+      "X": 664,
+      "Y": 376
+    },
+    {
+      "Kind": "Fern",
+      "X": 808,
+      "Y": 440
+    },
+    {
+      "Kind": "Vine",
+      "X": 696,
+      "Y": 328
+    },
+    {
+      "Kind": "Vine",
+      "X": 280,
+      "Y": 312
+    },
+    {
+      "Kind": "Stones",
+      "X": 616,
+      "Y": 504
+    }
+  ],
+  "resourceLocations": {
+    "radio-shell": "hut",
+    "tool-case": "hollow",
+    "machine-housing": "yard",
+    "food-near-wild_plant-0": "entrance",
+    "food-near-wild_plant-1": "hut",
+    "food-near-container-0": "hut",
+    "food-far-wild_plant-0": "hollow",
+    "food-far-container-0": "hamlet",
+    "food-far-container-1": "yard",
+    "fuel-near-cache-0": "hut",
+    "fuel-far-cache-0": "yard"
+  },
+  "resourceVisuals": {
+    "machine-housing": "machine"
+  }
+}

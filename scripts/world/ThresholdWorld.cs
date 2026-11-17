@@ -37,8 +37,8 @@ public partial class ThresholdWorld : Node2D
     private string _feedback = "Passage east. Bring salvage home. H: help";
     private double _feedbackTime = 6;
     private bool _debug;
-    private static readonly Vector2 Home = new(136, 208);
-    private static readonly Vector2 Outside = new(368, 176);
+    private Vector2 Home => Region==null?new(136,208):Point(Region.Anchor("home"));
+    private Vector2 Outside => Region==null?new(368,176):Point(Region.OutsideLanding);
     public SuppliesSnapshot SuppliesFor(int playerId) => _state.Snapshot(playerId);
     public int StoredTotal => SuppliesFor(_controlledActor.PlayerId).Storage.Total;
     public int CarriedBy(int playerId) => SuppliesFor(playerId).Personal.Total;
@@ -52,7 +52,12 @@ public partial class ThresholdWorld : Node2D
             if (!int.TryParse(argument.Substring(13), out int seed)) throw new System.ArgumentException("World seed must be a 32-bit integer.");
             Config.WorldSeed = seed;
         }
-        if (Config.ScavengingEnabled)
+        if(Region!=null)
+        {
+            _setup=_setup with {Sites=Region.Sources.Where(s=>s.Band=="material"||s.Band=="garage"&&(s.Site.ResourceId is "scrap" or "salvage_tool")||s.Site.ResourceId=="food"&&Config.ScavengingEnabled||s.Site.ResourceId=="fuel"&&Config.PowerEnabled).Select(s=>s.Site).ToArray()};
+            if(Config.ScavengingEnabled)ScavengingWorld=new(Config.WorldSeed,Region.Sources.Where(s=>s.Site.ResourceId=="food").ToArray());
+        }
+        else if (Config.ScavengingEnabled)
         {
             ScavengingWorld = FiniteScavenging.Generate(ScavengingSetup.Parse(FileAccess.GetFileAsString("res://data/food_scavenging.json")),
                 GetNode<ThresholdMap>("Map").Layout, _setup.Sites, Config.WorldSeed);
@@ -63,7 +68,7 @@ public partial class ThresholdWorld : Node2D
         _controlledActor = GetNode<PlayerCharacter>("Player");
         _farming = Config.FarmingEnabled ? AgricultureSetup.Parse(FileAccess.GetFileAsString("res://data/farming.json")) : null;
         _state = _setup.CreateState(new[] { _controlledActor.PlayerId }, Config.StorageSlots, (_farming?.Resources ?? System.Array.Empty<ResourceDefinition>()).Concat(Config.PowerEnabled
-                ? new[] { new ResourceDefinition("fuel", "Fuel", "Fuel") } : System.Array.Empty<ResourceDefinition>()).Concat(_craftSetup?.Resources ?? System.Array.Empty<ResourceDefinition>()));
+                ? new[] { new ResourceDefinition("fuel", "Fuel", "Fuel") } : System.Array.Empty<ResourceDefinition>()).Concat(_craftSetup?.Resources ?? System.Array.Empty<ResourceDefinition>()).Concat(Garage!=null?new[]{new ResourceDefinition(GaragePlan.Tool,"Salvage Tool","Tool")}:System.Array.Empty<ResourceDefinition>()));
         if (_farming != null)
         {
             var beds = GetNode<ThresholdMap>("Map").GetChildren().OfType<SanctuaryProp>().Where(p => p.Kind == PixelSprite.Motif.Garden).ToArray();
@@ -91,9 +96,11 @@ public partial class ThresholdWorld : Node2D
         _hud.Supplies.CloseRequested += CloseInventory;
         _hud.Supplies.EatRequested += HandleEat;
         _hud.Supplies.OperationRequested += HandleSlotRequest;
-        AddInteraction("shared-storage", "shared chest", new Vector2(88, 224), true);
-        foreach (var site in _setup.Sites)
+        AddInteraction("shared-storage", "shared chest", StoragePosition, true);
+        foreach (var site in _setup.Sites.Where(s=>Garage==null||!Garage.Objects.Any(o=>o.Id==s.Id)))
             AddInteraction(site.Id, site.Name, new Vector2(site.X, site.Y), resource: site.ResourceId, asset: site.Asset);
+        InitializeRegionView();
+        InitializeGarage();
     }
 
     private void AddInteraction(string id, string name, Vector2 position, bool storage = false, string resource = "", string asset = "salvage")
@@ -120,8 +127,10 @@ public partial class ThresholdWorld : Node2D
         if(Signal?.Completed==true){ShowRescued();return;}
         _controlledActor.HungerSpeedMultiplier = (float)(HungerFor(_controlledActor.PlayerId)?.SpeedMultiplier ?? 1);
         _feedbackTime = System.Math.Max(0, _feedbackTime - delta);
+        UpdateRegionTravel(delta);
+        UpdateGarage(delta);
         Vector2 position = _controlledActor.GlobalPosition;
-        if (position.X < 0 || position.Y < 0 || position.X > 640 || position.Y > 352)
+        if (Region!=null?OutsideRegionBounds(position):position.X < 0 || position.Y < 0 || position.X > 640 || position.Y > 352)
         {
             Teleport(Home);
             Notify("Recovered at home. Carried salvage preserved.");
@@ -142,7 +151,7 @@ public partial class ThresholdWorld : Node2D
         float best = Config.InteractionRange * Config.InteractionRange;
         foreach (var target in _interactables)
         {
-            if (!target.Visible) continue;
+            if (!target.Visible || !CurrentlyVisible(target.Position)) continue;
             float distance = actor.GlobalPosition.DistanceSquaredTo(target.GlobalPosition);
             if (distance > best) continue;
             var query = PhysicsRayQueryParameters2D.Create(actor.GlobalPosition, target.GlobalPosition, 1);
@@ -158,6 +167,7 @@ public partial class ThresholdWorld : Node2D
     private void Interact(PlayerCharacter actor)
     {
         if(ModalOpen)return;
+        if(UseGarageObject(actor))return;
         if(AtGardenSocket(actor)){UseGardenSocket(actor);return;}
         var station=FindStation(actor);
         var target = FindTarget(actor);
@@ -201,6 +211,7 @@ public partial class ThresholdWorld : Node2D
         float best = Config.InteractionRange * Config.InteractionRange;
         foreach (var plot in _plots)
         {
+            if(!plot.Visible||!CurrentlyVisible(plot.Position))continue;
             float distance = actor.GlobalPosition.DistanceSquaredTo(plot.GlobalPosition);
             if (distance > best) continue;
             var hit = GetWorld2D().DirectSpaceState.IntersectRay(PhysicsRayQueryParameters2D.Create(actor.GlobalPosition, plot.GlobalPosition, 1));
@@ -251,7 +262,7 @@ public partial class ThresholdWorld : Node2D
 
     private void OpenInventory(Interactable? chest = null)
     {
-        ClosePower();
+        CloseGarage();ClosePower();
         _hud.HideHelp();
         _openedChest = chest;
         _inventoryVisible = true;
@@ -262,6 +273,7 @@ public partial class ThresholdWorld : Node2D
     }
     public void CloseInventory()
     {
+        CloseGarage();
         _openedChest = null; _inventoryVisible = false;
         _controlledActor.InventoryOpen = false;
         _hud.Supplies.Close();
@@ -317,7 +329,7 @@ public partial class ThresholdWorld : Node2D
         RefreshBeacon();
         RefreshCrafting();
         if(PowerVisible)_powerPanel.Refresh(_state.Power(),_state.Snapshot(_controlledActor.PlayerId).Version);
-        bool outside = _controlledActor.Position.X >= ThresholdMap.SurfaceStart;
+        bool outside = OnSurface;
         var snapshot = _state.Snapshot(_controlledActor.PlayerId);
         string prompt = _focused == null ? ""
             : (_focused.IsStorage ? "E / A  Open communal chest" : _focused.Depleted ? $"{_focused.DisplayName} | Empty" : $"E / A Gather {_focused.DisplayName} ({snapshot.Remaining[_focused.ObjectId]} left)");
@@ -338,12 +350,15 @@ public partial class ThresholdWorld : Node2D
         }
         if(_focusedStation!=null && !ModalOpen)prompt=$"E / A  Manage {_focusedStation.Label}";
         if(AtGardenSocket(_controlledActor)&&!ModalOpen)prompt="E / A  Install growing bed (kit required)";
+        if(Region!=null&&!ModalOpen&&_controlledActor.Position.DistanceTo(OnSurface?Point(Region.Entrance.Cell):Point(Region.Anchor("insidePortal")))<44)
+            prompt=OnSurface?"Walk through the arch: sanctuary":"Walk through the arch: surface";
+        string garagePrompt=GaragePrompt();if(garagePrompt!=""||GarageMenuVisible)prompt=garagePrompt;
         string debug = _debug
             ? $"{Engine.GetFramesPerSecond()} fps | pos {_controlledActor.Position.Round()} | vel {_controlledActor.Velocity.Round()}\n" +
               $"target: {_focused?.ObjectId ?? "none"} | world seed {Config.WorldSeed}\nF2: home   F3: surface   R: restore all salvage\nF4: +1 min   F5: +1 day   Shift+F5: +3 days"
             : "";
-        _hud.Present(outside ? "SURFACE CLEARING" : "REFUGE / HOME", snapshot,
-            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId),PowerVisible||BeaconVisible||CraftingVisible);
+        _hud.Present(Region?.AreaName(_controlledActor.Position.X,_controlledActor.Position.Y) ?? (outside ? "SURFACE CLEARING" : "REFUGE / HOME"), snapshot,
+            prompt, _feedbackTime > 0 ? _feedback : "", debug, _debug, Clock.Snapshot(), HungerFor(_controlledActor.PlayerId),PowerVisible||BeaconVisible||CraftingVisible||GarageMenuVisible);
     }
 
     public override void _UnhandledKeyInput(InputEvent @event)
@@ -351,6 +366,7 @@ public partial class ThresholdWorld : Node2D
         if (@event is not InputEventKey key || !key.Pressed || key.Echo) return;
         switch (key.PhysicalKeycode)
         {
+            case Key.Escape: if(GarageMenuVisible||Dismantling){CloseGarage();break;}else return;
             case Key.R:
                 // Reload detaches this node immediately. Handle the event before the tree changes.
                 GetViewport().SetInputAsHandled();
@@ -378,6 +394,7 @@ public partial class ThresholdWorld : Node2D
         _controlledActor.Position = position;
         _controlledActor.Velocity = Vector2.Zero;
         _controlledActor.GetNode<Camera2D>("Camera2D").ResetSmoothing();
+        SetRegionCamera();
     }
 
     private void Notify(string message) { _feedback = message; _feedbackTime = 4; }

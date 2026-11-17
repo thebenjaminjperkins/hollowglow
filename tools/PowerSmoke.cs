@@ -97,14 +97,14 @@ public partial class PowerSmoke : Node
         }
         catch(Exception error) {GD.PushError(error.ToString());GetTree().Quit(1);}
     }
-    private bool LampsVisible()=>_world.GetNode<ThresholdMap>("Map").GetChildren().OfType<SanctuaryProp>()
-        .Where(p=>p.Kind==PixelSprite.Motif.Lamp).SelectMany(p=>p.GetChildren().OfType<PointLight2D>()).Any(p=>p.Visible);
+    private bool LampsVisible()=>WorldVisuals.Descendants(_world).OfType<PointLight2D>()
+        .Where(p=>p.HasMeta("power_consumer")&&p.GetMeta("power_consumer").AsString()=="lighting").Any(p=>p.IsVisibleInTree());
     private async Task AtGenerator()
     {
         var station=_world.PowerStations.Single(s=>s.Id=="generator");_actor.Position=station.Position+new Vector2(0,12);
         await Frames(3);_input.Tap=true;await Frames(3);Check(_world.PowerVisible,"Nearby generator interaction opens power controls");
     }
-    private async Task Chest() {_actor.Position=new Vector2(88,242);await Frames(3);_input.Tap=true;await Frames(3);}
+    private async Task Chest() {_actor.Position=_world.StoragePosition+new Vector2(0,18);await Frames(3);_input.Tap=true;await Frames(3);}
     private async Task KeyPress(Key key)
     {Input.ParseInputEvent(new InputEventKey {PhysicalKeycode=key,Pressed=true});await Frames(2);Input.ParseInputEvent(new InputEventKey {PhysicalKeycode=key,Pressed=false});await Frames(2);}
     private async Task Joy(JoyButton button)
