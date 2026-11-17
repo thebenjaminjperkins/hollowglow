@@ -1,0 +1,479 @@
+{
+  "config": {
+    "assumptions": {
+      "active_biomass_generator_goal": 1,
+      "barrow_slots": 8,
+      "biomass_generator_capacity": 2,
+      "biomass_generator_hopper": 6,
+      "harvest_seconds": 3,
+      "manual_gear_handoff_seconds": 2,
+      "plant_seconds": 3,
+      "setback_harvest_delay_seconds": 300,
+      "source_handling_seconds": 2,
+      "surface_travel_6_seconds_each_way": 60,
+      "sustainability_biomass_reserve_days": 1,
+      "sustainability_food_reserve_days": 1,
+      "transfer_seconds_per_type": 2,
+      "wild_gather_seconds_per_unit": 2,
+      "wild_regrowth": "Linear below capacity; whole harvestable units only; no overflow accumulation",
+      "wild_regrowth_days": [
+        3,
+        3.5,
+        4
+      ]
+    },
+    "candidate_projects": {
+      "Battery Bank": {
+        "advanced": 1,
+        "basic": 3,
+        "metal": 8
+      },
+      "Fertilizer Processor": {
+        "basic": 2,
+        "biomass": 4,
+        "metal": 4
+      },
+      "Generator Efficiency Upgrade": {
+        "advanced": 1,
+        "basic": 3,
+        "metal": 6
+      },
+      "Grow Lights": {
+        "basic": 2,
+        "metal": 3
+      },
+      "Improved Weapon": {
+        "basic": 2,
+        "metal": 6
+      },
+      "Outdoor Farm Kit": {
+        "biomass": 5,
+        "metal": 4
+      },
+      "Portable Light": {
+        "basic": 2,
+        "metal": 2
+      },
+      "Reinforced Armor": {
+        "basic": 2,
+        "metal": 8
+      },
+      "Resurrection Chamber Repair": {
+        "advanced": 2,
+        "basic": 3,
+        "metal": 10
+      },
+      "Vehicle Restoration": {
+        "advanced": 2,
+        "basic": 5,
+        "metal": 14
+      }
+    },
+    "chest_slots": 24,
+    "crops": {
+      "glowcap": {
+        "days": 3,
+        "seed": "glowcap_seed",
+        "yield": {
+          "biomass": 1,
+          "food": 2,
+          "glowcap_seed": 1
+        }
+      },
+      "marrowvine": {
+        "days": 3,
+        "seed": "marrowvine_seed",
+        "yield": {
+          "biomass": 3,
+          "marrowvine_seed": 1
+        }
+      },
+      "potato": {
+        "days": 2,
+        "seed": "potato_seed",
+        "yield": {
+          "food": 3,
+          "potato_seed": 1
+        }
+      }
+    },
+    "cycle_seconds": 600,
+    "daylight_seconds": 360,
+    "initial_plots": 4,
+    "maximum_plots": 8,
+    "night_start": 420,
+    "observation_days": 28,
+    "personal_slots": 6,
+    "players": [
+      2,
+      4,
+      6
+    ],
+    "recipes": {
+      "backpack": {
+        "assembly": 20,
+        "cost": {
+          "basic": 2,
+          "metal": 8
+        },
+        "install": 2
+      },
+      "barrow": {
+        "assembly": 30,
+        "cost": {
+          "basic": 2,
+          "metal": 10
+        },
+        "install": 5
+      },
+      "bed": {
+        "assembly": 10,
+        "clear": 30,
+        "cost": {
+          "biomass": 5,
+          "metal": 6
+        },
+        "install": 15
+      },
+      "biogenerator": {
+        "assembly": 30,
+        "cost": {
+          "basic": 4,
+          "metal": 10
+        },
+        "install": 30
+      },
+      "tool": {
+        "assembly": 20,
+        "cost": {
+          "basic": 3,
+          "metal": 5
+        }
+      }
+    },
+    "resource_order": [
+      "metal",
+      "basic",
+      "advanced",
+      "fuel",
+      "food",
+      "biomass",
+      "potato_seed",
+      "glowcap_seed",
+      "marrowvine_seed"
+    ],
+    "schema": 1,
+    "seed": 1701,
+    "setbacks": [
+      "baseline",
+      "missed_harvest",
+      "failed_expedition"
+    ],
+    "signal_days": 14,
+    "site_columns": [
+      "metal",
+      "basic",
+      "advanced",
+      "fuel",
+      "food"
+    ],
+    "stack_limit": 10,
+    "starting_food_per_player": 2,
+    "starting_storage": {
+      "fuel": 2,
+      "glowcap_seed": 2,
+      "potato_seed": 2
+    },
+    "strategies": [
+      "infrastructure",
+      "exploration",
+      "balanced"
+    ],
+    "worlds": {
+      "industrial_hollow": {
+        "seed_locations": [
+          2,
+          1
+        ],
+        "seed_range": [
+          1,
+          2
+        ],
+        "sites": [
+          {
+            "name": "Gatehouse",
+            "road": true,
+            "stock": [
+              8,
+              4,
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "name": "Workers shelter",
+            "road": true,
+            "stock": [
+              5,
+              2,
+              0,
+              1,
+              3
+            ]
+          },
+          {
+            "name": "Seep nursery",
+            "road": false,
+            "stock": [
+              10,
+              4,
+              0,
+              1,
+              2
+            ],
+            "wild": 6
+          },
+          {
+            "name": "Assembly hall",
+            "road": true,
+            "stock": [
+              12,
+              5,
+              1,
+              2,
+              2
+            ]
+          },
+          {
+            "name": "Machinery yard verge",
+            "road": true,
+            "stock": [
+              20,
+              7,
+              2,
+              4,
+              2
+            ],
+            "wild": 4
+          },
+          {
+            "name": "Deep store",
+            "road": true,
+            "stock": [
+              15,
+              5,
+              2,
+              2,
+              1
+            ]
+          }
+        ],
+        "totals": {
+          "advanced": 5,
+          "basic": 27,
+          "biomass": 10,
+          "food": 12,
+          "fuel": 11,
+          "metal": 70
+        }
+      },
+      "old_highway": {
+        "seed_locations": [
+          1,
+          3
+        ],
+        "seed_range": [
+          1,
+          2
+        ],
+        "sites": [
+          {
+            "name": "Roadkeeper shelter",
+            "road": true,
+            "stock": [
+              8,
+              3,
+              0,
+              2,
+              3
+            ]
+          },
+          {
+            "name": "Overpass verge",
+            "road": true,
+            "stock": [
+              4,
+              1,
+              0,
+              1,
+              2
+            ],
+            "wild": 4
+          },
+          {
+            "name": "Service bay",
+            "road": true,
+            "stock": [
+              12,
+              4,
+              0,
+              3,
+              2
+            ]
+          },
+          {
+            "name": "Drainage greenhouse",
+            "road": false,
+            "stock": [
+              8,
+              2,
+              0,
+              2,
+              2
+            ],
+            "wild": 5
+          },
+          {
+            "name": "Freight wreck",
+            "road": true,
+            "stock": [
+              18,
+              6,
+              1,
+              5,
+              2
+            ]
+          },
+          {
+            "name": "Highway depot verge",
+            "road": true,
+            "stock": [
+              15,
+              5,
+              2,
+              3,
+              1
+            ],
+            "wild": 3
+          }
+        ],
+        "totals": {
+          "advanced": 3,
+          "basic": 21,
+          "biomass": 12,
+          "food": 12,
+          "fuel": 16,
+          "metal": 65
+        }
+      },
+      "overgrown_valley": {
+        "seed_locations": [
+          1,
+          2,
+          3
+        ],
+        "seed_range": [
+          2,
+          3
+        ],
+        "sites": [
+          {
+            "name": "Ranger shelter",
+            "road": true,
+            "stock": [
+              6,
+              3,
+              0,
+              1,
+              3
+            ]
+          },
+          {
+            "name": "Wild nursery",
+            "road": false,
+            "stock": [
+              3,
+              1,
+              0,
+              0,
+              4
+            ],
+            "wild": 6
+          },
+          {
+            "name": "Abandoned farm",
+            "road": true,
+            "stock": [
+              8,
+              3,
+              0,
+              1,
+              4
+            ],
+            "wild": 4
+          },
+          {
+            "name": "Glasshouse ruins",
+            "road": false,
+            "stock": [
+              7,
+              3,
+              0,
+              1,
+              3
+            ],
+            "wild": 6
+          },
+          {
+            "name": "Pump station",
+            "road": true,
+            "stock": [
+              14,
+              5,
+              1,
+              3,
+              2
+            ]
+          },
+          {
+            "name": "Quarry thicket",
+            "road": false,
+            "stock": [
+              12,
+              3,
+              1,
+              3,
+              2
+            ],
+            "wild": 4
+          }
+        ],
+        "totals": {
+          "advanced": 2,
+          "basic": 18,
+          "biomass": 20,
+          "food": 18,
+          "fuel": 9,
+          "metal": 50
+        }
+      }
+    }
+  },
+  "source_hashes": {
+    "data/crafting.json": "e4a38796773ed928d7cd86c9b44c67ddd19db1ab5bdf290625f0a27b6482795e",
+    "data/farming.json": "fa96856cd559bdb29b983c801e6fa8d11621d2a5083f01c02f5fc25974b12399",
+    "data/hunger.json": "bfbe5bef2f4189c88fc53cbd1e40fa9d5f89335ba0a770b63bc66fd287158853",
+    "data/power.json": "6d98447c1b9c89dc20fa89cbffd56276937309b166f60f501c4338f868d24dab",
+    "data/rescue.json": "49b52f8e98b8ee5958d7541e3da762e1ec71c4e3f1a712e6a97040b41d6352bf",
+    "data/supplies.json": "9a6bf067c364537883a7bc57fd43e904a19acfdef08df663e69e9c80f9db4466",
+    "docs/measurements/region/travel-1701.json": "a539a41ea73e3bccb5934bd44106173117097c897e559beb00536f0125b5f3f8",
+    "studies/economy14/config.json": "f2690a84c412930d6487dfccdc378c9225989bdd2b8b49ab3770160d9bb97af7",
+    "studies/economy14/engine.py": "aed3f21f547c67eb2b0413d552a903a2d861aadc24149516f1fc3ec123dc1130",
+    "studies/economy14/model.py": "312e488e33ca19f4a14cdd1822878d3d01e19ab2e1ce53e450316da72bfb4745",
+    "studies/economy14/run.py": "0cc8ef751420ca7264c3619cfc07cbc134432b2bb7a813c586e1ddc906976d72",
+    "studies/economy14/sustainability.py": "eda1b811ded74897a1e3b269ad79d9b7adc6c0cf5795e9f0b1c99da1e4bed8e3",
+    "studies/economy14/test_study.py": "a3a91d4534433053426da8d3c9fb36c9ec151deb021fff5f06f0bd232dc2c985",
+    "studies/economy14/verify.py": "5a2d2a7643e7caef9a203fd869c0ee2f86b4b2acf509500d18a4e692a5fb832b"
+  }
+}
