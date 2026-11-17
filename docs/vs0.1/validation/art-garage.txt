@@ -1,0 +1,1 @@
+PASS: deterministic exports, approved 64 colors, binary alpha, density, shared state-frame anchors, periodic floors and image provenance

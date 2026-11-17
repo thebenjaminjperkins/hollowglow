@@ -1,0 +1,32 @@
+Godot Engine v4.4.1.stable.mono.official.49a5bc7b6 - https://godotengine.org
+
+PASS: Playable economy stays seven-day/four-plot/six-slot
+PASS: Remote dismantling rejected
+PASS: Actual walk through threshold
+PASS: Building walls conceal office on approach
+PASS: Vehicle inspection defaults to preservation
+PASS: Preserve leaves vehicle intact
+PASS: Search opens visual slot interface: garage-office
+PASS: Partial loot collection keeps source remainder
+PASS: Take all / keyboard / controller quick collection keeps finite count exact
+PASS: Search opens visual slot interface: garage-parts
+PASS: Take all / keyboard / controller quick collection keeps finite count exact
+PASS: Search opens visual slot interface: garage-crate
+PASS: Take all / keyboard / controller quick collection keeps finite count exact
+PASS: Search opens visual slot interface: garage-fuel
+PASS: Take all / keyboard / controller quick collection keeps finite count exact
+PASS: Personal tool gate enforced live
+PASS: Tool pickup occupies actual inventory slot
+PASS: Held action begins
+PASS: Responsive dismantling completes
+PASS: Machine changes to stripped state
+PASS: Explored office remains mapped outside current visibility
+PASS: Unseen dynamic object state is not rendered through mapped geography
+PASS: Original communal chest still works
+PASS: Exactly allocated Scrap; preservation defers four
+PASS: Deposited counts preserve all starting and acquired resources
+PASS: Threshold return preserves depletion, vehicle state and exploration
+MEASURED garage: {"outbound_walking":36.1000000000006,"site_walking":16.916666700000377,"inspection_inventory":0.5666665999999978,"dismantling":0.8500000000000014,"return_walking":35.06666670000051,"deposit_inventory":0.08333330000000672}; total 89.58s
+PASS: New Run restores objects, fixture tool and restoration opportunity
+PASS: Reset clears shared discovery
+PASS: garage live navigation, searching/partial transfers, tool/van controls, cancellation, fog/memory, quantities, survival continuity, measured trip and reset

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "build",
+    "command": "dotnet build Hollowlight.csproj --no-restore",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/build.txt",
+    "scope": "existing validation"
+  },
+  {
+    "name": "core-tests",
+    "command": "dotnet run --project tests/Hollowlight.Core.Tests.csproj --no-restore",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/core-tests.txt",
+    "scope": "existing validation"
+  },
+  {
+    "name": "hall-smoke",
+    "command": "Godot --headless --fixed-fps 60 --path . res://tools/HallSmoke.tscn",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/hall-smoke.txt",
+    "scope": "existing validation"
+  },
+  {
+    "name": "garage-smoke",
+    "command": "Godot --headless --fixed-fps 60 --path . res://tools/GarageSmoke.tscn -- --world-seed=1701 --preserve-van",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/garage-smoke.txt",
+    "scope": "existing validation"
+  },
+  {
+    "name": "art-sanctuary",
+    "command": "python3 tools/art/check_sanctuary.py",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/art-sanctuary.txt",
+    "scope": "existing validation"
+  },
+  {
+    "name": "art-garage",
+    "command": "python3 tools/art/check_garage.py",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/art-garage.txt",
+    "scope": "existing validation"
+  },
+  {
+    "name": "art-region",
+    "command": "python3 tools/art/check_region.py",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/art-region.txt",
+    "scope": "existing validation"
+  },
+  {
+    "name": "timing",
+    "command": "python3 docs/vs0.1/timing_worksheet.py",
+    "exit_code": 0,
+    "run": "fresh VS0.1 2026-11-17",
+    "log": "validation/timing.txt",
+    "scope": "worksheet-only"
+  }
+]

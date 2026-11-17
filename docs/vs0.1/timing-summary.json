@@ -1,0 +1,48 @@
+[
+  {
+    "configuration": "unchanged",
+    "cycle_minutes": 10.0,
+    "signal_target": 7,
+    "uninterrupted_ready_minute_from_start_at_1": 71.0,
+    "by_minute_20": {
+      "minute": 20.0,
+      "event": "dawn: personal meals only",
+      "personal_food_A": 2,
+      "personal_food_B": 2,
+      "stored_food": 0,
+      "total_food": 4,
+      "organic": 0,
+      "scrap": 10,
+      "loose_fuel": 2.0,
+      "tank_fuel": 2.44,
+      "fuel_burned": 1.56,
+      "net_signal_days": 1.9,
+      "missed_meal_units": 0,
+      "bed_materials_available": false,
+      "backpack_materials_available": false
+    }
+  },
+  {
+    "configuration": "candidate-not-approved",
+    "cycle_minutes": 4.0,
+    "signal_target": 3,
+    "uninterrupted_ready_minute_from_start_at_1": 13.0,
+    "by_minute_20": {
+      "minute": 20.0,
+      "event": "dawn: personal meals only",
+      "personal_food_A": 2,
+      "personal_food_B": 2,
+      "stored_food": 10,
+      "total_food": 14,
+      "organic": 2,
+      "scrap": 10,
+      "loose_fuel": 2.0,
+      "tank_fuel": 0.1,
+      "fuel_burned": 3.9,
+      "net_signal_days": 3.0,
+      "missed_meal_units": 0,
+      "bed_materials_available": false,
+      "backpack_materials_available": false
+    }
+  }
+]

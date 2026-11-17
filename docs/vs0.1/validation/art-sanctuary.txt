@@ -1,0 +1,1 @@
+PASS: common palette, 2px/world density, anchors, periodic terrain joins, corner masks; 59 legacy files unchanged; approved M2a / inventory UX / M2b / M3a / M3b / M4a / M4b / M5a / M6a / M6b / M6c / hall follow-up runtime and entry changes verified

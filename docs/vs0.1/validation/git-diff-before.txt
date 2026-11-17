@@ -1,0 +1,38 @@
+ Hollowlight_Roadmap.md                   |  99 +++++++++++++++++++-
+ Hollowlight_Vision.md                    |  13 +++
+ README.md                                |  61 +++++++++++++
+ docs/DECISIONS.md                        | 131 ++++++++++++++++++++++++++
+ docs/PLAYTEST_LOG.md                     | 152 +++++++++++++++++++++++++++++++
+ docs/screenshots/rescue/degrading.png    | Bin 284016 -> 0 bytes
+ docs/screenshots/rescue/offline.png      | Bin 274077 -> 0 bytes
+ docs/screenshots/rescue/rescued.png      | Bin 182530 -> 0 bytes
+ docs/screenshots/rescue/transmitting.png | Bin 279993 -> 0 bytes
+ scripts/core/FiniteScavenging.cs         |  16 +++-
+ scripts/core/SharedSupplies.cs           |   1 +
+ scripts/input/KeyboardInput.cs           |   1 +
+ scripts/input/PlayerInput.cs             |   1 +
+ scripts/presentation/GardenSocketArt.cs  |   2 +-
+ scripts/presentation/GrowingPlotArt.cs   |   1 +
+ scripts/presentation/PowerIndicator.cs   |   2 +-
+ scripts/presentation/RoomAssets.cs       |  18 +++-
+ scripts/presentation/RoomPresentation.cs |  20 +++-
+ scripts/presentation/RoomSprite.cs       |   2 +-
+ scripts/presentation/RoomTerrain.cs      |   4 +-
+ scripts/presentation/SanctuaryRoom.cs    |  10 ++
+ scripts/presentation/SuppliesPanel.cs    |  14 ++-
+ scripts/presentation/ThresholdHud.cs     |  16 ++++
+ scripts/world/PlayerCharacter.cs         |   2 +
+ scripts/world/ThresholdCrafting.cs       |   2 +-
+ scripts/world/ThresholdMap.cs            |  45 +++++++++
+ scripts/world/ThresholdPower.cs          |   4 +-
+ scripts/world/ThresholdWorld.cs          |  41 ++++++---
+ scripts/world/WorldConfig.cs             |   1 +
+ tests/CraftingBalanceSimulation.cs       |  66 ++++++++++++--
+ tests/Hollowlight.Core.Tests.csproj      |   8 ++
+ tests/Program.cs                         |   6 ++
+ tools/CraftingSmoke.cs                   |   4 +-
+ tools/FarmingSmoke.cs                    |   2 +-
+ tools/PowerSmoke.cs                      |   6 +-
+ tools/SmokeInput.cs                      |   2 +
+ tools/art/check_sanctuary.py             |   6 +-
+ 37 files changed, 707 insertions(+), 52 deletions(-)

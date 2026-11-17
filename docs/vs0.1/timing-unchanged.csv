@@ -1,0 +1,14 @@
+minute,event,personal_food_A,personal_food_B,stored_food,total_food,organic,scrap,loose_fuel,tank_fuel,fuel_burned,net_signal_days,missed_meal_units,bed_materials_available,backpack_materials_available
+0.0,,2,2,0,4,0,0,2.0,0.0,0.0,0.0,0,False,False
+0.5,,2,2,0,4,0,0,2.0,0.0,0.0,0.0,0,False,False
+1.0,load/start; beacon+lights 3 PU,2,2,0,4,0,0,1.0,1.0,0.0,0.0,0,False,False
+4.0,provisional expedition return; deposit Food4/Fuel4/Scrap10; preserve van,2,2,4,8,0,10,5.0,0.76,0.24,0.3,0,False,False
+4.25,explicitly withdraw 2 Food each,4,4,0,8,0,10,5.0,0.74,0.26,0.325,0,False,False
+4.5,manual whole-unit refuel,4,4,0,8,0,10,4.0,1.72,0.28,0.35,0,False,False
+8.0,"manual whole-unit refuel; lights off, bench on: 4 PU; no ingredients/craft credited",4,4,0,8,0,10,3.0,2.44,0.56,0.7,0,False,False
+9.0,,4,4,0,8,0,10,3.0,2.34,0.66,0.8,0,False,False
+10.0,"dawn: personal meals only; bench off, lights on: 3 PU",3,3,0,6,0,10,3.0,2.24,0.76,0.9,0,False,False
+12.0,,3,3,0,6,0,10,3.0,2.08,0.92,1.1,0,False,False
+13.0,manual whole-unit refuel,3,3,0,6,0,10,2.0,3.0,1.0,1.2,0,False,False
+16.0,,3,3,0,6,0,10,2.0,2.76,1.24,1.5,0,False,False
+20.0,dawn: personal meals only,2,2,0,4,0,10,2.0,2.44,1.56,1.9,0,False,False

@@ -1,0 +1,16 @@
+{
+  "captured_date": "2026-11-17",
+  "existing_nonignored_files_unchanged": 743,
+  "missing_tracked_files_preserved": [
+    "docs/screenshots/rescue/degrading.png",
+    "docs/screenshots/rescue/offline.png",
+    "docs/screenshots/rescue/rescued.png",
+    "docs/screenshots/rescue/transmitting.png"
+  ],
+  "head_and_index_unchanged": true,
+  "existing_source_or_evidence_changes": [],
+  "new_files_confined_to": "docs/vs0.1/",
+  "ignored_cache_files_changed": [],
+  "package_relative_links_checked": 38,
+  "notes": "Ignored caches may regenerate; no new profile, source/asset/balance change, commit, staging, restoration or deletion."
+}

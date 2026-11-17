@@ -1,0 +1,1 @@
+PASS: shared 64-color palette, binary alpha, native density, anchors, source hashes, six periodic materials and image provenance

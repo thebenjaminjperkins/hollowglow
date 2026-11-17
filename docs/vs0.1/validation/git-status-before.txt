@@ -1,0 +1,387 @@
+ M Hollowlight_Roadmap.md
+ M Hollowlight_Vision.md
+ M README.md
+ M docs/DECISIONS.md
+ M docs/PLAYTEST_LOG.md
+ D docs/screenshots/rescue/degrading.png
+ D docs/screenshots/rescue/offline.png
+ D docs/screenshots/rescue/rescued.png
+ D docs/screenshots/rescue/transmitting.png
+ M scripts/core/FiniteScavenging.cs
+ M scripts/core/SharedSupplies.cs
+ M scripts/input/KeyboardInput.cs
+ M scripts/input/PlayerInput.cs
+ M scripts/presentation/GardenSocketArt.cs
+ M scripts/presentation/GrowingPlotArt.cs
+ M scripts/presentation/PowerIndicator.cs
+ M scripts/presentation/RoomAssets.cs
+ M scripts/presentation/RoomPresentation.cs
+ M scripts/presentation/RoomSprite.cs
+ M scripts/presentation/RoomTerrain.cs
+ M scripts/presentation/SanctuaryRoom.cs
+ M scripts/presentation/SuppliesPanel.cs
+ M scripts/presentation/ThresholdHud.cs
+ M scripts/world/PlayerCharacter.cs
+ M scripts/world/ThresholdCrafting.cs
+ M scripts/world/ThresholdMap.cs
+ M scripts/world/ThresholdPower.cs
+ M scripts/world/ThresholdWorld.cs
+ M scripts/world/WorldConfig.cs
+ M tests/CraftingBalanceSimulation.cs
+ M tests/Hollowlight.Core.Tests.csproj
+ M tests/Program.cs
+ M tools/CraftingSmoke.cs
+ M tools/FarmingSmoke.cs
+ M tools/PowerSmoke.cs
+ M tools/SmokeInput.cs
+ M tools/art/check_sanctuary.py
+?? assets/garage/README.md
+?? assets/garage/compressor.png
+?? assets/garage/compressor.png.import
+?? assets/garage/corner.png
+?? assets/garage/corner.png.import
+?? assets/garage/crate.png
+?? assets/garage/crate.png.import
+?? assets/garage/cupboard.png
+?? assets/garage/cupboard.png.import
+?? assets/garage/floor.png
+?? assets/garage/floor.png.import
+?? assets/garage/fuel-cabinet.png
+?? assets/garage/fuel-cabinet.png.import
+?? assets/garage/manifest.json
+?? assets/garage/rack.png
+?? assets/garage/rack.png.import
+?? assets/garage/source/.gdignore
+?? assets/garage/source/floor.png
+?? assets/garage/source/prompts.json
+?? assets/garage/source/props.png
+?? assets/garage/source/van.png
+?? assets/garage/tool-icon.png
+?? assets/garage/tool-icon.png.import
+?? assets/garage/van.png
+?? assets/garage/van.png.import
+?? assets/garage/wall-post.png
+?? assets/garage/wall-post.png.import
+?? assets/garage/wall.png
+?? assets/garage/wall.png.import
+?? assets/region/README.md
+?? assets/region/corner.png
+?? assets/region/corner.png.import
+?? assets/region/deck.png
+?? assets/region/deck.png.import
+?? assets/region/manifest.json
+?? assets/region/mouth.png
+?? assets/region/mouth.png.import
+?? assets/region/ruin.png
+?? assets/region/ruin.png.import
+?? assets/region/sign.png
+?? assets/region/sign.png.import
+?? assets/region/source/.gdignore
+?? assets/region/source/prompts.json
+?? assets/region/source/props.png
+?? assets/region/source/terrain.png
+?? assets/region/terrain.png
+?? assets/region/terrain.png.import
+?? assets/region/tree.png
+?? assets/region/tree.png.import
+?? data/contact_shadows.json
+?? data/locations/garage.json
+?? data/presentation.json
+?? data/regions/mountain.json
+?? data/regions/sanctuary_hall.json
+?? docs/ART_DIRECTION_UPDATE.md
+?? docs/DEVELOPMENT_ALIGNMENT_BRIEF_DRAFT.md
+?? docs/HOLLOWLIGHT_VISION_UPDATE_DRAFT.md
+?? docs/M6A_ECONOMY.md
+?? docs/M6A_GEOGRAPHY.md
+?? docs/M6A_TRAVEL.md
+?? docs/M6B_GARAGE.md
+?? docs/M6B_TRAVEL.md
+?? docs/M6C_TECHNICAL.md
+?? docs/PLANNING_REVIEW_VS0.md
+?? docs/SANCTUARY_HALL_REVIEW.md
+?? docs/measurements/garage/preservation.json
+?? docs/measurements/garage/runtime-validation.json
+?? docs/measurements/garage/travel-1701-dismantle.json
+?? docs/measurements/garage/travel-1701-preserve.json
+?? docs/measurements/garage/travel-499-dismantle.json
+?? docs/measurements/garage/travel-8-dismantle.json
+?? docs/measurements/m6c/after.json
+?? docs/measurements/m6c/before.json
+?? docs/measurements/m6c/build.txt
+?? docs/measurements/m6c/core-tests.txt
+?? docs/measurements/m6c/graphical-exit.json
+?? docs/measurements/m6c/preserved-inputs.json
+?? docs/measurements/m6c/recordings.json
+?? docs/measurements/m6c/runtime-validation.json
+?? docs/measurements/m6c/shutdown-investigation.json
+?? docs/measurements/m6c/shutdown-reruns.json
+?? docs/measurements/m6c/validation.json
+?? docs/measurements/region/travel-1701.json
+?? docs/measurements/region/travel-499.json
+?? docs/measurements/region/travel-8.json
+?? docs/measurements/sanctuary-hall/after.json
+?? docs/measurements/sanctuary-hall/before.json
+?? docs/measurements/sanctuary-hall/build.txt
+?? docs/measurements/sanctuary-hall/core-tests.txt
+?? docs/measurements/sanctuary-hall/hall-live.txt
+?? docs/measurements/sanctuary-hall/hall.json
+?? docs/measurements/sanctuary-hall/preserved-inputs.json
+?? docs/measurements/sanctuary-hall/runtime-validation.json
+?? docs/measurements/sanctuary-hall/summary.json
+?? docs/proposals/m6c-followup-garage.svg
+?? docs/proposals/m6c-followup-sanctuary.svg
+?? docs/recordings/m6c/after-garage-motion.mp4
+?? docs/recordings/m6c/after-sanctuary-motion.mp4
+?? docs/recordings/m6c/before-garage-motion.mp4
+?? docs/recordings/m6c/before-sanctuary-motion.mp4
+?? docs/recordings/m6c/garage-motion-comparison.mp4
+?? docs/recordings/m6c/sanctuary-motion-comparison.mp4
+?? docs/screenshots/garage/README.md
+?? docs/screenshots/garage/explored-memory.png
+?? docs/screenshots/garage/forecourt.png
+?? docs/screenshots/garage/office-search.png
+?? docs/screenshots/garage/overview-review-zoom.png
+?? docs/screenshots/garage/van-inspection.png
+?? docs/screenshots/garage/van-intact.png
+?? docs/screenshots/garage/van-partial.png
+?? docs/screenshots/garage/van-stripped.png
+?? docs/screenshots/garage/workshop.png
+?? docs/screenshots/m6c/README.md
+?? docs/screenshots/m6c/after/cave-vegetation.png
+?? docs/screenshots/m6c/after/garage-bay.png
+?? docs/screenshots/m6c/after/garage-dusk.png
+?? docs/screenshots/m6c/after/garage-entry.png
+?? docs/screenshots/m6c/after/garage-night.png
+?? docs/screenshots/m6c/after/occlusion-left.png
+?? docs/screenshots/m6c/after/occlusion-off.png
+?? docs/screenshots/m6c/after/occlusion-right.png
+?? docs/screenshots/m6c/after/sanctuary.png
+?? docs/screenshots/m6c/before/cave-vegetation.png
+?? docs/screenshots/m6c/before/garage-bay.png
+?? docs/screenshots/m6c/before/garage-dusk.png
+?? docs/screenshots/m6c/before/garage-entry.png
+?? docs/screenshots/m6c/before/garage-night.png
+?? docs/screenshots/m6c/before/occlusion-left.png
+?? docs/screenshots/m6c/before/occlusion-off.png
+?? docs/screenshots/m6c/before/occlusion-right.png
+?? docs/screenshots/m6c/before/sanctuary.png
+?? docs/screenshots/region/bridge.png
+?? docs/screenshots/region/common.png
+?? docs/screenshots/region/entrance.png
+?? docs/screenshots/region/garden.png
+?? docs/screenshots/region/hamlet.png
+?? docs/screenshots/region/hollow.png
+?? docs/screenshots/region/hut.png
+?? docs/screenshots/region/rescue/degrading.png
+?? docs/screenshots/region/rescue/offline.png
+?? docs/screenshots/region/rescue/rescued.png
+?? docs/screenshots/region/rescue/transmitting.png
+?? docs/screenshots/region/sanctuary-overview.png
+?? docs/screenshots/region/surface-overview.png
+?? docs/screenshots/region/vestibule.png
+?? docs/screenshots/region/yard.png
+?? docs/screenshots/sanctuary-hall/README.md
+?? docs/screenshots/sanctuary-hall/after/cave-vegetation.png
+?? docs/screenshots/sanctuary-hall/after/garage-bay.png
+?? docs/screenshots/sanctuary-hall/after/garage-dusk.png
+?? docs/screenshots/sanctuary-hall/after/garage-entry.png
+?? docs/screenshots/sanctuary-hall/after/garage-night.png
+?? docs/screenshots/sanctuary-hall/after/occlusion-left.png
+?? docs/screenshots/sanctuary-hall/after/occlusion-off.png
+?? docs/screenshots/sanctuary-hall/after/occlusion-right.png
+?? docs/screenshots/sanctuary-hall/after/sanctuary.png
+?? docs/screenshots/sanctuary-hall/before/cave-vegetation.png
+?? docs/screenshots/sanctuary-hall/before/garage-bay.png
+?? docs/screenshots/sanctuary-hall/before/garage-dusk.png
+?? docs/screenshots/sanctuary-hall/before/garage-entry.png
+?? docs/screenshots/sanctuary-hall/before/garage-night.png
+?? docs/screenshots/sanctuary-hall/before/occlusion-left.png
+?? docs/screenshots/sanctuary-hall/before/occlusion-off.png
+?? docs/screenshots/sanctuary-hall/before/occlusion-right.png
+?? docs/screenshots/sanctuary-hall/before/sanctuary.png
+?? docs/screenshots/sanctuary-hall/footprint.svg
+?? docs/screenshots/sanctuary-hall/hall/entrance-crossing.png
+?? docs/screenshots/sanctuary-hall/hall/hall-entrance.png
+?? docs/screenshots/sanctuary-hall/hall/hall-garden.png
+?? docs/screenshots/sanctuary-hall/hall/hall-power.png
+?? docs/screenshots/sanctuary-hall/hall/hall-powered.png
+?? docs/screenshots/sanctuary-hall/hall/hall-radio.png
+?? docs/screenshots/sanctuary-hall/hall/hall-storage.png
+?? docs/screenshots/sanctuary-hall/hall/hall-workshop.png
+?? docs/screenshots/sanctuary-hall/hall/hud-1024x768.png
+?? docs/screenshots/sanctuary-hall/hall/hud-1280x720.png
+?? docs/screenshots/sanctuary-hall/hall/hud-1536x864.png
+?? docs/screenshots/sanctuary-hall/hall/hud-1920x1080.png
+?? docs/screenshots/sanctuary-hall/hall/hud-2560x1080.png
+?? docs/screenshots/sanctuary-hall/hall/hud-960x540.png
+?? docs/screenshots/sanctuary-hall/hall/resurrection-alcove.png
+?? docs/screenshots/sanctuary-hall/hall/six-actors.png
+?? scripts/core/GaragePlan.cs
+?? scripts/core/GaragePlan.cs.uid
+?? scripts/core/MountainRegion.cs
+?? scripts/core/MountainRegion.cs.uid
+?? scripts/core/SanctuaryPlan.cs
+?? scripts/core/SanctuaryPlan.cs.uid
+?? scripts/core/SharedExploration.cs
+?? scripts/core/SharedExploration.cs.uid
+?? scripts/core/WorldDiscovery.cs
+?? scripts/core/WorldDiscovery.cs.uid
+?? scripts/presentation/ExplorationFog.cs
+?? scripts/presentation/ExplorationFog.cs.uid
+?? scripts/presentation/GarageAssets.cs
+?? scripts/presentation/GarageAssets.cs.uid
+?? scripts/presentation/GarageEnvironment.cs
+?? scripts/presentation/GarageEnvironment.cs.uid
+?? scripts/presentation/GarageObjectArt.cs
+?? scripts/presentation/GarageObjectArt.cs.uid
+?? scripts/presentation/HallEnvironment.cs
+?? scripts/presentation/HallEnvironment.cs.uid
+?? scripts/presentation/HudChrome.cs
+?? scripts/presentation/HudChrome.cs.uid
+?? scripts/presentation/LightingZone.cs
+?? scripts/presentation/LightingZone.cs.uid
+?? scripts/presentation/MountainTerrain.cs
+?? scripts/presentation/MountainTerrain.cs.uid
+?? scripts/presentation/RegionProp.cs
+?? scripts/presentation/RegionProp.cs.uid
+?? scripts/presentation/VehicleInspection.cs
+?? scripts/presentation/VehicleInspection.cs.uid
+?? scripts/presentation/WallAssembly.cs
+?? scripts/presentation/WallAssembly.cs.uid
+?? scripts/presentation/WorldVisuals.cs
+?? scripts/presentation/WorldVisuals.cs.uid
+?? scripts/presentation/world_surface.gdshader
+?? scripts/presentation/world_surface.gdshader.uid
+?? scripts/world/ThresholdGarage.cs
+?? scripts/world/ThresholdGarage.cs.uid
+?? scripts/world/ThresholdRegion.cs
+?? scripts/world/ThresholdRegion.cs.uid
+?? studies/economy14/.gdignore
+?? studies/economy14/README.md
+?? studies/economy14/config.json
+?? studies/economy14/engine.py
+?? studies/economy14/model.py
+?? studies/economy14/reports/RESULTS.md
+?? studies/economy14/reports/candidate-investments.csv
+?? studies/economy14/reports/checksums.json
+?? studies/economy14/reports/daily.csv
+?? studies/economy14/reports/events/industrial_hollow__balanced__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__balanced__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__exploration__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/industrial_hollow__infrastructure__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__balanced__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__exploration__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/old_highway__infrastructure__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__balanced__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__exploration__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__2p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__2p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__2p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__4p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__4p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__4p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__6p__baseline.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__6p__failed_expedition.jsonl.gz
+?? studies/economy14/reports/events/overgrown_valley__infrastructure__6p__missed_harvest.jsonl.gz
+?? studies/economy14/reports/inputs.json
+?? studies/economy14/reports/location-inventories.csv
+?? studies/economy14/reports/paired-setbacks.csv
+?? studies/economy14/reports/results.json
+?? studies/economy14/reports/summary.csv
+?? studies/economy14/run.py
+?? studies/economy14/sustainability.py
+?? studies/economy14/test_study.py
+?? studies/economy14/verify.py
+?? tests/GarageTests.cs
+?? tests/HallTests.cs
+?? tests/RegionTests.cs
+?? tools/GarageSmoke.cs
+?? tools/GarageSmoke.cs.uid
+?? tools/GarageSmoke.tscn
+?? tools/HallProbeBody.cs
+?? tools/HallProbeBody.cs.uid
+?? tools/HallSmoke.cs
+?? tools/HallSmoke.cs.uid
+?? tools/HallSmoke.tscn
+?? tools/PresentationReview.cs
+?? tools/PresentationReview.cs.uid
+?? tools/PresentationReview.tscn
+?? tools/RegionSmoke.cs
+?? tools/RegionSmoke.cs.uid
+?? tools/RegionSmoke.tscn
+?? tools/art/build_garage.py
+?? tools/art/build_region.py
+?? tools/art/check_garage.py
+?? tools/art/check_region.py
+?? tools/art/hall_runtime_hashes.json
+?? tools/art/m6a_runtime_hashes.json
+?? tools/art/m6b_runtime_hashes.json
+?? tools/art/m6c_runtime_hashes.json
+?? tools/check_hall_review.py
+?? tools/check_presentation_evidence.py
+?? tools/package_hall_review.py
+?? tools/package_presentation_review.py
