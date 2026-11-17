@@ -1,0 +1,3 @@
+Godot Engine v4.4.1.stable.mono.official.49a5bc7b6 - https://godotengine.org
+
+PASS: measured 499 garage-detours: expedition 107.03s; installed 114.53s; peak slots 6

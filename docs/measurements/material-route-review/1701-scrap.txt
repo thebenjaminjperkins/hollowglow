@@ -1,0 +1,3 @@
+Godot Engine v4.4.1.stable.mono.official.49a5bc7b6 - https://godotengine.org
+
+PASS: measured 1701 scrap: expedition 23.65s; installed s; peak slots 3

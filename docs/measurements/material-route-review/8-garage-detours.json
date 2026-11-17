@@ -1,0 +1,51 @@
+{
+  "Seed": 8,
+  "Route": "garage-detours",
+  "ExpeditionSeconds": 94.21666669999999,
+  "ThroughInstalledFifthPlotSeconds": 101.69999999999999,
+  "PhaseSeconds": {
+    "hall_to_surface": 4.283333399999973,
+    "surface_to_garage": 31.083333300000376,
+    "garage_search_and_work": 15.816666700000269,
+    "garage_to_organic": 27.200000000000628,
+    "source_gathering": 0.13333329999998966,
+    "organic_to_scrap": 3.9666667000000047,
+    "return_to_surface_threshold": 7.916666599999999,
+    "return_to_hall_storage": 3.7333334000000065,
+    "deposit": 0.0833332999999925,
+    "withdraw_and_power": 2.4666667000000047,
+    "craft_and_install": 5.0166665999999935
+  },
+  "Legs": [
+    {
+      "Name": "hall_to_surface",
+      "Seconds": 4.2833334
+    },
+    {
+      "Name": "surface_to_garage",
+      "Seconds": 31.083333300000003
+    },
+    {
+      "Name": "garage_to_organic",
+      "Seconds": 27.200000000000003
+    },
+    {
+      "Name": "organic_to_scrap",
+      "Seconds": 3.9666667000000047
+    },
+    {
+      "Name": "return_to_surface_threshold",
+      "Seconds": 7.916666599999999
+    },
+    {
+      "Name": "return_to_hall_storage",
+      "Seconds": 3.7333334000000065
+    }
+  ],
+  "RecoveredScrap": 20,
+  "RecoveredOrganic": 8,
+  "HutScrapRemaining": 2,
+  "PeakUsedSlots": 6,
+  "VanPreserved": true,
+  "Note": "Real input/physics/clock, current normal timing, no teleports, time skips, free supplies or altered generation. Efficient known route and test-speed UI; not two-human/combat/blueprint assembly timing."
+}

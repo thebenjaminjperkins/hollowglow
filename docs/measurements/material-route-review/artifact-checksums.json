@@ -1,0 +1,20 @@
+{
+  "docs/CHECKPOINT_MATERIAL_ROUTE_REVIEW.md": "027a880879e34def48423e4a1ab66965be92e395f1dc485d291900d8f8dd9cab",
+  "docs/measurements/material-route-review/1701-garage-detours.json": "a927cefbaeb1b23b1c395c0aa1bba6946368836261c64161ecb93fc81efaafc0",
+  "docs/measurements/material-route-review/1701-garage-detours.txt": "0e71f516248c3ee5ef126e17d92f64f1cfb9e7c96086e932b1f9ba8841f7cc46",
+  "docs/measurements/material-route-review/1701-organic.json": "c49d2483241814a760c414aaaced61c65ef63d3deaa4f6d5e79a77fe71b4fbd6",
+  "docs/measurements/material-route-review/1701-organic.txt": "d34730eec11c7acefd86e8098518899bd6221c5ff9caa87295632ffe88f97058",
+  "docs/measurements/material-route-review/1701-scrap.json": "c1b20c6889c8193f21ca75034c71c99dc75e66e69587a7940fa861eea200258f",
+  "docs/measurements/material-route-review/1701-scrap.txt": "17520fe631d8b5c45303fab34767076469eb87dee8942e1d78112b44668b0ef6",
+  "docs/measurements/material-route-review/499-garage-detours.json": "1e6a90f6ab36b1633a57ce6ed0d14b4dec1ed8767c4d139473dcf07866b0ef6c",
+  "docs/measurements/material-route-review/499-garage-detours.txt": "a32ea7cef1b5478eed1799716d40331d7e243fd8a4829b3a2c50a098f7f8cac2",
+  "docs/measurements/material-route-review/8-garage-detours.json": "5b179789da092fe689f936b914e24a41c8e9650f5298b54a666b775e66a33ea4",
+  "docs/measurements/material-route-review/8-garage-detours.txt": "c3913f14511bbddf8d5c67f6a79c8ab1166f748c9e6329d1f69ba02369ca3d30",
+  "docs/measurements/material-route-review/build.txt": "945f3cf341f11002e38d81f9dad8244e7b2b38de32ab9161cb0af100e94a3f66",
+  "docs/measurements/material-route-review/editor-import.txt": "4da4ad012f8f16dd9ad483156d759c392f9e2bc2db9488e3f7ed5d12495e615f",
+  "docs/measurements/material-route-review/run-results.json": "6191ed90173d1db589cf2a67063f836b6be0193bb01a7399899e5ee208208f8c",
+  "docs/measurements/material-route-review/verification.json": "d83be659788e25874053f78e312fd9ca3587674f23bcd31c6737b184073d0518",
+  "tools/MaterialRouteReview.cs": "f75e38095bdbe77f8dd7d192d24c2c3d98eecdeaab46bbc45636c20c9e630982",
+  "tools/MaterialRouteReview.cs.uid": "94788285e25ca47573b314a91682c8203fa229495152d27671bfa9ce62d1f668",
+  "tools/MaterialRouteReview.tscn": "251bf97c4bcb56b071856dcce2b602979b0f542fc7adc765f681fc9901e21c44"
+}

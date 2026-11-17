@@ -1,0 +1,38 @@
+{
+  "Seed": 1701,
+  "Route": "scrap",
+  "ExpeditionSeconds": 23.650000000000002,
+  "ThroughInstalledFifthPlotSeconds": null,
+  "PhaseSeconds": {
+    "hall_to_surface": 4.283333399999973,
+    "surface_to_source": 7.700000000000053,
+    "source_gathering": 0.06666659999999958,
+    "return_to_surface_threshold": 7.7833334000000285,
+    "return_to_hall_storage": 3.733333299999998,
+    "deposit": 0.08333330000000316
+  },
+  "Legs": [
+    {
+      "Name": "hall_to_surface",
+      "Seconds": 4.2833334
+    },
+    {
+      "Name": "surface_to_source",
+      "Seconds": 7.700000000000001
+    },
+    {
+      "Name": "return_to_surface_threshold",
+      "Seconds": 7.7833334
+    },
+    {
+      "Name": "return_to_hall_storage",
+      "Seconds": 3.733333299999998
+    }
+  ],
+  "RecoveredScrap": 12,
+  "RecoveredOrganic": 0,
+  "HutScrapRemaining": 0,
+  "PeakUsedSlots": 3,
+  "VanPreserved": true,
+  "Note": "Real input/physics/clock, current normal timing, no teleports, time skips, free supplies or altered generation. Efficient known route and test-speed UI; not two-human/combat/blueprint assembly timing."
+}
